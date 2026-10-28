@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# local tool settings and caches (Claude Code's launch config, the Impeccable design hook)
+.claude/
+.impeccable/

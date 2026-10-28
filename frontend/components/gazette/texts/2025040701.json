@@ -1,0 +1,173 @@
+{
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "This documentation (“the Issue of International Security, Issue Amendment 1”) highlights the official release and confirmation of the Continental Security Agency as the leading International Security Agency confirmed by the prev. United Nations, prev. International Court of Justice, prev. International Criminal Court as well as the President of the United States of America, HON. Fitz Gerald Grant III."
+    },
+    {
+      "type": "paragraph",
+      "text": "In this amendment is the new cabinet departments and those departments’ secretaries, the agencies within those departments and as well as the updated list of the Security Council, including the International Intelligence Council."
+    },
+    {
+      "type": "paragraph",
+      "text": "The amendments to the Issue of International Security are as follows;"
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": "1.", "text": "As of 01 April 2025, the indexes representing the Continental Security Agency has been terminated. The indexes; The Great Seal of the United States of America and the Republic of the Maldives. This decision was made by the United Continents Security Council, because it has an effect on the stance of political fairness and international fairness statue that was liberated after the release of the CSA by the prev. United Nations. The indexes will now be in the United Continents General Assembly, apart of the leading countries. The leading countries of the UCGA will be officialized by the President of the United Continents." },
+        { "label": "2.", "text": "As of 06 April 2025, the Director of the Continental Security Agency has terminated the Chain of Command of the CSA, and has renamed the CoC to International Commanders Body (ICB). The ICB is handled by the Madam Chief of the Department of Internal Affairs, MAJ. Livian Valicha, PhD. After the introduction of the ICB will not be acting on the Command Act for Armed Forces (CAAF)." },
+        { "label": "3.", "text": "As of 16 March 2025, the Department of Public Affairs of the Director’s Office has faced some changes, this means that the Senior Officials of the Director’s Office will also be amended. As of the date, UFMG. Jana Mohamed, PhD has been named the Chief Communications Director, Dr. Amari Marchand as the Press Secretary, and Darius Jin as the Press Representative. The other Senior Officials of The Director’s Office remain unchanged." },
+        { "label": "4.", "text": "As of 06 April 2025, the Director has officially renamed his Administration to Enzo-Jana Administration and has brought changes to his cabinet. The following is the new and Senior Counsel or the Immediate Security Team as well as the new Cabinet." }
+      ]
+    },
+    { "type": "heading", "text": "The Senior Counsel/Immediate Security Team of the Continental Security Agency" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["Universal Federal Higher Major General, Enzo Hernandez, PhD", "Director and Commanding Officer of the Continental Security Agency"],
+        ["Universal Federal Major General, Jana Mohamed, PhD", "Deputy Director and Deputy Commanding Officer of the Continental Security Agency and the Chairwoman of The Cabinet"],
+        ["FA. David Larochelle, PhD", "Secretary of Defence"],
+        ["H.COL. Zayner Manner, PhD", "Secretary of Foreign Affairs (Chief Finance Officer)"],
+        ["FA. Luz Miranda, AG", "Attorney General of the Continental Security Agency"],
+        ["LT. Jasper Omar", "Commanding Officer of the Continental Security Corps"],
+        ["Dr. Mark Simmons", "Adjutant of the Continental Security Agency"],
+        ["MAJ. Livian Valicha, PhD", "Madam Chief of the Department of Internal Affairs (Chief Technological Officer)"],
+        ["FA. Hamoodh Abdullah, PhD", "Director of the International Intelligence Council"]
+      ]
+    },
+    { "type": "heading", "text": "The Counsel of the Cabinet" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["UFHMG. Enzo Hernandez, PhD", "Chief Justice of the Department of Justice"],
+        ["Dr. Stanely Hall", "Secretary of Homeland Security"],
+        ["Dr. Carol MJare", "Secretary of Education"],
+        ["Damian Holloway", "Secretary of Health and Welfare"],
+        ["Vivian Calderon", "Secretary of Culture and Youth"],
+        ["Dr. Jasper Rowe", "Secretary of Economy and Trade"],
+        ["Marcus Thorne", "Secretary of Infrastructure"],
+        ["Leona Mercer", "Secretary of Environment and Resources"]
+      ]
+    },
+    { "type": "heading", "text": "The Cabinet Departments" },
+    { "type": "heading", "text": "Department of Defence" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "FA. David Larochelle, PhD. Secretary of Defence" },
+        { "label": null, "text": "Charles Perkins. Treasurer of Defence" },
+        { "label": null, "text": "Steven Munoz. Spokesperson of Defence" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Justice" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "UFHMG. Enzo Hernandez, PhD. Chief Justice (unchanged)" },
+        { "label": null, "text": "UFMG. Jana Mohamed, PhD. Deputy Chief Justice (unchanged)" },
+        { "label": null, "text": "FA. Hamoodh Abdullah, PhD. Senior Justice (unchanged)" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Homeland Security" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Stanely Hall. Secretary of Homeland Security" },
+        { "label": null, "text": "Dr. Willie Hogg. Treasurer of Homeland Security" },
+        { "label": null, "text": "William Reed. Spokesperson of Homeland Security" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Foreign Affairs" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "H. COL. Zayner Manner, PhD. Secretary of Foreign Affairs" },
+        { "label": null, "text": "Marilyn Gonzalez. Treasurer of Foreign Affairs" },
+        { "label": null, "text": "Sonja Gaulke. Spokesperson of Foreign Affairs" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Education" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Carol MJare. Secretary of Education" },
+        { "label": null, "text": "Dr. Carlos Robinson, Executive Secretary of the International Education Institution" },
+        { "label": null, "text": "Dr. Dieter Bieber, Executive Secretary of the International Institute of Higher Education" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Health and Welfare" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Damian Holloway. Secretary of Health and Welfare" },
+        { "label": null, "text": "Gayle Gristoy, Executive Secretary of the World Health Organization (WHO)" },
+        { "label": null, "text": "Lisa Flavin, Executive Secretary of the Social and Family Development Agency" },
+        { "label": null, "text": "Keith Erickson, Executive Secretary of the Religious Affairs Agency" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Culture and Youth" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Vivian Calderon. Secretary of Culture and Youth" },
+        { "label": null, "text": "Dr. Amy Yates, Executive Secretary of the Youth Empowerment and Information Arts Agency" },
+        { "label": null, "text": "Dr. Shigetaka Uchiumi, Executive Secretary of the Language, Culture and Traditions Agency" },
+        { "label": null, "text": "Thoriq Mohamed, Executive Secretary of the Sports, Fitness and Recreation Agency" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Economy and Trade" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Jasper Rowe. Secretary of Economy and Trade" },
+        { "label": null, "text": "Scott Martinez, Executive Secretary of the Department of Treasury" },
+        { "label": null, "text": "Dr. Bradely McDaniel, Executive Secretary of the Economic Development and Trade Agency" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Infrastructure" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Marcus Thorne. Secretary of Infrastructure" },
+        { "label": null, "text": "FA. Mi Heintz, PhD, Executive Secretary of the Department of Transport" },
+        { "label": null, "text": "Jennifer Guerrero, Executive Secretary of the Housing, Land and Urban Development Agency" },
+        { "label": null, "text": "Dessie Baird, Executive Secretary of the Construction and Infrastructure Agency" },
+        { "label": null, "text": "Wilma Massie, Executive Secretary of the Cities, Local Governments and Public Works Agency" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Environment and Resources" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Leona Mercer. Secretary of Environment and Resources" },
+        { "label": null, "text": "Thomas Fitch, Executive Secretary of the International Marine Explorations and Investigations Agency" },
+        { "label": null, "text": "Angela Berkman, Executive Secretary of the Agriculture and Animal Welfare Agency" },
+        { "label": null, "text": "Fathimath Shiama, Executive Secretary of the Climate Change, Environment and Energy Agency" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "According to the new updates, those departments with Co-Agencies or Co-Departments will not be having a treasurer or spokesperson. The treasurer and spokesperson of those departments will be the secretary of the department."
+    },
+    { "type": "paragraph", "text": "07 April 2025" },
+    { "type": "paragraph", "text": "The Higher Federal Administrative Office of the Continental Security Agency" },
+    {
+      "type": "signatures",
+      "items": [
+        {
+          "name": "Universal Federal Higher Major General, Enzo Hernandez, MD, PhD.",
+          "title": "Director and Commanding Officer in-charge of the Continental Security Agency, Commander in-chief of the Continental Security Corps and Armed Forces, Chief of Justice of the Department of Justice, Supreme Court of the USA and the International Court of Justice"
+        },
+        {
+          "name": "Universal Federal Major General, Jana Mohamed, MD, PhD.",
+          "title": "Deputy Director of the Continental Security Agency, Special Advisor to the Director and Chief of Staff at the Director’s Office and for the Director, Chairperson of the Agency’s Cabinet and the Overseeing Commander/Officer of the Public Interests Committee."
+        }
+      ]
+    }
+  ]
+}

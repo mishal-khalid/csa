@@ -1,0 +1,2868 @@
+{
+  "blocks": [
+    {
+      "type": "chapter",
+      "text": "First Chapter",
+      "subtitle": "Introduction"
+    },
+    {
+      "type": "article",
+      "number": "I",
+      "title": "Introduction and name",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The official structural framework of The Director’s Office was finalized during the Thirty-Ninth Cabinet Conference of the Second Term of 2025 by the Senior Counsel of the Cabinet. This decision was introduced and proposed by the Director at the Thirty-Seventh Cabinet Conference following the appointment of a new Chief of Staff to the Continental Security Agency and The Director’s Office. This framework sets out the principal executive roles of The Director’s Office, including newly established roles, titles, and divisions introduced toward the conclusion of the term, and identifies the executive members and officers holding such positions as of the date of publication."
+        },
+        {
+          "label": "(b)",
+          "text": "This Issue shall be formally cited and referred to as the “Structural Framework of The Director’s Office.”"
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "II",
+      "title": "Purpose",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The purpose of this Issue is to establish institutional clarity and accountability by formally defining the structure, functions, and executive responsibilities of The Director’s Office. This framework is intended to ensure that organizational operations are transparent, comprehensible, and accessible for public reference."
+        },
+        {
+          "label": "(b)",
+          "text": "Through the standardization of roles and administrative procedures, this Issue seeks to promote equal treatment, merit-based leadership practices, and inclusive decision-making across the executive functions of The Director’s Office."
+        },
+        {
+          "label": "(c)",
+          "text": "This Issue further aims to enhance coordination across the departments of the Continental Security Agency and its executive bodies, ensuring effective alignment, communication, and operational cohesion."
+        },
+        {
+          "label": "(d)",
+          "text": "This Issue further aims to enhance coordination across the departments of the Continental Security Agency and its executive bodies, ensuring effective alignment, communication, and operational cohesion."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Second Chapter",
+      "subtitle": "Rules and Regulations of Employment"
+    },
+    {
+      "type": "article",
+      "number": "III",
+      "title": "Continental Security Service (CSS) Code of Conduct",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "All employees of The Director’s Office shall comply with the standards of conduct and professional guidelines established under the Continental Security Service Code of Conduct (CSS-CoC). Adherence to the CSS-CoC is mandatory and applies uniformly to all personnel operating under the authority of The Director’s Office."
+        },
+        {
+          "label": "(b)",
+          "text": "Employees serving under the Continental Security Service shall be reviewed and evaluated during each administrative term by their immediate superior or, where applicable, by the Executive Staff Board of The Director’s Office, in accordance with established assessment procedures."
+        },
+        {
+          "label": "(c)",
+          "text": "Employees serving under the Continental Security Service shall be reviewed and evaluated during each administrative term by their immediate superior or, where applicable, by the Executive Staff Board of The Director’s Office, in accordance with established assessment procedures."
+        },
+        {
+          "label": "(d)",
+          "text": "The Continental Security Service Code of Conduct has been formally established and released to the public and is available for reference on the official CSS website at www.css.csa."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "IV",
+      "title": "Federal Agent Code of Conduct",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Employees classified under federal employment shall be subject to review and evaluation by the Department of Defence in coordination with the Security Council of the Continental Security Agency, in accordance with applicable federal oversight standards."
+        },
+        {
+          "label": "(b)",
+          "text": "All employment-related inquiries concerning Federal Agents shall be handled by a committee duly established by the Department of Defence for that purpose."
+        },
+        {
+          "label": "(c)",
+          "text": "Federal Agents operate under the supervision of the International Commanders’ Body through the Federal Commanders’ Platoon, which serves as the immediate command authority responsible for operational oversight, guidance, and coordination in close collaboration with the Department of Defence."
+        },
+        {
+          "label": "(d)",
+          "text": "The Federal Agents Code of Conduct has been formally established and made publicly accessible and may be consulted at the official website www.facc.icb.csa."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "V",
+      "title": "Executive Officers’ Code of Conduct",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Executive Officers operate under the direct supervision of the Cabinet of the Continental Security Agency, the structure and composition of which are detailed in the Fifth Chapter of this Issue. Executive Officers shall be assessed by a committee established by the Cabinet, which shall include a designated representative of the Cabinet."
+        },
+        {
+          "label": "(b)",
+          "text": "All inquiries, reviews, and administrative matters relating to Executive Officers shall be managed by the committee referenced in Article V, Section (a) of this Chapter."
+        },
+        {
+          "label": "(c)",
+          "text": "To qualify for appointment as an Executive Officer, an employee must be a member of the Continental Security Service, the International Civil Service, or the International Public Service, and must hold an approved Affidavit of Employment as set out in Appendix 4. Such affidavit shall be signed, at minimum, by the Chief of Staff of the Continental Security Agency and The Director’s Office. Upon approval, the employee shall fall under the Executive Officer Service Act and shall be bound by all terms and conditions prescribed therein."
+        },
+        {
+          "label": "(d)",
+          "text": "The Executive Officers’ Code of Conduct and the Executive Officer Service Act have been formally established and released for public reference and are accessible at the official website www.exof.csa."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "VI",
+      "title": "Transgression of Code of Conducts",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A valid Code of Conduct Violation Report, modeled in Appendix 5, shall be submitted in order to formally initiate an investigative process into an alleged transgression of the Code of Conduct."
+        },
+        {
+          "label": "(b)",
+          "text": "Upon submission, the Code of Conduct Violation Report shall be immediately forwarded to the Executive Leadership of the department with which the employee is affiliated, where it shall be reviewed in accordance with the prescribed CCVR Review Guidelines issued to all departmental Executive Committees."
+        },
+        {
+          "label": "(c)",
+          "text": "Following review, the report shall be formally recorded in the employee’s CSS, ICS, or IPS personnel file and transmitted to the investigative body appointed for the department by Internal Affairs."
+        },
+        {
+          "label": "(d)",
+          "text": "The Internal Affairs investigative body shall conduct the investigation in full compliance with the investigative procedures, standards, and policies issued by Internal Affairs."
+        },
+        {
+          "label": "(e)",
+          "text": "Depending on the severity of the alleged violation, the investigation shall be classified as Level I, Level II, or Level III, and shall be conducted in accordance with the applicable investigative framework.",
+          "items": [
+            {
+              "label": "I.",
+              "text": "Investigated by the designated Internal Affairs Investigating Body for the department."
+            },
+            {
+              "label": "II.",
+              "text": "Investigated by the Executive Investigating Council of the Department of Internal Affairs where the senior-most Inspector of State for Internal Affairs assigned to the specific department must be the Lead Investigator on the case."
+            },
+            {
+              "label": "III.",
+              "text": "Investigated by the Cabinet of the CSA where the Madam Chief of Internal Affairs must be the Lead Investigator on the case."
+            }
+          ]
+        },
+        {
+          "label": "(f)",
+          "text": "Upon completion of the investigation, a comprehensive report including the full case file, supporting affidavits, recorded statements, and a recommended course of action shall be submitted to the Executive Council of the Department of Internal Affairs. The senior-most Executive Officer serving on the Executive Council may approve, amend, or escalate the recommended action with written justification, subject to approval by the Chief of Internal Affairs where any adjustment in severity is proposed."
+        },
+        {
+          "label": "(g)",
+          "text": "The action as detailed in the report must take place at least 72h after the issuance of the report. If this action is not taken by the ExCo of the Department, they shall write a report to IA and submit their reasoning."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Third Chapter",
+      "subtitle": "Requirements of Employment"
+    },
+    {
+      "type": "article",
+      "number": "VII",
+      "title": "Executive Role Requirements",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Article sets out the requirements for employment in an Executive Role carrying a security clearance level of BBBB and above, as applicable within the Continental Security Agency and The Director’s Office."
+        },
+        {
+          "label": "(b)",
+          "text": "An employee seeking appointment to an Executive Role must possess a valid academic profile, including at minimum a master’s qualification in a discipline relevant to the role applied for. For example, an applicant for the position of “Secretary of Security Affairs of the CSC” must hold a master’s qualification in Security Affairs, Security Relations, or a closely related field."
+        },
+        {
+          "label": "(c)",
+          "text": "In addition to the academic qualifications set out in Section (b), the employee must demonstrate a minimum of three years of professional experience in the relevant field. Professional experience shall be assessed in accordance with the evaluation criteria and point-based system applicable to the Executive Role."
+        },
+        {
+          "label": "(d)",
+          "text": "The employee must satisfy the requirements set out in Sections (b) and (c) and must not have any record of serious disciplinary misconduct. A valid and clean police report shall be required as a condition of eligibility."
+        },
+        {
+          "label": "(e)",
+          "text": "Eligibility points shall be awarded based on the employee’s academic qualifications and professional profile, in accordance with the Recruitment and Eligibility Criteria for Employment outlined in Appendix 2, as assessed by the CSS, ICS, or IPS Liaison Council of the relevant department."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "VIII",
+      "title": "Continental Security Service (CSS) Employment Requirements",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The employment requirements applicable to the Continental Security Service are detailed on the official CSS website at www.css.csa and shall apply in full to all CSS recruitment, appointment, and employment processes under The Director’s Office."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Fourth Chapter",
+      "subtitle": "Executive Roles and Organizational Structure"
+    },
+    {
+      "type": "article",
+      "number": "IX",
+      "title": "Introduction",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Chapter sets out the executive roles and organizational structure of The Director’s Office, detailing the responsibilities attached to each role and identifying the individuals holding such positions as of the date of publication of this Issue."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "X",
+      "title": "Executive Leadership of The Director’s Office",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Executive Leadership of The Director’s Office constitutes the most senior level of leadership within the Office. These officials serve as the highest-ranking authorities, and all personnel operating under The Director’s Office are required to comply with their lawful instructions. The titles defined under this framework are recognized as official and may only be amended through written approval issued by the Director of the Continental Security Agency."
+        },
+        {
+          "label": "(b)",
+          "text": "The Director of the Continental Security Agency (CSA), UFHMG. Enzo Hernandez, HPhD, is the highest-ranking officer, Executive Officer, and Federal Agent under the International Security Act issued by the United Continents. The Director of Security possesses qualifications across corporate, legal, federal, security, military, and educational domains relevant to the CSA and serves as the Commanding Officer of the CSA and the Commander-in-Chief of the International Armed Forces."
+        },
+        {
+          "label": "(c)",
+          "text": "The Deputy Director of the Continental Security Agency (CSA), UFMG. Jana Mohamed, HPhD, is the second-highest-ranking officer, Executive Officer, and Federal Agent under the International Security Act issued by the United Continents. The Deputy Director holds qualifications equivalent to those specified for the Director under Section (b) of this Article and serves as the Deputy Commanding Officer of the CSA and Deputy Commander-in-Chief of the International Armed Forces."
+        },
+        {
+          "label": "(d)",
+          "text": "The Chief of Staff of the Continental Security Agency and The Director’s Office, Zaha Rasheed, is the highest-ranking Executive Officer responsible for appointments, promotions, demotions, and the termination of contracts of employment across the Agency. Acting as the principal administrative authority under the direct supervision of the Director, the Chief of Staff is empowered to issue orders on behalf of the Director within the scope of assigned authority."
+        },
+        {
+          "label": "(e)",
+          "text": "The Cabinet Representative to the Executive Leadership and Adjutant of the Continental Security Agency, Dr. Mark Simmons, serves as the official liaison between the Cabinet of the CSA and The Director’s Office, facilitating coordination, communication, and administrative alignment between the two bodies."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XI",
+      "title": "Executive Staff Board",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Executive Staff Board of The Director’s Office comprises the Chief of Staff of the Continental Security Agency and The Director’s Office, Zaha Rasheed; the Assistant Chief of Staff of The Director’s Office, Dr. Chen Rodriguez; and the Secretary to the Chief of Staff of The Director’s Office, Fatima Yilmaz. This Board supports executive administration, personnel oversight, and internal coordination within The Director’s Office."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XII",
+      "title": "Continental Security Agency Press",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Continental Security Agency Press is headed by the Chief Communications Director, Malik Afolayan, and the Deputy Chief Communications Director, Zane Santos, and includes the Press Secretary, Brette Conley, and the Press Officer, Walter Wickham. This body is responsible for official communications, press coordination, and public information dissemination on behalf of the CSA."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XIII",
+      "title": "Public Relations Division",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Public Relations Division operates under the leadership of the Chief Communications Director, Malik Afolayan, and the Deputy Chief Communications Director, Zane Santos. The Division includes the Public Relations Executive, Mildred Anton; Deputy Public Relations Executive, Major (Ret.) Ann Kelly; Public Relations Secretary, Norma Cho; Public Relations Officer, Joseph Minter; and Public Relations Representative, Helen Gilbert, and is responsible for managing public engagement, strategic communications, and external relations."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XIV",
+      "title": "Interior Division",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Interior Division is led by the Chief of Interior, Dr. Casey Brown, AD, and the Deputy Chief of Interior, Dr. Mary Neace, AD. The Division further includes the Executive Architect, Lucia Turner, and the Finance Representative to the Interior Division Committee, Karen Torres, and is responsible for internal infrastructure, facilities planning, and administrative coordination within The Director’s Office."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XV",
+      "title": "Advisory Council to the Director (Senior Officials of The Director’s Office)",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Advisory Council to the Director, also referred to as the Senior Officials of The Director’s Office, functions as the principal advisory body to the Director across specialized policy, security, legal, and administrative domains. The Council is composed of senior officials holding distinct advisory and ministerial roles and shall be led by a senior executive designated for that purpose."
+        },
+        {
+          "label": "(b)",
+          "text": "The Advisory Council comprises the Chief Advisor to the Director, Rodney Hidalgo; Special Advisor to the Director, Dr. Annie Andrews; Principal Advisor on International Security, Chad Rodriguez; Principal Advisor on National Security, Sameull Wilson; Minister for Directorial Affairs, Janet Brooks; Ministers Carolyn Neri, Shirly Bre, and Amy Alcazar; Minister for Strategic Communications, Edward Garrett; Principal Secretary on Foreign Relations, David Lunn; Minister for Legal Affairs, Faye Trammell, AG (Ret.); Principal Secretary on Cabinet Affairs, Oscar Limon; Principal Secretary on Corporate Development, Tery Thompson; Principal Secretary on Public Policy, Claude McDonald; Secretary on Corporate Services, Beth Brock; Secretary on Legal Affairs, Amy Titus, DA (Ret.); Secretary on Public Policy, Dr. Kyle Shapiro; Special Envoy for Climate Change, Adelaida Sullivan; Criminal Justice Advisor, John Jacobsen, DA; Legal Counsel, Mildred Garvey, ADA; Senior Under Secretaries Paula Corbin and Martin Moll; Under Secretary to the Deputy Director, Brenda Collins; Under Secretary for Strategic Communication, Andrew Bowman; Deputy National Security Advisor, H. Col. Scott Jons; and Deputy International Security Advisor, Maj. Dane Larochelle."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Fifth Chapter",
+      "subtitle": "The Cabinet"
+    },
+    {
+      "type": "article",
+      "number": "XVI",
+      "title": "Introduction",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Cabinet of the Continental Security Agency constitutes the highest governing council of the Agency and is composed of its most senior-ranking officers. The Cabinet is structured into a Senior Counsel and a Counsel, each serving distinct advisory and executive functions, as detailed in the following Articles of this Chapter."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XVII",
+      "title": "Security Council / Senior Counsel / Immediate Security Team of the Continental Security Agency",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Security Council, also referred to as the Senior Counsel or Immediate Security Team of the Continental Security Agency, is composed of the Director of the Continental Security Agency, UFHMG. Enzo Hernandez, HPhD; the Deputy Director of the Continental Security Agency, UFMG. Jana Mohamed, HPhD; the Secretary of Defence, FA. David Larochelle, PhD; the Secretary of Foreign Affairs and Chief Technological Officer of the Continental Security Agency, H. COL. Zayner Manner, PhD; the Attorney General of the Continental Security Agency, FA. Luz Miranda, AG; the Commanding Officer of the Continental Security Corps, LT. Jasper Omar; the Adjutant of the Continental Security Agency, Dr. Mark Simmons; the Madam Chief of the Department of Internal Affairs and Chief Financial Officer of the Continental Security Agency, MAJ. Livian Valicha, PhD; and the Director of the International Intelligence Council, FA. Hamoodh Abdullah, PhD."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XVIII",
+      "title": "The Counsel of the Cabinet",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Counsel of the Cabinet comprises the Chief Justice of the Department of Justice, UFHMG. Enzo Hernandez, HPhD; the Secretary of Homeland Security, Dr. Stanely Hall; the Secretary of Education, Dr. Carol MJare; the Secretary of Health and Welfare, Damian Holloway; the Secretary of Culture and Youth, Vivian Calderon; the Secretary of Economy and Trade, Dr. Jasper Rowe; the Secretary of Infrastructure, Marcus Thorne; and the Secretary of Environment and Resources, Leona Mercer."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Sixth Chapter",
+      "subtitle": "Interdepartmental and Intergovernmental Executive Representation Framework"
+    },
+    {
+      "type": "article",
+      "number": "XIX",
+      "title": "Interdepartmental Coordination",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Office of Interdepartmental Coordination serves as the principal coordination body between The Director’s Office and all CSA departments, ensuring unified policy execution, operational synchronization, and cross-agency collaboration."
+        },
+        {
+          "label": "(b)",
+          "text": "The leadership of the OIDC comprises of the following titles: Chief Interdepartmental Coordinator, Deputy Chief Interdepartmental Coordinator, Senior Liaison for Strategic Operations, Executive Secretary for Interdepartmental Affairs. As OIDC is a new section of The Director’s Office, even though some of the titles have been filled, there are still vacant positions therefore, we will be releasing the full role list in a separate internal announcement."
+        },
+        {
+          "label": "(c)",
+          "text": "OIDC comprises the following Division Units: Directorate Liaison Unit (DLU), Policy Harmonization Unit (PHU), Operational Integration Unit (OIU), And Cross-Agency Secretariat (CAS)."
+        },
+        {
+          "label": "(d)",
+          "text": "The OIDC acts as the central focal point for communication across departments and aligns the departmental initiatives with executive directives, while overseeing joint programs, task forces, and shared operations. The OIDC also prepares interdepartmental briefing reports for the Director."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XX",
+      "title": "Intergovernmental Executive Relations",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Intergovernmental Executive Relations of the CSA is handled by the Intergovernmental Executive Relations Division (IGERD). The IGERD represents The Director’s Office in matters involving national, regional, and international governments, partner institutions and multilateral agencies."
+        },
+        {
+          "label": "(b)",
+          "text": "The leadership of the IGERD comprises of the following titles: Executive Representative for Intergovernmental Affairs, Deputy Executive Representative for Intergovernmental Affairs, Senior Diplomatic Liaison, Government Partnership Secretary. As IGERD is a new section of The Director’s Office, even though some of the titles have been filled, there are still vacant positions therefore we will be releasing the full role list in a separate internal announcement."
+        },
+        {
+          "label": "(c)",
+          "text": "The representation units of IGERD comprises of the following: National Government Coordination Unit (NGCU), Regional Government Affairs Unit (RGAU), International & Multilateral Relations Unit (IMRU), Policy and Treaty Advisory Desk (PTAD)."
+        },
+        {
+          "label": "(d)",
+          "text": "IGERD serves as the formal focal-point representative to the governments and coordinates diplomatic communication channels while supporting joint agreements, accords, and memoranda. IGERD also facilitates government-to-CSA cooperation platforms."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXI",
+      "title": "Departmental Focal-Point Representatives",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Departmental Focal-Point Representatives of the framework fall under the Departmental Focal-Point Representatives Corps (DFPRC). The DFPRC is the embedded executive level representatives assigned to each department of the CSA, acting as permanent liaison officers to The Director’s Office."
+        },
+        {
+          "label": "(b)",
+          "text": "The leadership of DFPRC comprises of the following titles: Departmental Executive Focal Representative, Deputy Focal Representative, Strategic Policy Liaison, Operational Affairs Liaison. The titles mentioned above are specific for departments across the agency."
+        },
+        {
+          "label": "(c)",
+          "text": "The DFPRC monitors departmental decisions and escalate priority issues and report policy risks, operational conflicts, or coordination gaps. The DFPRC also represents The Director’s Office in internal departmental councils all the while strengthening the unity of command and chain of communication."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXII",
+      "title": "Governmental Partnership and Coordination Council (GPCC)",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The GPCC is a standing executive council that brings Intergovernmental representatives, departmental focal-point officers and diplomatic and policy advisors."
+        },
+        {
+          "label": "(b)",
+          "text": "The sole purpose of the GPCC is to oversee intergovernmental programmes and cross-border cooperation, reviewing bilateral and multilateral engagement strategies and ensuring strategic alignment between CSA and partner governments."
+        },
+        {
+          "label": "(c)",
+          "text": "The GPCC leadership comprises of the following titles all appointed by the Cabinet of the CSA: Council Chair who is appointed by the Director, Deputy Chair for Intergovernmental Strategy, Council Secretary General, Policy and Coordination Rapporteur."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Seventh Chapter",
+      "subtitle": "Definitions and Interpretations"
+    },
+    {
+      "type": "article",
+      "number": "XXIII",
+      "title": "Institutional Bodies and Offices",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Continental Security Agency"
+            },
+            {
+              "label": null,
+              "text": "The Director’s Office"
+            },
+            {
+              "label": null,
+              "text": "Cabinet of the Continental Security Agency"
+            },
+            {
+              "label": null,
+              "text": "Security Council"
+            },
+            {
+              "label": null,
+              "text": "Senior Counsel"
+            },
+            {
+              "label": null,
+              "text": "Counsel of the Cabinet"
+            },
+            {
+              "label": null,
+              "text": "Department of Defence"
+            },
+            {
+              "label": null,
+              "text": "Department of Internal Affairs"
+            },
+            {
+              "label": null,
+              "text": "Department of Justice"
+            },
+            {
+              "label": null,
+              "text": "International Intelligence Council"
+            },
+            {
+              "label": null,
+              "text": "Continental Security Corps"
+            },
+            {
+              "label": null,
+              "text": "United Continents"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXIV",
+      "title": "Executive and Administrative Roles",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Director of the Continental Security Agency"
+            },
+            {
+              "label": null,
+              "text": "Deputy Director of the Continental Security Agency"
+            },
+            {
+              "label": null,
+              "text": "Director of Security"
+            },
+            {
+              "label": null,
+              "text": "Deputy Director of Security"
+            },
+            {
+              "label": null,
+              "text": "Chief of Staff"
+            },
+            {
+              "label": null,
+              "text": "Assistant Chief of Staff"
+            },
+            {
+              "label": null,
+              "text": "Executive Officer"
+            },
+            {
+              "label": null,
+              "text": "Federal Agent"
+            },
+            {
+              "label": null,
+              "text": "Cabinet Representative"
+            },
+            {
+              "label": null,
+              "text": "Adjutant"
+            },
+            {
+              "label": null,
+              "text": "Chief Advisor"
+            },
+            {
+              "label": null,
+              "text": "Special Advisor"
+            },
+            {
+              "label": null,
+              "text": "Principal Advisor"
+            },
+            {
+              "label": null,
+              "text": "Minister"
+            },
+            {
+              "label": null,
+              "text": "Principal Secretary"
+            },
+            {
+              "label": null,
+              "text": "Secretary"
+            },
+            {
+              "label": null,
+              "text": "Under Secretary"
+            },
+            {
+              "label": null,
+              "text": "Senior Under Secretary"
+            },
+            {
+              "label": null,
+              "text": "Special Envoy"
+            },
+            {
+              "label": null,
+              "text": "Legal Counsel"
+            },
+            {
+              "label": null,
+              "text": "Criminal Justice Advisor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXV",
+      "title": "Codes, Acts and Regulatory Instruments",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Continental Security Service Code of Conduct"
+            },
+            {
+              "label": null,
+              "text": "Federal Agent Code of Conduct"
+            },
+            {
+              "label": null,
+              "text": "Executive Officers’ Code of Conduct"
+            },
+            {
+              "label": null,
+              "text": "Executive Officer Service Act"
+            },
+            {
+              "label": null,
+              "text": "International Security Act"
+            },
+            {
+              "label": null,
+              "text": "Recruitment and Eligibility Criteria for Employment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXVI",
+      "title": "Services, Classifications and Employment Frameworks",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Continental Security Service (CSS)"
+            },
+            {
+              "label": null,
+              "text": "International Civil Service (ICS)"
+            },
+            {
+              "label": null,
+              "text": "International Public Service (IPS)"
+            },
+            {
+              "label": null,
+              "text": "Federal Employment"
+            },
+            {
+              "label": null,
+              "text": "Executive Role"
+            },
+            {
+              "label": null,
+              "text": "Security Clearance Level BBBB"
+            },
+            {
+              "label": null,
+              "text": "Contract of Employment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXVII",
+      "title": "Oversight, Investigation and Disciplinary Processes",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Code of Conduct Violation Report (CCVR)"
+            },
+            {
+              "label": null,
+              "text": "Internal Affairs"
+            },
+            {
+              "label": null,
+              "text": "Investigating Body"
+            },
+            {
+              "label": null,
+              "text": "Executive Committee"
+            },
+            {
+              "label": null,
+              "text": "Executive Council"
+            },
+            {
+              "label": null,
+              "text": "Severity Level I, II, III"
+            },
+            {
+              "label": null,
+              "text": "Disciplinary Action"
+            },
+            {
+              "label": null,
+              "text": "Post-Investigation Outcome"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXVIII",
+      "title": "Interdepartmental and Intergovernmental Structures",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Office of Interdepartmental Coordination (OIDC)"
+            },
+            {
+              "label": null,
+              "text": "Intergovernmental Executive Relations Division (IGERD)"
+            },
+            {
+              "label": null,
+              "text": "Departmental Focal-Point Representatives Corps (DFPRC)"
+            },
+            {
+              "label": null,
+              "text": "Governmental Partnership and Coordination Council (GPCC)"
+            },
+            {
+              "label": null,
+              "text": "Directorate Liaison Unit (DLU)"
+            },
+            {
+              "label": null,
+              "text": "Policy Harmonization Unit (PHU)"
+            },
+            {
+              "label": null,
+              "text": "Operational Integration Unit (OIU)"
+            },
+            {
+              "label": null,
+              "text": "Cross-Agency Secretariat (CAS)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXIX",
+      "title": "Military, Command and Operational References",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "International Armed Forces"
+            },
+            {
+              "label": null,
+              "text": "Commander-in-Chief"
+            },
+            {
+              "label": null,
+              "text": "Deputy Commander-in-Chief"
+            },
+            {
+              "label": null,
+              "text": "International Commanders’ Body (ICB)"
+            },
+            {
+              "label": null,
+              "text": "Federal Commanders’ Platoon (FCP)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXX",
+      "title": "Documentation, Reports and Instruments",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Structural Framework"
+            },
+            {
+              "label": null,
+              "text": "Structural Framework Directive"
+            },
+            {
+              "label": null,
+              "text": "Gazette Issue"
+            },
+            {
+              "label": null,
+              "text": "Appendix"
+            },
+            {
+              "label": null,
+              "text": "Affidavit of Employment"
+            },
+            {
+              "label": null,
+              "text": "Model Application Form"
+            },
+            {
+              "label": null,
+              "text": "Salary Composition Framework"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "XXXI",
+      "title": "Geographic and Jurisdictional References",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "",
+          "items": [
+            {
+              "label": null,
+              "text": "Washington, D.C."
+            },
+            {
+              "label": null,
+              "text": "National Government"
+            },
+            {
+              "label": null,
+              "text": "Regional Government"
+            },
+            {
+              "label": null,
+              "text": "International Government"
+            },
+            {
+              "label": null,
+              "text": "Multilateral Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Eighth Chapter",
+      "subtitle": "Signatories of Approval"
+    },
+    {
+      "type": "paragraph",
+      "text": "Upon the execution of approval signatures by the authorized representatives of the Gazette, the Executive Leadership, and the Executive Staff Board, this Issue is hereby officially published in the Gazette of The Director’s Office of the Continental Security Agency and shall be cited as Issue No. GZT/G1-2026, Volume 1, Number 1 (2026)."
+    },
+    {
+      "type": "signatures",
+      "items": [
+        {
+          "name": "UFHMG. Enzo Hernandez, HPhD",
+          "title": "Director of the Continental Security Agency\nExecutive Leadership Representative\nThe Director’s Office\nWashington, D.C."
+        },
+        {
+          "name": "Zaha Rasheed",
+          "title": "Chief of Staff of the Continental Security Agency and The Director’s Office\nExecutive Staff Board Representative\nThe Director’s Office\nWashington, D.C."
+        },
+        {
+          "name": "Malik Afolayan",
+          "title": "Chief Communications Director of the Continental Security Agency\nGazette Representative\nThe Director’s Office\nWashington, D.C."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 1"
+    },
+    {
+      "type": "heading",
+      "text": "Salary Composition Framework"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following framework contains only The Director’s Office’s Unified Salary and Allowance Table."
+    },
+    {
+      "type": "table",
+      "caption": "Base Salary",
+      "columns": [
+        "Grades I - XX",
+        "Base Salary"
+      ],
+      "rows": [
+        [
+          "I",
+          "$4,200"
+        ],
+        [
+          "II",
+          "$4,850"
+        ],
+        [
+          "III",
+          "$5,600"
+        ],
+        [
+          "IV",
+          "$6,450"
+        ],
+        [
+          "V",
+          "$7,530"
+        ],
+        [
+          "VI",
+          "$8,400"
+        ],
+        [
+          "VII",
+          "$9,650"
+        ],
+        [
+          "VIII",
+          "$11,000"
+        ],
+        [
+          "IX",
+          "$12,600"
+        ],
+        [
+          "X",
+          "$14,400"
+        ],
+        [
+          "XI",
+          "$16,800"
+        ],
+        [
+          "XII",
+          "$19,200"
+        ],
+        [
+          "XIII",
+          "$22,100"
+        ],
+        [
+          "XIV",
+          "$25,600"
+        ],
+        [
+          "XVI",
+          "$29,800"
+        ],
+        [
+          "XVII",
+          "$34,900"
+        ],
+        [
+          "XVIII",
+          "$41,200"
+        ],
+        [
+          "XIX",
+          "$61,300"
+        ],
+        [
+          "XX",
+          "$92,000"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Executive Officers (EO) – Rank & Allowance Table",
+      "columns": [
+        "EO Rank/Title Scope",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "Executive Directorial Rank",
+          "CONFIDENTIAL"
+        ],
+        [
+          "Deputy Executive Directorial Rank",
+          "CONFIDENTIAL"
+        ],
+        [
+          "Directorial Rank",
+          "$96,400"
+        ],
+        [
+          "Senior EO+",
+          "$68,200"
+        ],
+        [
+          "Senior EO",
+          "$49,300"
+        ],
+        [
+          "Core EO",
+          "$34,600"
+        ],
+        [
+          "EO+",
+          "$21,900"
+        ],
+        [
+          "EO",
+          "$12,400"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "EO receives EO-rank allowance + EO-eligible allowances"
+    },
+    {
+      "type": "paragraph",
+      "text": "Federal Agents classifications and allowances start on the next page."
+    },
+    {
+      "type": "heading",
+      "text": "Federal Agents (FA) – Classification & Allowances"
+    },
+    {
+      "type": "table",
+      "caption": "FA Class Allowance (Fixed Tier – No FA Grades)",
+      "columns": [
+        "Federal Agent Tier",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "Elite Federal Agent",
+          "$32,000"
+        ],
+        [
+          "Senior Federal Agent",
+          "$21,500"
+        ],
+        [
+          "Federal Agent",
+          "$14,200"
+        ],
+        [
+          "Junior Federal Agent",
+          "$7,800"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "FA / CSS Operational Rank Allowance",
+      "columns": [
+        "Rank Type",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "Command Rank",
+          "$9,600"
+        ],
+        [
+          "Officeral Rank",
+          "$4,800"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Federal Agents also receives mission allowance and risk compensation when deployed."
+    },
+    {
+      "type": "table",
+      "caption": "CSS — Officer Grades I – X (Internal Hierarchy Allowance)",
+      "columns": [
+        "Officer Grade",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "X",
+          "$8,200"
+        ],
+        [
+          "IX",
+          "$7,400"
+        ],
+        [
+          "VIII",
+          "$6,700"
+        ],
+        [
+          "VII",
+          "$6,000"
+        ],
+        [
+          "VI",
+          "$5,300"
+        ],
+        [
+          "V",
+          "$4,700"
+        ],
+        [
+          "IV",
+          "$4,000"
+        ],
+        [
+          "III",
+          "$3,400"
+        ],
+        [
+          "II",
+          "$2,800"
+        ],
+        [
+          "I",
+          "$2,200"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CSS still uses Grade I-XX base salary, this table is rank allowance only."
+    },
+    {
+      "type": "paragraph",
+      "text": "The allowances and benefits, the classification eligibility start on the next page."
+    },
+    {
+      "type": "table",
+      "caption": "Allowances & Benefits – Classification Eligibility",
+      "columns": [
+        "Allowance / Benefit",
+        "EO",
+        "FA",
+        "CSS",
+        "Amount"
+      ],
+      "rows": [
+        [
+          "Housing Allowance",
+          "✔",
+          "✔",
+          "✖",
+          "EO $18,000 / FA $12,000"
+        ],
+        [
+          "Mobile Allowance",
+          "✔",
+          "✖",
+          "✖",
+          "$2,400"
+        ],
+        [
+          "Food Allowance",
+          "✔",
+          "✖",
+          "✖",
+          "$1,800"
+        ],
+        [
+          "Attendance Allowance",
+          "✔",
+          "✔",
+          "✔",
+          "$1,200"
+        ],
+        [
+          "Awards Allowance (15-month duration)",
+          "✔",
+          "✔",
+          "✔",
+          "Tier-based"
+        ],
+        [
+          "Research Allowance",
+          "✔",
+          "✖",
+          "✖",
+          "$7,500"
+        ],
+        [
+          "Clearance Allowance",
+          "✔",
+          "✔",
+          "✖",
+          "EO $9,800 / FA $7,200"
+        ],
+        [
+          "Education Allowance (points)",
+          "✔",
+          "✔",
+          "✔",
+          "$500 / point"
+        ],
+        [
+          "Transport Allowance",
+          "✔",
+          "✔",
+          "✖",
+          "EO $6,200 / FA $4,200"
+        ],
+        [
+          "Medical Insurance (cash-equivalent)",
+          "✔",
+          "✔",
+          "✔",
+          "$1,000"
+        ],
+        [
+          "Rank Allowance",
+          "✔",
+          "✔",
+          "✔",
+          "Per rank tables"
+        ],
+        [
+          "Mission Allowance",
+          "✖",
+          "✔",
+          "✔",
+          "Per mission grade"
+        ],
+        [
+          "Field Risk Compensation",
+          "✖",
+          "✔",
+          "✔",
+          "Per risk level"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Awards Allowance – Tier Values",
+      "columns": [
+        "Tier",
+        "Daily Rate",
+        "Monthly"
+      ],
+      "rows": [
+        [
+          "Top 1",
+          "$420",
+          "$12,600"
+        ],
+        [
+          "Top 2",
+          "$360",
+          "$10,800"
+        ],
+        [
+          "Top 3",
+          "$300",
+          "$9,000"
+        ],
+        [
+          "Top 4",
+          "$240",
+          "$7,200"
+        ],
+        [
+          "Top 5-10",
+          "$160",
+          "$4,800"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Paid daily, continues for 15 months after award."
+    },
+    {
+      "type": "table",
+      "caption": "Education Allowance – Point Rubric",
+      "columns": [
+        "Educational Certificate",
+        "Points Allocated"
+      ],
+      "rows": [
+        [
+          "2 Masters",
+          "4"
+        ],
+        [
+          "Doctor of Philosophy (PhD)",
+          "6"
+        ],
+        [
+          "Honorable Doctor of Philosophy (HPhD)",
+          "15"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Formula for calculating allowance: $500 × points received"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following is an example of qualification calculation (as a table)"
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Qualification Example",
+        "Points Awarded",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "Two Masters",
+          "4",
+          "$2,000"
+        ],
+        [
+          "Doctor of Philosophy (PhD)",
+          "6",
+          "$3,000"
+        ],
+        [
+          "2 Masters + PhD",
+          "10",
+          "$5,000"
+        ],
+        [
+          "HPhD",
+          "15",
+          "$7,500"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Mission & Risk Compensation (FA & CSS Only)"
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Mission Grade",
+        "",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "A",
+          "Strategic / Covert",
+          "$18,000"
+        ],
+        [
+          "B",
+          "High Priority",
+          "$12,000"
+        ],
+        [
+          "C",
+          "Standard",
+          "$6,000"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Risk Level",
+        "Allowance"
+      ],
+      "rows": [
+        [
+          "Extreme",
+          "$9,000"
+        ],
+        [
+          "High",
+          "$6,000"
+        ],
+        [
+          "Moderate",
+          "$3,000"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Miscellaneous / Dual-Classification Rule",
+      "columns": [
+        "Condition",
+        "Compensation Rule"
+      ],
+      "rows": [
+        [
+          "Officer belongs to two classes",
+          "Higher class becomes primary classification"
+        ],
+        [
+          "Secondary class benefit",
+          "Fixed Secondary Allowance, $6,500 per month"
+        ],
+        [
+          "Mission / Risk",
+          "Paid only when acting in secondary role"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Confidential Executive Policy"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "i.",
+          "text": "DoS & DDoS compensation values are classified"
+        },
+        {
+          "label": "ii.",
+          "text": "Tables show rank only"
+        },
+        {
+          "label": "ii.",
+          "text": "Monetary figures remained sealed in restricted annex"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 2"
+    },
+    {
+      "type": "heading",
+      "text": "Filled Model Recruitment & Eligibility Point Assessment Form"
+    },
+    {
+      "type": "paragraph",
+      "text": "Point-based / Merit-based Appointment Instrument"
+    },
+    {
+      "type": "heading",
+      "text": "OFFICER USE ONLY. DO NOT FILL."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Form No./Code:"
+        },
+        {
+          "label": null,
+          "text": "Date Received:"
+        },
+        {
+          "label": null,
+          "text": "Employing Body/Committee:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION A – Applicant Identification"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Full Legal Name"
+        },
+        {
+          "label": null,
+          "text": "Preferred Name (if any):"
+        },
+        {
+          "label": null,
+          "text": "Nationality Status: ☐ CSA-Recognised National ☐ Dual Citizen"
+        },
+        {
+          "label": null,
+          "text": "Role/Position Applied For:"
+        },
+        {
+          "label": null,
+          "text": "Department/Unit (if specified):"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION B – Eligibility Gates (MUST BE FILLED)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Age Requirement"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "Meets minimum age requirement for the applied role"
+        },
+        {
+          "label": "☐",
+          "text": "Does NOT meet minimum age requirement"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "If “No” the application is ineligible."
+    },
+    {
+      "type": "paragraph",
+      "text": "Language Requirement"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "English proficiency confirmed"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Medical Disclosure"
+    },
+    {
+      "type": "paragraph",
+      "text": "Have you declared all known medical conditions relevant to duty performance?"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Yes ☐ No"
+    },
+    {
+      "type": "paragraph",
+      "text": "Applicant affirmation:"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "Declared conditions do not impede performance of assigned duties."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "[Section C starts on the next page]"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION C – Education & Qualifications (pt.)"
+    },
+    {
+      "type": "paragraph",
+      "text": "All qualifications must be listed. Only Department of Education / World Education Center approved certificates are awarded points. Do not fill shaded columns, they must be filled by the officer."
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Qualification Title",
+        "Institution\nState location AND country if international",
+        "Year",
+        "Approved",
+        "Points"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "☐",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Applicant Consent:"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "I authorize verification of all listed qualifications with relevant authorities."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION D – Professional Experience (pt.)"
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Role/Position",
+        "Organisation",
+        "Duration",
+        "Points"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "If you are unable to complete your experience details in the fields provided, please request a blank Section D form from your employing officer."
+    },
+    {
+      "type": "heading",
+      "text": "SECTION E – Prior Service (Bonus pt.)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Have you previously served in any of the following?"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "Continental Security Agency (CSA)"
+        },
+        {
+          "label": "☐",
+          "text": "United Continents (UC) Bodies"
+        },
+        {
+          "label": "☐",
+          "text": "Military / Intelligence Service"
+        },
+        {
+          "label": "☐",
+          "text": "Judicial / Law Enforcement Body"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Details (if applicable):"
+    },
+    {
+      "type": "paragraph",
+      "text": "Points Awarded:"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION F – Current Appointments (DECLARATION)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Do you currently hold any external government, international, or advisory position?"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Yes ☐ No"
+    },
+    {
+      "type": "paragraph",
+      "text": "If yes, specify:"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION G – Total Point Assessment (OFFICER USE ONLY. DO NOT FILL.)"
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Assessment Area",
+        "Points"
+      ],
+      "rows": [
+        [
+          "Education",
+          ""
+        ],
+        [
+          "Experience",
+          ""
+        ],
+        [
+          "Prior Service",
+          ""
+        ],
+        [
+          "Other Merits",
+          ""
+        ],
+        [
+          "TOTAL SCORE:",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Point Threshold Reference (Indicative):"
+    },
+    {
+      "type": "paragraph",
+      "text": "EO – 500 | FA - 250 | CSS / ICS / IPS – 200"
+    },
+    {
+      "type": "paragraph",
+      "text": "Uncapped – highest score prevails"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION H – Classification (BINDING . OFFICER USE ONLY. DO NOT FILL.)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Assigned Classification:"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "Executive Officer (EO)"
+        },
+        {
+          "label": "☐",
+          "text": "Federal Agent (FA)"
+        },
+        {
+          "label": "☐",
+          "text": "Continental Security Service (CSS)"
+        },
+        {
+          "label": "☐",
+          "text": "International Civil Service (ICS)"
+        },
+        {
+          "label": "☐",
+          "text": "International Public Service (IPS)"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "Classification overridden by Employing Body"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Override justification recorded separately with RED ink"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION I – Declarations"
+    },
+    {
+      "type": "heading",
+      "text": "Applicant Declaration"
+    },
+    {
+      "type": "paragraph",
+      "text": "I certify that all information provided is true and complete. I understand that false or misleading information constitutes grounds for termination and legal liability under the CSA Constitution."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Applicant Signature:"
+        },
+        {
+          "label": null,
+          "text": "Date:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Authorizing Officer Declaration"
+    },
+    {
+      "type": "paragraph",
+      "text": "I confirm that this assessment has been conducted in accordance with CSA and TDO requirements."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Name:"
+        },
+        {
+          "label": null,
+          "text": "Rank/Title:"
+        },
+        {
+          "label": null,
+          "text": "Employing Body:"
+        },
+        {
+          "label": null,
+          "text": "Signature:"
+        },
+        {
+          "label": null,
+          "text": "Date:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 3"
+    },
+    {
+      "type": "heading",
+      "text": "Filled Model Application Form – Personal Details"
+    },
+    {
+      "type": "heading",
+      "text": "OFFICER USE ONLY. DO NOT FILL."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Application Ref. No.:"
+        },
+        {
+          "label": null,
+          "text": "Date of Submission:"
+        },
+        {
+          "label": null,
+          "text": "Employing Body/Committee:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION A – Applicant Identification"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Full Legal Name (official name):"
+        },
+        {
+          "label": null,
+          "text": "Preferred Name (if any):"
+        },
+        {
+          "label": null,
+          "text": "Gender: ☐ Male ☐ Female"
+        },
+        {
+          "label": null,
+          "text": "Date of Birth: DD MM YYYY"
+        },
+        {
+          "label": null,
+          "text": "Place of Birth (City, Country):"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION B – National Status"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Citizenship Status: ☐ CSA-Recognised National ☐ Dual Citizen"
+        },
+        {
+          "label": null,
+          "text": "Citizenship(s) Held:"
+        },
+        {
+          "label": null,
+          "text": "National Identification / Passport No.:"
+        },
+        {
+          "label": null,
+          "text": "Issuing Country / Authority:"
+        },
+        {
+          "label": null,
+          "text": "Expiry Date:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION C – Contact Information"
+    },
+    {
+      "type": "paragraph",
+      "text": "Residential Address:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Please state your Current Address and Permanent Address in the following space. Your statement must be as detailed as possible."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "City / State / Province:"
+        },
+        {
+          "label": null,
+          "text": "Country:"
+        },
+        {
+          "label": null,
+          "text": "Postal Code:"
+        },
+        {
+          "label": null,
+          "text": "Email Address (primary):"
+        },
+        {
+          "label": null,
+          "text": "Telephone / Mobile Number:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION D – Emergency Contact"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Full Name:"
+        },
+        {
+          "label": null,
+          "text": "Relationship to the Applicant:"
+        },
+        {
+          "label": null,
+          "text": "Telephone / Mobile Number:"
+        },
+        {
+          "label": null,
+          "text": "Email:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION E – Medical Declaration"
+    },
+    {
+      "type": "paragraph",
+      "text": "Do you have any medical condition(s) that should be declared for duty placement or safety purposes?"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Yes ☐ No"
+    },
+    {
+      "type": "paragraph",
+      "text": "If yes, briefly specify (details will be handled confidentially):"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "☐",
+          "text": "I affirm that declared conditions do not impede my performance of assigned duties."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION F – Legal & Conduct Declaration"
+    },
+    {
+      "type": "paragraph",
+      "text": "Have you ever been:"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Convicted of a criminal offence?"
+        },
+        {
+          "label": null,
+          "text": "Dismissed or removed from public office?"
+        },
+        {
+          "label": null,
+          "text": "Subject to disciplinary action by a government or international body?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Yes ☐ No"
+    },
+    {
+      "type": "paragraph",
+      "text": "If yes, provide brief details (attach additional page if required):"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION G – Current Employment / Appointments"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Current Employer / Institution (if any):"
+        },
+        {
+          "label": null,
+          "text": "Current Position / Title:"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Do you hold any external governmental, international, or advisory appointment?"
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Yes ☐ No"
+    },
+    {
+      "type": "paragraph",
+      "text": "If yes, specify:"
+    },
+    {
+      "type": "heading",
+      "text": "SECTION H - Declaration"
+    },
+    {
+      "type": "paragraph",
+      "text": "I declare that all information provided in this application form is true, accurate, and complete to the best of my knowledge. I understand that any false declaration, omission, or misrepresentation may result in disqualification, termination of appointment, and legal liability under the governing instruments of the Continental Security Agency."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Applicant Full Name:"
+        },
+        {
+          "label": null,
+          "text": "Signature:"
+        },
+        {
+          "label": null,
+          "text": "Date:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "SECTION I – OFFICIAL USE ONLY. DO NOT FILL."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Application Reviewed By:"
+        },
+        {
+          "label": null,
+          "text": "Date Reviewed:"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "☐ Information verified ☐ Further clarification required"
+    },
+    {
+      "type": "paragraph",
+      "text": "Remarks:"
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 4"
+    },
+    {
+      "type": "heading",
+      "text": "Filled Model Affidavit of Employment"
+    },
+    {
+      "type": "paragraph",
+      "text": "I, the undersigned, hereby solemnly affirm and declare that I am duly appointed and employed under the authority of the Continental Security Agency. I confirm that my appointment was made in accordance with the governing instruments of the Agency, including the Issue of International Security and its subsequent amendments, and that I presently hold the position and classification assigned to me by the competent appointing authority."
+    },
+    {
+      "type": "paragraph",
+      "text": "I declare that my full legal identity, employment title, classification, department or agency of assignment, and date of appointment, as recorded in the official registers of the Continental Security Agency, are true, accurate, and complete to the best of my knowledge. I further affirm that I am actively serving in the stated capacity unless otherwise indicated by an official order, suspension, or leave formally issued by the Agency."
+    },
+    {
+      "type": "paragraph",
+      "text": "I acknowledge that my employment is subject to the Constitution, Acts, Codes of Conduct, regulations, directives, and internal policies of the Continental Security Agency, and I affirm my continuing obligation to comply with all such instruments. I recognize that my duties, authority, and limitations are derived solely from my official appointment and that no powers or privileges may be exercised beyond those lawfully conferred upon my office."
+    },
+    {
+      "type": "paragraph",
+      "text": "I further declare that this affidavit is executed in good faith for official, administrative, verification, and legal purposes. I understand and accept that any false statement, omission, or misrepresentation made herein constitutes a serious breach of duty and may result in disciplinary action, termination of appointment, or legal consequences under applicable CSA regulations and international legal standards."
+    },
+    {
+      "type": "paragraph",
+      "text": "This affidavit is made voluntarily and conscientiously, with full understanding of its legal effect, and may be relied upon by the Continental Security Agency and its affiliated bodies as an official declaration of my employment status."
+    },
+    {
+      "type": "paragraph",
+      "text": "Executed and sworn at ______________________________ on this ______ day of ________________, 2026."
+    },
+    {
+      "type": "heading",
+      "text": "Signature of Affiant"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Name:"
+        },
+        {
+          "label": null,
+          "text": "Official Title:"
+        },
+        {
+          "label": null,
+          "text": "Department:"
+        },
+        {
+          "label": null,
+          "text": "Classification:"
+        },
+        {
+          "label": null,
+          "text": "Employment ID:"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Name and Title of Authorizing Officer"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": null,
+          "text": "Signature:"
+        },
+        {
+          "label": null,
+          "text": "Office / Department:"
+        },
+        {
+          "label": null,
+          "text": "Continental Security Agency"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 5"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Code of Conduct Violation Report (CCVR) will be available on the TDO website:"
+    },
+    {
+      "type": "paragraph",
+      "text": "www.office.tdo.csa"
+    },
+    {
+      "type": "heading",
+      "text": "Mandated by Issue no. GZT/G1-2026"
+    },
+    {
+      "type": "table",
+      "caption": "Executive Leadership",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Director of the CSA",
+          "Enzo Hernandez",
+          "UFHMG, HPhD, MD"
+        ],
+        [
+          "Deputy Director of the CSA",
+          "Jana Mohamed",
+          "UFMG, HPhD, MD"
+        ],
+        [
+          "Chief of Staff of the CSA and TDO",
+          "Zaha Rasheed",
+          "—"
+        ],
+        [
+          "Cabinet Representative to the Leadership and Adjutant of the CSA",
+          "Mark Simmons",
+          "PhD"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Executive Staff Board",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief of Staff of the CSA and TDO",
+          "Zaha Rasheed",
+          "—"
+        ],
+        [
+          "Assistant Chief of Staff of TDO",
+          "Chen Rodriguez",
+          "PhD"
+        ],
+        [
+          "Secretary to the Chief of Staff of TDO",
+          "Fatima Yilmaz",
+          "—"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Continental Security Agency Press",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief Communications Director",
+          "Malik Afolayan",
+          "—"
+        ],
+        [
+          "Deputy Chief Communications Director",
+          "Zane Santos",
+          "—"
+        ],
+        [
+          "Press Secretary",
+          "Brette Conley",
+          "—"
+        ],
+        [
+          "Press Officer",
+          "Walter Wickham",
+          "—"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Public Relations Division",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief Communications Director",
+          "Malik Afolayan",
+          "—"
+        ],
+        [
+          "Deputy Chief Communications Director",
+          "Zane Santos",
+          "—"
+        ],
+        [
+          "Public Relations Executive",
+          "Mildred Anton",
+          "—"
+        ],
+        [
+          "Deputy Public Relations Executive",
+          "Ann Kelly",
+          "MAJ (Retd.)"
+        ],
+        [
+          "Public Relations Secretary",
+          "Norma Cho",
+          "—"
+        ],
+        [
+          "Public Relations Officer",
+          "Joseph Minter",
+          "—"
+        ],
+        [
+          "Public Relations Representative",
+          "Helen Gilbert",
+          "—"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Interior Division",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief of Interior",
+          "Casey Brown",
+          "AD, PhD"
+        ],
+        [
+          "Deputy Chief of Interior",
+          "Mary Neace",
+          "AD, PhD"
+        ],
+        [
+          "Executive Architect",
+          "Lucia Turner",
+          "—"
+        ],
+        [
+          "Finance Representative to the Interior Division Committee",
+          "Karen Torres",
+          "—"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Advisory Council to the Director / Senior Officials of The Director's Office",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief Advisor to the Director",
+          "Rodney Hidalgo",
+          "—"
+        ],
+        [
+          "Special Advisor to the Director",
+          "Annie Andrews",
+          "PhD"
+        ],
+        [
+          "Principal Advisor on International Security",
+          "Chad Rodriguez",
+          "—"
+        ],
+        [
+          "Principal Advisor on National Security",
+          "Sameull Wilson",
+          "—"
+        ],
+        [
+          "Minister for Directorial Affairs",
+          "Janet Brooks",
+          "—"
+        ],
+        [
+          "Minister",
+          "Carolyn Neri",
+          "—"
+        ],
+        [
+          "Minister",
+          "Shirly Bre",
+          "—"
+        ],
+        [
+          "Minister",
+          "Amy Alcazar",
+          "—"
+        ],
+        [
+          "Principal Secretary on Foreign Relations",
+          "Edward Garrette",
+          "—"
+        ],
+        [
+          "Minister for Legal Affairs",
+          "Faye Trammell",
+          "AG (Retd.)"
+        ],
+        [
+          "Principal Secretary on Cabinet Affairs",
+          "Oscar Limon",
+          "—"
+        ],
+        [
+          "Principal Secretary on Corporate Development",
+          "Tery Thompson",
+          "—"
+        ],
+        [
+          "Principal Secretary on Public Policy",
+          "Claude McDonald",
+          "—"
+        ],
+        [
+          "Secretary on Corporate Services",
+          "Beth Brock",
+          "—"
+        ],
+        [
+          "Secretary on Legal Affairs",
+          "Amy Titus",
+          "DA (Retd.)"
+        ],
+        [
+          "Secretary on Public Policy",
+          "Kyle Shapiro",
+          "PhD"
+        ],
+        [
+          "Special Envoy for Climate Change",
+          "Adelaida Sullivan",
+          "—"
+        ],
+        [
+          "Criminal Justice Advisor",
+          "John Jacobsen",
+          "DA"
+        ],
+        [
+          "Legal Counsel",
+          "Mildred Garvey",
+          "ADA"
+        ],
+        [
+          "Senior Under Secretary",
+          "Paula Corbin",
+          "—"
+        ],
+        [
+          "Senior Under Secretary",
+          "Martin Moll",
+          "—"
+        ],
+        [
+          "Under Secretary to the Deputy Director",
+          "Brenda Collins",
+          "—"
+        ],
+        [
+          "Under Secretary for Strategic Communication",
+          "Andrew Bowman",
+          "—"
+        ],
+        [
+          "Deputy International Security Advisor",
+          "Scott Jons",
+          "H.COL."
+        ],
+        [
+          "Deputy National Security Advisor",
+          "Dane Larochelle",
+          "MAJ."
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "The Cabinet"
+    },
+    {
+      "type": "table",
+      "caption": "Security Council / Senior Counsel / Immediate Security Team of the Continental Security Agency",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Director of the CSA",
+          "Enzo Hernandez",
+          "UFHMG, HPhD, MD"
+        ],
+        [
+          "Deputy Director of the CSA",
+          "Jana Mohamed",
+          "UFMG, HPhD, MD"
+        ],
+        [
+          "Secretary of Defence",
+          "David Larochelle",
+          "FA, PhD"
+        ],
+        [
+          "Secretary of Foreign Affairs and Chief Technological Officer of the CSA",
+          "Zayner Manner",
+          "H.COL, PhD, MD"
+        ],
+        [
+          "Attorney General of the CSA",
+          "Luz Miranda",
+          "FA, AG"
+        ],
+        [
+          "Commanding Officer of the CSC",
+          "Jasper Omar",
+          "LT."
+        ],
+        [
+          "Adjutant of the CSA",
+          "Mark Simmons",
+          "PhD"
+        ],
+        [
+          "Madam Chief of the Department of Internal Affairs and Chief Financial Officer of the CSA",
+          "Livian Valicha",
+          "MAJ, PhD, MD"
+        ],
+        [
+          "Director of the International Intelligence Council",
+          "Hamoodh Abdullah",
+          "FA, PhD, MD"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Counsel of the Cabinet",
+      "columns": [
+        "Title of the Member",
+        "Name of the Member",
+        "Education/Accred."
+      ],
+      "rows": [
+        [
+          "Chief Justice of the Department of Justice",
+          "Enzo Hernandez",
+          "UFHMG, HPhD, MD"
+        ],
+        [
+          "Secretary of Homeland Security",
+          "Stanely Hall",
+          "PhD"
+        ],
+        [
+          "Secretary of Education",
+          "Carol Mjare",
+          "PhD, Ed.D, LM.Ed.D"
+        ],
+        [
+          "Secretary of Health and Welfare",
+          "Damian Holloway",
+          "—"
+        ],
+        [
+          "Secretary of Culture and Youth",
+          "Vivian Calderon",
+          "—"
+        ],
+        [
+          "Secretary of Economy and Trade",
+          "Jasper Rowe",
+          "PhD, Ec.D, FD, iETSp"
+        ],
+        [
+          "Secretary of Infrastructure",
+          "Marcus Thorney",
+          "PhD, Arch.D"
+        ],
+        [
+          "Secretary of Environment and Resources",
+          "Leona Mercer",
+          "PhD, Env.D, EnvEd.D, En.D Agr.D, iEPSE, iORPA, ExcEO"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "ABBREVIATIONS KEY OF THE DOCUMENT",
+      "columns": [
+        "",
+        ""
+      ],
+      "rows": [
+        [
+          "AD",
+          "Doctor of Architecture"
+        ],
+        [
+          "AG",
+          "Attorney General"
+        ],
+        [
+          "Retd.",
+          "Retired"
+        ],
+        [
+          "MAJ.",
+          "Major"
+        ],
+        [
+          "UFHMG",
+          "Universal Federal Higher Major General"
+        ],
+        [
+          "UFMG",
+          "Universal Federal Major General"
+        ],
+        [
+          "HPhD",
+          "Honourable Doctor of Philosophy"
+        ],
+        [
+          "PhD",
+          "Doctor of Philosophy"
+        ],
+        [
+          "MD",
+          "Doctor of Medicine"
+        ],
+        [
+          "DA",
+          "District Attorney"
+        ],
+        [
+          "ADA",
+          "Assistant District Attorney"
+        ],
+        [
+          "H.COL.",
+          "Higher Colonel"
+        ],
+        [
+          "FA",
+          "Federal Agent (of the CSA is represented using FACSA: FA is used in INT. context)"
+        ],
+        [
+          "CSC",
+          "Continental Security Corps"
+        ],
+        [
+          "LT.",
+          "Lieutenant"
+        ],
+        [
+          "ED",
+          "Doctor of Education"
+        ],
+        [
+          "Ed.D",
+          "Doctor of Education (Honours)"
+        ],
+        [
+          "LM.ED",
+          "Doctor of Education in Leadership and Management"
+        ],
+        [
+          "LM.Ed.D",
+          "Doctor of Education in Leadership and Management (Triple Honours in Education, Leadership and Management)"
+        ],
+        [
+          "Ec.D",
+          "Doctor of Arts in Economics (Double Honours in Economics and Arts)"
+        ],
+        [
+          "FD",
+          "Doctor of Finance"
+        ],
+        [
+          "iETSp",
+          "International Executive Treasury Specialist"
+        ],
+        [
+          "Arch.D",
+          "Doctor of Arts in Architecture (Double Honours in Architecture and Arts)"
+        ],
+        [
+          "Env.D",
+          "Doctor of Arts in Environment (Double Honours in Environment and Arts)"
+        ],
+        [
+          "EnvEd.D",
+          "Doctor of Pedagogy in Environment Education (Triple Honours in Philosophy, Environment and Education)"
+        ],
+        [
+          "En.D",
+          "Doctor of Energy"
+        ],
+        [
+          "Agr.D",
+          "Doctor of Arts in Agriculture (Double Honours in Agriculture and Arts)"
+        ],
+        [
+          "iEPSE",
+          "International Environment Preservations' Special Envoy"
+        ],
+        [
+          "iORPA",
+          "International Ocean Resources Preservations' Advocate"
+        ],
+        [
+          "ExcEO",
+          "Executive Environment Officer"
+        ]
+      ]
+    }
+  ]
+}

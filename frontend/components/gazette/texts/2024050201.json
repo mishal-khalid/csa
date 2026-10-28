@@ -1,0 +1,613 @@
+{
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "This documentation (the “”The Issue of International Security”) will highlight all the information about the newly improved agency: the Continental Security Agency. This documentation has been written by the approval of the Director of the Agency (the Director of Security/Chief of Security/Secretary of Security “Universal Federal Higher Major General Enzo Hernandez, MD, PhD). This documentation was written by the Director’s Office, with collaboration with the Higher Federal Office of the Republic of the Maldives and the United States of America. All the collaborative indexes (the “Indexes”) are as follows:"
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "The Republic of the Maldives" },
+        { "label": null, "text": "The Continental Security Agency" },
+        { "label": null, "text": "The United States of America/The Great Seal of America" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Before furthermore proceeding with this issue, the Universal Declaration of Federal Law for Agencies, Article of International Affairs, Section 3, Paragraph 2, we (the “Department of Foreign Affairs, Continental Security Agency from the Director’s Office”) execute as follows:"
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Once all parties involved in representing the seal have signed this document, the seals, emblems, or indexes should be closed. Any documentation including the seals, emblems, or indexes before the signature of the representation should be deemed legally and officially as plagiarism, a fake and a breach of the Article of the International Affairs." },
+        { "label": null, "text": "We hereby declare a pause to the publishing of the documentation, unless signed right away." }
+      ]
+    },
+    {
+      "type": "signatures",
+      "items": [
+        { "name": "Dr. Mohamed Ali", "title": "President and the Representative of the Republic of the Maldives" },
+        { "name": "Universal Federal Higher Major General", "title": "Director of the Continental Security Agency" },
+        { "name": "Fitz Gerald Grant III", "title": "President and the Representative of the Great Seal of the United States of America" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "After the signature of all parties involved we hereby accept and publicize the following personnel in the Leadership of or the Chain of Command of the Continental Security Agency."
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Universal Federal Higher Major General, Enzo Hernandez, MD, PhD\nDirector and Commanding Officer of the Continental Security Agency" },
+        { "label": null, "text": "Universal Federal Major General, Jana Mohamed, MD, PhD\nDeputy Director and the Deputy Commanding Officer of the Continental Security Agency" },
+        { "label": null, "text": "Federal Major, Sylvia Robidoux\nRegional Commander of the Continental Security Agency" },
+        { "label": null, "text": "Federal General, Arlene Poynter\nInternational Commander of the Continental Security Agency" },
+        { "label": null, "text": "Federal Brigadier General, William Cox\nCommander of the Continental Security Corps" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The chain of command will not act in any official, office capacity but will act under the Command Act for Armed Forces. The Command Act for Armed Forces (CAAF), section 4 of Command Bodies or Chain of Commands states that the chain of command of any Armed Forces should act under the forces and not any official capacity. The team that should act under any official capacity should and will only be the Board or the Cabinet of a certain Armed Forces Agency (AFA). In-light of this, in this issue we officialise that the Chain of Command as above will only act in the Armed Forces training grounds or other grounds."
+    },
+    { "type": "heading", "text": "Insignia and Ranks" },
+    { "type": "heading", "text": "CHAIN OF COMMAND" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Universal Federal Higher Major General\nArm: 6 stripes\nCollar: 3 stars per collar" },
+        { "label": null, "text": "Universal Federal Major General\nArm: 6 stripes\nCollar: 2 stars per collar" },
+        { "label": null, "text": "Federal Major\nArm: 4 stripes\nCollar: 1 star per collar" },
+        { "label": null, "text": "Federal General\nArm: 4 stripes\nCollar: 1 star per collar" },
+        { "label": null, "text": "Federal Brigadier General\nArm: 2 stripes\nCollar: 2 blocks connect per collar" }
+      ]
+    },
+    { "type": "heading", "text": "SENIOR COMMANDING RANKS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Brigadier General (BRIG.GEN.)" },
+        { "label": null, "text": "Higher Colonel (H.COL.)" },
+        { "label": null, "text": "Colonel (COL.)" },
+        { "label": null, "text": "Major (MAJ.)" },
+        { "label": null, "text": "Captain (CPT.)" },
+        { "label": null, "text": "First Lieutenant (F.LT.)" },
+        { "label": null, "text": "Lieutenant (LT.)" },
+        { "label": null, "text": "Senior Officer (SO.)" },
+        { "label": null, "text": "Officer (O.)" },
+        { "label": null, "text": "Cadet Commanding Officer (CCO.)" }
+      ]
+    },
+    { "type": "heading", "text": "COMMANDING RANKS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Senior Commander (S.CMD.)" },
+        { "label": null, "text": "Commander (CMD.)" }
+      ]
+    },
+    { "type": "heading", "text": "CADET RANKS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Senior Under Commander (SUC.)" },
+        { "label": null, "text": "Junior Under Commander (JUC.)" },
+        { "label": null, "text": "Commanding Cadet Major (CCM.)" },
+        { "label": null, "text": "Staff Sergeant Major (SSM.)" },
+        { "label": null, "text": "Staff Sergeant (S.SGT.)" },
+        { "label": null, "text": "Sergeant (SGT.)" },
+        { "label": null, "text": "Corporal (CPL.)" },
+        { "label": null, "text": "Private (PVT.)\nno insignia" }
+      ]
+    },
+    { "type": "heading", "text": "The Director’s Office" },
+    { "type": "heading", "text": "SENIOR OFFICIALS AT THE DIRECTOR’S OFFICE" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["Universal Federal Higher Major General, Enzo Hernandez, MD, PhD", "Director of the Continental Security Agency"],
+        ["Universal Federal Major General, Jana Mohamed, MD, PhD", "Deputy Director of the Continental Security Agency - Special Advisor to the Director - Chief of Staff"],
+        ["Chad Rodriguez", "Principle Advisor to the Director on International Security"],
+        ["Sameull Wilson", "Principle Advisor to the Director on National Security"],
+        ["Janet Brooks", "Minister at the Director’s Office for Directorial Affairs"],
+        ["Carolyn Neri", "Minister at the Director’s Office"],
+        ["Shirly Bre", "Minister at the Director’s Office"],
+        ["Amy Alcazar", "Minister at the Director’s Office"],
+        ["Edward Garrett", "Minister at the Director’s Office for Strategic Communications"],
+        ["David Lunn", "Principle Secretary to the Director on Foreign Relations"],
+        ["Fayé Trammell, AG (RETD.)", "Minister at the Director’s Office for Legal Affairs"],
+        ["Oscar Limon", "Principle Secretary to the Director on Cabinet Affairs"],
+        ["Terry Thompson", "Principle Secretary to the Director on Corporate Development"],
+        ["Claude McDonald", "Principle Secretary to the Director on Public Policy"],
+        ["Beth Brock", "Secretary to the Director on Corporate Services"],
+        ["Amy Titus, DA (RETD.)", "Secretary to the Director on Legal Affairs"],
+        ["Dr. Kyle Shapiro", "Secretary to the Director on Public Policy"],
+        ["Adelaida Sullivan", "Special Envoy for Climate Change"],
+        ["John Jacobsen, DA", "Criminal Justice Advisor"],
+        ["Mildred Garvey, ADA", "Legal Counsel at the Director’s Office"],
+        ["Paula Corbin", "Senior Under Secretary"],
+        ["Martin Moll", "Senior Under Secretary"],
+        ["Brenda Collins", "Under Secretary to the Deputy Director"],
+        ["Andrew Bowman", "Under Secretary for Strategic Communication"],
+        ["Scott Jons, H.COL.", "Deputy National Security Advisor"],
+        ["Dane Larochelle, MAJ", "Deputy International Security Advisor"]
+      ]
+    },
+    { "type": "heading", "text": "Security Council" },
+    { "type": "heading", "text": "THE CABINET OF THE CSA" },
+    { "type": "heading", "text": "The senior counsel of the cabinet or the immediate security team" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["Universal Federal Higher Major General, Enzo Hernandez, MD, PhD", "Director and Commanding Officer in-charge of the Continental Security Agency"],
+        ["Universal Federal Major General, Jana Mohamed, MD, PhD", "Deputy Director and Deputy Commanding Officer of the Continental Security Agency - Chairwoman of the Cabinet"],
+        ["David Larochelle, FA, PhD", "Chief of the Department of Defense of the CSA"],
+        ["Zayner Manner, H.COL., MD, PhD (CFO)", "Chief of the Department of Foreign Affairs of the CSA"],
+        ["Luz Miranda, FA, AG", "Attorney General of the CSA"],
+        ["Jana Mohamed, UFMG, MD, PhD", "Interim Commanding Officer of the CS Corps"],
+        ["Dr. Mark Simmons", "Adjutant of the CSA"],
+        ["Dr. Livian Valicha, MAJ. (CTO)", "Chief of the Department of Internal Affairs of the CSA"],
+        ["Hamoodh Abdullah, FA, MD, PhD", "Director General of the International Intelligence Council"]
+      ]
+    },
+    { "type": "heading", "text": "The counsel of the cabinet" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["Dr. Stanely Hall", "Minister of Homeland Security and Technology"],
+        ["Scott Martinez", "Minister of Finance"],
+        ["Carlos Robinson", "Minister of Education"],
+        ["Gayle Gristoy", "Minister of Health"],
+        ["Dr. Bradely McDaniel", "Minister of Economic Development and Trade"],
+        ["Thomas Fitch", "Minister of Fisheries and Ocean Resources"],
+        ["Livian Valicha, MAJ.", "Chief of Internal Affairs"],
+        ["Keith Erickson", "Minister of Religious Affairs"],
+        ["Maria Knox", "Minister of Tourism"],
+        ["Lisa Flavin", "Minister of Social and Family Development"],
+        ["Thoriq Mohamed", "Minister of Sports, Fitness and Recreation"],
+        ["Fathimath Shiama", "Minister of Climate Change, Environment and Energy"],
+        ["Jennifer Guerrero", "Minister of Housing, Land, and Urban Development"],
+        ["Dr. Mi Heintz, FA", "Minister of Transport and Civil Aviation"],
+        ["Dr. Shigetaka Uchiumi", "Minister of Language, Culture and Tradition"],
+        ["Dr. Dieter Bieber", "Minister of Higher Education, Labour and Skills Development"],
+        ["Dessie Baird", "Minister of Construction and Infrastructure"],
+        ["Angela Berkman", "Minister of Agriculture and Animal Welfare"],
+        ["Dr. Amy Yates", "Minister of Youth Empowerment and Information Arts"],
+        ["Wilma Massie", "Minister of Cities, Local Governments and Public Works"]
+      ]
+    },
+    { "type": "heading", "text": "SENIOR MINISTER" },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": ["Name", "Position"],
+      "rows": [
+        ["Universal Federal Major General, Jana Mohamed, MD, PhD", "Special Advisor to the Director and Chief of Staff at The Director’s Office"]
+      ]
+    },
+    { "type": "heading", "text": "Leadership of the CSA" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Universal Federal Higher Major General, Enzo Hernandez, MD, PhD. Commander in-charge/in-chief of and the Director General of the Continental Security Agency" },
+        { "label": null, "text": "Universal Federal Major General, Jana Mohamed, MD, PhD. Deputy Commander in-charge/in-chief of and the Deputy Director General of the Continental Security Agency" },
+        { "label": null, "text": "Dr. Mohamed Ali. Supreme Commander and Seal Representative" },
+        { "label": null, "text": "HON. Fitz Gerald Grant III. Supreme Commander and Seal Representative" },
+        { "label": null, "text": "Dr. Mark Simmons. Adjutant of the Continental Security Agency" },
+        { "label": null, "text": "UFMG. Jana Mohamed, MD, PhD. Interim Commanding Officer of the CS Corps" }
+      ]
+    },
+    { "type": "heading", "text": "Ministries, Agencies, Departments and Public Bodies" },
+    { "type": "heading", "text": "DEPARTMENT OF FOREIGN AFFAIRS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Zayner Manner, Chief of Foreign Affairs" },
+        { "label": null, "text": "Marilyn Gonzalez, Ambassador-at-large (chieftain rank)" },
+        { "label": null, "text": "Sonja Gaulke, Ambassador-at-large" },
+        { "label": null, "text": "Melissa Morris, Ambassador-at-large" },
+        { "label": null, "text": "Erwin Lake, Ambassador-at-large" },
+        { "label": null, "text": "Denise Kimber, Chief of State for Foreign Affairs and Chief of Protocol" },
+        { "label": null, "text": "Erwin Holloway, Chief of State for Foreign Affairs" },
+        { "label": null, "text": "Margaret Brown, Secretary" },
+        { "label": null, "text": "Caroline Kennedy, Secretary" },
+        { "label": null, "text": "Virginia Moncada, Secretary" },
+        { "label": null, "text": "Chad Littlefield, Deputy Chief" },
+        { "label": null, "text": "Lorenzo Williams, Deputy Chief" },
+        { "label": null, "text": "Danielle Plumlee, Additional Secretary" },
+        { "label": null, "text": "Beverly Hahn, Additional Secretary" },
+        { "label": null, "text": "Patricia Gonzalez, Additional Secretary" },
+        { "label": null, "text": "Johnny Kilmer, Additional Secretary" },
+        { "label": null, "text": "Collin Valdez, Additional Secretary" },
+        { "label": null, "text": "Hannah Greene, Additional Secretary" },
+        { "label": null, "text": "Jamal Gipson, Additional Secretary" },
+        { "label": null, "text": "Dana Staffey, Joint Secretary" },
+        { "label": null, "text": "Susan Kern, Joint Secretary" },
+        { "label": null, "text": "Ida Bland, Joint Secretary" },
+        { "label": null, "text": "Edna Chitwood, Joint Secretary" },
+        { "label": null, "text": "Kenny Obrien, Joint Secretary" },
+        { "label": null, "text": "Joan Potts, Joint Secretary" },
+        { "label": null, "text": "John Kerr, Secretary (Senior Under)" },
+        { "label": null, "text": "Taunya Ingram, Senior Under Secretary" },
+        { "label": null, "text": "Felix Brown, Director General" },
+        { "label": null, "text": "Mark Connell, Director General" },
+        { "label": null, "text": "Keith Davis, Director General" }
+      ]
+    },
+    { "type": "paragraph", "text": "Embassies, Consulates and Honorary Consuls on the D. Foreign Affairs Website" },
+    { "type": "heading", "text": "DEPARTMENT OF DEFENSE" },
+    { "type": "heading", "text": "Chief Coordinator" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "FA. David Larochelle, PhD, Chief of Defense" }
+      ]
+    },
+    { "type": "heading", "text": "Political Appointees" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Charles Perkins, Chief of State for Defense" },
+        { "label": null, "text": "Steven Munoz, Deputy Chief of Defense" }
+      ]
+    },
+    { "type": "heading", "text": "Senior Management" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Kim Voss, Permanent Secretary" }
+      ]
+    },
+    { "type": "heading", "text": "What do we do?" },
+    {
+      "type": "paragraph",
+      "text": "We are working to build stronger and more resilient nations for all citizens, together with the following agencies and councils"
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "International Intelligence Council (IIC)" },
+        { "label": null, "text": "International Intermediary Defense Force (IIDF)" },
+        { "label": null, "text": "International Counter Terrorism Center (ICTC)" },
+        { "label": null, "text": "Aviation Security Command (AVSECOM)" },
+        { "label": null, "text": "International Hydrographic Service" }
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Information Officer, Michelle Higginson, Assistant Director of Defense" }
+      ]
+    },
+    { "type": "heading", "text": "DEPARTMENT OF INTERNAL AFFAIRS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "FA. Livian Valicha, MD, PhD, Chief, Commander and Chief Senior Officer of Internal Affairs" }
+      ]
+    },
+    { "type": "paragraph", "text": "Due to confidential by-laws within the CSA we cannot disclose the information about IA" },
+    { "type": "heading", "text": "DEPARTMENT OF JUSTICE" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "UFHMG. Enzo Hernandez, MD, PhD, Chief of Justice" },
+        { "label": null, "text": "UFMG. Jana Mohamed, MD, PhD, Deputy Chief of Justice" },
+        { "label": null, "text": "FA. Hamoodh Abdullah, MD, PhD, Justice" }
+      ]
+    },
+    { "type": "heading", "text": "INTERNATIONAL INTELLIGENCE COUNCIL" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "FA. Hamoodh Abdullah, MD, PhD, Director General and Commander of the IIC" },
+        { "label": null, "text": "Felix Zayn, Deputy Director General" },
+        { "label": null, "text": "Xan Relow, Assistant Director General" },
+        { "label": null, "text": "Dr. Loren Thompson, President" },
+        { "label": null, "text": "Bobbie Blackwell, Vice President" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF HOMELAND SECURITY AND TECHNOLOGY" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Stanely Hall, Minister" },
+        { "label": null, "text": "Dr. Willie Hogg, Minister of State" },
+        { "label": null, "text": "William Reed, Minister of State" },
+        { "label": null, "text": "Larry Carter, Minister of State" },
+        { "label": null, "text": "Leila Nagao, Deputy Minister" },
+        { "label": null, "text": "Brian Echols, Deputy Minister" },
+        { "label": null, "text": "George Connell, Deputy Minister" },
+        { "label": null, "text": "Lucille Rhem, Deputy Minister" },
+        { "label": null, "text": "Steven Cooper, Deputy Minister" },
+        { "label": null, "text": "Luis Yim, Deputy Minister" },
+        { "label": null, "text": "James Cruz, Deputy Minister" },
+        { "label": null, "text": "Craig Burtlett, Deputy Minister" },
+        { "label": null, "text": "Dennis Baxtor, Deputy Minister" },
+        { "label": null, "text": "Roberto Patterson, Deputy Minister" },
+        { "label": null, "text": "Jodi Shafer, Deputy Minister" },
+        { "label": null, "text": "Mildred Brown, Deputy Minister" },
+        { "label": null, "text": "Randy McLean, Senior Political Director" },
+        { "label": null, "text": "Tyron Yeh, Political Director" }
+      ]
+    },
+    { "type": "heading", "text": "Departments for the Ministry of Home Affairs" },
+    {
+      "type": "paragraph",
+      "text": "The function of the Ministry of Home Affairs are divided into nine main parts. These include 6 departments and 3 sections under the direct supervision of the permanent secretary."
+    },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Corporate Affairs" },
+        { "label": null, "text": "Program and LG Department" },
+        { "label": null, "text": "Media Department" },
+        { "label": null, "text": "Policy and Legal Department" },
+        { "label": null, "text": "Monitoring, Rehabilitation and Peace Department" },
+        { "label": null, "text": "Foreign Re-integration Center" },
+        { "label": null, "text": "Executive Secretariat Section" },
+        { "label": null, "text": "Internal Audit Section" },
+        { "label": null, "text": "Information officer" }
+      ]
+    },
+    { "type": "heading", "text": "National Center for Information Technology" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Alfred Woods, IT Manager, IT Infrastructure" }
+      ]
+    },
+    { "type": "heading", "text": "International Police Service" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "HON. Tracey Keene, Commissioner of Police" }
+      ]
+    },
+    { "type": "heading", "text": "Department of International Registration" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "HON. Cory Ramirez, Commissioner of Registration" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Correctional Services" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Carolyn Bowman, Commissioner of Prisons" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Immigration" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "HON. Margaret Walker, Controller General of Immigration" }
+      ]
+    },
+    { "type": "heading", "text": "Department of Customs Services" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Julie Berggren, Commissioner General for Customs" },
+        { "label": null, "text": "Shanna Trammell, Chief Superintendent for Customs" },
+        { "label": null, "text": "Brenda Duong, Deputy Commissioner General of Customs" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF FINANCE" },
+    { "type": "heading", "text": "Senior Executives" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Scott Martinez, Minister of Finance" },
+        { "label": null, "text": "Lee Walker, Advisor to the Minister" },
+        { "label": null, "text": "Jerald Duong, Advisor to the Minister" },
+        { "label": null, "text": "Jon Farmer, Minister of State" },
+        { "label": null, "text": "Ignacio Burton, Minister of State" },
+        { "label": null, "text": "Donald Miller, Minister of State" },
+        { "label": null, "text": "Dr. Linda Hughes, Accountant General" },
+        { "label": null, "text": "John Loya, Deputy Minister" },
+        { "label": null, "text": "James Tamez, Deputy Minister" },
+        { "label": null, "text": "Brenda McCabe, Deputy Minister" },
+        { "label": null, "text": "Cecilia Peterson, Deputy Minister" },
+        { "label": null, "text": "Ronald Cavazos, Deputy Minister" },
+        { "label": null, "text": "Kevin Moone, Deputy Minister" },
+        { "label": null, "text": "Dr. Opal Dowling, MD, Chief Internal Auditor" },
+        { "label": null, "text": "James Hoang, Permanent Secretary" },
+        { "label": null, "text": "Jan Mueller, Secretary General of the National Pay Commission" },
+        { "label": null, "text": "Chris Fernandez, Chief Accounts Executive" },
+        { "label": null, "text": "Donna Irby, DA (RETD.), Senior Political Director" },
+        { "label": null, "text": "Roger Lawrence, Chief Public Accountant" }
+      ]
+    },
+    { "type": "heading", "text": "ATTORNEY GENERAL’S OFFICE" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Honorable AG, Luz Miranda, Attorney General" }
+      ]
+    },
+    { "type": "heading", "text": "Senior Management" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Charlene Kim, Permanent Secretary" }
+      ]
+    },
+    { "type": "heading", "text": "Attorney Council" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Melvin McNaughton, Counsel General" },
+        { "label": null, "text": "Brand Noland, Counsel General" },
+        { "label": null, "text": "Frady Stamm, Counsel General" },
+        { "label": null, "text": "Jesse Brummett, Senior State Counsel" },
+        { "label": null, "text": "Deborah Talbot, Director General" },
+        { "label": null, "text": "Northern Regional Attorney, Linda Basham, RA (MV)" },
+        { "label": null, "text": "Central Regional Attorney, Zaim Uthman, RA (MV)" },
+        { "label": null, "text": "Southern Regional Attorney, Kadeen Abdul Qahhar, RA (MV)" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF HOUSING, LAND AND URBAN DEVELOPMENT" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Jennifer Guerrero, Minister of Housing, Land and Urban Development" }
+      ]
+    },
+    { "type": "paragraph", "text": "More information about the MoHLUD being updated on the ministry’s website." },
+    { "type": "heading", "text": "MINISTRY OF HIGHER EDUCATION, LABOUR AND SKILLS DEVELOPMENT" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Dieter Bieber, Minister of Higher Education, Labour and Skills Development" },
+        { "label": null, "text": "Maria Sanchez, Minister of State" },
+        { "label": null, "text": "Birdie Hatchett, Minister of State" },
+        { "label": null, "text": "Sandra Wooten, Minister of State" },
+        { "label": null, "text": "Darren Ball, Minister of State" },
+        { "label": null, "text": "Marlene Brown, Minister of State" },
+        { "label": null, "text": "Richard Wagner, CEO for NSDA" },
+        { "label": null, "text": "Jeffery Valera, CEO for National Qualification Authority" },
+        { "label": null, "text": "Jimmy Klein, Deputy Minister" },
+        { "label": null, "text": "Maggie Hensley, Deputy Minister" },
+        { "label": null, "text": "Terri A. Barksdale, Deputy Minister" },
+        { "label": null, "text": "Jessica Mack, Deputy Minister" },
+        { "label": null, "text": "Bobby Haskins, Deputy Minister" },
+        { "label": null, "text": "Birgitte Lindsey, Deputy Minister" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF EDUCATION" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Carlos Robinson, Minister of Education" },
+        { "label": null, "text": "Donna Best, Senior Minister of State" },
+        { "label": null, "text": "Kathleen Wyatt, Senior Deputy Minister" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF TRANSPORT AND CIVIL AVIATION" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "FA. Mi Heintz, PhD, Minister" },
+        { "label": null, "text": "Dr. Margaret Laskowski, Minister of State" },
+        { "label": null, "text": "MAJ. Milton V. Evans, Minister of State" },
+        { "label": null, "text": "Richard Gower, Deputy Minister" },
+        { "label": null, "text": "James Cashman, Deputy Minister" },
+        { "label": null, "text": "Louis Sutton, Deputy Minister" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF LANGUAGE, CULTURE AND TRADITION" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Shigetaka Uchiumi, Minister" }
+      ]
+    },
+    { "type": "paragraph", "text": "More information on the ministry’s official documentation" },
+    { "type": "heading", "text": "MINISTRY OF ECONOMIC DEVELOPMENT AND TRADE" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Dr. Bradley McDaniel, Minister" }
+      ]
+    },
+    { "type": "paragraph", "text": "More information on the ministry’s official documentation" },
+    { "type": "heading", "text": "MINISTRY OF RELIGIOUS AFFAIRS" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Keith Erickson, Minister" },
+        { "label": null, "text": "Anna Henderson, Permanent Secretary" }
+      ]
+    },
+    { "type": "paragraph", "text": "More information on the ministry’s official documentation" },
+    { "type": "heading", "text": "MINISTRY OF SOCIAL AND FAMILY DEVELOPMENT" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Lisa Flavin, Minister" }
+      ]
+    },
+    { "type": "paragraph", "text": "More information on the ministry’s official documentation" },
+    { "type": "heading", "text": "MINISTRY OF TOURISM" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Maria Knox, Minister" },
+        { "label": null, "text": "Brenda Chairez, Minister of State" },
+        { "label": null, "text": "Timothy Cuccia, Minister of State" },
+        { "label": null, "text": "Jerry Smith, Minister of State" },
+        { "label": null, "text": "Monica Holcomb, Deputy Minister" },
+        { "label": null, "text": "Jauanne Hosman, Deputy Minister" },
+        { "label": null, "text": "Vivian Millcar, Deputy Minister" },
+        { "label": null, "text": "Jim Pierre, Deputy Minister" },
+        { "label": null, "text": "Luther Tucker, Deputy Minister" },
+        { "label": null, "text": "Norma Goodman, Deputy Minister" },
+        { "label": null, "text": "Marva Larson, Deputy Minister" },
+        { "label": null, "text": "Sarah Wilkerson, Deputy Minister" },
+        { "label": null, "text": "Michael Shay, Deputy Minister" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF HEALTH" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Gayle Gristoy, Minister" },
+        { "label": null, "text": "Dennis Hernandez, Senior Minister of State" },
+        { "label": null, "text": "Charles Escobedo, Senior Deputy Minister" },
+        { "label": null, "text": "Thomas Mitchell, Permanent Secretary" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF FISHERIES AND OCEAN RESOURCES" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Thomas Fitch, Minister" },
+        { "label": null, "text": "Michael Sikorski, Senior Minister of State" },
+        { "label": null, "text": "Brian Dalton, Senior Deputy Minister" },
+        { "label": null, "text": "Heather Dozier, Deputy Minister" },
+        { "label": null, "text": "Melissa Roberts, Deputy Minister" },
+        { "label": null, "text": "Dr. Margaret Conard, Senior Director General" }
+      ]
+    },
+    { "type": "heading", "text": "MINISTRY OF CLIMATE CHANGE, ENVIRONMENT AND ENERGY" },
+    {
+      "type": "list",
+      "items": [
+        { "label": null, "text": "Fathimath Shiama, Minister" },
+        { "label": null, "text": "Ranae Fishman, Senior Minister of State" },
+        { "label": null, "text": "Doris Charles, Senior Deputy Minister" },
+        { "label": null, "text": "Tracy Fleming, MD, Deputy Minister" },
+        { "label": null, "text": "Melody Sessums, (FACSA, RETD.), Deputy Minister" },
+        { "label": null, "text": "Rebecca Hendricks, Head Senior Political Director" },
+        { "label": null, "text": "Regena Lunsford, Head Political Director" },
+        { "label": null, "text": "CPT. Kelly McLaughlin, Permanent Secretary for the Ministry" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "In-witness whereof, the parties hereto have caused this documentation to the extent and executed by their duly duties as authorized officers, as the day and year stated below."
+    },
+    { "type": "paragraph", "text": "02 May 2024" },
+    { "type": "paragraph", "text": "Higher Administrative Office of the Continental Security Agency" },
+    {
+      "type": "signatures",
+      "items": [
+        {
+          "name": "Universal Federal Higher Major General, Enzo Hernandez, MD, PhD.",
+          "title": "Director and Commanding Officer in-charge of the Continental Security Agency, Commander in-chief of the Continental Security Corps and Armed Forces, Chief of Justice of the Department of Justice, Supreme Court of the USA and the International Court of Justice, the Senior Representative for the Continental Security Agency and the Overseeing Commander/Officer of the Department of Foreign Affairs and Department of Defense."
+        },
+        {
+          "name": "Universal Federal Major General, Jana Mohamed, MD, PhD.",
+          "title": "Deputy Director of the Continental Security Agency, Special Advisor to the Director and Chief of Staff at the Director’s Office and for the Director, Chairperson of the Agency’s Cabinet and the Overseeing Commander/Officer of the Public Interests Committee."
+        }
+      ]
+    }
+  ]
+}

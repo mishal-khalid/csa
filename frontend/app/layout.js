@@ -20,10 +20,14 @@ const crimsonPro = Crimson_Pro({
 
 // The site's metadata. Each page sets its own title and description; link previews pick both up,
 // and every page shares the preview image and the icons (app/icon.svg, favicon.ico, apple-icon.png).
-// SITE_URL is the site's public address, which preview images need in full; it isn't decided yet,
-// so it falls back to the local dev server.
+// Preview images need the site's full public address: SITE_URL once the address is decided, until
+// then the Vercel project's production domain (Vercel sets it at build time), and the local dev
+// server on this machine.
+const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const siteUrl = process.env.SITE_URL ?? (vercelDomain ? `https://${vercelDomain}` : "http://localhost:3100");
+
 export const metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3100"),
+  metadataBase: new URL(siteUrl),
   // inner pages set just their own name; the template adds the agency's
   title: { template: "%s · Continental Security Agency", default: "Continental Security Agency" },
   description: siteDescription,

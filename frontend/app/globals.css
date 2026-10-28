@@ -85,6 +85,12 @@ img {
   -webkit-touch-callout: none;
 }
 
+/* the page's own animations hold while the loading screen covers it, and start as it lifts (see
+   PageLoader) */
+html[data-loading] * {
+  animation-play-state: paused !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

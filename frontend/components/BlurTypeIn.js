@@ -5,7 +5,7 @@ const START_MS = 150;
 const STAGGER_MS = 30;
 
 // Types text out letter by letter, each letter sharpening out of a blur.
-// Pure CSS, so it starts on first paint and plays once per page load.
+// Pure CSS, held while the loading screen is up (see globals.css); it plays as the screen lifts.
 export default function BlurTypeIn({ text }) {
   const words = text.split(" ");
   // where each word starts in the text, so its letters keep their place in the typing order

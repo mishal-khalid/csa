@@ -10,6 +10,7 @@ import {
   useReducedMotion,
   useSpring,
 } from "motion/react";
+import { usePageReady } from "@/components/loader/ready";
 import { bodies } from "./bodies";
 
 // drift speed in px per second, and the slower speed while the pointer is over the strip
@@ -24,12 +25,14 @@ export default function EmblemMarquee() {
   const stripRef = useRef(null);
   const trackRef = useRef(null);
   const inView = useInView(stripRef);
+  // the drift waits for the loading screen to lift
+  const ready = usePageReady();
   const x = useMotionValue(0);
   // the speed springs between the two values, so slowing down and speeding up are gradual
   const speed = useSpring(SPEED, { stiffness: 60, damping: 20 });
 
   useAnimationFrame((_, delta) => {
-    if (reduceMotion || !inView) return;
+    if (reduceMotion || !inView || !ready) return;
     const lap = trackRef.current.offsetWidth / 2;
     let next = x.get() - (speed.get() * delta) / 1000;
     if (next <= -lap) next += lap;

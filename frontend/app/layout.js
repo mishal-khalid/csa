@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollReset from "@/components/ScrollReset";
 import ImageGuard from "@/components/ImageGuard";
+import PageLoader from "@/components/loader/PageLoader";
 import { intro as siteDescription } from "@/components/Hero";
 import "./globals.css";
 
@@ -45,11 +46,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    // data-loading: every page opens under the loading screen, which clears it as it lifts
     <html
       lang="en"
+      data-loading=""
       className={`${inter.variable} ${crimsonPro.variable} antialiased`}
     >
       <body className="font-sans">
+        <PageLoader />
+        {/* without JavaScript the loading screen could never lift, so it isn't shown */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: "<style>#page-loader{display:none}html[data-loading] *{animation-play-state:running!important}</style>",
+          }}
+        />
         <SmoothScroll />
         <ScrollReset />
         <ImageGuard />

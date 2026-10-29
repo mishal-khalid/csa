@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { documentHref, documents, formatDate, typeTags, types } from "./documents";
+import { documentHref, documents, formatDate, ssc, typeTags, types } from "./documents";
 
 function SearchIcon(props) {
   return (
@@ -24,13 +24,13 @@ function Divider({ children }) {
   );
 }
 
-// One document as an index row: date, type, title (with any status) and reference number. The
-// whole row opens the document's page.
-function Row({ index, type, title, reference, date, status }) {
+// One document as an index row: date, type, title (with any status) and Gazette reference. The
+// whole row opens the document's page. SSC titles are in Dhivehi, right to left in MV MAG Round.
+function Row({ serial, body, type, title, gazetteRef, date, status }) {
   return (
     <li>
       <Link
-        href={documentHref(index)}
+        href={documentHref(serial)}
         className="-mx-4 grid gap-x-8 gap-y-2 rounded-2xl px-4 py-6 transition-colors duration-200 hover:bg-neutral-50 md:grid-cols-[8rem_11rem_minmax(0,1fr)_auto] md:items-baseline"
       >
       <p className="text-sm text-ink/50 tabular-nums">{formatDate(date)}</p>
@@ -38,30 +38,41 @@ function Row({ index, type, title, reference, date, status }) {
         <span className="rounded-full px-3 py-1 text-[13px] text-ink/70 ring-1 ring-ink/15">{typeTags[type]}</span>
       </p>
       <div>
-        <p className="text-lg font-medium leading-snug tracking-tight">{title}</p>
+        {body === "ssc" ? (
+          <p lang="dv" dir="rtl" className="font-dhivehi-heading text-xl leading-relaxed">
+            {title}
+          </p>
+        ) : (
+          <p className="text-lg font-medium leading-snug tracking-tight">{title}</p>
+        )}
         {status && <p className="mt-1 text-sm text-ink/50">{status}</p>}
       </div>
-      <p className="text-sm text-ink/50 tabular-nums md:text-right">{reference ?? ""}</p>
+      <p className="text-sm text-ink/50 tabular-nums md:text-right">{gazetteRef ?? ""}</p>
       </Link>
     </li>
   );
 }
 
-// The Gazette's archive: a search bar and type pills on top, then every matching document as an
-// index row, in sections by type (newest first), each under an italic serif divider.
+const newestFirst = (a, b) => b.index.localeCompare(a.index);
+
+// The Gazette's archive: a search bar and pills on top, then every matching document as an index
+// row, newest first, under italic serif dividers: the CSA's documents in sections by type, then the
+// SSC's in a section of their own. Each pill shows one section. The search covers titles and both
+// references (the Gazette's and the document's own).
 export default function GazetteIndex() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
 
   const needle = query.trim().toLowerCase();
   const matches = documents.filter(
-    (doc) =>
-      (type === "all" || doc.type === type) &&
-      (!needle || `${doc.title} ${doc.reference ?? ""}`.toLowerCase().includes(needle)),
+    (doc) => !needle || `${doc.title} ${doc.gazetteRef ?? ""} ${doc.reference ?? ""}`.toLowerCase().includes(needle),
   );
-  const sections = types
-    .map((t) => ({ ...t, docs: matches.filter((doc) => doc.type === t.id).sort((a, b) => b.date.localeCompare(a.date)) }))
-    .filter((section) => section.docs.length > 0);
+  const sections = [
+    ...types.map((t) => ({ ...t, docs: matches.filter((doc) => !doc.body && doc.type === t.id) })),
+    { ...ssc, docs: matches.filter((doc) => doc.body === "ssc") },
+  ]
+    .filter((section) => (type === "all" || section.id === type) && section.docs.length > 0)
+    .map((section) => ({ ...section, docs: section.docs.sort(newestFirst) }));
 
   return (
     <div>
@@ -78,7 +89,7 @@ export default function GazetteIndex() {
       </div>
 
       <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filter by type">
-        {[{ id: "all", label: "All" }, ...types].map(({ id, label }) => {
+        {[{ id: "all", label: "All" }, ...types, ssc].map(({ id, label }) => {
           const selected = type === id;
           return (
             <button
@@ -103,7 +114,7 @@ export default function GazetteIndex() {
             <Divider>{label}</Divider>
             <ul className="mt-8 divide-y divide-ink/10 border-b border-ink/10">
               {docs.map((doc) => (
-                <Row key={doc.title} {...doc} />
+                <Row key={doc.index} {...doc} />
               ))}
             </ul>
           </section>

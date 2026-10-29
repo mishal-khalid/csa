@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "@/components/CtaButton";
 import { Section } from "@/components/organisation/cards";
+import { documentByIndex, documentHref } from "@/components/gazette/documents";
 import { texts } from "@/components/gazette/texts";
 import { blockId } from "@/components/gazette/toc";
 
@@ -36,7 +37,7 @@ const paths = [
 // the Gazette; each step links straight to its form there.
 const FRAMEWORK = "2026010101";
 const formHref = (appendix) =>
-  `/g/${FRAMEWORK}#${blockId(texts[FRAMEWORK].findIndex((b) => b.type === "heading" && b.text === appendix))}`;
+  `${documentHref(documentByIndex(FRAMEWORK).serial)}#${blockId(texts[FRAMEWORK].findIndex((b) => b.type === "heading" && b.text === appendix))}`;
 
 const steps = [
   {

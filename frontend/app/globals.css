@@ -10,6 +10,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-crimson-pro);
+  /* Dhivehi (see layout.js): Faruma for text, MV MAG Round for headings; MV MAG Round has no Latin
+     letters, so those fall back to Faruma. */
+  --font-dhivehi: var(--font-faruma);
+  --font-dhivehi-heading: var(--font-mv-mag), var(--font-faruma);
 }
 
 @theme {

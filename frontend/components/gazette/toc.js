@@ -99,9 +99,29 @@ export const contents = {
   ],
 };
 
+// The SSC's long documents: their contents are built from the text itself, listing every article
+// (its printed number and margin title) and every chapter or schedule, with the headings inside a
+// chapter under it.
+const builtFromText = new Set(["2026083001", "2026100601", "2026101001", "2026101201"]);
+
+function fromText(blocks) {
+  let inChapter = false;
+  return blocks.flatMap((block, i) => {
+    const href = `#${blockId(i)}`;
+    if (block.type === "chapter") {
+      inChapter = true;
+      return [{ href, label: block.text }];
+    }
+    if (block.type === "article" && block.title) return [{ href, label: `${block.number} ${block.title}` }];
+    if (block.type === "heading" && inChapter) return [{ href, label: block.text, level: 2 }];
+    return [];
+  });
+}
+
 // Turns a document's contents into links: each entry gets the anchor of the first chapter or heading
 // with its exact text that comes after the previous entry's. Entries that match nothing are dropped.
 export function contentsFor(index, blocks) {
+  if (blocks && builtFromText.has(index)) return fromText(blocks);
   const entries = contents[index];
   if (!entries || !blocks) return null;
   let from = 0;

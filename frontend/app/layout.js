@@ -1,4 +1,5 @@
 import { Crimson_Pro, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Navbar from "@/components/navbar/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollReset from "@/components/ScrollReset";
@@ -17,6 +18,22 @@ const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
   // the italic is for the Gazette's editorial headings
   style: ["normal", "italic"],
+});
+
+// Dhivehi, for the SSC's documents in the Gazette: Faruma for the text, MV MAG Round for headings.
+// Only those pages use them, so they aren't preloaded everywhere.
+const faruma = localFont({
+  src: "./fonts/Faruma.ttf",
+  variable: "--font-faruma",
+  weight: "400",
+  preload: false,
+});
+
+const mag = localFont({
+  src: "./fonts/MvMAGRoundBold.otf",
+  variable: "--font-mv-mag",
+  weight: "700",
+  preload: false,
 });
 
 // The site's metadata. Each page sets its own title and description; link previews pick both up,
@@ -50,7 +67,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-loading=""
-      className={`${inter.variable} ${crimsonPro.variable} antialiased`}
+      className={`${inter.variable} ${crimsonPro.variable} ${faruma.variable} ${mag.variable} antialiased`}
     >
       <body className="font-sans">
         <PageLoader />

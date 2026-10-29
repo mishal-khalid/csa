@@ -2,7 +2,7 @@
 // heading in the transcribed text by its exact printed `match`; entries are matched in order, so a
 // repeated heading (e.g. the two printed "Appendix 19"s) lands on the right one. `label` and `sub`
 // are what the contents column shows; `level: 2` indents an entry under the one before.
-// Short documents and documents without full text have no contents list.
+// Short documents have no contents list.
 
 const chapters = (list) => list.map(([match, label, sub]) => ({ match, label, sub }));
 

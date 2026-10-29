@@ -20,23 +20,22 @@ export async function generateMetadata({ params }) {
   const { index } = await params;
   const doc = documentByIndex(index);
   if (!doc) return {};
-  // its summary when it has one; otherwise what kind of document it is, its reference and its date
-  const { type, reference, date, summary } = doc;
+  // what kind of document it is, its reference and its date
+  const { type, reference, date } = doc;
   const published = `${typeTags[type]}${reference ? ` ${reference}` : ""}, published in the CSA Gazette on ${formatDate(date)}.`;
-  return { title: doc.title, description: summary ?? published };
+  return { title: doc.title, description: published };
 }
 
 // A Gazette document, laid out like a printed gazette: a masthead strip between rules (CSA Gazette,
 // volume and number, date, reference), the title centred in the serif, buttons opening its PDFs in a
 // new tab, a divider with the Gazette's eagle emblem across the page, then the full text in a single
 // reading column, with a table of contents beside it for the long documents that have one.
-// Documents not yet transcribed show their summary instead.
 export default async function GazetteDocumentPage({ params }) {
   const { index } = await params;
   const doc = documentByIndex(index);
   if (!doc) notFound();
 
-  const { title, type, reference, date, volume, number, status, summary, pdfs } = doc;
+  const { title, type, reference, date, volume, number, status, pdfs } = doc;
   const blocks = texts[index];
   const toc = contentsFor(index, blocks);
 
@@ -95,14 +94,7 @@ export default async function GazetteDocumentPage({ params }) {
           </div>
         ) : (
           <div className="mx-auto max-w-4xl pt-14">
-            {blocks ? (
-              <GazetteText blocks={blocks} />
-            ) : (
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="font-serif text-2xl leading-relaxed">{summary}</p>
-                <p className="mt-8 text-[15px] text-ink/50">The full text will be published here.</p>
-              </div>
-            )}
+            <GazetteText blocks={blocks} />
           </div>
         )}
       </article>

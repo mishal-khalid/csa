@@ -1,0 +1,220 @@
+// The CSA Portal's accounts, sessions and sign-in records. Everything lives in its own "portal"
+// schema, which Supabase's Data API doesn't expose; row-level security is switched on for every table
+// as well (see the security migration), so only the backend's own database user can reach them.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["portal"]
+}
+
+enum Role {
+  CITIZEN
+  STAFF
+  ADMIN
+
+  @@schema("portal")
+}
+
+enum AuthEventType {
+  LOGIN_SUCCESS
+  LOGIN_FAILURE
+  ACCOUNT_LOCKED
+  LOGOUT
+  // User Management: the account that did it is userId, the account it was done to is targetId
+  USER_CREATED
+  USER_UPDATED
+  USER_DELETED
+  PASSWORD_VIEWED
+  // Fingerprint Management: targetId is the fingerprint
+  FINGERPRINT_ADDED
+  FINGERPRINT_UPDATED
+  FINGERPRINT_DELETED
+  // the Directory: targetId is the entry
+  DIRECTORY_ADDED
+  DIRECTORY_UPDATED
+  DIRECTORY_MOVED
+  DIRECTORY_DELETED
+
+  @@schema("portal")
+}
+
+// An account. Accounts are made in the portal's User Management or with scripts/create-user.ts;
+// there's no public sign-up. Email and username are stored lowercased, so lookups ignore case.
+model User {
+  id             String    @id @default(uuid()) @db.Uuid
+  // the account's permanent number (#); a deleted account's number is never reused
+  number         Int       @unique @default(autoincrement())
+  email          String    @unique
+  username       String    @unique
+  name           String
+  // argon2id, which logins are checked against
+  passwordHash   String    @map("password_hash")
+  // the password again, encrypted (AES-256-GCM, with PASSWORD_KEY) so User Management can show it
+  passwordSealed String?   @map("password_sealed")
+  role           Role      @default(CITIZEN)
+  // the portal's main account: always an admin, and only it can change or see itself. At most one
+  // account can be it (a partial unique index in the user_management migration).
+  mainAccount    Boolean   @default(false) @map("main_account")
+  active         Boolean   @default(true)
+  // wrong passwords in a row, and the lock they lead to
+  failedLogins   Int       @default(0) @map("failed_logins")
+  lockedUntil    DateTime? @map("locked_until")
+  lastLoginAt    DateTime? @map("last_login_at")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  sessions     Session[]
+  events       AuthEvent[]
+  fingerprints FingerprintAccount[]
+
+  @@map("users")
+  @@schema("portal")
+}
+
+// A signed-in browser. The browser holds a random token in an http-only cookie; only its SHA-256
+// hash is stored, so a copy of this table can't be used to sign in.
+model Session {
+  id         String    @id @default(uuid()) @db.Uuid
+  tokenHash  String    @unique @map("token_hash")
+  userId     String    @map("user_id") @db.Uuid
+  createdAt  DateTime  @default(now()) @map("created_at")
+  lastSeenAt DateTime  @default(now()) @map("last_seen_at")
+  expiresAt  DateTime  @map("expires_at")
+  revokedAt  DateTime? @map("revoked_at")
+  ip         String?
+  userAgent  String?   @map("user_agent")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+  @@schema("portal")
+}
+
+// The sign-in record: every login, failure, lock and logout, and every change made in User
+// Management (and every password shown there).
+model AuthEvent {
+  id        BigInt        @id @default(autoincrement())
+  type      AuthEventType
+  userId    String?       @map("user_id") @db.Uuid
+  // the account a User Management action was done to (kept after it's deleted)
+  targetId  String?       @map("target_id") @db.Uuid
+  // what changed, e.g. "email"
+  detail    String?
+  ip        String?
+  userAgent String?       @map("user_agent")
+  createdAt DateTime      @default(now()) @map("created_at")
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@map("auth_events")
+  @@schema("portal")
+}
+
+// Request counts per key (e.g. "lookup:<ip>") per time window, shared by every server instance.
+model RateLimit {
+  key         String
+  windowStart DateTime @map("window_start")
+  count       Int      @default(0)
+
+  @@id([key, windowStart])
+  @@map("rate_limits")
+  @@schema("portal")
+}
+
+// A fingerprint: a passkey that a finger unlocks on one device (Touch ID, Windows Hello, a phone or
+// a fingerprint security key). The device keeps the fingerprint itself; the portal keeps only the
+// passkey's public key, so nothing here can be used to sign in. Added in Fingerprint Management by
+// the main account, it signs in to the accounts linked to it, without a password.
+model Fingerprint {
+  id           String    @id @default(uuid()) @db.Uuid
+  name         String
+  // the passkey's id (base64url) and public key (COSE)
+  credentialId String    @unique @map("credential_id")
+  publicKey    Bytes     @map("public_key")
+  // how many times the device says it has been used (0 if it doesn't count); a lower count than
+  // before means a copied passkey
+  counter      BigInt    @default(0)
+  transports   String[]
+  // "singleDevice", or "multiDevice" for passkeys that sync (e.g. iCloud Keychain)
+  deviceType   String    @map("device_type")
+  backedUp     Boolean   @default(false) @map("backed_up")
+  // the account that added it
+  createdById  String?   @map("created_by") @db.Uuid
+  createdAt    DateTime  @default(now()) @map("created_at")
+  lastUsedAt   DateTime? @map("last_used_at")
+
+  accounts FingerprintAccount[]
+
+  @@map("fingerprints")
+  @@schema("portal")
+}
+
+// Which accounts a fingerprint signs in to.
+model FingerprintAccount {
+  fingerprintId String   @map("fingerprint_id") @db.Uuid
+  userId        String   @map("user_id") @db.Uuid
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  fingerprint Fingerprint @relation(fields: [fingerprintId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([fingerprintId, userId])
+  @@index([userId])
+  @@map("fingerprint_accounts")
+  @@schema("portal")
+}
+
+// The random challenges a fingerprint reader signs, each good for one use within 5 minutes, so a
+// recorded reading can't be replayed.
+model WebauthnChallenge {
+  challenge String   @id
+  // "register" (adding a fingerprint) or "login"
+  purpose   String
+  // for "register", the account adding it
+  userId    String?  @map("user_id") @db.Uuid
+  expiresAt DateTime @map("expires_at")
+
+  @@index([expiresAt])
+  @@map("webauthn_challenges")
+  @@schema("portal")
+}
+
+// The agency-wide Directory: everything under the CSA (departments, bodies, commissions,
+// companies, institutions, and any other kinds added later), arranged in folders and inside one
+// another, as deep as needed. Folders only group what's in them: Cabinet, for one, is the folder
+// that holds the departments, not a body they sit under. The CSA itself is the whole tree, not an
+// entry. Every signed-in account can read it; admins change it.
+model DirectoryEntry {
+  id        String   @id @default(uuid()) @db.Uuid
+  // what it's inside; none for the top level, directly in the CSA
+  parentId  String?  @map("parent_id") @db.Uuid
+  folder    Boolean  @default(false)
+  // e.g. "Department"; folders have none
+  kind      String?
+  name      String
+  // its place among what's inside the same parent, from 0
+  position  Int      @default(0)
+  headName  String?  @map("head_name")
+  headPost  String?  @map("head_post")
+  email     String?
+  phone     String?
+  website   String?
+  address   String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // an entry with anything inside it can't be deleted
+  parent   DirectoryEntry?  @relation("DirectoryTree", fields: [parentId], references: [id], onDelete: Restrict)
+  children DirectoryEntry[] @relation("DirectoryTree")
+
+  @@index([parentId, position])
+  @@map("directory_entries")
+  @@schema("portal")
+}

@@ -1,0 +1,15 @@
+node_modules
+# Keep environment variables out of version control (.env, .env.supabase, ...), except the example
+.env*
+!.env.example
+
+/src/generated/prisma
+
+# build output
+/dist
+
+# the local test database
+/.pglite
+
+# TypeScript build cache
+*.tsbuildinfo

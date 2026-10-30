@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* the main site's colours, fonts and easing (see ../frontend/app/globals.css) */
+:root {
+  --background: #ffffff;
+  --foreground: #0b0b0c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-crimson-pro);
+}
+
+@theme {
+  /* brand ink, taken from the insignia fill */
+  --color-ink: #0b0b0c;
+  /* CSA Dark Red, for the login form's inline messages */
+  --color-maroon: #6b0f1a;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* images can't be dragged out, selected, or long-pressed to save on phones (ImageGuard also blocks
+   the right-click menu on them) */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* the page's own animations hold while the loading screen covers it, and start as it lifts (see
+   PageLoader); skeletons pulse from the first paint */
+html[data-loading] * {
+  animation-play-state: paused !important;
+}
+html[data-loading] [data-skeleton] {
+  animation-play-state: running !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

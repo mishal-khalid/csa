@@ -37,5 +37,11 @@ async function bootstrap() {
   await app.listen(config.port);
 }
 
-// tests build the app themselves
-if (process.env.NODE_ENV !== 'test') await bootstrap();
+// Tests build the app themselves. Not awaited: on Vercel, which takes over listen(), this file has
+// to finish loading without waiting for the server to start.
+if (process.env.NODE_ENV !== 'test') {
+  bootstrap().catch((error: unknown) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

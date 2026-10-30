@@ -20,12 +20,6 @@ const post = (path: string, body: object, cookies: string[] = []) =>
 
 const cookiesOf = (res: request.Response) => ([] as string[]).concat(res.headers['set-cookie'] ?? []).map((c) => c.split(';')[0]);
 
-// the bot-check cookie (Cloudflare's test secret passes any token)
-async function human(): Promise<string[]> {
-  const res = await post('/auth/human', { token: 'XXXX.DUMMY.TOKEN.XXXX' });
-  expect(res.status).toBe(204);
-  return cookiesOf(res);
-}
 
 beforeAll(async () => {
   app = await createApp();
@@ -68,14 +62,8 @@ describe('cross-site protection', () => {
 });
 
 describe('lookup', () => {
-  it('needs the bot check first', async () => {
-    const res = await post('/auth/lookup', { identifier: account.email });
-    expect(res.status).toBe(403);
-    expect(res.body.code).toBe('challenge');
-  });
-
   it('finds an account by email or username, in any case', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     for (const identifier of [account.email, account.email.toUpperCase(), account.username]) {
       const res = await post('/auth/lookup', { identifier }, cookies);
       expect(res.body).toEqual({ exists: true });
@@ -83,7 +71,7 @@ describe('lookup', () => {
   });
 
   it('says no for an unknown account, after the same minimum time', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     const started = Date.now();
     const res = await post('/auth/lookup', { identifier: `nobody-${tag}@example.com` }, cookies);
     expect(res.body).toEqual({ exists: false });
@@ -91,7 +79,7 @@ describe('lookup', () => {
   });
 
   it('rejects malformed input', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     expect((await post('/auth/lookup', { identifier: 'not an email@' }, cookies)).status).toBe(400);
     expect((await post('/auth/lookup', { identifier: account.email, extra: 1 }, cookies)).status).toBe(400);
   });
@@ -99,7 +87,7 @@ describe('lookup', () => {
 
 describe('login', () => {
   it('signs in, keeps the session on the server, and signs out', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     const res = await post('/auth/login', { identifier: account.username, password: account.password }, cookies);
     expect(res.status).toBe(200);
     expect(res.body.user).toMatchObject({ username: account.username, role: 'CITIZEN' });
@@ -127,14 +115,14 @@ describe('login', () => {
   });
 
   it('says when there is no such account', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     const res = await post('/auth/login', { identifier: `nobody-${tag}@example.com`, password: 'whatever-it-is' }, cookies);
     expect(res.status).toBe(401);
     expect(res.body.code).toBe('no_account');
   });
 
   it('locks the account after 5 wrong passwords, even for the right one', async () => {
-    const cookies = await human();
+    const cookies: string[] = [];
     for (let i = 1; i <= 4; i++) {
       const res = await post('/auth/login', { identifier: account.email, password: `wrong-${i}` }, cookies);
       expect(res.body.code).toBe('wrong_password');
@@ -154,7 +142,7 @@ describe('login', () => {
 describe('rate limits', () => {
   it('stops an IP address after 30 lookups a minute', async () => {
     await prisma.rateLimit.deleteMany({});
-    const cookies = await human();
+    const cookies: string[] = [];
     const replies = await Promise.all(
       Array.from({ length: 32 }, () => post('/auth/lookup', { identifier: account.username }, cookies)),
     );

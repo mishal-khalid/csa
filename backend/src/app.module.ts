@@ -4,7 +4,6 @@ import { AuthService } from './auth/auth.service.js';
 import { SignedIn } from './auth/guards.js';
 import { SessionsService } from './auth/sessions.service.js';
 import { PrismaService } from './prisma.service.js';
-import { HumanService } from './security/human.service.js';
 import { RateLimitService } from './security/rate-limit.service.js';
 import { DirectoryController } from './directory/directory.controller.js';
 import { DirectoryService } from './directory/directory.service.js';
@@ -29,7 +28,6 @@ class HealthController {
   providers: [
     PrismaService,
     RateLimitService,
-    HumanService,
     SessionsService,
     AuthService,
     UsersService,

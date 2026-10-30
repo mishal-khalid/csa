@@ -5,8 +5,6 @@ Supabase Postgres, deployed on Vercel as its own project (root directory `backen
 
 ## What it does
 
-- `POST /auth/human`: the invisible bot check (Cloudflare Turnstile). It swaps a Turnstile token
-  for a 20-minute signed cookie, which lookups and logins require.
 - `POST /auth/lookup`: tells the portal whether an email or username has an account (the green
   tick).
 - `POST /auth/login` and `POST /auth/logout`: sign in and sign out.
@@ -43,9 +41,7 @@ Supabase Postgres, deployed on Vercel as its own project (root directory `backen
   doesn't unlock it early.
 - **Rate limits:** per IP address, shared by every server instance.
   - lookups: 30 a minute and 300 an hour;
-  - logins: 20 per 10 minutes;
-  - bot checks: 10 a minute.
-- **Bot check:** required before any lookup or login.
+  - logins: 20 per 10 minutes.
 - **Timing:** lookups and logins take a fixed minimum time, and a login for a missing account
   still hashes a password, so response times reveal nothing.
 - **Sessions:** kept on the server.
@@ -70,7 +66,7 @@ Supabase Postgres, deployed on Vercel as its own project (root directory `backen
   stores only each passkey's public key, never a fingerprint. Readings must be signed by the
   device, for this site, with the finger (or the device's PIN) checked. Each reading's challenge
   works once, within 5 minutes, and a passkey whose use count goes backwards is refused as a copy.
-  Fingerprint sign-in has the bot check and its own rate limits (20 per 10 minutes per IP address).
+  Fingerprint sign-in has its own rate limits (20 per 10 minutes per IP address).
   Passkeys only work on the address they were added on, so fingerprints added on portal.agee.pro
   must be added again if the portal moves to another domain.
 
@@ -99,5 +95,6 @@ Everything runs on this machine, with a throwaway test database instead of Supab
 ## Deploying to Vercel
 
 Create a Vercel project from this repository with **Root Directory** `backend`. Set the
-environment variables from `.env.example`, using your real Turnstile secret, a new
-`HUMAN_SECRET`, a new `PASSWORD_KEY` and `PORTAL_ORIGIN=https://portal.agee.pro`. Then add the domain `api.agee.pro`.
+environment variables from `.env.example`: the Supabase connection strings, `COOKIE_SECRET` and
+`PASSWORD_KEY` (the same values as in `.env.supabase`), and `PORTAL_ORIGIN=https://portal.agee.pro`.
+Then add the domain `api.agee.pro`.

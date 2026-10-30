@@ -26,10 +26,9 @@ const send = (method: 'post' | 'patch' | 'delete', path: string, body: object, c
   request(server())[method](path).set('Origin', origin).set('Cookie', cookies).send(body);
 
 async function signIn(identifier: string, secret: string): Promise<string[]> {
-  const human = await request(server()).post('/auth/human').set('Origin', origin).send({ token: 'XXXX.DUMMY.TOKEN.XXXX' });
-  const res = await send('post', '/auth/login', { identifier, password: secret }, cookiesOf(human));
+  const res = await send('post', '/auth/login', { identifier, password: secret }, []);
   expect(res.status).toBe(200);
-  return [...cookiesOf(human), ...cookiesOf(res)];
+  return cookiesOf(res);
 }
 
 beforeAll(async () => {

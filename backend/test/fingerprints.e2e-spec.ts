@@ -79,7 +79,8 @@ const tag = randomBytes(4).toString('hex');
 let app: NestExpressApplication;
 let prisma: PrismaService;
 let mainCookies: string[];
-let human: string[];
+// a browser that isn't signed in: no cookies
+const signedOut: string[] = [];
 const people: Record<'first' | 'second' | 'admin', { id: string; username: string; password: string }> = {} as never;
 
 const server = () => app.getHttpServer();
@@ -104,10 +105,10 @@ async function add(name: string, reader: SoftReader) {
 }
 
 async function fingerprintLogin(reader: SoftReader) {
-  const options = await send('post', '/auth/fingerprint/options', {}, human);
+  const options = await send('post', '/auth/fingerprint/options', {}, signedOut);
   expect(options.status).toBe(200);
   const reading = reader.read(options.body);
-  return { reading, response: await send('post', '/auth/fingerprint', { reading }, human) };
+  return { reading, response: await send('post', '/auth/fingerprint', { reading }, signedOut) };
 }
 
 beforeAll(async () => {
@@ -132,7 +133,6 @@ beforeAll(async () => {
       data: { id: randomUUID(), email: `main-${tag}@example.com`, username: `main.${tag}`, name: 'Test Main', role: 'ADMIN', mainAccount: true, passwordHash: 'x' },
     }));
   mainCookies = await sessionFor(main.id);
-  human = cookiesOf(await request(server()).post('/auth/human').set('Origin', origin).send({ token: 'XXXX.DUMMY.TOKEN.XXXX' }));
 });
 
 afterAll(async () => {
@@ -193,10 +193,6 @@ describe('signing in with a fingerprint', () => {
     id = (await add(`Login ${tag}`, reader)).response.body.fingerprint.id;
   });
 
-  it('needs the bot check first', async () => {
-    expect((await send('post', '/auth/fingerprint/options', {}, [])).body.code).toBe('challenge');
-  });
-
   it('says when a fingerprint was never added', async () => {
     expect((await fingerprintLogin(new SoftReader())).response.body.code).toBe('unknown_fingerprint');
   });
@@ -212,11 +208,11 @@ describe('signing in with a fingerprint', () => {
     const { reading, response } = await fingerprintLogin(reader);
     expect(response.status).toBe(200);
     expect(response.body.user.username).toBe(people.first.username);
-    const session = [...human, ...cookiesOf(response)];
+    const session = [...signedOut, ...cookiesOf(response)];
     expect((await request(server()).get('/auth/me').set('Cookie', session)).body.user.username).toBe(people.first.username);
 
     // the same reading can't sign in again
-    expect((await send('post', '/auth/fingerprint', { reading }, human)).body.code).toBe('not_verified');
+    expect((await send('post', '/auth/fingerprint', { reading }, signedOut)).body.code).toBe('not_verified');
     expect((await prisma.fingerprint.findUniqueOrThrow({ where: { id } })).lastUsedAt).not.toBeNull();
     const event = await prisma.authEvent.findFirst({ where: { userId: people.first.id, type: 'LOGIN_SUCCESS' } });
     expect(event?.detail).toBe('fingerprint');
@@ -226,11 +222,11 @@ describe('signing in with a fingerprint', () => {
     await send('post', `/fingerprints/${id}/accounts`, { userId: people.second.id }, mainCookies);
     const { response } = await fingerprintLogin(reader);
     expect(response.body.choose.map((a: { username: string }) => a.username)).toEqual([people.first.username, people.second.username]);
-    const pick = [...human, ...cookiesOf(response)];
+    const pick = [...signedOut, ...cookiesOf(response)];
 
     // only a linked account, and only with the picker cookie
     expect((await send('post', '/auth/fingerprint/choose', { userId: people.admin.id }, pick)).status).toBe(403);
-    expect((await send('post', '/auth/fingerprint/choose', { userId: people.second.id }, human)).body.code).toBe('expired');
+    expect((await send('post', '/auth/fingerprint/choose', { userId: people.second.id }, signedOut)).body.code).toBe('expired');
     const chosen = await send('post', '/auth/fingerprint/choose', { userId: people.second.id }, pick);
     expect(chosen.status).toBe(200);
     expect(chosen.body.user.username).toBe(people.second.username);

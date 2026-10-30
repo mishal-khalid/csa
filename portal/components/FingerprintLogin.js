@@ -32,8 +32,7 @@ function loginProblem({ status, data }) {
 // "Login with fingerprint", under the login form. The browser asks the device's reader for any
 // fingerprint added to the portal; one linked to a single account logs straight in, and one linked
 // to several opens a list of them to choose from. Every message is said under the button.
-// `challengeRef` is where Cloudflare's checkbox appears, if the bot check ever needs a person.
-export default function FingerprintLogin({ challengeRef }) {
+export default function FingerprintLogin() {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [note, setNote] = useState(null);
@@ -44,12 +43,11 @@ export default function FingerprintLogin({ challengeRef }) {
     setPending(true);
     setNote(null);
     try {
-      const container = challengeRef.current;
-      const options = await api("/auth/fingerprint/options", { body: {}, container });
+      const options = await api("/auth/fingerprint/options", { body: {} });
       if (options.status !== 200) return setNote(loginProblem(options));
       const read = await readFingerprint(options.data);
       if (read.problem) return setNote(read.problem);
-      const result = await api("/auth/fingerprint", { body: { reading: read.reading }, container });
+      const result = await api("/auth/fingerprint", { body: { reading: read.reading } });
       if (result.status === 200 && result.data.user) return router.replace("/");
       if (result.status === 200 && result.data.choose) return setChoices(result.data.choose);
       setNote(loginProblem(result));
@@ -78,7 +76,6 @@ export default function FingerprintLogin({ challengeRef }) {
       {choices && (
         <AccountPicker
           choices={choices}
-          challengeRef={challengeRef}
           onDone={() => router.replace("/")}
           onExpired={(problem) => {
             setChoices(null);
@@ -92,7 +89,7 @@ export default function FingerprintLogin({ challengeRef }) {
 }
 
 // "Choose an account": the accounts a fingerprint is linked to, by name and username.
-function AccountPicker({ choices, challengeRef, onDone, onExpired, onClose }) {
+function AccountPicker({ choices, onDone, onExpired, onClose }) {
   const [picking, setPicking] = useState(null);
   const [problem, setProblem] = useState(null);
 
@@ -101,7 +98,7 @@ function AccountPicker({ choices, challengeRef, onDone, onExpired, onClose }) {
     setPicking(account.id);
     setProblem(null);
     try {
-      const result = await api("/auth/fingerprint/choose", { body: { userId: account.id }, container: challengeRef.current });
+      const result = await api("/auth/fingerprint/choose", { body: { userId: account.id } });
       if (result.status === 200) return onDone();
       if (result.data?.code === "expired") return onExpired(loginProblem(result));
       setProblem(result.data?.code === "not_linked" ? "This account is no longer linked to the fingerprint." : loginProblem(result));

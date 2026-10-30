@@ -8,7 +8,6 @@ import { AuthService } from '../auth/auth.service.js';
 import { parse } from '../auth/identifiers.js';
 import { profile } from '../auth/profile.js';
 import { SessionsService } from '../auth/sessions.service.js';
-import { HumanService } from '../security/human.service.js';
 import { RateLimitService } from '../security/rate-limit.service.js';
 import { clientIp, userAgent } from '../security/request.js';
 import { signed, unsigned } from '../security/signing.js';
@@ -24,8 +23,8 @@ const cookie: CookieOptions = { httpOnly: true, secure: true, sameSite: 'strict'
 const loginBody = z.object({ reading: loginReading }).strict();
 const chooseBody = z.object({ userId: z.uuid() }).strict();
 
-// Signing in with a fingerprint, from the login page: no password needed. The bot check and rate
-// limits apply as for a password login.
+// Signing in with a fingerprint, from the login page: no password needed. Rate limits apply as for
+// a password login.
 // - A fingerprint linked to one account signs straight in to it.
 // - One linked to several answers with the accounts (names and usernames only) to choose from.
 @Controller('auth/fingerprint')
@@ -34,7 +33,6 @@ export class FingerprintLoginController {
     private readonly fingerprints: FingerprintsService,
     private readonly sessions: SessionsService,
     private readonly auth: AuthService,
-    private readonly human: HumanService,
     private readonly limits: RateLimitService,
     private readonly prisma: PrismaService,
   ) {}
@@ -43,7 +41,6 @@ export class FingerprintLoginController {
   @Post('options')
   @HttpCode(200)
   async options(@Req() req: Request) {
-    this.human.require(req);
     await this.limits.enforce([{ key: `fingerprint-options:${clientIp(req)}`, max: 30, windowSeconds: 60 }]);
     return this.fingerprints.loginOptions();
   }
@@ -51,7 +48,6 @@ export class FingerprintLoginController {
   @Post()
   @HttpCode(200)
   async login(@Body() body: unknown, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    this.human.require(req);
     const ip = clientIp(req);
     await this.limits.enforce([{ key: `fingerprint:${ip}`, max: 20, windowSeconds: 600 }]);
     const { reading } = parse(loginBody, body);
@@ -75,7 +71,6 @@ export class FingerprintLoginController {
   @Post('choose')
   @HttpCode(200)
   async choose(@Body() body: unknown, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    this.human.require(req);
     await this.limits.enforce([{ key: `fingerprint-choose:${clientIp(req)}`, max: 20, windowSeconds: 600 }]);
     const { userId } = parse(chooseBody, body);
 

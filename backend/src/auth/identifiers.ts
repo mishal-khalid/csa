@@ -37,5 +37,3 @@ export const loginBody = z
     password: z.string().min(1).max(256),
   })
   .strict();
-
-export const humanBody = z.object({ token: z.string().min(1).max(4096) }).strict();

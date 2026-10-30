@@ -1,12 +1,12 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { config } from '../config.js';
 
-// Signed values for the cookies the API hands the browser (the bot check, the fingerprint account
-// picker), so they can't be forged or edited. `purpose` keeps a value signed for one cookie from
+// Signed values for the cookies the API hands the browser (besides the session, e.g. the fingerprint
+// account picker), so they can't be forged or edited. `purpose` keeps a value signed for one cookie from
 // being accepted as another.
 
 function signature(purpose: string, payload: string): string {
-  return createHmac('sha256', config.humanSecret).update(`${purpose}:${payload}`).digest('base64url');
+  return createHmac('sha256', config.cookieSecret).update(`${purpose}:${payload}`).digest('base64url');
 }
 
 export function signed(purpose: string, payload: string): string {

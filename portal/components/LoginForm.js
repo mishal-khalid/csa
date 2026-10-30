@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { api, verifyHuman } from "@/lib/api";
+import { api } from "@/lib/api";
 import { EMAIL, normalise, USERNAME } from "@/lib/rules";
 import { Tick } from "./dashboard/icons";
 import FingerprintLogin from "./FingerprintLogin";
@@ -50,8 +50,7 @@ function identifierNote({ status, kind, retryAfter }) {
 //   then against the accounts; a green tick at the right means the account exists.
 // - Password: checked when Login is pressed; a wrong password, or a locked account, is said under
 //   the field.
-// The API behind it (backend/) rate-limits these checks, pads their timing and requires the
-// invisible bot check.
+// The API behind it (backend/) rate-limits these checks and pads their timing.
 export default function LoginForm() {
   const router = useRouter();
   const [identifier, setIdentifier] = useState("");
@@ -62,16 +61,12 @@ export default function LoginForm() {
 
   const identifierRef = useRef(null);
   const passwordRef = useRef(null);
-  // where Cloudflare's checkbox appears, if it ever needs a person to confirm
-  const challengeRef = useRef(null);
   const timer = useRef(null);
   const inflight = useRef(null);
 
   useEffect(() => {
     // already signed in: straight to the portal
     api("/auth/me").then(({ data }) => data?.user && router.replace("/"), () => {});
-    // get the bot check out of the way before the first lookup
-    verifyHuman(challengeRef.current).catch(() => {});
     return () => {
       clearTimeout(timer.current);
       inflight.current?.abort();
@@ -86,7 +81,6 @@ export default function LoginForm() {
       const { status, data } = await api("/auth/lookup", {
         body: { identifier: value },
         signal: controller.signal,
-        container: challengeRef.current,
       });
       if (status === 200) setCheck({ status: data.exists ? "found" : "missing", kind });
       else if (status === 429) setCheck({ status: "limited", kind, retryAfter: data?.retryAfter });
@@ -133,7 +127,6 @@ export default function LoginForm() {
     try {
       const { status, data } = await api("/auth/login", {
         body: { identifier, password },
-        container: challengeRef.current,
       });
       if (status === 200) {
         router.replace("/");
@@ -231,8 +224,7 @@ export default function LoginForm() {
         or
         <span className="h-px flex-1 bg-ink/10" />
       </div>
-      <FingerprintLogin challengeRef={challengeRef} />
-      <div ref={challengeRef} className="flex justify-center empty:hidden" />
+      <FingerprintLogin />
     </form>
   );
 }

@@ -1,3 +1,4 @@
+import type { IncomingMessage, ServerResponse } from 'node:http';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import cookieParser from 'cookie-parser';
@@ -11,7 +12,7 @@ import { sameOrigin } from './security/same-origin.middleware.js';
 // they make it the module, with the function as its default. At run time it's the same function.
 const helmet = helmetImport as unknown as (typeof import('helmet'))['default'];
 
-// The CSA Portal's API (api.agee.pro). On Vercel the whole app runs as one function.
+// The CSA Portal's API (api.agee.pro).
 export async function createApp() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: false });
   app.disable('x-powered-by');
@@ -32,14 +33,31 @@ export async function createApp() {
   return app;
 }
 
+// On Vercel the API is one function: Vercel calls this with each request, which goes to the app
+// (made once per running instance, then reused).
+type Handler = (req: IncomingMessage, res: ServerResponse) => void;
+let handler: Promise<Handler> | undefined;
+export default async function vercel(req: IncomingMessage, res: ServerResponse) {
+  handler ??= createApp()
+    .then(async (app) => {
+      await app.init();
+      return app.getHttpAdapter().getInstance() as Handler;
+    })
+    .catch((error: unknown) => {
+      // try again with the next request
+      handler = undefined;
+      throw error;
+    });
+  (await handler)(req, res);
+}
+
+// Elsewhere (locally) it's a server of its own. Tests build the app themselves.
 async function bootstrap() {
   const app = await createApp();
   await app.listen(config.port);
 }
 
-// Tests build the app themselves. Not awaited: on Vercel, which takes over listen(), this file has
-// to finish loading without waiting for the server to start.
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' && !config.onVercel) {
   bootstrap().catch((error: unknown) => {
     console.error(error);
     process.exit(1);

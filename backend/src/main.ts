@@ -1,10 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import cookieParser from 'cookie-parser';
-import helmet from 'helmet';
+import helmetImport from 'helmet';
 import { AppModule } from './app.module.js';
 import { config } from './config.js';
 import { sameOrigin } from './security/same-origin.middleware.js';
+
+// helmet's middleware. helmet ships ES module and CommonJS builds: read as an ES module (as here),
+// its types make the default import the function; read as CommonJS (as Vercel's compiler does),
+// they make it the module, with the function as its default. At run time it's the same function.
+const helmet = helmetImport as unknown as (typeof import('helmet'))['default'];
 
 // The CSA Portal's API (api.agee.pro). On Vercel the whole app runs as one function.
 export async function createApp() {

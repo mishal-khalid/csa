@@ -14,3 +14,7 @@ node_modules
 
 # TypeScript build cache
 *.tsbuildinfo
+
+# what MJSCC transcripts are drawn with (stamp, signature, fonts, full names): never in the public repo,
+# loaded into the database by npm run mjscc:transcripts
+/.mjscc-transcripts

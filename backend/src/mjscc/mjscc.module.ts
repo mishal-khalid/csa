@@ -4,12 +4,13 @@ import { fromEvaluationSite, MjsccRateLimit } from './guards.js';
 import { MjsccController } from './mjscc.controller.js';
 import { MjsccPrisma } from './prisma.service.js';
 import { InstructorSignedIn, MjsccSessions } from './sessions.js';
+import { TranscriptsService } from './transcripts.service.js';
 
 // The MJSCC instructor evaluation (mjscc.agee.pro). It shares the API's server with the CSA Portal
 // but none of its accounts, sessions or tables: everything here goes through its own database client.
 @Module({
   controllers: [MjsccController],
-  providers: [MjsccPrisma, MjsccSessions, MjsccRateLimit, InstructorSignedIn, EvaluationService],
+  providers: [MjsccPrisma, MjsccSessions, MjsccRateLimit, InstructorSignedIn, EvaluationService, TranscriptsService],
 })
 export class MjsccModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

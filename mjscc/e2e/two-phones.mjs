@@ -126,11 +126,10 @@ const plan = {
   B: { THEORY: (s, i) => 3 - ((s * i) % 3), DRILL: (s, i) => 5 - ((s + 2 * i) % 3), COMMANDING: (s, i) => 5 - ((s + i) % 2), INSPECTION: (s) => 5 - (s % 3) },
 };
 
-// the user's marking, worked out here on its own: 30/50/20, ×(1 + 5% per inspection point), ≤ 100
+// the user's marking, worked out here on its own: 30/50/20 (the inspection doesn't count)
 function expectedFinal(scores) {
   const sum = (part) => scores.filter((s) => s.part === part).reduce((a, s) => a + s.value, 0);
-  const base = 0.3 * (sum('THEORY') / 120) * 100 + 0.5 * (sum('DRILL') / 135) * 100 + 0.2 * (sum('COMMANDING') / 15) * 100;
-  return Math.min(100, base * (1 + 0.05 * sum('INSPECTION')));
+  return 0.3 * (sum('THEORY') / 120) * 100 + 0.5 * (sum('DRILL') / 135) * 100 + 0.2 * (sum('COMMANDING') / 15) * 100;
 }
 // the page shows one decimal place
 const close = (a, b) => Math.abs(a - b) < 0.051;

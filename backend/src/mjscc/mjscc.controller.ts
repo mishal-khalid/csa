@@ -9,6 +9,8 @@ import { students } from './content.js';
 import { EvaluationService, view } from './evaluation.service.js';
 import { MjsccRateLimit } from './guards.js';
 import { CurrentInstructor, InstructorSignedIn, MjsccSessions } from './sessions.js';
+import { isTranscriptFile } from './transcript-details.js';
+import { TranscriptsService } from './transcripts.service.js';
 
 function parse<T extends z.ZodType>(schema: T, body: unknown): z.infer<T> {
   const result = schema.safeParse(body);
@@ -46,6 +48,7 @@ export class MjsccController {
     private readonly sessions: MjsccSessions,
     private readonly limits: MjsccRateLimit,
     private readonly evaluation: EvaluationService,
+    private readonly transcripts: TranscriptsService,
   ) {}
 
   // Signs in with a name on the list and the day's code (checked first, so the list can't be probed
@@ -130,9 +133,32 @@ export class MjsccController {
     return { instructor: view(await this.evaluation.reopen(instructor)) };
   }
 
+  // the marks, and whether this instructor can export transcripts (the Platoon In-Charge, once they're out)
   @Get('results')
   @UseGuards(InstructorSignedIn)
-  results(@CurrentInstructor() instructor: Instructor) {
-    return this.evaluation.results(instructor);
+  async results(@CurrentInstructor() instructor: Instructor) {
+    const results = await this.evaluation.results(instructor);
+    return { ...results, transcripts: results.open && (await this.transcripts.canExport(instructor)) };
+  }
+
+  // What goes on a student's transcript, for the Platoon In-Charge once the results are out.
+  @Get('transcripts/:student')
+  @UseGuards(InstructorSignedIn)
+  transcript(@Param('student') student: string, @CurrentInstructor() instructor: Instructor, @Res({ passthrough: true }) res: Response) {
+    const number = /^\d$/.test(student) ? Number(student) : 0;
+    if (number < 1 || number > students.length) throw new NotFoundException({ code: 'not_found' });
+    res.set('Cache-Control', 'no-store');
+    return this.transcripts.transcript(instructor, number);
+  }
+
+  // A picture or font a transcript is drawn with (its signature and stamp among them), on the same
+  // terms. The browser keeps none of them.
+  @Get('transcript-files/:name')
+  @UseGuards(InstructorSignedIn)
+  async transcriptFile(@Param('name') name: string, @CurrentInstructor() instructor: Instructor, @Res() res: Response) {
+    if (!isTranscriptFile(name) || name === 'details.json') throw new NotFoundException({ code: 'not_found' });
+    const file = await this.transcripts.file(instructor, name);
+    res.set({ 'Content-Type': file.type, 'Cache-Control': 'no-store', 'Cross-Origin-Resource-Policy': 'same-site' });
+    res.send(file.data);
   }
 }

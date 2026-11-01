@@ -23,6 +23,7 @@
     "db:migrate": "prisma migrate deploy",
     "mjscc:migrate": "prisma migrate deploy --config prisma.mjscc.config.ts",
     "mjscc:reset-local": "tsx scripts/mjscc-reset.ts",
+    "mjscc:transcripts": "tsx scripts/mjscc-transcripts.ts",
     "user:create": "tsx scripts/create-user.ts",
     "db:seed-dev": "tsx scripts/seed-dev.ts",
     "supabase:status": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate status",
@@ -31,6 +32,7 @@
     "supabase:mjscc-status": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate status --config prisma.mjscc.config.ts",
     "supabase:mjscc-migrate": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate deploy --config prisma.mjscc.config.ts",
     "supabase:mjscc-reset": "DOTENV_CONFIG_PATH=.env.supabase tsx scripts/mjscc-reset.ts --live",
+    "supabase:mjscc-transcripts": "DOTENV_CONFIG_PATH=.env.supabase tsx scripts/mjscc-transcripts.ts --live",
     "postinstall": "prisma generate && prisma generate --config prisma.mjscc.config.ts"
   },
   "dependencies": {

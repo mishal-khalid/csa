@@ -115,3 +115,17 @@ model RateLimit {
   @@map("rate_limits")
   @@schema("mjscc")
 }
+
+// What transcripts are drawn with that mustn't be in the repository, which is public: the platoon's
+// crest and stamp, the Platoon In-Charge's signature, the fonts, and (in details.json) everyone's full
+// name. Loaded from a folder outside git by scripts/mjscc-transcripts.ts, and kept by a reset.
+model TranscriptFile {
+  // e.g. "stamp.png" (see src/mjscc/transcript-details.ts)
+  name      String   @id
+  type      String
+  data      Bytes
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("transcript_files")
+  @@schema("mjscc")
+}

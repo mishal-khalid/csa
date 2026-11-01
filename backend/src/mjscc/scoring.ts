@@ -3,9 +3,9 @@ import { COMMANDS_PER_STUDENT, drill, theory } from './content.js';
 // How the evaluation is marked, as the user set it out (2026-11-01):
 // - every item is scored from 0: a theory answer up to 3, a drill movement, a command and the
 //   inspection up to 5;
-// - each part is a percentage of its maximum, and the base is 30% theory, 50% drill, 20% commanding;
-// - the inspection is a bonus on top: each point multiplies the base by another 5% (0 is ×1, 5 is
-//   ×1.25), and the final is capped at 100%.
+// - each part is a percentage of its maximum, and the final is 30% theory, 50% drill, 20% commanding;
+// - the inspection is scored (and must be, to finish) but doesn't count towards the final: the user
+//   took its bonus out on 2026-11-01.
 // Every instructor's final is worked out from their own scores; a student's overall is the average
 // of the instructors' finals.
 
@@ -19,7 +19,6 @@ export const parts: Record<PartName, { items: number; top: number }> = {
 };
 
 export const weights = { THEORY: 0.3, DRILL: 0.5, COMMANDING: 0.2 } as const;
-export const BONUS_PER_INSPECTION_POINT = 0.05;
 
 export interface ItemScore {
   part: PartName;
@@ -41,8 +40,6 @@ export interface Result {
   drill: PartResult;
   commanding: PartResult;
   inspection: PartResult;
-  base: number;
-  multiplier: number;
   final: number;
   // every item scored
   complete: boolean;
@@ -63,18 +60,13 @@ export function evaluate(scores: ItemScore[]): Result {
   const drillPart = part('DRILL', scores);
   const commandingPart = part('COMMANDING', scores);
   const inspection = part('INSPECTION', scores);
-  const base =
-    weights.THEORY * theoryPart.percent + weights.DRILL * drillPart.percent + weights.COMMANDING * commandingPart.percent;
-  const multiplier = 1 + BONUS_PER_INSPECTION_POINT * inspection.points;
   const all = [theoryPart, drillPart, commandingPart, inspection];
   return {
     theory: theoryPart,
     drill: drillPart,
     commanding: commandingPart,
     inspection,
-    base,
-    multiplier,
-    final: Math.min(100, base * multiplier),
+    final: weights.THEORY * theoryPart.percent + weights.DRILL * drillPart.percent + weights.COMMANDING * commandingPart.percent,
     complete: all.every((p) => p.scored === p.items),
   };
 }
@@ -91,9 +83,8 @@ function averagePart(results: PartResult[]): PartResult {
   };
 }
 
-// A student's average across the instructors: each part, the base and the multiplier averaged, and
-// the overall as the average of the instructors' finals (which, with the cap, isn't always the
-// formula applied to the averaged parts).
+// A student's average across the instructors: each part averaged, and the overall as the average of
+// the instructors' finals.
 export function average(results: Result[]): Result | null {
   if (!results.length) return null;
   return {
@@ -101,8 +92,6 @@ export function average(results: Result[]): Result | null {
     drill: averagePart(results.map((r) => r.drill)),
     commanding: averagePart(results.map((r) => r.commanding)),
     inspection: averagePart(results.map((r) => r.inspection)),
-    base: mean(results.map((r) => r.base)),
-    multiplier: mean(results.map((r) => r.multiplier)),
     final: mean(results.map((r) => r.final)),
     complete: results.every((r) => r.complete),
   };

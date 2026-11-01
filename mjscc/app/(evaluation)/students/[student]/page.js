@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { notFound, useParams } from "next/navigation";
-import Screen, { Panel } from "@/components/Screen";
+import Screen, { MainButton, Panel } from "@/components/Screen";
 import { studentNumber } from "@/lib/cards";
 import { useEvaluation, useResults } from "@/lib/evaluation";
 import { words } from "@/lib/words";
@@ -34,20 +35,18 @@ function Marks({ student }) {
   const [results] = useResults();
   if (!results) return <div aria-hidden className="mt-8 h-64 animate-pulse bg-panel" />;
   const s = results.students[student - 1];
-  return results.open ? <Everyone s={s} /> : <Mine s={s} instructors={results.instructors} />;
+  return results.open ? <Everyone s={s} transcripts={results.transcripts} /> : <Mine s={s} instructors={results.instructors} />;
 }
 
-// one part's line: points out of the maximum, and the percentage (the inspection: its multiplier)
+// one part's line: points out of the maximum, and the percentage (the inspection, which doesn't count
+// towards the final, just its points)
 function partValue(part, r) {
   const p = r[KEYS[part]];
-  return part === "INSPECTION" ? `${one(p.points)} / ${p.max} · ×${r.multiplier.toFixed(2)}` : `${one(p.points)} / ${p.max} · ${pct(p.percent)}`;
+  return part === "INSPECTION" ? `${one(p.points)} / ${p.max}` : `${one(p.points)} / ${p.max} · ${pct(p.percent)}`;
 }
 
 function Mine({ s, instructors }) {
-  const rows = [
-    ...PARTS.map((part) => [words.parts[part].name, partValue(part, s.mine)]),
-    [words.base, pct(s.mine.base)],
-  ];
+  const rows = PARTS.map((part) => [words.parts[part].name, partValue(part, s.mine)]);
   return (
     <>
       <Panel className="mt-8">
@@ -77,10 +76,10 @@ function Mine({ s, instructors }) {
   );
 }
 
-function Everyone({ s }) {
+function Everyone({ s, transcripts }) {
   const columns = [...s.instructors.map((i) => ({ name: i.name, r: i.result })), { name: words.average, r: s.average, average: true }];
   const cell = (part, r) =>
-    part === "INSPECTION" ? one(r.inspection.points) : part === "BASE" ? pct(r.base) : part === "FINAL" ? pct(r.final) : pct(r[KEYS[part]].percent);
+    part === "INSPECTION" ? one(r.inspection.points) : part === "FINAL" ? pct(r.final) : pct(r[KEYS[part]].percent);
 
   return (
     <>
@@ -104,9 +103,9 @@ function Everyone({ s }) {
             </tr>
           </thead>
           <tbody>
-            {[...PARTS, "BASE", "FINAL"].map((part) => (
+            {[...PARTS, "FINAL"].map((part) => (
               <tr key={part} className={`border-t border-edge ${part === "FINAL" ? "font-bold" : ""}`}>
-                <th className="py-2 text-start font-normal">{words.parts[part]?.name ?? (part === "BASE" ? words.base : words.final)}</th>
+                <th className="py-2 text-start font-normal">{words.parts[part]?.name ?? words.final}</th>
                 {columns.map((c) => (
                   <td key={c.name} dir="ltr" className={`px-1 text-center ${c.average ? "bg-seal/8 text-seal" : ""}`}>
                     {cell(part, c.r)}
@@ -117,6 +116,8 @@ function Everyone({ s }) {
           </tbody>
         </table>
       </div>
+
+      {transcripts && <Transcript student={s.number} />}
 
       <Items s={s} />
 
@@ -170,6 +171,35 @@ function Items({ s }) {
           </table>
         </details>
       ))}
+    </div>
+  );
+}
+
+// The Platoon In-Charge's button for the student's transcript (a PDF, made on the phone; the drawing
+// code loads only when it's pressed).
+function Transcript({ student }) {
+  const [state, setState] = useState("ready");
+  const make = async () => {
+    setState("making");
+    try {
+      const { downloadTranscript } = await import("@/lib/transcript");
+      await downloadTranscript(student);
+      setState("ready");
+    } catch (error) {
+      console.error(error);
+      setState("failed");
+    }
+  };
+  return (
+    <div className="mt-6">
+      <MainButton onClick={make} disabled={state === "making"}>
+        {state === "making" ? words.transcript.making : words.transcript.download}
+      </MainButton>
+      {state === "failed" && (
+        <p role="alert" className="mt-2 text-center text-[16px]">
+          {words.transcript.failed}
+        </p>
+      )}
     </div>
   );
 }

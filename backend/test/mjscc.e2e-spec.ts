@@ -181,9 +181,8 @@ describe('the evaluation', () => {
     const waiting = await get('/mjscc/results', mishal);
     expect(waiting.body.open).toBe(false);
     expect(waiting.body.students[0].instructors).toBeUndefined();
-    // 66.7% theory, 80% drill, 80% commanding → base 76; inspection 4 → ×1.2 = 91.2
-    expect(waiting.body.students[0].mine.base).toBeCloseTo(76);
-    expect(waiting.body.students[0].mine.final).toBeCloseTo(91.2);
+    // 66.7% theory, 80% drill, 80% commanding → 20 + 40 + 16 = 76 (the inspection of 4 doesn't count)
+    expect(waiting.body.students[0].mine.final).toBeCloseTo(76);
 
     // reopening is allowed until everyone has finished
     expect((await post('/mjscc/reopen', {}, mishal)).body.instructor.finished).toBe(false);
@@ -198,8 +197,8 @@ describe('the evaluation', () => {
     expect(maahin.instructors.map((i: { name: string }) => i.name)).toEqual(["Mish'al", 'Ibrysam']);
     expect(maahin.instructors[0].note).toBe('Boots not polished');
     expect(maahin.instructors[0].items.THEORY).toHaveLength(40);
-    // (91.2 + 100) / 2
-    expect(maahin.average.final).toBeCloseTo(95.6);
+    // (76 + 100) / 2
+    expect(maahin.average.final).toBeCloseTo(88);
 
     expect((await post('/mjscc/reopen', {}, mishal)).body.code).toBe('results_open');
 
@@ -208,5 +207,95 @@ describe('the evaluation', () => {
     expect((await post('/mjscc/scores', { student: 1, part: 'THEORY', item: 1, value: 3 }, malsa)).body.code).toBe('results_open');
     expect((await post('/mjscc/notes', { student: 1, text: 'late' }, malsa)).body.code).toBe('results_open');
     expect((await get('/mjscc/results', ibrysam)).body.open).toBe(true);
+  });
+});
+
+describe('transcripts', () => {
+  // made-up details and files in place of whatever this machine has loaded, which is put back after
+  const details = {
+    students: ['CPL. Maahin', 'CPL. Rauha', 'CPL. Zeek', 'CPL. Shain', 'LCPL. Auna', 'CPL. Alsan'].map((student, i) => ({
+      student,
+      rank: i === 4 ? 'ލ.ކޕލ.' : 'ކޕލ.',
+      name: `Student ${i + 1}`,
+    })),
+    // not the list's order, to show the transcript follows this one
+    instructors: [
+      { name: 'Haneen', line: 'Line for Haneen' },
+      { name: 'Ibrysam', line: 'Line for Ibrysam' },
+      { name: "Mish'al", line: 'Line for Mishal (In-Charge)', inCharge: true },
+    ],
+  };
+  const fake = (name: string, type: string, data: Buffer) => ({ name, type, data: new Uint8Array(data) });
+  const files = [
+    fake('details.json', 'application/json', Buffer.from(JSON.stringify(details))),
+    ...['crest.png', 'stamp.png', 'signature.png', 'bismillah.png'].map((name) => fake(name, 'image/png', Buffer.from(`png ${name}`))),
+    ...['title.ttf', 'title-bold.ttf'].map((name) => fake(name, 'font/ttf', Buffer.from(`font ${name}`))),
+  ];
+  let saved: Awaited<ReturnType<MjsccPrisma['transcriptFile']['findMany']>>;
+  let mishal: string[];
+  let ibrysam: string[];
+
+  beforeAll(async () => {
+    saved = await db.transcriptFile.findMany();
+    await db.transcriptFile.deleteMany({});
+    // (the tests above have used up most of this machine's sign-in tries)
+    await db.rateLimit.deleteMany({});
+    mishal = await signIn("Mish'al");
+    ibrysam = await signIn('Ibrysam');
+  });
+
+  afterAll(async () => {
+    await db.transcriptFile.deleteMany({});
+    await db.transcriptFile.createMany({ data: saved.map(({ name, type, data }) => ({ name, type, data })) });
+  });
+
+  it('can’t be exported until their details are loaded', async () => {
+    expect((await get('/mjscc/results', mishal)).body.transcripts).toBe(false);
+    expect((await get('/mjscc/transcripts/1', mishal)).body.code).toBe('not_set_up');
+  });
+
+  it('are for the Platoon In-Charge alone, once the results are out', async () => {
+    await db.transcriptFile.createMany({ data: files });
+    expect((await get('/mjscc/results', mishal)).body.transcripts).toBe(true);
+    expect((await get('/mjscc/results', ibrysam)).body.transcripts).toBe(false);
+    expect((await get('/mjscc/transcripts/1', ibrysam)).status).toBe(403);
+    expect((await get('/mjscc/transcript-files/stamp.png', ibrysam)).status).toBe(403);
+    expect((await get('/mjscc/transcripts/1')).status).toBe(401);
+    expect((await get('/mjscc/transcript-files/signature.png')).status).toBe(401);
+
+    // not while the results are out of sight again
+    const finished = await db.instructor.findFirstOrThrow({ where: { name: 'Ibrysam' } });
+    await db.instructor.update({ where: { id: finished.id }, data: { finishedAt: null } });
+    expect((await get('/mjscc/transcripts/1', mishal)).body.code).toBe('results_not_out');
+    expect((await get('/mjscc/results', mishal)).body.transcripts).toBe(false);
+    await db.instructor.update({ where: { id: finished.id }, data: { finishedAt: finished.finishedAt } });
+  });
+
+  it('carry the average marks, the inspection notes and the instructors who scored', async () => {
+    const res = await get('/mjscc/transcripts/1', mishal);
+    expect(res.status).toBe(200);
+    expect(res.headers['cache-control']).toBe('no-store');
+    const t = res.body;
+    expect(t.student).toEqual({ number: 1, short: 'CPL. Maahin', rank: 'ކޕލ.', name: 'Student 1' });
+    // Mish'al 80/120, Ibrysam 120/120 → 100 on average; the overall as on the results page
+    expect(t.marks.theory).toEqual({ points: 100, max: 120, percent: expect.closeTo(83.33, 1) });
+    expect(t.marks.inspection.points).toBe(4.5);
+    expect(t.marks.final).toBeCloseTo(88);
+    expect(t.issues).toEqual(['Boots not polished']);
+    // in details.json's order; Haneen didn't come, Malsa isn't in it
+    expect(t.instructors).toEqual(['Line for Ibrysam', 'Line for Mishal (In-Charge)']);
+    expect((await get('/mjscc/transcripts/5', mishal)).body.student.rank).toBe('ލ.ކޕލ.');
+    for (const bad of ['0', '7', '12', 'x']) expect((await get(`/mjscc/transcripts/${bad}`, mishal)).status).toBe(404);
+  });
+
+  it('hand over their pictures and fonts, but not the details file', async () => {
+    const stamp = await get('/mjscc/transcript-files/stamp.png', mishal).buffer(true);
+    expect(stamp.status).toBe(200);
+    expect(stamp.headers['content-type']).toBe('image/png');
+    expect(stamp.headers['cache-control']).toBe('no-store');
+    expect(stamp.headers['cross-origin-resource-policy']).toBe('same-site');
+    expect(Buffer.from(stamp.body as Buffer).toString()).toBe('png stamp.png');
+    expect((await get('/mjscc/transcript-files/title-bold.ttf', mishal)).headers['content-type']).toBe('font/ttf');
+    for (const bad of ['details.json', 'other.png', '..%2F.env']) expect((await get(`/mjscc/transcript-files/${bad}`, mishal)).status).toBe(404);
   });
 });

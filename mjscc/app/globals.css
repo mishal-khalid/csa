@@ -48,6 +48,13 @@ body {
   animation: from-right 260ms var(--ease-soft);
 }
 
+/* the syllabus prints as a blank page */
+@media print {
+  [data-no-print] {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .enter-next,
   .enter-back {

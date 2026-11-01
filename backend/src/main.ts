@@ -2,9 +2,11 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import cookieParser from 'cookie-parser';
+import type { NextFunction, Request, Response } from 'express';
 import helmetImport from 'helmet';
 import { AppModule } from './app.module.js';
 import { config } from './config.js';
+import { isMjsccPath, mjsccConfig } from './mjscc/config.js';
 import { sameOrigin } from './security/same-origin.middleware.js';
 
 // helmet's middleware. helmet ships ES module and CommonJS builds: read as an ES module (as here),
@@ -18,15 +20,20 @@ export async function createApp() {
   app.disable('x-powered-by');
   // security headers (no sniffing, no framing, HSTS, a locked-down content policy...)
   app.use(helmet());
-  // only the portal may call the API from a browser, with its cookies
-  app.enableCors({
-    origin: [config.portalOrigin],
-    credentials: true,
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-    maxAge: 600,
+  // Each site may call only its own routes from a browser, with its cookies: the portal everything
+  // but the MJSCC evaluation's (/mjscc), and the evaluation's site only those (once it's set up).
+  app.enableCors((req: Request, callback) => {
+    const mjscc = isMjsccPath(req.url ?? '');
+    callback(null, {
+      origin: mjscc ? (mjsccConfig ? [mjsccConfig.origin] : false) : [config.portalOrigin],
+      credentials: true,
+      methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+      allowedHeaders: ['Content-Type'],
+      maxAge: 600,
+    });
   });
-  app.use(sameOrigin);
+  // the evaluation's routes check their own site instead (MjsccModule)
+  app.use((req: Request, res: Response, next: NextFunction) => (isMjsccPath(req.path) ? next() : sameOrigin(req, res, next)));
   // small JSON bodies only (64 KB: room for a Directory bulk add of a few hundred names)
   app.useBodyParser('json', { limit: '64kb' });
   app.use(cookieParser());

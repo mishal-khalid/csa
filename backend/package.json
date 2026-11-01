@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "build": "prisma generate && nest build",
+    "build": "prisma generate && prisma generate --config prisma.mjscc.config.ts && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -21,12 +21,16 @@
     "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
     "db:local": "pglite-server --db=./.pglite --port=5433 --max-connections=10",
     "db:migrate": "prisma migrate deploy",
+    "mjscc:migrate": "prisma migrate deploy --config prisma.mjscc.config.ts",
+    "mjscc:reset-local": "tsx scripts/mjscc-reset-local.ts",
     "user:create": "tsx scripts/create-user.ts",
     "db:seed-dev": "tsx scripts/seed-dev.ts",
     "supabase:status": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate status",
     "supabase:migrate": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate deploy",
     "supabase:user": "DOTENV_CONFIG_PATH=.env.supabase tsx scripts/create-user.ts",
-    "postinstall": "prisma generate"
+    "supabase:mjscc-status": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate status --config prisma.mjscc.config.ts",
+    "supabase:mjscc-migrate": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate deploy --config prisma.mjscc.config.ts",
+    "postinstall": "prisma generate && prisma generate --config prisma.mjscc.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",

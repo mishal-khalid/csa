@@ -1,0 +1,24 @@
+{
+  "name": "mjscc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3400",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:phones": "node --env-file=../backend/.env --disable-warning=MODULE_TYPELESS_PACKAGE_JSON e2e/two-phones.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "playwright-core": "1.56.1",
+    "tailwindcss": "^4"
+  }
+}

@@ -11,6 +11,8 @@ import { FingerprintLoginController } from './fingerprints/fingerprint-login.con
 import { FingerprintsController } from './fingerprints/fingerprints.controller.js';
 import { FingerprintsService } from './fingerprints/fingerprints.service.js';
 import { ChallengesService } from './fingerprints/webauthn.js';
+import { mjsccConfig } from './mjscc/config.js';
+import { MjsccModule } from './mjscc/mjscc.module.js';
 import { UsersController } from './users/users.controller.js';
 import { UsersService } from './users/users.service.js';
 
@@ -24,6 +26,8 @@ class HealthController {
 }
 
 @Module({
+  // the MJSCC evaluation, served only once its settings are there (src/mjscc/config.ts)
+  imports: mjsccConfig ? [MjsccModule] : [],
   controllers: [HealthController, AuthController, UsersController, FingerprintsController, FingerprintLoginController, DirectoryController],
   providers: [
     PrismaService,

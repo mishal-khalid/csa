@@ -3,21 +3,24 @@
 // inspection with notes and a dropped connection, Finish too early, Finish, reopen, the results on
 // both phones (checked against the marking worked out here from the raw scores), and signing out.
 //
-// Needs the API (npm --prefix backend run start:dev, :3300) and the app (npm --prefix mjscc run dev,
-// :3400) running locally, Google Chrome installed, and the local instructor list in backend/.env to
-// include Mish'al, Ibrysam and Malsa. It empties the local evaluation before and after.
+// Locally it needs the API (npm --prefix backend run start:dev, :3300) and the app (npm --prefix
+// mjscc run dev, :3400) running; either way Google Chrome installed, and the instructor list to
+// include Mish'al, Ibrysam and Malsa. It empties the evaluation before and after.
 //
-// Run: npm --prefix mjscc run test:phones   (screenshots land in mjscc/e2e/shots)
+// Run: npm --prefix mjscc run test:phones        (local; screenshots land in mjscc/e2e/shots)
+//      npm --prefix mjscc run test:phones:live   (mjscc.agee.pro: this empties the REAL evaluation,
+//                                                 so only before the day, never during it)
 import { execFileSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { chromium, devices } from 'playwright-core';
 import { words } from '../lib/words.js';
 
-const APP = 'http://localhost:3400';
-const API = 'http://localhost:3300';
+const LIVE = process.argv.includes('--live');
+const APP = LIVE ? 'https://mjscc.agee.pro' : 'http://localhost:3400';
+const API = LIVE ? 'https://api.agee.pro' : 'http://localhost:3300';
 const CODE = process.env.MJSCC_ACCESS_CODE;
-const SHOTS = fileURLToPath(new URL('./shots', import.meta.url));
+const SHOTS = fileURLToPath(new URL(LIVE ? './shots/live' : './shots', import.meta.url));
 const BACKEND = fileURLToPath(new URL('../../backend', import.meta.url));
 const NAMES = ['CPL. Maahin', 'CPL. Rauha', 'CPL. Zeek', 'CPL. Shain', 'LCPL. Auna', 'CPL. Alsan'];
 
@@ -29,7 +32,16 @@ function check(name, ok, detail = '') {
 }
 const step = (what) => console.log(`\n${new Date().toISOString().slice(11, 19)}  ${what}`);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const reset = () => execFileSync('npm', ['--prefix', BACKEND, 'run', '-s', 'mjscc:reset-local'], { stdio: 'inherit' });
+const reset = () => execFileSync('npm', ['--prefix', BACKEND, 'run', '-s', LIVE ? 'supabase:mjscc-reset' : 'mjscc:reset-local'], { stdio: 'inherit' });
+// waits until a check comes true (the API can take a moment, more so over a real connection)
+async function eventually(test, ms = 20000) {
+  const until = Date.now() + ms;
+  while (Date.now() < until) {
+    if (await test().catch(() => false)) return true;
+    await sleep(300);
+  }
+  return false;
+}
 
 // --- before anything: both servers up, an empty evaluation ---
 
@@ -56,6 +68,14 @@ async function device(label) {
   return { label, context, page };
 }
 const shot = (d, name) => d.page.screenshot({ path: `${SHOTS}/${d.label}-${name}.png` });
+
+// until the phone has sent every score it's holding (they save in the background)
+const drained = (d) =>
+  d.page.waitForFunction(
+    () => Object.keys(localStorage).filter((k) => k.startsWith('mjscc-unsaved:')).every((k) => JSON.parse(localStorage.getItem(k)).length === 0),
+    null,
+    { timeout: 120000, polling: 300 },
+  );
 
 // the API, as this phone's sign-in sees it
 const api = (d, path, body) =>
@@ -233,11 +253,15 @@ try {
   await square(A, 0, after).tap();
   await waitCard(A, 2);
   plan.A.THEORY = ((f) => (s, i) => (s === 1 && i === 1 ? after : f(s, i)))(plan.A.THEORY);
-  await sleep(800);
-  const q1 = (await api(A, '/scores')).data.scores.find((s) => s.student === 1 && s.part === 'THEORY' && s.item === 1);
-  check('A: the changed score is saved', q1?.value === after, `${before} → ${q1?.value}`);
+  let q1;
+  const changed = await eventually(async () => {
+    q1 = (await api(A, '/scores')).data.scores.find((s) => s.student === 1 && s.part === 'THEORY' && s.item === 1);
+    return q1?.value === after;
+  });
+  check('A: the changed score is saved', changed, `${before} → ${q1?.value}`);
 
   step('Finish too early');
+  await drained(B);
   await B.page.goto(APP);
   await B.page.getByRole('button', { name: words.finish }).tap();
   await B.page.getByText(words.notYet).waitFor({ timeout: 15000 });
@@ -291,19 +315,21 @@ try {
       // back online, and the page reloaded straight away: what was kept still goes
       await B.context.setOffline(false);
       await B.page.reload();
-      await sleep(3000);
-      const saved = (await api(B, '/scores')).data;
-      check(
-        'B: after reconnecting and a reload, the mark and note reach the API',
-        saved.scores.some((s) => s.student === 1 && s.part === 'INSPECTION' && s.value === plan.B.INSPECTION(1)) &&
-          saved.notes.some((n) => n.student === 1 && n.text === noteB),
-      );
-      check('B: the banner goes once they’re saved', (await B.page.getByRole('status').count()) === 0);
+      const arrived = await eventually(async () => {
+        const saved = (await api(B, '/scores')).data;
+        return (
+          saved.scores.some((s) => s.student === 1 && s.part === 'INSPECTION' && s.value === plan.B.INSPECTION(1)) &&
+          saved.notes.some((n) => n.student === 1 && n.text === noteB)
+        );
+      });
+      check('B: after reconnecting and a reload, the mark and note reach the API', arrived);
+      check('B: the banner goes once they’re saved', await eventually(async () => (await B.page.getByRole('status').count()) === 0));
       for (let s = 2; s <= 6; s++) await inspection(B, 'B', s, null);
     })(),
   ]);
 
   step('A finishes first');
+  await drained(A);
   await A.page.goto(APP);
   await A.page.getByRole('button', { name: words.finish }).tap();
   await A.page.getByText(words.finished).waitFor({ timeout: 15000 });
@@ -333,6 +359,7 @@ try {
   await A.page.getByText(words.finished).waitFor({ timeout: 15000 });
 
   step('B finishes: the results are out');
+  await drained(B);
   await B.page.goto(APP);
   await B.page.getByRole('button', { name: words.finish }).tap();
   await B.page.getByText(words.finished).waitFor({ timeout: 15000 });

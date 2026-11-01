@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* The MJSCC instructor evaluation. Greys from the user's mock; the seal's blue (the user's pick) for
+   a chosen score, the main buttons and done students. */
+@theme inline {
+  --font-sans: var(--font-carlito), var(--font-faruma), sans-serif;
+}
+
+@theme {
+  --color-ink: #111111;
+  /* the Instructor Platoon seal */
+  --color-seal: #233a9c;
+  /* the mock's grey bars and cards, their outline, and its back arrow and rule */
+  --color-bar: #d9d9d9;
+  --color-panel: #f2f2f2;
+  --color-edge: #d6d6d6;
+  --color-rule: #7f7f7f;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  /* Thaana reads best a little larger and looser than Latin */
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* A card coming in: the next one from the left (Dhivehi reads right to left, so what comes next
+   lies to the left), the previous one from the right. */
+@keyframes from-left {
+  from {
+    transform: translateX(-48px);
+    opacity: 0;
+  }
+}
+@keyframes from-right {
+  from {
+    transform: translateX(48px);
+    opacity: 0;
+  }
+}
+.enter-next {
+  animation: from-left 260ms var(--ease-soft);
+}
+.enter-back {
+  animation: from-right 260ms var(--ease-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-next,
+  .enter-back {
+    animation: none;
+  }
+}

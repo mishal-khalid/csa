@@ -4,6 +4,7 @@ node_modules
 !.env.example
 
 /src/generated/prisma
+/src/generated/mjscc
 
 # build output
 /dist

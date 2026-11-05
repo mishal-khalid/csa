@@ -112,10 +112,14 @@ export class EvaluationService {
     await this.db.inspectionNote.upsert({ where, create: { ...where.instructorId_student, text }, update: { text } });
   }
 
-  // Finish: only with every item of every student scored. Otherwise it answers what's missing.
+  // Finish: only with every item of every student scored, the inspection by anyone (each student's
+  // is done once, by whoever does it). Otherwise it answers what's missing.
   async finish(instructor: Instructor): Promise<Instructor> {
-    const scored = await this.db.score.findMany({ where: { instructorId: instructor.id }, select: { student: true, part: true, item: true } });
-    const have = new Set(scored.map((s) => `${s.student}:${s.part}:${s.item}`));
+    const [scored, inspected] = await Promise.all([
+      this.db.score.findMany({ where: { instructorId: instructor.id }, select: { student: true, part: true, item: true } }),
+      this.db.score.findMany({ where: { part: 'INSPECTION' }, select: { student: true, part: true, item: true } }),
+    ]);
+    const have = new Set([...scored, ...inspected].map((s) => `${s.student}:${s.part}:${s.item}`));
     const missing: { student: number; part: PartName; items: number[] }[] = [];
     for (let student = 1; student <= students.length; student++) {
       for (const [part, { items }] of Object.entries(parts) as [PartName, { items: number }][]) {

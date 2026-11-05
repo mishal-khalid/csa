@@ -28,12 +28,12 @@ async function signIn(name: string) {
   return [cookie!.split(';')[0]];
 }
 
-// every item of every student scored, straight into the database
-async function scoreEverything(name: string, value: (part: string) => number) {
+// every item of every student scored (or only the parts given), straight into the database
+const sizes = { THEORY: 40, DRILL: 27, COMMANDING: 3, INSPECTION: 1 } as const;
+async function scoreEverything(name: string, value: (part: string) => number, parts = Object.keys(sizes) as (keyof typeof sizes)[]) {
   const instructor = await db.instructor.findFirstOrThrow({ where: { name } });
-  const sizes = { THEORY: 40, DRILL: 27, COMMANDING: 3, INSPECTION: 1 } as const;
   const data = [1, 2, 3, 4, 5, 6].flatMap((student) =>
-    (Object.keys(sizes) as (keyof typeof sizes)[]).flatMap((part) =>
+    parts.flatMap((part) =>
       Array.from({ length: sizes[part] }, (_, i) => ({ instructorId: instructor.id, student, part, item: i + 1, value: value(part) })),
     ),
   );
@@ -159,6 +159,10 @@ describe('the evaluation', () => {
     expect(early.status).toBe(409);
     expect(early.body.code).toBe('incomplete');
     expect(early.body.missing[0]).toMatchObject({ student: 1, part: 'THEORY' });
+    // only Mish'al's student 1 has been inspected (above), and that counts for Ibrysam too
+    const inspectionsMissing = (res: { body: { missing: { part: string; student: number }[] } }) =>
+      res.body.missing.filter((m) => m.part === 'INSPECTION').map((m) => m.student);
+    expect(inspectionsMissing(await post('/mjscc/finish', {}, ibrysam))).toEqual([2, 3, 4, 5, 6]);
 
     // Mish'al: 2/3 on theory, 4/5 on the rest (overwriting what the test above scored)
     await scoreEverything("Mish'al", (part) => (part === 'THEORY' ? 2 : 4));
@@ -174,8 +178,14 @@ describe('the evaluation', () => {
     expect(alone.body.needed).toBe(2);
     expect(alone.body.instructors).toEqual([{ name: "Mish'al", finished: true, me: true }]);
 
-    // Ibrysam: full marks everywhere
-    await scoreEverything('Ibrysam', (part) => (part === 'THEORY' ? 3 : 5));
+    // Each student is inspected once, by whoever does it: Mish'al has inspected all six (and student
+    // 1 before that), so Ibrysam's Finish wants no inspection, only the rest.
+    const before = await post('/mjscc/finish', {}, ibrysam);
+    expect(before.body.code).toBe('incomplete');
+    expect(inspectionsMissing(before)).toEqual([]);
+
+    // Ibrysam: full marks everywhere, but no inspection
+    await scoreEverything('Ibrysam', (part) => (part === 'THEORY' ? 3 : 5), ['THEORY', 'DRILL', 'COMMANDING']);
 
     // Ibrysam hasn't finished, so Mish'al still sees only their own marks
     const waiting = await get('/mjscc/results', mishal);
@@ -199,6 +209,9 @@ describe('the evaluation', () => {
     expect(maahin.instructors[0].items.THEORY).toHaveLength(40);
     // (76 + 100) / 2
     expect(maahin.average.final).toBeCloseTo(88);
+    // the inspection is Mish'al's 4, not (4 + nothing) / 2
+    expect(maahin.instructors[1].result.inspection.scored).toBe(0);
+    expect(maahin.average.inspection.points).toBe(4);
 
     expect((await post('/mjscc/reopen', {}, mishal)).body.code).toBe('results_open');
 
@@ -279,7 +292,7 @@ describe('transcripts', () => {
     expect(t.student).toEqual({ number: 1, short: 'CPL. Maahin', rank: 'ކޕލ.', name: 'Student 1' });
     // Mish'al 80/120, Ibrysam 120/120 → 100 on average; the overall as on the results page
     expect(t.marks.theory).toEqual({ points: 100, max: 120, percent: expect.closeTo(83.33, 1) });
-    expect(t.marks.inspection.points).toBe(4.5);
+    expect(t.marks.inspection.points).toBe(4);
     expect(t.marks.final).toBeCloseTo(88);
     expect(t.issues).toEqual(['Boots not polished']);
     // in details.json's order; Haneen didn't come, Malsa isn't in it

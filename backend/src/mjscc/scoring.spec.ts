@@ -51,4 +51,18 @@ describe('the MJSCC marking', () => {
     expect(avg.inspection.points).toBeCloseTo(4.5);
     expect(average([])).toBeNull();
   });
+
+  it('takes the inspection from whoever did it', () => {
+    // b scored everything but the inspection, which a did
+    const a = evaluate(marks(84, 108, 9, 4));
+    const b = evaluate(marks(120, 135, 15, 5).filter((s) => s.part !== 'INSPECTION'));
+    expect(b.inspection.scored).toBe(0);
+    expect(b.complete).toBe(true);
+    const avg = average([a, b])!;
+    expect(avg.inspection.points).toBe(4);
+    expect(avg.final).toBeCloseTo(86.5);
+    expect(avg.complete).toBe(true);
+    // nobody inspected: no inspection, and not complete
+    expect(average([b])!.complete).toBe(false);
+  });
 });

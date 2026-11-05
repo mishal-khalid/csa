@@ -38,11 +38,14 @@ function Marks({ student }) {
   return results.open ? <Everyone s={s} transcripts={results.transcripts} /> : <Mine s={s} instructors={results.instructors} />;
 }
 
-// one part's line: points out of the maximum, and the percentage (the inspection, which doesn't count
-// towards the final, just its points)
+// The inspection: its points (it doesn't count towards the final), or a dash from an instructor who
+// didn't inspect this student (each student is inspected once, by whoever does it).
+const inspection = (p) => (p.scored ? one(p.points) : "–");
+
+// one part's line: points out of the maximum, and the percentage (the inspection, just its points)
 function partValue(part, r) {
   const p = r[KEYS[part]];
-  return part === "INSPECTION" ? `${one(p.points)} / ${p.max}` : `${one(p.points)} / ${p.max} · ${pct(p.percent)}`;
+  return part === "INSPECTION" ? `${inspection(p)} / ${p.max}` : `${one(p.points)} / ${p.max} · ${pct(p.percent)}`;
 }
 
 function Mine({ s, instructors }) {
@@ -79,7 +82,7 @@ function Mine({ s, instructors }) {
 function Everyone({ s, transcripts }) {
   const columns = [...s.instructors.map((i) => ({ name: i.name, r: i.result })), { name: words.average, r: s.average, average: true }];
   const cell = (part, r) =>
-    part === "INSPECTION" ? one(r.inspection.points) : part === "FINAL" ? pct(r.final) : pct(r[KEYS[part]].percent);
+    part === "INSPECTION" ? inspection(r.inspection) : part === "FINAL" ? pct(r.final) : pct(r[KEYS[part]].percent);
 
   return (
     <>

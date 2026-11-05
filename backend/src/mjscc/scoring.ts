@@ -4,8 +4,10 @@ import { COMMANDS_PER_STUDENT, drill, theory } from './content.js';
 // - every item is scored from 0: a theory answer up to 3, a drill movement, a command and the
 //   inspection up to 5;
 // - each part is a percentage of its maximum, and the final is 30% theory, 50% drill, 20% commanding;
-// - the inspection is scored (and must be, to finish) but doesn't count towards the final: the user
-//   took its bonus out on 2026-11-01.
+// - the inspection is scored but doesn't count towards the final: the user took its bonus out on
+//   2026-11-01;
+// - each student's inspection is done once, by whichever instructor does it (the user, 2026-11-05),
+//   so an instructor who didn't inspect a student has no inspection score for them.
 // Every instructor's final is worked out from their own scores; a student's overall is the average
 // of the instructors' finals.
 
@@ -41,7 +43,7 @@ export interface Result {
   commanding: PartResult;
   inspection: PartResult;
   final: number;
-  // every item scored
+  // every item scored (the inspection: by someone)
   complete: boolean;
 }
 
@@ -54,20 +56,20 @@ function part(name: PartName, scores: ItemScore[]): PartResult {
 }
 
 // One instructor's result for one student. Unscored items count as nothing yet, so a result in
-// progress only grows; `complete` says when it's whole.
+// progress only grows; `complete` says when it's whole (the inspection aside, being someone's).
 export function evaluate(scores: ItemScore[]): Result {
   const theoryPart = part('THEORY', scores);
   const drillPart = part('DRILL', scores);
   const commandingPart = part('COMMANDING', scores);
   const inspection = part('INSPECTION', scores);
-  const all = [theoryPart, drillPart, commandingPart, inspection];
+  const own = [theoryPart, drillPart, commandingPart];
   return {
     theory: theoryPart,
     drill: drillPart,
     commanding: commandingPart,
     inspection,
     final: weights.THEORY * theoryPart.percent + weights.DRILL * drillPart.percent + weights.COMMANDING * commandingPart.percent,
-    complete: all.every((p) => p.scored === p.items),
+    complete: own.every((p) => p.scored === p.items),
   };
 }
 
@@ -84,15 +86,17 @@ function averagePart(results: PartResult[]): PartResult {
 }
 
 // A student's average across the instructors: each part averaged, and the overall as the average of
-// the instructors' finals.
+// the instructors' finals. The inspection is averaged over the instructors who gave one (usually the
+// one who did it), not counted as 0 for the rest.
 export function average(results: Result[]): Result | null {
   if (!results.length) return null;
+  const inspected = results.filter((r) => r.inspection.scored > 0);
   return {
     theory: averagePart(results.map((r) => r.theory)),
     drill: averagePart(results.map((r) => r.drill)),
     commanding: averagePart(results.map((r) => r.commanding)),
-    inspection: averagePart(results.map((r) => r.inspection)),
+    inspection: averagePart((inspected.length ? inspected : results).map((r) => r.inspection)),
     final: mean(results.map((r) => r.final)),
-    complete: results.every((r) => r.complete),
+    complete: results.every((r) => r.complete) && inspected.length > 0,
   };
 }

@@ -11,7 +11,7 @@
 // (YYYYMMDDNN). Its place in the Gazette is worked out from that order (see `gazetted` below).
 
 export const types = [
-  { id: "framework", label: "Frameworks" },
+  { id: "law", label: "Laws" },
   { id: "circular", label: "Circulars" },
   { id: "mandate", label: "Executive mandates" },
   { id: "founding", label: "Founding documents" },
@@ -22,7 +22,7 @@ export const ssc = { id: "ssc", label: "Salaadheeb Salaamathee Council" };
 
 // each type's tag in the index row
 export const typeTags = {
-  framework: "Framework",
+  law: "Law",
   circular: "Circular",
   mandate: "Executive mandate",
   founding: "Founding document",
@@ -31,15 +31,29 @@ export const typeTags = {
 };
 
 const records = [
+  // Law No. 1/2026
   {
     index: "2026010101",
-    type: "framework",
+    type: "law",
     title: "Structural Framework of The Director’s Office",
     reference: "GZT/G1-2026",
     date: "2026-01-01",
     pdfs: [
       { label: "View PDF", href: "/gazette/2026010101.pdf" },
       { label: "View appendix", href: "/gazette/2026010101-appendix.pdf" },
+    ],
+  },
+  // Law No. 2/2026, issued by the Department of Economy and Trade. The PDF is the whole Gazette issue,
+  // appendices included; each appendix also has its own.
+  {
+    index: "2026110701",
+    type: "law",
+    title: "Public Bonds Companies Act",
+    reference: "Issue Number 2/2026",
+    date: "2026-11-07",
+    pdfs: [
+      { label: "View PDF", href: "/gazette/2026110701.pdf" },
+      ...[1, 2, 3, 4].map((n) => ({ label: `View appendix ${n}`, href: `/gazette/2026110701-appendix-${n}.pdf` })),
     ],
   },
   {

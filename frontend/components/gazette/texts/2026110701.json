@@ -1,0 +1,2758 @@
+{
+  "blocks": [
+    {
+      "type": "chapter",
+      "text": "First Chapter",
+      "subtitle": "Introduction"
+    },
+    {
+      "type": "article",
+      "number": "1",
+      "title": "Introduction and name",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Act establishes the CSA Public Companies Authority and sets out the legal framework under which companies serve as public beneficiary companies of the Continental Security Agency."
+        },
+        {
+          "label": "(b)",
+          "text": "This Act shall be cited as the \"Public Bonds Companies Act.\""
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "2",
+      "title": "Purpose",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The main purposes of this Act are:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "to establish the CSA Public Companies Authority as the regulatory body of the CSA for Public Bonds Companies;"
+            },
+            {
+              "label": "(2)",
+              "text": "to provide for the placement of companies under the jurisdiction of the CSA, and for the shareholding of the CSA in those companies;"
+            },
+            {
+              "label": "(3)",
+              "text": "to set out the structure and governance of the Boards of Public Bonds Companies;"
+            },
+            {
+              "label": "(4)",
+              "text": "to govern the finance, funding, oversight and reporting of Public Bonds Companies;"
+            },
+            {
+              "label": "(5)",
+              "text": "to set out the requirements for compliance and the measures taken for breaches;"
+            },
+            {
+              "label": "(6)",
+              "text": "to provide for the withdrawal and dissolution of Public Bonds Companies; and"
+            },
+            {
+              "label": "(7)",
+              "text": "to ensure that Public Bonds Companies are governed transparently and accountably, and operate for the public benefit of the CSA."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "3",
+      "title": "Scope and application",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Act applies to:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "the CSA Public Companies Authority and the PCA Board;"
+            },
+            {
+              "label": "(2)",
+              "text": "every Public Bonds Company;"
+            },
+            {
+              "label": "(3)",
+              "text": "every subcompany, agency, body and institution under a Public Bonds Company; and"
+            },
+            {
+              "label": "(4)",
+              "text": "every director, officer, member of personnel, shareholder and member of the companies and bodies mentioned in this Article’s (a) (2) and (3)"
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "This Act applies to a Public Bonds Company wherever it is incorporated or operates."
+        },
+        {
+          "label": "(c)",
+          "text": "This Act does not apply to a company that has not been placed under the Authority, except for private educational institutions receiving funding under Article 53 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "4",
+      "title": "Relationship with other laws",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Act shall be read together with the Constitution of the Continental Security Agency and with the laws, regulations and guidelines of the Continental Security Agency."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company incorporated under the laws of any state or nation remains subject to those laws. This Act applies in addition to them."
+        },
+        {
+          "label": "(c)",
+          "text": "Where the Articles of Association, Memorandum of Association or bylaws of a Public Bonds Company are inconsistent with this Act, this Act prevails, and the inconsistent provision has no effect to the extent of the inconsistency."
+        },
+        {
+          "label": "(d)",
+          "text": "Where an earlier instrument of the Continental Security Agency is inconsistent with this Act on a matter within its scope, this Act prevails."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Second Chapter",
+      "subtitle": "The Public Companies Authority"
+    },
+    {
+      "type": "article",
+      "number": "5",
+      "title": "Establishment",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The CSA Public Companies Authority (PCA) is hereby established."
+        },
+        {
+          "label": "(b)",
+          "text": "The Authority sits under the Department of Economy and Trade, with the same rank as the other departments of the Department of Economy and Trade."
+        },
+        {
+          "label": "(c)",
+          "text": "The Cabinet vests in the Authority jurisdiction, legal powers and executive powers over all Public Bonds Companies, and over the subcompanies, agencies, bodies and institutions under them."
+        },
+        {
+          "label": "(d)",
+          "text": "The Authority is the regulatory body of the CSA for Public Bonds Companies."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "6",
+      "title": "Seat",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The seat of the Authority is in New York City, New York."
+        },
+        {
+          "label": "(b)",
+          "text": "The PCA Board may hold its meetings at any place within the jurisdiction of the CSA."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "7",
+      "title": "Functions",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority shall:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "regulate, monitor and evaluate Public Bonds Companies;"
+            },
+            {
+              "label": "(2)",
+              "text": "keep the Register of Public Bonds Companies, and register the seals of Public Bonds Companies and the businesses registered under them;"
+            },
+            {
+              "label": "(3)",
+              "text": "issue, renew and suspend Public Bonds Company Licences and Business Licences under the Sixth Chapter of this Act;"
+            },
+            {
+              "label": "(4)",
+              "text": "issue profile sheets under Article 24 of this Act;"
+            },
+            {
+              "label": "(5)",
+              "text": "ensure that Public Bonds Companies comply with this Act, the Constitution of the CSA, and the laws, regulations and guidelines of the CSA;"
+            },
+            {
+              "label": "(6)",
+              "text": "issue the Corporate Governance Code, the Board Code of Conduct and PCA Policies;"
+            },
+            {
+              "label": "(7)",
+              "text": "receive, review and act on the reports of Public Bonds Companies;"
+            },
+            {
+              "label": "(8)",
+              "text": "appoint Company Secretaries under Article 43 of this Act;"
+            },
+            {
+              "label": "(9)",
+              "text": "receive the submissions of Public Bonds Companies and pass them on under Article 19 of this Act;"
+            },
+            {
+              "label": "(10)",
+              "text": "advise the Director on the appointment and removal of Boards, and on the placement, withdrawal and dissolution of companies;"
+            },
+            {
+              "label": "(11)",
+              "text": "take measures for breaches under the Eleventh Chapter of this Act; and"
+            },
+            {
+              "label": "(12)",
+              "text": "report to the Department of Economy and Trade, the Cabinet and the Continental Assembly under the Tenth Chapter of this Act."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "8",
+      "title": "Powers",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "In carrying out its functions, the Authority may:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "request any information, record or document from a Public Bonds Company;"
+            },
+            {
+              "label": "(2)",
+              "text": "inspect the premises, records and accounts of a Public Bonds Company;"
+            },
+            {
+              "label": "(3)",
+              "text": "issue directions to a Public Bonds Company to comply with this Act;"
+            },
+            {
+              "label": "(4)",
+              "text": "approve or refuse borrowing under Article 55 of this Act;"
+            },
+            {
+              "label": "(5)",
+              "text": "suspend licences under Article 30 of this Act;"
+            },
+            {
+              "label": "(6)",
+              "text": "take measures under Article 61 of this Act; and"
+            },
+            {
+              "label": "(7)",
+              "text": "do anything else necessary to carry out its functions under this Act."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "The powers of the Authority are exercised by the PCA Board, or by the President or the Secretary General where the PCA Board so delegates."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "9",
+      "title": "Industries",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority has the following industries:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "Aviation & Airport Operation;"
+            },
+            {
+              "label": "(2)",
+              "text": "Banking and Finance;"
+            },
+            {
+              "label": "(3)",
+              "text": "Business Development;"
+            },
+            {
+              "label": "(4)",
+              "text": "Courier Service;"
+            },
+            {
+              "label": "(5)",
+              "text": "Education;"
+            },
+            {
+              "label": "(6)",
+              "text": "General Trading;"
+            },
+            {
+              "label": "(7)",
+              "text": "Hajj Operation;"
+            },
+            {
+              "label": "(8)",
+              "text": "Marketing and Media;"
+            },
+            {
+              "label": "(9)",
+              "text": "National Health Insurance;"
+            },
+            {
+              "label": "(10)",
+              "text": "Pharmaceutical & Medical Supplies;"
+            },
+            {
+              "label": "(11)",
+              "text": "Ports Operation;"
+            },
+            {
+              "label": "(12)",
+              "text": "Real Estate & Urban Development;"
+            },
+            {
+              "label": "(13)",
+              "text": "Telecommunication;"
+            },
+            {
+              "label": "(14)",
+              "text": "Tourism;"
+            },
+            {
+              "label": "(15)",
+              "text": "Transport and Contracting; and"
+            },
+            {
+              "label": "(16)",
+              "text": "Utility."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "Each Public Bonds Company falls under one or more industries, as stated in its mandate and recorded in the Register."
+        },
+        {
+          "label": "(c)",
+          "text": "The Director may add or remove industries by an instrument published in the CSA Gazette."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Third Chapter",
+      "subtitle": "The PCA Board"
+    },
+    {
+      "type": "article",
+      "number": "10",
+      "title": "Composition",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority is led by the PCA Board."
+        },
+        {
+          "label": "(b)",
+          "text": "The PCA Board is composed of seven members: the President, the Vice President and five Members."
+        },
+        {
+          "label": "(c)",
+          "text": "Each of the five Members shall hold the title “Member of the PCA Board.”"
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "11",
+      "title": "Appointment and appeal",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The President, the Vice President and the five Members are appointed by the Director."
+        },
+        {
+          "label": "(b)",
+          "text": "The Continental Assembly may appeal the appointment of the President. The procedure for an appeal is governed by the rules of the Continental Assembly."
+        },
+        {
+          "label": "(c)",
+          "text": "Appointments to the PCA Board are published in the CSA Gazette."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "12",
+      "title": "Tenure and vacancies",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Members of the PCA Board hold office without a fixed term, until reappointment by the Director."
+        },
+        {
+          "label": "(b)",
+          "text": "A member of the PCA Board may resign by written notice to the Director."
+        },
+        {
+          "label": "(c)",
+          "text": "Where a position on the PCA Board becomes vacant, the Director shall appoint a person to fill it."
+        },
+        {
+          "label": "(d)",
+          "text": "Where the office of President is vacant, the Vice President acts as President until an appointment is made."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "13",
+      "title": "Eligibility and disqualification",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A person appointed to the PCA Board shall have knowledge or experience in business, finance, economics, law or public administration."
+        },
+        {
+          "label": "(b)",
+          "text": "A person may not be a member of the PCA Board while serving on the Board of a Public Bonds Company."
+        },
+        {
+          "label": "(c)",
+          "text": "A person may not be a member of the PCA Board while holding shares in a Public Bonds Company, unless the holding has been declared to and approved by the Director."
+        },
+        {
+          "label": "(d)",
+          "text": "A person found by the Authority to have committed a breach under Article 60 of this Act may not be appointed to the PCA Board for the period set by PCA Policies."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "14",
+      "title": "Duties of the President and the Vice President",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The President leads the Authority and chairs the meetings of the PCA Board."
+        },
+        {
+          "label": "(b)",
+          "text": "The President represents the Authority before the DET, the Cabinet, the Continental Assembly and other bodies."
+        },
+        {
+          "label": "(c)",
+          "text": "The President is responsible for the quarterly reports of the Authority under Article 57 of this Act."
+        },
+        {
+          "label": "(d)",
+          "text": "The Vice President assists the President, and acts as President when the President is absent or unable to act, or when the office of President is vacant."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "15",
+      "title": "Meetings, quorum and voting",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The PCA Board shall meet at least once each quarter."
+        },
+        {
+          "label": "(b)",
+          "text": "The quorum for a meeting of the PCA Board is five members."
+        },
+        {
+          "label": "(c)",
+          "text": "Decisions of the PCA Board are made by a simple majority of the members present and voting."
+        },
+        {
+          "label": "(d)",
+          "text": "Where the votes are equal, the person chairing the meeting has a casting vote."
+        },
+        {
+          "label": "(e)",
+          "text": "Other procedures of the PCA Board are governed by PCA Policies."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "16",
+      "title": "Conflicts of interest",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A member of the PCA Board who has a personal, financial or family interest in a matter before the PCA Board shall declare that interest before the matter is considered."
+        },
+        {
+          "label": "(b)",
+          "text": "The member shall not take part in the discussion of, or vote on, that matter."
+        },
+        {
+          "label": "(c)",
+          "text": "The declaration shall be recorded in the minutes of the meeting."
+        },
+        {
+          "label": "(d)",
+          "text": "A member who fails to declare an interest may be removed by the Director."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Fourth Chapter",
+      "subtitle": "Administration of the Authority"
+    },
+    {
+      "type": "article",
+      "number": "17",
+      "title": "Secretary General of the Authority",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority has a Secretary General, who heads the Secretariat of the Authority."
+        },
+        {
+          "label": "(b)",
+          "text": "The Secretary General is appointed by the President and is not a member of the PCA Board."
+        },
+        {
+          "label": "(c)",
+          "text": "The Secretary General manages the daily administration of the Authority, keeps the Register, issues profile sheets, signs Public Bonds Company Licences and Business Licences, keeps the records and minutes of the PCA Board, and carries out the decisions of the PCA Board."
+        },
+        {
+          "label": "(d)",
+          "text": "The Secretary General attends the meetings of the PCA Board without a vote."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "18",
+      "title": "Staff of the Authority",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority may employ the staff necessary to carry out its functions."
+        },
+        {
+          "label": "(b)",
+          "text": "Staff of the Authority work Continental Security Service and fall under the jurisdiction of the CSA Human Resources Commission."
+        },
+        {
+          "label": "(c)",
+          "text": "Staff of the Authority shall keep confidential any information obtained in the course of their work, except where disclosure is required by law. The disclosure of confidential information will be governed by the Department of Internal Affairs and the Department of Justice."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "19",
+      "title": "Chain of command",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Submissions by a Public Bonds Company to the Director under this Act shall follow the chain of command: from the Public Bonds Company to the Authority, from the Authority to the DET, and from the DET to the Director."
+        },
+        {
+          "label": "(b)",
+          "text": "The DET may refer a submission to the Cabinet before it reaches the Director. The involvement of the Cabinet is not required."
+        },
+        {
+          "label": "(c)",
+          "text": "The decision of the Director on a submission is returned to the Public Bonds Company through the same chain of command."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Fifth Chapter",
+      "subtitle": "Public Bonds Companies"
+    },
+    {
+      "type": "article",
+      "number": "20",
+      "title": "Status as subsidiaries of the CSA",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company acts as a subsidiary of the CSA."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company is a public beneficiary company of the CSA and shall operate for public benefit."
+        },
+        {
+          "label": "(c)",
+          "text": "A Public Bonds Company is under the jurisdiction, legal powers and executive powers of the Authority."
+        },
+        {
+          "label": "(d)",
+          "text": "A Public Bonds Company remains a separate legal person and is responsible for its own debts and obligations."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "21",
+      "title": "Naming",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall carry the suffix “CPbc.” in its name."
+        },
+        {
+          "label": "(b)",
+          "text": "Every subcompany of a Public Bonds Company shall carry the suffix “CPbc.” in its name."
+        },
+        {
+          "label": "(c)",
+          "text": "Associated bodies, including businesses registered under a Public Bonds Company, do not carry the suffix “CPbc.”"
+        },
+        {
+          "label": "(d)",
+          "text": "A Public Bonds Company may keep any suffix required by the law under which it is incorporated, placed after “CPbc.”, such as “CPbc. LLC” or “CPbc. Ltd.”."
+        },
+        {
+          "label": "(e)",
+          "text": "A company that is not a Public Bonds Company may not use the suffix “CPbc.” or present itself as a Public Bonds Company."
+        },
+        {
+          "label": "(f)",
+          "text": "A company ceases to use the suffix on withdrawal or dissolution under the Twelfth Chapter of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "22",
+      "title": "Placement by mandate",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A company is placed under the Authority by a mandate signed by the Director."
+        },
+        {
+          "label": "(b)",
+          "text": "A mandate shall state:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "the name of the company and its new name with the suffix “CPbc.”;"
+            },
+            {
+              "label": "(2)",
+              "text": "the law under which the company is incorporated;"
+            },
+            {
+              "label": "(3)",
+              "text": "its industry or industries and its Sector Department;"
+            },
+            {
+              "label": "(4)",
+              "text": "its member companies, subcompanies and associated bodies, if any;"
+            },
+            {
+              "label": "(5)",
+              "text": "the shareholding of the CSA;"
+            },
+            {
+              "label": "(6)",
+              "text": "whether the company may have a Chairperson under Article 38 of this Act;"
+            },
+            {
+              "label": "(7)",
+              "text": "whether the company may appoint its own Board under Article 46 of this Act; and"
+            },
+            {
+              "label": "(8)",
+              "text": "the date on which the placement takes effect."
+            }
+          ]
+        },
+        {
+          "label": "(c)",
+          "text": "A mandate is published in the CSA Gazette."
+        },
+        {
+          "label": "(d)",
+          "text": "On placement, the independence of the company is overridden, and the company and all its directors, personnel and members fall under the jurisdiction of the Authority."
+        },
+        {
+          "label": "(e)",
+          "text": "A company placed under the Authority shall obtain a Public Bonds Company Licence under Article 28 of this Act."
+        },
+        {
+          "label": "(f)",
+          "text": "A sample mandate is set out in Appendix 1 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "23",
+      "title": "Register of Public Bonds Companies",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority shall keep a Register of Public Bonds Companies."
+        },
+        {
+          "label": "(b)",
+          "text": "The Register shall record, for each Public Bonds Company, the details set out in Appendix 2 of this Act, including its licence, its registered seal, its subcompanies, its associated bodies and the businesses registered under it."
+        },
+        {
+          "label": "(c)",
+          "text": "Businesses registered under a Public Bonds Company shall be recorded separately from its subcompanies, so that each is clearly identified as a business and not as a Public Bonds Company."
+        },
+        {
+          "label": "(d)",
+          "text": "A Public Bonds Company shall notify the Authority of any change to its registered details within the period set by PCA Policies."
+        },
+        {
+          "label": "(e)",
+          "text": "The Register is kept by the Secretary General."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "24",
+      "title": "Profile sheets",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "At the request of a Public Bonds Company, the Secretary General shall issue a profile sheet setting out the details recorded for the company in the Register."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company may submit its profile sheet to institutions, nationally or internationally, to validate its presence as a company."
+        },
+        {
+          "label": "(c)",
+          "text": "A profile sheet shows the details recorded in the Register on the date on which it is issued."
+        },
+        {
+          "label": "(d)",
+          "text": "A sample profile sheet is set out in Appendix 4 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "25",
+      "title": "Registered seal",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall register its company seal with the Authority."
+        },
+        {
+          "label": "(b)",
+          "text": "The registered seal is recorded in the Register and shown on the profile sheet of the company."
+        },
+        {
+          "label": "(c)",
+          "text": "Where this Act requires a document to be submitted under the seal of a Public Bonds Company, the document shall bear its registered seal."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "26",
+      "title": "Sector Departments",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Each Public Bonds Company falls under the sector of the Department of the CSA responsible for its industry, as stated in its mandate."
+        },
+        {
+          "label": "(b)",
+          "text": "The Sector Department sets policy for the sector in which the company operates. The jurisdiction of the Authority over the company is not affected."
+        },
+        {
+          "label": "(c)",
+          "text": "For example, an educational Public Bonds Company falls under the Department of Education, and a medical or pharmaceutical Public Bonds Company falls under the Department of Health and Welfare."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "27",
+      "title": "Subcompanies, associated bodies and businesses",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every subcompany and associated body of a Public Bonds Company falls under the jurisdiction of the Authority."
+        },
+        {
+          "label": "(b)",
+          "text": "A member company of a group of companies placed under the Authority, and every subcompany of a Public Bonds Company, is itself a Public Bonds Company."
+        },
+        {
+          "label": "(c)",
+          "text": "A business registered under a Public Bonds Company is an associated body. It is not a company and is not a Public Bonds Company."
+        },
+        {
+          "label": "(d)",
+          "text": "A business is registered under a Public Bonds Company by a Business Licence under Article 33 of this Act."
+        },
+        {
+          "label": "(e)",
+          "text": "A Public Bonds Company shall notify the Authority before it establishes or acquires a subcompany or associated body."
+        },
+        {
+          "label": "(f)",
+          "text": "This Act applies to subcompanies and associated bodies in the same way as it applies to Public Bonds Companies, unless this Act states otherwise."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Sixth Chapter",
+      "subtitle": "Licensing"
+    },
+    {
+      "type": "article",
+      "number": "28",
+      "title": "Public Bonds Company Licence",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall hold a Public Bonds Company Licence."
+        },
+        {
+          "label": "(b)",
+          "text": "Licensing is handled by the Authority. A licence is issued by the Authority and signed by the Secretary of Economy and Trade and the Secretary General."
+        },
+        {
+          "label": "(c)",
+          "text": "In this Chapter, a reference to the Secretary of Economy and Trade includes any person acting in that position or holding it on an interim basis."
+        },
+        {
+          "label": "(d)",
+          "text": "An application for a licence is made to the Authority under the registered seal of the company."
+        },
+        {
+          "label": "(e)",
+          "text": "A Public Bonds Company may not operate without a valid licence."
+        },
+        {
+          "label": "(f)",
+          "text": "The licence number, its term and its status are recorded in the Register and shown on the profile sheet of the company."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "29",
+      "title": "Term and renewal of a licence",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company Licence follows the administrative terms of the CSA, and expires at the end of the administrative term in which it is issued."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company shall renew its licence for the next administrative term, within the period set by PCA Policies."
+        },
+        {
+          "label": "(c)",
+          "text": "A renewed licence is valid for the whole of the next administrative term."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "30",
+      "title": "Suspension of a licence",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Public Bonds Company Licence may be suspended by the Authority or by the Secretary of Economy and Trade."
+        },
+        {
+          "label": "(b)",
+          "text": "When the licence of a company is suspended, its Board is suspended. When the Board of a company is suspended, its licence is suspended."
+        },
+        {
+          "label": "(c)",
+          "text": "During the suspension, the company works under the PCA Board."
+        },
+        {
+          "label": "(d)",
+          "text": "The PCA Board may appoint a board, on its behalf, to manage the suspended company and to act as its Board during the suspension."
+        },
+        {
+          "label": "(e)",
+          "text": "The suspension ends when it is lifted by the Authority or by the Secretary of Economy and Trade, whichever suspended the licence."
+        },
+        {
+          "label": "(f)",
+          "text": "Suspensions are recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "31",
+      "title": "Revocation of a licence",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Public Bonds Company Licence may be revoked only by the Secretary of Economy and Trade."
+        },
+        {
+          "label": "(b)",
+          "text": "The Authority may recommend the revocation of a licence to the Secretary of Economy and Trade."
+        },
+        {
+          "label": "(c)",
+          "text": "A company whose licence is revoked may not operate as a Public Bonds Company. The Director shall then declare its withdrawal or dissolution under the Twelfth Chapter of this Act."
+        },
+        {
+          "label": "(d)",
+          "text": "Revocations are recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "32",
+      "title": "Disqualification of Board members",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Where the licence of a company is suspended or revoked, the Authority, the DET or the Director may, at their discretion, bar any member of the Board of that company from being registered or acting as a board member of another company."
+        },
+        {
+          "label": "(b)",
+          "text": "The period of a bar is set by the body that imposes it."
+        },
+        {
+          "label": "(c)",
+          "text": "Bars are recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "33",
+      "title": "Business Licence",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A business may be registered under a Public Bonds Company only with a Business Licence."
+        },
+        {
+          "label": "(b)",
+          "text": "A Business Licence is issued by the Authority and signed by the Secretary General only."
+        },
+        {
+          "label": "(c)",
+          "text": "A Business Licence is valid for a fixed term of five years from the date on which it is issued, and may be renewed."
+        },
+        {
+          "label": "(d)",
+          "text": "A Business Licence may be suspended by the Authority or by the Secretary of Economy and Trade, and may be revoked only by the Secretary of Economy and Trade."
+        },
+        {
+          "label": "(e)",
+          "text": "A business does not carry the suffix “CPbc.” and is recorded in the Register under the Public Bonds Company under which it is registered."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Seventh Chapter",
+      "subtitle": "Shareholding"
+    },
+    {
+      "type": "article",
+      "number": "34",
+      "title": "Shareholding of the CSA",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The CSA holds 50% of the shares of every Public Bonds Company."
+        },
+        {
+          "label": "(b)",
+          "text": "The CSA is the principal shareholder of every Public Bonds Company. Where another shareholder holds an equal number of shares, the CSA is treated as the principal shareholder."
+        },
+        {
+          "label": "(c)",
+          "text": "The rights attached to the shares of the CSA are exercised by the Shares Representative under Article 39 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "35",
+      "title": "Remaining shares",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The distribution of the remaining 50% of the shares of a Public Bonds Company is at the discretion of the company."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company shall record the holders of its remaining shares and notify the Authority of them, and of any change, for entry in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "36",
+      "title": "Transfer of the CSA’s shares",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The shares of the CSA in a Public Bonds Company may not be sold, transferred, pledged or otherwise disposed of without the written approval of the Director."
+        },
+        {
+          "label": "(b)",
+          "text": "Any transfer of the shares of the CSA is recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Eighth Chapter",
+      "subtitle": "Boards of Public Bonds Companies"
+    },
+    {
+      "type": "article",
+      "number": "37",
+      "title": "Composition and order of the Board",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Board of every Public Bonds Company is composed of, in the following order:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "the Chairperson or Founder, where approved under Article 38 of this Act;"
+            },
+            {
+              "label": "(2)",
+              "text": "the Managing Director;"
+            },
+            {
+              "label": "(3)",
+              "text": "the Deputy Managing Director;"
+            },
+            {
+              "label": "(4)",
+              "text": "the Chief Executive Officer;"
+            },
+            {
+              "label": "(5)",
+              "text": "the Board Directors; and"
+            },
+            {
+              "label": "(6)",
+              "text": "the Company Secretary."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "There is no minimum or maximum number of Board Directors that may be appointed."
+        },
+        {
+          "label": "(c)",
+          "text": "Every member of the Board may vote on matters before the Board."
+        },
+        {
+          "label": "(d)",
+          "text": "Where no Chairperson is approved, the Managing Director is the highest position in the organizational structure of the company."
+        },
+        {
+          "label": "(e)",
+          "text": "Where a Board is appointed by the company under Article 46 of this Act, the titles and positions approved by the Director apply in place of those in (a) of this Article."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "38",
+      "title": "Chairperson or Founder",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Public Bonds Company may have a Chairperson only with the explicit approval of the Director, given in its mandate or in a separate written instrument."
+        },
+        {
+          "label": "(b)",
+          "text": "The Chairperson is the founder of the company. The position may be titled \"Chairperson\" or \"Founder\"."
+        },
+        {
+          "label": "(c)",
+          "text": "Where approved, the Chairperson is the highest position in the organizational structure of the company."
+        },
+        {
+          "label": "(d)",
+          "text": "The Chairperson is not required to attend meetings of the Board. When attending, the Chairperson may vote."
+        },
+        {
+          "label": "(e)",
+          "text": "Where the Chairperson is absent, or where there is no Chairperson, the Managing Director chairs meetings of the Board."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "39",
+      "title": "Managing Director and Shares Representative",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The CSA, as principal shareholder, is in law the Managing Director of every Public Bonds Company."
+        },
+        {
+          "label": "(b)",
+          "text": "The Director shall appoint a person to the Board as Managing Director, to represent the CSA and its shares. In this capacity, the Managing Director is the Shares Representative."
+        },
+        {
+          "label": "(c)",
+          "text": "The Managing Director is a non-executive member of the Board."
+        },
+        {
+          "label": "(d)",
+          "text": "When acting for the shares of the CSA, the Shares Representative may, at their discretion, cast the vote attached to those shares and veto a resolution of the Board or of the shareholders."
+        },
+        {
+          "label": "(e)",
+          "text": "The Shares Representative exercises the rights of the CSA as shareholder at general meetings of the company, and acts on the directions of the Director in matters concerning the shares of the CSA."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "40",
+      "title": "Deputy Managing Director",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Director shall appoint a Deputy Managing Director to the Board of every Public Bonds Company, except where the Deputy Managing Director is appointed under Article 46 of this Act."
+        },
+        {
+          "label": "(b)",
+          "text": "The Deputy Managing Director assists the Managing Director, and acts as Managing Director when the Managing Director is absent or unable to act."
+        },
+        {
+          "label": "(c)",
+          "text": "The Deputy Managing Director is a non-executive member of the Board."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "41",
+      "title": "Chief Executive Officer",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company has a Chief Executive Officer, who runs the company."
+        },
+        {
+          "label": "(b)",
+          "text": "The Chief Executive Officer is the only officer of the company and is responsible for its day-to-day management."
+        },
+        {
+          "label": "(c)",
+          "text": "The Chief Executive Officer is an executive member of the Board and is accountable to the Board."
+        },
+        {
+          "label": "(d)",
+          "text": "The Chief Executive Officer carries out the decisions of the Board and reports to it on the performance and operations of the company."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "42",
+      "title": "Board Directors",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Board Director may hold a specialization corresponding to an officer function, such as finance, operations, technology, legal affairs or human resources, and is titled accordingly, such as \"Director of Finance\", “Director, Finance” or any other interpretations."
+        },
+        {
+          "label": "(b)",
+          "text": "Board Directors with a specialization take the place of officers other than the Chief Executive Officer, such as a chief financial officer or a chief operating officer."
+        },
+        {
+          "label": "(c)",
+          "text": "A Board Director with a specialization is an executive member of the Board and reports to the Chief Executive Officer on matters within that specialization."
+        },
+        {
+          "label": "(d)",
+          "text": "A Board Director without a specialization is a non-executive member of the Board."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "43",
+      "title": "Company Secretary",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company has a Company Secretary, appointed:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "by the Director; or"
+            },
+            {
+              "label": "(2)",
+              "text": "by the Authority, with the signed approval of the Director."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "The Company Secretary is always appointed under (a) of this Article, including where the Board is appointed by the company under Article 46 of this Act."
+        },
+        {
+          "label": "(c)",
+          "text": "The Company Secretary is the representative of the CSA on the Board, and is a separate position from the Shares Representative."
+        },
+        {
+          "label": "(d)",
+          "text": "The Company Secretary shall:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "ensure that the company, and every subcompany and associated body under it, follows the Constitution of the CSA and keeps up with the laws, regulations and guidelines of the CSA;"
+            },
+            {
+              "label": "(2)",
+              "text": "ensure that the company complies with this Act, the Corporate Governance Code, the Board Code of Conduct and PCA Policies;"
+            },
+            {
+              "label": "(3)",
+              "text": "prepare the annual report of the company and submit it to the Authority under Article 58 of this Act;"
+            },
+            {
+              "label": "(4)",
+              "text": "keep the minutes of meetings of the Board and the statutory records of the company; and"
+            },
+            {
+              "label": "(5)",
+              "text": "report to the Authority any breach of which they become aware."
+            }
+          ]
+        },
+        {
+          "label": "(e)",
+          "text": "The Company Secretary is a non-executive member of the Board."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "44",
+      "title": "Executive and non-executive members",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The executive members of the Board are the Chief Executive Officer and the Board Directors with a specialization."
+        },
+        {
+          "label": "(b)",
+          "text": "The non-executive members of the Board are the Chairperson, the Managing Director, the Deputy Managing Director, the Company Secretary and the Board Directors without a specialization."
+        },
+        {
+          "label": "(c)",
+          "text": "A non-executive member does not take part in the day-to-day management of the company, but has the same right to vote as an executive member."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "45",
+      "title": "Appointment and tenure",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Members of the Board of a Public Bonds Company, and of the boards and governing bodies of its subcompanies and associated bodies, are appointed by the Director, except for:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "the Chairperson, who holds office with the approval of the Director under Article 38 of this Act;"
+            },
+            {
+              "label": "(2)",
+              "text": "the Company Secretary, who is appointed under Article 43 of this Act; and"
+            },
+            {
+              "label": "(3)",
+              "text": "members appointed by the company under Article 46 of this Act."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "Members of the Board hold office without a fixed term, until reappointment by the Director."
+        },
+        {
+          "label": "(c)",
+          "text": "A member of the Board may resign by written notice to the Director, with a copy to the Authority."
+        },
+        {
+          "label": "(d)",
+          "text": "Appointments, resignations and removals are recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "46",
+      "title": "Board appointed by the company",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "At the discretion of the Director, a Public Bonds Company may appoint its own Board."
+        },
+        {
+          "label": "(b)",
+          "text": "Where the Director allows this, the Director shall appoint the Chairperson, where there is one, and the Managing Director."
+        },
+        {
+          "label": "(c)",
+          "text": "The Director may give the Managing Director the discretion to appoint the rest of the Board, including the Deputy Managing Director, the Chief Executive Officer and the Board Directors."
+        },
+        {
+          "label": "(d)",
+          "text": "The company may set titles and positions for its Board that differ from those in Article 37 (a) of this Act."
+        },
+        {
+          "label": "(e)",
+          "text": "Where a Board is appointed, changed or made different under this Article, its titles, positions and members must be approved by the Director. To obtain approval, the company shall submit:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "a written document under the registered seal of the company;"
+            },
+            {
+              "label": "(2)",
+              "text": "the composition of the Board; and"
+            },
+            {
+              "label": "(3)",
+              "text": "information on each member, such as a curriculum vitae."
+            }
+          ]
+        },
+        {
+          "label": "(f)",
+          "text": "The submission under (e) of this Article is made through the chain of command under Article 19 of this Act."
+        },
+        {
+          "label": "(g)",
+          "text": "The Company Secretary is appointed under Article 43 of this Act and not under this Article."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "47",
+      "title": "Transition of current directors",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "When a company is placed under the Authority, its current directors remain in office until a new Board is appointed under this Chapter."
+        },
+        {
+          "label": "(b)",
+          "text": "During this period, the directors shall prepare the company for transition, including the handover of its records, accounts and assets to the new board."
+        },
+        {
+          "label": "(c)",
+          "text": "During this period, the current directors shall not take decisions outside the ordinary course of business without the approval of the Authority."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "48",
+      "title": "Duties of the Board",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Board shall:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "act in good faith in the interests of the company and the public benefit of the CSA;"
+            },
+            {
+              "label": "(2)",
+              "text": "set the strategy of the company and approve its annual plan and budget;"
+            },
+            {
+              "label": "(3)",
+              "text": "oversee the Chief Executive Officer and its management of the company;"
+            },
+            {
+              "label": "(4)",
+              "text": "ensure that the company keeps proper accounts and that its financial statements are audited under Article 54 of this Act;"
+            },
+            {
+              "label": "(5)",
+              "text": "ensure compliance with this Act, the Corporate Governance Code, the Board Code of Conduct and PCA Policies; and"
+            },
+            {
+              "label": "(6)",
+              "text": "cooperate with the Authority and provide information it requests."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "Article 16 of this Act applies to members of a Board in the same way as it applies to members of the PCA Board, with the declaration made to the Board and recorded by the Company Secretary."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "49",
+      "title": "Articles of Association and bylaws",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall have Articles of Association, a Memorandum of Association or bylaws."
+        },
+        {
+          "label": "(b)",
+          "text": "The quorum, voting, meetings and other procedures of the Board are determined by the Articles of Association, the Memorandum of Association or the bylaws of the company."
+        },
+        {
+          "label": "(c)",
+          "text": "These documents shall be consistent with this Act and shall be lodged with the Authority. Any amendment shall be lodged with the Authority within the period set by PCA Policies."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "50",
+      "title": "Governance and conduct codes",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority shall issue a Corporate Governance Code for Public Bonds Companies and a Board Code of Conduct for members of Boards."
+        },
+        {
+          "label": "(b)",
+          "text": "Every Public Bonds Company and every member of its Board shall comply with these codes."
+        },
+        {
+          "label": "(c)",
+          "text": "A failure to comply with these codes is a breach under Article 60 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Ninth Chapter",
+      "subtitle": "Finance and Funding"
+    },
+    {
+      "type": "article",
+      "number": "51",
+      "title": "Profits",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The CSA’s share of the profits of every Public Bonds Company is paid to the Department of Economy and Trade."
+        },
+        {
+          "label": "(b)",
+          "text": "The remainder of the profit is distributed in accordance with the Articles of Association, the Memorandum of Association or the bylaws of the company."
+        },
+        {
+          "label": "(c)",
+          "text": "Payments under (a) of this Article shall be made within the period set by PCA Policies."
+        },
+        {
+          "label": "(d)",
+          "text": "Receipts, invoice, bill or any other record of payment made to the Department of Economy and Trade must be also shared with the PCA."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "52",
+      "title": "Confidentiality of funding",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Details of the funding of Public Bonds Companies are confidential and not subject to disclosure."
+        },
+        {
+          "label": "(b)",
+          "text": "(a) of this Article does not prevent disclosure to the Director, the Cabinet, the DET or the Authority, or to the Continental Assembly in its oversight of the Authority."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "53",
+      "title": "Funding of educational institutions",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The CSA Department of Education shall fund educational institutions as follows:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "Private educational institution shall receive 30% funding by the Department of Education; and"
+            },
+            {
+              "label": "(2)",
+              "text": "Public educational institutions under the Public Companies Authority shall receive up to 100% funding by the Department of Education."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "Funding under (a) of this Article may be applied to any expenditure of the institution."
+        },
+        {
+          "label": "(c)",
+          "text": "The Department of Education determines the amount of funding for each public educational institution, within the limit in (a) of this Article."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "54",
+      "title": "Accounts and audit",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall keep proper accounts and prepare annual financial statements for each financial year."
+        },
+        {
+          "label": "(b)",
+          "text": "The annual financial statements shall be audited by an auditor approved by the Authority."
+        },
+        {
+          "label": "(c)",
+          "text": "The audited financial statements shall be submitted to the Authority with the annual report under Article 58 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "55",
+      "title": "Borrowing",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Public Bonds Company shall obtain the prior written approval of the Authority before borrowing any amount above the limit set by PCA Policies."
+        },
+        {
+          "label": "(b)",
+          "text": "The Authority shall consult the DET before approving borrowing under (a) of this Article."
+        },
+        {
+          "label": "(c)",
+          "text": "A Public Bonds Company may not pledge or charge the shares of the CSA as security for any borrowing."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Tenth Chapter",
+      "subtitle": "Oversight and Reporting"
+    },
+    {
+      "type": "article",
+      "number": "56",
+      "title": "Accountability of the Authority",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority is accountable to the Department of Economy and Trade, the Cabinet and the Continental Assembly."
+        },
+        {
+          "label": "(b)",
+          "text": "The President, or a member of the PCA Board authorized by the President, shall appear before the Continental Assembly when summoned."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "57",
+      "title": "Quarterly reports",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority shall report quarterly, four times a year, to the DET, the Cabinet and the Continental Assembly."
+        },
+        {
+          "label": "(b)",
+          "text": "Each quarterly report shall cover the matters set out in Appendix 3 of this Act."
+        },
+        {
+          "label": "(c)",
+          "text": "Details of funding shall be reported in a confidential annex, in accordance with Article 52 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "58",
+      "title": "Reporting by Public Bonds Companies",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Every Public Bonds Company shall submit an annual report to the Authority, prepared by its Company Secretary, to keep the company accountable to the Authority."
+        },
+        {
+          "label": "(b)",
+          "text": "The annual report shall include:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "the audited financial statements of the company;"
+            },
+            {
+              "label": "(2)",
+              "text": "the performance and activities of the company, its subcompanies, its associated bodies and the businesses registered under it;"
+            },
+            {
+              "label": "(3)",
+              "text": "any changes to its Board, shareholding, licence and registered seal; and"
+            },
+            {
+              "label": "(4)",
+              "text": "a statement of its compliance with this Act."
+            }
+          ]
+        },
+        {
+          "label": "(c)",
+          "text": "The annual report shall be submitted within the period set by the PCA Policies."
+        },
+        {
+          "label": "(d)",
+          "text": "A Public Bonds Company shall submit any other report or information the Authority requests."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "59",
+      "title": "Inspections and information",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority may at any time request information, records or documents from a Public Bonds Company, and may inspect its premises, records and accounts."
+        },
+        {
+          "label": "(b)",
+          "text": "A Public Bonds Company, and the members of its Board and its personnel, shall cooperate with the Authority and provide what it requests within the period it sets."
+        },
+        {
+          "label": "(c)",
+          "text": "A failure to cooperate is a breach under Article 60 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Eleventh Chapter",
+      "subtitle": "Compliance and Penalties"
+    },
+    {
+      "type": "article",
+      "number": "60",
+      "title": "Breaches",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A breach is any failure by a Public Bonds Company, a member of its Board or its personnel to comply with:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "this Act;"
+            },
+            {
+              "label": "(2)",
+              "text": "the mandate placing the company under the Authority;"
+            },
+            {
+              "label": "(3)",
+              "text": "the Corporate Governance Code or the Board Code of Conduct;"
+            },
+            {
+              "label": "(4)",
+              "text": "PCA Policies; or"
+            },
+            {
+              "label": "(5)",
+              "text": "a direction of the Authority."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "Operating without a valid Public Bonds Company Licence or Business Licence is a breach."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "61",
+      "title": "Measures",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Where a breach is found, the Authority may:",
+          "items": [
+            {
+              "label": "(1)",
+              "text": "issue a written warning;"
+            },
+            {
+              "label": "(2)",
+              "text": "suspend the Chief Executive Officer of the company;"
+            },
+            {
+              "label": "(3)",
+              "text": "suspend the licence and the Board of the company under Article 30 of this Act;"
+            },
+            {
+              "label": "(4)",
+              "text": "recommend the revocation of the licence to the Secretary of Economy and Trade under Article 31 of this Act;"
+            },
+            {
+              "label": "(5)",
+              "text": "bar members of the Board under Article 32 of this Act; or"
+            },
+            {
+              "label": "(6)",
+              "text": "impose a fine, in an amount set by PCA Policies."
+            }
+          ]
+        },
+        {
+          "label": "(b)",
+          "text": "The Authority may take more than one measure for the same breach."
+        },
+        {
+          "label": "(c)",
+          "text": "Measures are recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "62",
+      "title": "Removal of a Board",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority may recommend to the Director the removal of a Board, or of any member of a Board."
+        },
+        {
+          "label": "(b)",
+          "text": "The Director decides on the recommendation and, where a Board or a member is removed, appoints a replacement."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "63",
+      "title": "Right to be heard",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Before taking a measure other than a written warning, the Authority shall notify the company or person concerned of the breach and give them an opportunity to respond within the period set by PCA Policies."
+        },
+        {
+          "label": "(b)",
+          "text": "The Authority shall record its decision and the reasons for it, and notify the company or person concerned."
+        },
+        {
+          "label": "(c)",
+          "text": "A company or person may ask the Director to review a measure. The decision of the Director is final."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Twelfth Chapter",
+      "subtitle": "Withdrawal and Dissolution"
+    },
+    {
+      "type": "article",
+      "number": "64",
+      "title": "Continuation as a subsidiary",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A Public Bonds Company remains a subsidiary of the CSA until the Director declares its dissolution or its withdrawal from the Authority."
+        },
+        {
+          "label": "(b)",
+          "text": "A declaration is signed by the Director and published in the CSA Gazette."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "65",
+      "title": "Withdrawal",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "On withdrawal, the company ceases to be a Public Bonds Company and to be under the jurisdiction of the Authority, from the date stated in the declaration."
+        },
+        {
+          "label": "(b)",
+          "text": "The company shall remove the suffix “CPbc.” from its name."
+        },
+        {
+          "label": "(c)",
+          "text": "The declaration shall state how the shares of the CSA in the company are dealt with."
+        },
+        {
+          "label": "(d)",
+          "text": "The company shall pay to the DET any share of profits owed to the CSA up to the date of withdrawal."
+        },
+        {
+          "label": "(e)",
+          "text": "The Public Bonds Company Licence of the company ceases to have effect."
+        },
+        {
+          "label": "(f)",
+          "text": "The withdrawal is recorded in the Register."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "66",
+      "title": "Dissolution",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "On dissolution, the company is wound up under the law under which it is incorporated."
+        },
+        {
+          "label": "(b)",
+          "text": "After its debts and liabilities are paid, the remaining assets of the company are distributed among its shareholders according to their shareholding. The portion of the CSA is paid to the DET."
+        },
+        {
+          "label": "(c)",
+          "text": "The Public Bonds Company Licence of the company, and the Business Licences of the businesses registered under it, cease to have effect."
+        },
+        {
+          "label": "(d)",
+          "text": "The Authority oversees the dissolution and records it in the Register."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Thirteenth Chapter",
+      "subtitle": "Transitional Provisions"
+    },
+    {
+      "type": "article",
+      "number": "67",
+      "title": "Start of the Authority’s functions",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The Authority becomes functional only once the PCA Board is appointed under the Third Chapter of this Act."
+        },
+        {
+          "label": "(b)",
+          "text": "The functions and powers of the Authority are not exercised until the PCA Board is appointed as per (a) of this Article by any other body."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "68",
+      "title": "Companies placed before the PCA Board is appointed",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "A mandate signed by the Director before the PCA Board is appointed is valid, and the company placed by it is a Public Bonds Company from the date stated in the mandate."
+        },
+        {
+          "label": "(b)",
+          "text": "The functions of the Authority over that company begin when the PCA Board is appointed."
+        },
+        {
+          "label": "(c)",
+          "text": "Until a new Board is appointed, the current directors of that company remain in office under Article 47 of this Act."
+        },
+        {
+          "label": "(d)",
+          "text": "A company under this Article shall obtain a Public Bonds Company Licence within the period set by PCA Policies after the PCA Board is appointed."
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "text": "Fourteenth Chapter",
+      "subtitle": "Miscellaneous"
+    },
+    {
+      "type": "article",
+      "number": "69",
+      "title": "PCA Policies",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "The PCA Board shall issue PCA Policies governing its procedures and the matters within its functions, including the Register, licensing and renewal, reporting formats and deadlines, fines, accounts and audit, borrowing limits and the procedure for measures."
+        },
+        {
+          "label": "(b)",
+          "text": "PCA Policies shall be consistent with this Act."
+        },
+        {
+          "label": "(c)",
+          "text": "PCA Policies are issued separately and are not published with this Act."
+        },
+        {
+          "label": "(d)",
+          "text": "PCA Policies bind every Public Bonds Company from the date on which they are issued to it."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "70",
+      "title": "Commencement",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "This Act comes into force on the date of its publication in the CSA Gazette."
+        },
+        {
+          "label": "(b)",
+          "text": "The functions of the Authority commence in accordance with Article 67 of this Act."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "71",
+      "title": "Appendices",
+      "clauses": [
+        {
+          "label": null,
+          "text": "The Appendices of this Act form part of this Act and shall be read together with it."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "72",
+      "title": "Interpretation",
+      "clauses": [
+        {
+          "label": "(a)",
+          "text": "Words in the singular include the plural, and words in the plural include the singular."
+        },
+        {
+          "label": "(b)",
+          "text": "A reference to an Article, a Chapter or an Appendix is a reference to an Article, a Chapter or an Appendix of this Act."
+        },
+        {
+          "label": "(c)",
+          "text": "Headings are for convenience only and do not affect the interpretation of this Act."
+        },
+        {
+          "label": "(d)",
+          "text": "A reference to a position by its title includes any person lawfully acting in that position."
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "number": "73",
+      "title": "Definitions",
+      "clauses": [
+        {
+          "label": null,
+          "text": "In this Act, unless the context requires otherwise, the following words and expressions have the meanings given below:"
+        },
+        {
+          "label": "(a)",
+          "text": "\"administrative term\" means the five-year administrative term of the CSA;"
+        },
+        {
+          "label": "(b)",
+          "text": "\"Articles of Association\", \"Memorandum of Association\" and \"bylaws\" mean the constitutional documents of a Public Bonds Company;"
+        },
+        {
+          "label": "(c)",
+          "text": "\"associated body\" means an agency, body or institution, other than a company, established, owned or controlled by a Public Bonds Company, and includes a business;"
+        },
+        {
+          "label": "(d)",
+          "text": "\"Authority\" or \"PCA\" means the CSA Public Companies Authority established under Article 5 of this Act;"
+        },
+        {
+          "label": "(e)",
+          "text": "\"Board\" means the board or governing body of a Public Bonds Company;"
+        },
+        {
+          "label": "(f)",
+          "text": "\"Board Code of Conduct\" means the code issued by the Authority under Article 50 of this Act;"
+        },
+        {
+          "label": "(g)",
+          "text": "\"Board Director\" means a member of the Board of a Public Bonds Company under Article 42 of this Act, and does not refer to the Director of the CSA;"
+        },
+        {
+          "label": "(h)",
+          "text": "\"breach\" has the meaning given in Article 60 of this Act;"
+        },
+        {
+          "label": "(i)",
+          "text": "\"business\" means a business registered under a Public Bonds Company under Article 33 of this Act, which is an associated body and not a company;"
+        },
+        {
+          "label": "(j)",
+          "text": "\"Business Licence\" means the licence issued under Article 33 of this Act for the registration of a business;"
+        },
+        {
+          "label": "(k)",
+          "text": "\"Cabinet\" means the Cabinet of the Continental Security Agency;"
+        },
+        {
+          "label": "(l)",
+          "text": "\"chain of command\" means the order of submission set out in Article 19 of this Act;"
+        },
+        {
+          "label": "(m)",
+          "text": "\"Chairperson\" means the founder of a Public Bonds Company who heads its Board under Article 38 of this Act, and includes the title \"Founder\";"
+        },
+        {
+          "label": "(n)",
+          "text": "\"Chief Executive Officer\" or \"CEO\" means the person who runs a Public Bonds Company under Article 41 of this Act;"
+        },
+        {
+          "label": "(o)",
+          "text": "\"Company Secretary\" means the person appointed under Article 43 of this Act as the representative of the CSA on the Board;"
+        },
+        {
+          "label": "(p)",
+          "text": "\"Continental Assembly\" means the Continental Assembly, the legislature of the Continental Security Agency;"
+        },
+        {
+          "label": "(q)",
+          "text": "\"Corporate Governance Code\" means the code issued by the Authority under Article 50 of this Act;"
+        },
+        {
+          "label": "(r)",
+          "text": "\"CSA\" means the Continental Security Agency;"
+        },
+        {
+          "label": "(s)",
+          "text": "\"CSA Gazette\" means the official gazette in which the instruments of the CSA are published;"
+        },
+        {
+          "label": "(t)",
+          "text": "\"declaration\" means an instrument signed by the Director declaring the withdrawal or dissolution of a Public Bonds Company under the Twelfth Chapter of this Act;"
+        },
+        {
+          "label": "(u)",
+          "text": "\"Department of Education\" means the Department of Education of the CSA;"
+        },
+        {
+          "label": "(v)",
+          "text": "\"Deputy Managing Director\" means the person appointed under Article 40 or Article 46 of this Act;"
+        },
+        {
+          "label": "(w)",
+          "text": "\"DET\" means the Department of Economy and Trade of the CSA;"
+        },
+        {
+          "label": "(x)",
+          "text": "\"Director\" means the Director of the Continental Security Agency;"
+        },
+        {
+          "label": "(y)",
+          "text": "\"educational institution\" means a school, college, university or other institution that provides education;"
+        },
+        {
+          "label": "(z)",
+          "text": "\"executive member\" means a member of a Board who takes part in the day-to-day management of the company;"
+        },
+        {
+          "label": "(aa)",
+          "text": "\"financial year\" means the period of twelve months for which a Public Bonds Company prepares its accounts, as set by PCA Policies;"
+        },
+        {
+          "label": "(ab)",
+          "text": "\"funding\" means any money, grant, contribution or other financial support given by the CSA to a Public Bonds Company or an educational institution;"
+        },
+        {
+          "label": "(ac)",
+          "text": "\"group of companies\" means a Public Bonds Company that holds or controls one or more other companies;"
+        },
+        {
+          "label": "(ad)",
+          "text": "\"HRC\" means the Continental Security Agency Human Resources Commission;"
+        },
+        {
+          "label": "(ae)",
+          "text": "\"Managing Director\" means the person appointed under Article 39 of this Act to represent the CSA and its shares on the Board of a Public Bonds Company;"
+        },
+        {
+          "label": "(af)",
+          "text": "\"mandate\" means an instrument signed by the Director placing a company under the Authority under Article 22 of this Act;"
+        },
+        {
+          "label": "(ag)",
+          "text": "\"measure\" means an action taken by the Authority under Article 61 of this Act;"
+        },
+        {
+          "label": "(ah)",
+          "text": "\"member company\" means a company within a group of companies;"
+        },
+        {
+          "label": "(ai)",
+          "text": "\"Member of the PCA Board\" means any of the five members of the PCA Board other than the President and the Vice President;"
+        },
+        {
+          "label": "(aj)",
+          "text": "\"non-executive member\" means a member of a Board who does not take part in the day-to-day management of the company;"
+        },
+        {
+          "label": "(ak)",
+          "text": "\"PCA Board\" means the leadership of the Authority under the Third Chapter of this Act;"
+        },
+        {
+          "label": "(al)",
+          "text": "\"PCA Policies\" means the policies issued by the PCA Board under Article 69 of this Act;"
+        },
+        {
+          "label": "(am)",
+          "text": "\"President\" means the President of the Authority;"
+        },
+        {
+          "label": "(an)",
+          "text": "\"principal shareholder\" means the shareholder holding the greatest number of shares in a Public Bonds Company, as determined under Article 34 of this Act;"
+        },
+        {
+          "label": "(ao)",
+          "text": "\"private educational institution\" means an educational institution that is not a public educational institution;"
+        },
+        {
+          "label": "(ap)",
+          "text": "\"profile sheet\" means the document issued by the Secretary General under Article 24 of this Act;"
+        },
+        {
+          "label": "(aq)",
+          "text": "\"profit\" means the net profit of a Public Bonds Company after tax for a financial year;"
+        },
+        {
+          "label": "(ar)",
+          "text": "\"Public Bonds Company\" or \"CPbc.\" (CSA Public Bonds Company) means a company placed under the jurisdiction of the Authority under Article 22 of this Act, and includes its subcompanies;"
+        },
+        {
+          "label": "(as)",
+          "text": "\"Public Bonds Company Licence\" or \"licence\" means the licence that every Public Bonds Company must hold under Article 28 of this Act;"
+        },
+        {
+          "label": "(at)",
+          "text": "\"public educational institution\" means an educational institution that is a Public Bonds Company or is under one;"
+        },
+        {
+          "label": "(au)",
+          "text": "\"quarter\" means each period of three months of the year of the Authority;"
+        },
+        {
+          "label": "(av)",
+          "text": "\"Register\" means the Register of Public Bonds Companies kept under Article 23 of this Act;"
+        },
+        {
+          "label": "(aw)",
+          "text": "\"registered seal\" means the company seal registered with the Authority under Article 25 of this Act;"
+        },
+        {
+          "label": "(ax)",
+          "text": "\"Secretariat\" means the office of the Authority headed by the Secretary General under Article 17 of this Act;"
+        },
+        {
+          "label": "(ay)",
+          "text": "\"Secretary General\" means the Secretary General of the Authority;"
+        },
+        {
+          "label": "(az)",
+          "text": "\"Secretary of Economy and Trade\" means the Secretary of the DET, and includes any person acting in that position or holding it on an interim basis;"
+        },
+        {
+          "label": "(ba)",
+          "text": "\"Sector Department\" means the Department of the CSA under whose sector a Public Bonds Company falls under Article 26 of this Act;"
+        },
+        {
+          "label": "(bb)",
+          "text": "\"share\" means a unit of ownership in a Public Bonds Company, and includes a membership interest in a limited liability company;"
+        },
+        {
+          "label": "(bc)",
+          "text": "\"Shares Representative\" means the Managing Director acting in their capacity as representative of the shares of the CSA under Article 39 of this Act;"
+        },
+        {
+          "label": "(bd)",
+          "text": "\"subcompany\" means a company owned or controlled, in whole or in part, by a Public Bonds Company; and"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 1"
+    },
+    {
+      "type": "heading",
+      "text": "The Sample Mandate stated in Article 22 (f) of this Department’s Issue Number 2/2026 (Public Bonds Companies Act)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following shows a sample mandate on the placement of an imaginary company named “Acme Corporation Ltd.” as a Public Bonds Company."
+    },
+    {
+      "type": "paragraph",
+      "text": "Continental Security Agency\nWashington, D.C."
+    },
+    {
+      "type": "heading",
+      "text": "Mandate on the Placement of Acme Corporation Ltd. Under the CSA Public Companies Authority"
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "(a)",
+          "text": "Under Article 22 of Issue Number 2/2026 (Public Bonds Companies Act), Acme Corporation Ltd., incorporated under the laws of the State of California, is placed under the jurisdiction of the CSA Public Companies Authority as a Public Bonds Company, with effect from 7 November 2026."
+        },
+        {
+          "label": "(b)",
+          "text": "Overriding its independence, the company and all its directors, personnel and members fall under the jurisdiction, legal powers and executive powers of the Authority."
+        },
+        {
+          "label": "(c)",
+          "text": "The company shall be named Acme Corporation CPbc. Ltd."
+        },
+        {
+          "label": "(d)",
+          "text": "The company falls under the Telecommunication industry and the sector of the Department of Homeland Security."
+        },
+        {
+          "label": "(e)",
+          "text": "The member companies, subcompanies and associated bodies of the company are: none."
+        },
+        {
+          "label": "(f)",
+          "text": "The CSA holds 50% of the shares of the company. The distribution of the remaining 50% is at the discretion of the company."
+        },
+        {
+          "label": "(g)",
+          "text": "The company may not have a Chairperson under Article 38 of Issue Number 2/2026 (Public Bonds Companies Act)."
+        },
+        {
+          "label": "(h)",
+          "text": "The Board of the company is appointed by the Director."
+        },
+        {
+          "label": "(i)",
+          "text": "The current directors of the company remain in office until a new Board is appointed, and shall prepare the company for transition."
+        },
+        {
+          "label": "(j)",
+          "text": "The company shall apply for a Public Bonds Company License under Article 28 of Issue Number 2/2026 (Public Bonds Companies Act)."
+        }
+      ]
+    },
+    {
+      "type": "signatures",
+      "items": [
+        {
+          "caption": "Signature of the director",
+          "name": "Enzo Hernandez",
+          "title": "Director"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 2"
+    },
+    {
+      "type": "heading",
+      "text": "The Details of the Register stated in Article 23 (b) of this Department’s Issue Number 2/2026 (Public Bonds Companies Act)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following shows the details that the Register of Public Bonds Companies shall record of all Public Bonds Companies under this act."
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "rows": [
+        [
+          "Part A – Company",
+          "Register Number (assigned by the Authority)\nName with “CPbc.”\nPrevious Names\nLaw of Incorporation\nRegistered Address\nService Address\nPhone / Fax / Email / Website\nIndustry or Industries\nSector Department\nMandate (Issue No. + Date)\nDate of Placement in the PCA\nRegistered Seal (under Article 25 of 2/2026)"
+        ],
+        [
+          "Part B – License",
+          "Public Bonds Company License Number\nDate of Issue\nAdministrative Term\nExpiry date\nStatus (Valid / Suspended / Revoked / Expired)\nSuspensions and Revocations (Articles 30 and 31 of 2/2026)"
+        ],
+        [
+          "Part C – Group",
+          "Parent company, if any\nMember companies\nSubcompanies\nAssociated bodies, other than businesses"
+        ],
+        [
+          "Part D – Businesses",
+          "Business Name\nBusiness License Number\nDate of Issue\nExpiry Date\nStatus"
+        ],
+        [
+          "Part E – Shareholding",
+          "Share Type\nTotal Shares\nShareholding of the CSA (50%)\nHolders of the Remaining Shares\nTransfers of the CSA’s Shares (Article 36 of 2/2026)"
+        ],
+        [
+          "Part F – Board of Directors",
+          "Board Appointed By (Director / Company under Art. 46)\nChairperson or Founder (approval ref.)\nManaging Director\nDeputy Managing Director\nChief Executive Officer\nBoard Directors and Specializations\nCompany Secretary (appt. by Director / Authority by approval)\nBars on Board Members (Article 32 of 2/2026)"
+        ],
+        [
+          "Part G – Compliance and Status",
+          "Measures Taken (Article 61 of 2/2026)\nStatus (Active / Suspended / Withdrawn / Dissolved)\nDeclaration of Withdrawal or Dissolution (Issue No. & Date)"
+        ],
+        [
+          "Part H – For Use of the Authority Only",
+          "Entered by (Secretary General Name)\nDate of Entry\nDate of Last Update"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 3"
+    },
+    {
+      "type": "heading",
+      "text": "The Matters of the Quarterly Report stated in Article 57 (b) of this Department’s Issue Number 2/2026 (Public Bonds Companies Act)."
+    },
+    {
+      "type": "paragraph",
+      "text": "The following shows the matters of the Quarterly Report that must be submitted by the Public Companies Authority to the Department of Economy and Trade, the Cabinet and the Continental Assembly. It is the structural foundation of the Quarterly Report and not the guidelines or rules of formatting for the report. The items listed below and described must be in the Quarterly Report that is submitted."
+    },
+    {
+      "type": "paragraph",
+      "text": "There must be a table at the top of the report which has the details set out as well. A sample of the table is shown below."
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "Quarter",
+        "Year",
+        "Submitted To",
+        "Date of Submission"
+      ],
+      "rows": [
+        [
+          "Q1 / Q2 / Q3 / Q4",
+          "[year]",
+          "Department of Economy and Trade; the Cabinet; or the Continental Assembly",
+          "[Date]"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "rows": [
+        [
+          "(a)",
+          "Summary of the Quarter",
+          "The main activities and decisions of the Authority."
+        ],
+        [
+          "(b)",
+          "Register",
+          "Companies placed, withdrawn or dissolved, businesses registered, and changes to Boards and shareholding"
+        ],
+        [
+          "(c)",
+          "Licensing",
+          "Public Bonds Company Licenses and Business Licenses issued, renewed, suspended and revoked, and bars on Board Members"
+        ],
+        [
+          "(d)",
+          "Performance of Public Bonds Companies",
+          "Performance by company and by industry"
+        ],
+        [
+          "(e)",
+          "Profits",
+          "The CSA’s share of profits paid to the Department of Economy and Trade"
+        ],
+        [
+          "(f)",
+          "Compliance",
+          "Breaches found, measures taken, reviews requested, and recommendations for the removal of Boards"
+        ],
+        [
+          "(g)",
+          "Borrowing",
+          "Approvals and refusals under Article 55 of 2/2026"
+        ],
+        [
+          "(h)",
+          "PCA Board",
+          "Meetings held, decisions made, and PCA Policies and codes issued"
+        ],
+        [
+          "(i)",
+          "Matters for Attention",
+          "Matters requiring the attention of the Department of Economy and Trade, the Cabinet or the Continental Assembly"
+        ],
+        [
+          "(j)",
+          "Confidential Annex",
+          "Details of funding, under Article 52 of 2/2026"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The report must have the sign, name and full title of the President of the CSA Public Companies Authority."
+    },
+    {
+      "type": "heading",
+      "text": "Appendix 4"
+    },
+    {
+      "type": "heading",
+      "text": "The Sample Profile Sheet stated in Article 24 (d) of this Department’s Issue Number 2/2026 (Public Bonds Companies Act)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following shows a sample profile sheet of an imaginary company named “Acme Corporation CPbc. Ltd.”."
+    },
+    {
+      "type": "paragraph",
+      "text": "DEPARTMENT OF ECONOMY AND TRADE\nCSA PUBLIC COMPANIES AUTHORITY"
+    },
+    {
+      "type": "paragraph",
+      "text": "COMPANY INFORMATION SHEET\nGenerated 07 November 2026 08:00hrs"
+    },
+    {
+      "type": "table",
+      "caption": "BASIC DETAILS",
+      "rows": [
+        [
+          "Name",
+          "Acme Corporation CPbc. Ltd."
+        ],
+        [
+          "Registered Number",
+          "C1234567890"
+        ],
+        [
+          "Registered Date",
+          "07 November 2026"
+        ],
+        [
+          "Current Status",
+          "Active / Suspended / Withdrawn / Dissolved"
+        ],
+        [
+          "Industry",
+          "Telecommunications"
+        ],
+        [
+          "Sector Department",
+          "Department of Homeland Security"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "REGISTERED ADDRESS",
+      "rows": [
+        [
+          "Building name\n123 Street\nCity, State, USA Zip Code"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "SERVICE ADDRESS",
+      "rows": [
+        [
+          "Building name\n123 Street\nCity, State, USA Zip Code"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "PREVIOUS NAMES",
+      "rows": [
+        [
+          "Acme Corporation Ltd.",
+          "Changed 06 November 2026 09:00"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "CONTACT DETAILS",
+      "rows": [
+        [
+          "+123 (123) 123-4567"
+        ],
+        [
+          "+123 (123) 123-4567"
+        ],
+        [
+          "example@example.com"
+        ],
+        [
+          "example.com"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "REGISTERED SEAL",
+      "rows": [
+        [
+          "[ No seal currently registered. ]"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "PUBLIC BONDS COMPANY LICENSE",
+      "rows": [
+        [
+          "License Number",
+          "CL-1234567890"
+        ],
+        [
+          "Date of Issue",
+          "07 November 2026"
+        ],
+        [
+          "Valid Until",
+          "01 January 2029"
+        ],
+        [
+          "Status",
+          "Valid / Suspended / Revoked / Expired"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "SHARES AND CAPITAL",
+      "rows": [
+        [
+          "Total Capital",
+          "$100,000"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "#",
+        "Share Type",
+        "Total Shares",
+        "Total Unallocated Shares",
+        "Value per Share"
+      ],
+      "rows": [
+        [
+          "1",
+          "Ordinary",
+          "100,000.00",
+          "0.00",
+          "$1.00"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "CURRENT SHAREHOLDERS",
+      "rows": [
+        [
+          "Number of Shareholders:",
+          "3"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": null,
+      "columns": [
+        "#",
+        "Type",
+        "ID / No.",
+        "Name",
+        "Shares"
+      ],
+      "rows": [
+        [
+          "1",
+          "Institution",
+          "CSA",
+          "Continental Security Agency",
+          "50,000.00 (50%)"
+        ],
+        [
+          "2",
+          "Individual",
+          "A000000",
+          "John Doe",
+          "30,000.00 (30%)"
+        ],
+        [
+          "3",
+          "Company",
+          "C1234567890",
+          "Acme Holdings LLC",
+          "20,000.00 (20%)"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "CURRENT BOARD OF DIRECTORS",
+      "columns": [
+        "#",
+        "ID / Passport",
+        "Full Name",
+        "Position",
+        "Appointed Date"
+      ],
+      "rows": [
+        [
+          "1",
+          "A000000",
+          "Jane Doe",
+          "Managing Director (Shares Rep.)",
+          "7 November 2026"
+        ],
+        [
+          "2",
+          "A000000",
+          "Richard Roe",
+          "Deputy Managing Director",
+          "7 November 2026"
+        ],
+        [
+          "3",
+          "A000000",
+          "John Smith",
+          "Chief Executive Officer",
+          "7 November 2026"
+        ],
+        [
+          "4",
+          "A000000",
+          "Jane Roe",
+          "Board Director (Finance)",
+          "7 November 2026"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "COMPANY SECRETARY",
+      "columns": [
+        "Full Name",
+        "Appointed by",
+        "Appointed Date"
+      ],
+      "rows": [
+        [
+          "Mary Major",
+          "Authority, with the approval of the Director",
+          "7 November 2026"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "BUSINESS NAMES",
+      "columns": [
+        "#",
+        "Business Name",
+        "Business License No.",
+        "Valid Until"
+      ],
+      "rows": [
+        [
+          "1",
+          "Acme Courier",
+          "C[CNo.]-[BIndex]",
+          "6 November 2031"
+        ],
+        [
+          "2",
+          "Acme Travel",
+          "C[CNo.]-[BIndex]",
+          "6 November 2031"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "John Doe, Secretary General of the PCA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Whilst every effort is made to ensure that the information provided is current and correct, the CSA Public Companies Authority accepts no liability for any loss or damage caused by any error or omission. It is the sole responsibility of the Public Bonds Company to ensure that the details recorded in the Register are accurate and up to date, as required by Article 23 (d) of Issue Number 2/2026 (Public Bonds Companies Act)."
+    },
+    {
+      "type": "paragraph",
+      "text": "The information in this profile sheet is taken from the Register of Public Bonds Companies kept by the Secretary General under Article 23 of Issue Number 2/2026 (Public Bonds Companies Act), and from information held by other bodies of the Continental Security Agency. Fields marked “–” are not available. For more information, visit pca.gov.csa. For assistance email companies@pca.gov.csa."
+    },
+    {
+      "type": "paragraph",
+      "text": "This profile sheet is valid only when signed by the Secretary General, digitally or by hand, and when every page bears the stamp of the Department of Economy and Trade."
+    },
+    {
+      "type": "paragraph",
+      "text": "CSA Public Companies Authority, Department of Economy and Trade, New York City, New York, United States of America"
+    }
+  ]
+}

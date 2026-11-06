@@ -15,6 +15,7 @@ import t2026091101 from "./2026091101.json";
 import t2026083001 from "./2026083001.json";
 import t2026101001 from "./2026101001.json";
 import t2026101201 from "./2026101201.json";
+import t2026110701 from "./2026110701.json";
 
 export const texts = {
   2024050201: t2024050201.blocks,
@@ -32,4 +33,5 @@ export const texts = {
   2026083001: t2026083001.blocks,
   2026101001: t2026101001.blocks,
   2026101201: t2026101201.blocks,
+  2026110701: t2026110701.blocks,
 };

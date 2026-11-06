@@ -29,6 +29,28 @@ export const contents = {
     ["Mandated by Issue no. GZT/G1-2026", "Mandated by Issue no. GZT/G1-2026"],
   ]),
 
+  // Public Bonds Companies Act; the appendices' subtitles are the ones in its printed contents
+  2026110701: chapters([
+    ["First Chapter", "First Chapter", "Introduction"],
+    ["Second Chapter", "Second Chapter", "The Public Companies Authority"],
+    ["Third Chapter", "Third Chapter", "The PCA Board"],
+    ["Fourth Chapter", "Fourth Chapter", "Administration of the Authority"],
+    ["Fifth Chapter", "Fifth Chapter", "Public Bonds Companies"],
+    ["Sixth Chapter", "Sixth Chapter", "Licensing"],
+    ["Seventh Chapter", "Seventh Chapter", "Shareholding"],
+    ["Eighth Chapter", "Eighth Chapter", "Boards of Public Bonds Companies"],
+    ["Ninth Chapter", "Ninth Chapter", "Finance and Funding"],
+    ["Tenth Chapter", "Tenth Chapter", "Oversight and Reporting"],
+    ["Eleventh Chapter", "Eleventh Chapter", "Compliance and Penalties"],
+    ["Twelfth Chapter", "Twelfth Chapter", "Withdrawal and Dissolution"],
+    ["Thirteenth Chapter", "Thirteenth Chapter", "Transitional Provisions"],
+    ["Fourteenth Chapter", "Fourteenth Chapter", "Miscellaneous"],
+    ["Appendix 1", "Appendix 1", "Sample Mandate"],
+    ["Appendix 2", "Appendix 2", "Register Entry Form"],
+    ["Appendix 3", "Appendix 3", "Quarterly Report Template"],
+    ["Appendix 4", "Appendix 4", "Sample Profile Sheet"],
+  ]),
+
   // Leadership of the Continental Security Agency (CIR/01)
   2026101602: [
     { match: "Chapter I – The Cabinet and Senior Counsel", label: "Chapter I", sub: "The Cabinet and Senior Counsel" },

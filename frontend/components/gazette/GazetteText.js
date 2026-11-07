@@ -77,12 +77,28 @@ function Block({ block, id, heading, sans }) {
         </div>
       );
     case "list":
+      // An item can have its own lettered points under it, and text after them (a Director's Order's
+      // numbered points, e.g. "6. ... (a) Act; ... (e) Notice. No document shall ...").
       return (
         <ul className="space-y-3">
           {block.items.map((item, i) => (
             <li key={i} className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-x-3">
               <span className="text-ink/60">{item.label ?? "•"}</span>
-              <Paragraphs text={item.text} />
+              <div>
+                <Paragraphs text={item.text} />
+                {item.items?.length > 0 && (
+                  <div className="mt-3 space-y-3">
+                    {item.items.map((point, j) => (
+                      <Clause key={j} {...point} />
+                    ))}
+                  </div>
+                )}
+                {item.after && (
+                  <div className="mt-3">
+                    <Paragraphs text={item.after} />
+                  </div>
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -168,8 +184,10 @@ export default function GazetteText({ blocks, dhivehi = false }) {
       </div>
     );
   }
+  // Dhivehi words inside English text (e.g. the document types named in Director's Order Number
+  // 01/2026) are set in Faruma, as printed, since Crimson Pro has no Thaana letters.
   return (
-    <div className="space-y-8 font-serif text-[19px] leading-[1.7] text-ink">
+    <div className="space-y-8 font-[family-name:var(--font-crimson-pro),var(--font-faruma)] text-[19px] leading-[1.7] text-ink">
       {blocks.map((block, i) => (
         <Block key={i} block={block} id={blockId(i)} heading="tracking-tight" sans="font-sans" />
       ))}

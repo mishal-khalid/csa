@@ -12,6 +12,7 @@
 
 export const types = [
   { id: "law", label: "Laws" },
+  { id: "order", label: "Director’s Orders" },
   { id: "circular", label: "Circulars" },
   { id: "mandate", label: "Executive mandates" },
   { id: "founding", label: "Founding documents" },
@@ -23,6 +24,7 @@ export const ssc = { id: "ssc", label: "Salaadheeb Salaamathee Council" };
 // each type's tag in the index row
 export const typeTags = {
   law: "Law",
+  order: "Director’s Order",
   circular: "Circular",
   mandate: "Executive mandate",
   founding: "Founding document",
@@ -55,6 +57,16 @@ const records = [
       { label: "View PDF", href: "/gazette/2026110701.pdf" },
       ...[1, 2, 3, 4].map((n) => ({ label: `View appendix ${n}`, href: `/gazette/2026110701-appendix-${n}.pdf` })),
     ],
+  },
+  // Director's Order Number 01/2026, which establishes the CSA Gazette; published the same day as,
+  // and after, the Public Bonds Companies Act
+  {
+    index: "2026110702",
+    type: "order",
+    title: "Establishment of the Continental Security Agency Gazette",
+    reference: "Number 01/2026",
+    date: "2026-11-07",
+    pdfs: [{ label: "View PDF", href: "/gazette/2026110702.pdf" }],
   },
   {
     index: "2026101602",

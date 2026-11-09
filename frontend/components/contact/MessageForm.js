@@ -7,7 +7,7 @@ import { generalEmail } from "@/components/contact-details";
 const field =
   "mt-2 block w-full rounded-2xl bg-white px-4 py-3 text-[15px] text-ink ring-1 ring-ink/15 outline-none transition-shadow placeholder:text-ink/35 focus:ring-2 focus:ring-ink/40";
 
-// A message to The Director's Office. There's no backend yet, so sending opens the visitor's own
+// A message to The President's Office. There's no backend yet, so sending opens the visitor's own
 // email app with the message filled in and addressed to the general enquiries inbox; nothing is
 // stored on the site. When the backend exists this can post to it instead.
 export default function MessageForm() {

@@ -12,8 +12,8 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL;
 const quickLinks = [
   { label: "The CSA Gazette", line: "Laws, circulars and mandates", href: `${SITE}/gazette`, photo: "/images/portal-gazette.jpg" },
   { label: "Organisation", line: "How the CSA is structured", href: `${SITE}/organisation`, photo: "/images/portal-organisation.jpg" },
-  { label: "Leadership", line: "The Director, the Cabinet and the heads of bodies", href: `${SITE}/leadership`, photo: "/images/portal-leadership.jpg" },
-  { label: "Contact", line: "Write to The Director's Office", href: `${SITE}/contact`, photo: "/images/portal-contact.jpg" },
+  { label: "Leadership", line: "The President, the Cabinet and the heads of bodies", href: `${SITE}/leadership`, photo: "/images/portal-leadership.jpg" },
+  { label: "Contact", line: "Write to The President's Office", href: `${SITE}/contact`, photo: "/images/portal-contact.jpg" },
 ];
 
 // A quick link's photo: a pulsing grey block until it has loaded, then it fades in. It eases in a

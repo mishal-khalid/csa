@@ -4,13 +4,13 @@ import { ContactList, PersonCard, PersonGrid, Section, Silhouette } from "@/comp
 // Draft copy, still to be approved.
 const intro = "Leads the Continental Security Agency from Washington, D.C.";
 
-export const metadata = { title: "The Director’s Office", description: intro };
+export const metadata = { title: "The President’s Office", description: intro };
 
 const leaders = [
-  { name: "UFHMG. Enzo Hernandez, HPhD. MD.", title: "Director and Commanding Officer" },
+  { name: "UFHMG. Enzo Hernandez, HPhD. MD.", title: "President" },
   {
     name: "UFMG. Jana Mohamed, HPhD. MD.",
-    title: "Deputy Director, Deputy Commanding Officer and Chairwoman of the Cabinet",
+    title: "Vice President and Chairwoman of the Cabinet",
   },
 ];
 
@@ -28,14 +28,14 @@ const advisers = [
 ];
 
 const contact = [
-  { label: "Website", value: "tdo.csa" },
-  { label: "General enquiries", value: "info@tdo.csa", href: "mailto:info@tdo.csa" },
-  { label: "Digital Innovation Committee", value: "digital@tdo.csa", href: "mailto:digital@tdo.csa" },
+  { label: "Website", value: "presidency.csa" },
+  { label: "General enquiries", value: "info@po.csa", href: "mailto:info@po.csa" },
+  { label: "Digital Innovation Committee", value: "digital@po.csa", href: "mailto:digital@po.csa" },
 ];
 
-// The Director's Office. Its header puts the Director and Deputy Director side by side as large
+// The President's Office. Its header puts the President and Vice President side by side as large
 // silhouette cards under the title, on off-white.
-export default function DirectorsOfficePage() {
+export default function PresidentsOfficePage() {
   return (
     <main className="text-ink">
       <header className="bg-neutral-50 px-4 pb-20 pt-36 sm:px-6 lg:pb-28 lg:pt-44">
@@ -43,7 +43,7 @@ export default function DirectorsOfficePage() {
           <Link href="/exec" className="text-sm font-medium text-ink/50 hover:text-ink">
             The Executive
           </Link>
-          <h1 className="mt-4 text-5xl font-medium tracking-tight sm:text-7xl">The Director’s Office</h1>
+          <h1 className="mt-4 text-5xl font-medium tracking-tight sm:text-7xl">The President’s Office</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/60">{intro}</p>
 
           <ul className="mt-14 grid gap-3 md:grid-cols-2">
@@ -62,7 +62,7 @@ export default function DirectorsOfficePage() {
 
       <Section id="chief-of-staff" title="Chief of Staff">
         <div className="md:max-w-md">
-          <PersonCard name="Zaha Rasheed" title="Chief of Staff of the CSA and The Director’s Office" />
+          <PersonCard name="Zaha Rasheed" title="Chief of Staff of the CSA and The President’s Office" />
         </div>
       </Section>
 

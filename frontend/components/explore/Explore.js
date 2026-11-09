@@ -16,7 +16,7 @@ const careers = {
 };
 const leadership = {
   title: "Leadership",
-  text: "The Director, the Deputy Director and the Cabinet.",
+  text: "The President, the Vice President and the Cabinet.",
   href: "/leadership",
 };
 const gazette = {
@@ -25,7 +25,7 @@ const gazette = {
   href: "/gazette",
 };
 
-// The leadership cluster: the Director and Deputy Director large, then Cabinet secretaries in
+// The leadership cluster: the President and Vice President large, then Cabinet secretaries in
 // department order, then a chip for the rest of the Cabinet. size is px; x and y place the chip's
 // top-left corner inside the 256 by 192 cluster.
 const chips = [

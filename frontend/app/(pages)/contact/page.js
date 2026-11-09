@@ -3,7 +3,7 @@ import { Section } from "@/components/organisation/cards";
 import MessageForm from "@/components/contact/MessageForm";
 import { address, contacts } from "@/components/contact-details";
 
-const intro = "Write to The Director’s Office about anything to do with the CSA.";
+const intro = "Write to The President’s Office about anything to do with the CSA.";
 
 export const metadata = { title: "Contact", description: intro };
 

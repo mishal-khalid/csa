@@ -4,7 +4,7 @@ import CtaButton from "@/components/CtaButton";
 import { Section } from "@/components/organisation/cards";
 import { leaderBySlug, leaders } from "@/components/leadership/people";
 
-// Only the Director and Deputy Director have pages of their own; both are prerendered. The address
+// Only the President and Vice President have pages of their own; both are prerendered. The address
 // is read before rendering so an unknown one gets a real 404 (see the department pages for why
 // instant is off).
 export const instant = false;
@@ -107,9 +107,9 @@ export default async function LeaderPage({ params }) {
     },
     {
       id: "office",
-      title: "The Director’s Office",
+      title: "The President’s Office",
       intro: "Washington, D.C.",
-      body: <CtaButton href="/exec/directors-office" label="About the DO" />,
+      body: <CtaButton href="/exec/presidents-office" label="About the PO" />,
     },
   ].filter(Boolean);
 

@@ -18,7 +18,7 @@ const organisationCards = [
     href: "/organisation",
     image: "/images/organisation-building.jpg",
   },
-  { title: "The Executive", text: "The Director’s Office and the Cabinet.", href: "/exec" },
+  { title: "The Executive", text: "The President’s Office and the Cabinet.", href: "/exec" },
   {
     title: "The Cabinet’s departments",
     // short names so they fit the dropdown's two columns
@@ -39,12 +39,12 @@ const organisationCards = [
 
 const leadershipCards = [
   {
-    title: "The Director",
+    title: "The President",
     text: "UFHMG. Enzo Hernandez, HPhD. MD.",
     href: "/leadership/enzo-hernandez",
     portrait: true,
   },
-  { title: "The Deputy Director", text: "UFMG. Jana Mohamed, HPhD. MD.", href: "/leadership/jana-mohamed" },
+  { title: "The Vice President", text: "UFMG. Jana Mohamed, HPhD. MD.", href: "/leadership/jana-mohamed" },
   {
     title: "On the Leadership page",
     items: [
@@ -61,9 +61,9 @@ const leadershipCards = [
     image: "/images/leadership-office.jpg",
   },
   {
-    title: "The Director’s Office",
-    text: "Where the Director and Deputy Director work, with their communications team and advisers.",
-    href: "/exec/directors-office",
+    title: "The President’s Office",
+    text: "Where the President and Vice President work, with their communications team and advisers.",
+    href: "/exec/presidents-office",
   },
 ];
 

@@ -6,11 +6,11 @@ export const metadata = {
   title: "Leadership",
   // approved by the user (the page itself has no intro to reuse)
   description:
-    "The Enzo–Jana Administration: the Director, the Deputy Director, the Cabinet, the Senior Counsel and the heads of the CSA’s other bodies.",
+    "The Enzo–Jana Administration: the President, the Vice President, the Cabinet, the Senior Counsel and the heads of the CSA’s other bodies.",
 };
 
-// The Leadership hub, in rank order. Its header is a black band with the Director and Deputy
-// Director as large portrait cards (each opening their own page); then the Cabinet, the Senior
+// The Leadership hub, in rank order. Its header is a black band with the President and Vice
+// President as large portrait cards (each opening their own page); then the Cabinet, the Senior
 // Counsel, and the heads of every other body (each linking to their body's page).
 // data-nav-surface keeps the nav smoky over the black band.
 export default function LeadershipPage() {

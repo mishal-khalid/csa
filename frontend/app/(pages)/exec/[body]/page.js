@@ -5,7 +5,7 @@ import { Section, Silhouette } from "@/components/organisation/cards";
 import { departmentBySlug, departments } from "@/components/organisation/departments";
 
 // Department pages: the twelve are prerendered; any other address under /exec is a 404. (The
-// Director's Office, AGO and PGO have their own folders, which take priority over this route.)
+// President's Office, AGO and PGO have their own folders, which take priority over this route.)
 export function generateStaticParams() {
   return departments.map(({ slug }) => ({ body: slug }));
 }

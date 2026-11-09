@@ -10,13 +10,13 @@ const emblem = (file, width = 64) => ({ src: `/images/emblems/${file}`, width })
 
 // The Executive
 
-export const directorsOffice = {
-  href: "/exec/directors-office",
+export const presidentsOffice = {
+  href: "/exec/presidents-office",
   people: [
-    { name: "UFHMG. Enzo Hernandez, HPhD. MD.", post: "Director and Commanding Officer" },
+    { name: "UFHMG. Enzo Hernandez, HPhD. MD.", post: "President" },
     {
       name: "UFMG. Jana Mohamed, HPhD. MD.",
-      post: "Deputy Director, Deputy Commanding Officer and Chairwoman of the Cabinet",
+      post: "Vice President and Chairwoman of the Cabinet",
     },
     { name: "Zaha Rasheed", post: "Chief of Staff" },
   ],

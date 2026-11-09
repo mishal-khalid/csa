@@ -2,10 +2,10 @@ import { departments } from "@/components/organisation/departments";
 
 // The Leadership section's people. Names, ranks and posts follow the CSA's organisational
 // documents; each `line` and the responsibilities wording are draft copy, still to be approved.
-// Only the Director and Deputy Director have pages of their own; everyone else links to their
+// Only the President and Vice President have pages of their own; everyone else links to their
 // body's page in Organisation.
 
-// The Director and Deputy Director, with everything their own pages show. Their ranks have no
+// The President and Vice President, with everything their own pages show. Their ranks have no
 // short form on the site: they're written in full above the name.
 export const leaders = [
   {
@@ -13,11 +13,10 @@ export const leaders = [
     rank: "Universal Federal Higher Major General",
     name: "Enzo Hernandez",
     honorifics: "HPhD. MD.",
-    post: "Director and Commanding Officer",
-    line: "Leads the Continental Security Agency from The Director’s Office in Washington, D.C.",
+    post: "President",
+    line: "Leads the Continental Security Agency from The President’s Office in Washington, D.C.",
     posts: [
-      "Director and Commanding Officer of the Continental Security Agency",
-      "Director of Security",
+      "President of the Continental Security Agency",
       "Member of the Senior Counsel",
       "Member of the International Intelligence Council’s Intermediary Council",
     ],
@@ -25,11 +24,12 @@ export const leaders = [
       "Signs and confirms every Instrument of Leadership Confirmation.",
       "Appoints the Cabinet’s Secretaries and Secretaries of State.",
       "Awards the CSA’s medals.",
-      "Alone holds the Director of Security flag.",
+      "Alone holds the President’s flag.",
     ],
     // the details below were supplied by the user for Enzo's page
     designations: [
-      "Director of International Security",
+      "Director General of International Security (UC)",
+      "President of the CSA",
       "International Security Specialist",
       "Neurocardiology Surgical Doctor",
       "Psychiatrist",
@@ -77,21 +77,20 @@ export const leaders = [
     rank: "Universal Federal Major General",
     name: "Jana Mohamed",
     honorifics: "HPhD. MD.",
-    post: "Deputy Director, Deputy Commanding Officer and Chairwoman of the Cabinet",
-    line: "Deputises for the Director, chairs the Cabinet and leads The Director’s Office’s communications.",
+    post: "Vice President and Chairwoman of the Cabinet",
+    line: "Deputises for the President, chairs the Cabinet and leads The President’s Office’s communications.",
     posts: [
-      "Deputy Director and Deputy Commanding Officer of the Continental Security Agency",
+      "Vice President of the Continental Security Agency",
       "Chairwoman of the Cabinet",
-      "Chief Communications Director of The Director’s Office, since 16 March 2025",
-      "Special Advisor to the Director",
-      "Deputy Director of Security",
+      "Chief Communications Director of The President’s Office, since 16 March 2025",
+      "Special Advisor to the President",
       "Member of the Senior Counsel",
       "Member of the International Intelligence Council’s Intermediary Council",
     ],
     responsibilities: [
       "Chairs the Cabinet.",
-      "Leads The Director’s Office’s communications, with the Press Secretary and Press Representative.",
-      "Advises the Director.",
+      "Leads The President’s Office’s communications, with the Press Secretary and Press Representative.",
+      "Advises the President.",
     ],
     // supplied by the user for Jana's page
     education: {
@@ -109,10 +108,10 @@ export const cabinet = departments.map(({ name, head, post, href }) => ({ name: 
 
 // The Senior Counsel, or Immediate Security Team.
 export const seniorCounsel = [
-  { name: "UFHMG. Enzo Hernandez, HPhD. MD.", title: "Director and Commanding Officer", href: leaderHref("enzo-hernandez") },
+  { name: "UFHMG. Enzo Hernandez, HPhD. MD.", title: "President", href: leaderHref("enzo-hernandez") },
   {
     name: "UFMG. Jana Mohamed, HPhD. MD.",
-    title: "Deputy Director, Deputy Commanding Officer and Chairwoman of the Cabinet",
+    title: "Vice President and Chairwoman of the Cabinet",
     href: leaderHref("jana-mohamed"),
   },
   { name: "FA. David Larochelle, PhD", title: "Secretary of Defence", href: "/exec/defence" },
@@ -121,7 +120,6 @@ export const seniorCounsel = [
     title: "Secretary of Foreign Affairs; Chief Technological Officer of the Cabinet",
     href: "/exec/foreign-affairs",
   },
-  { name: "Dr. Mark Simmons", title: "Adjutant of the CSA" },
   {
     name: "MAJ. Livian Valicha, PhD",
     title: "Madam Chief of Internal Affairs; Chief Financial Officer of the Cabinet",
@@ -134,8 +132,8 @@ export const seniorCounsel = [
 // yet filled.
 export const otherHeads = [
   {
-    group: "The Director’s Office",
-    people: [{ name: "Zaha Rasheed", title: "Chief of Staff", href: "/exec/directors-office" }],
+    group: "The President’s Office",
+    people: [{ name: "Zaha Rasheed", title: "Chief of Staff", href: "/exec/presidents-office" }],
   },
   {
     group: "Within the Department of Justice",

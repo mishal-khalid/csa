@@ -1,10 +1,10 @@
 import Image from "next/image";
 import CtaButton from "@/components/CtaButton";
 import { BodyGrid, PersonTile, Section } from "@/components/organisation/cards";
-import { departments, directorsOffice, justiceOffices } from "@/components/organisation/directory";
+import { departments, presidentsOffice, justiceOffices } from "@/components/organisation/directory";
 
 // Draft copy, still to be approved.
-const intro = "The Director’s Office leads the CSA, and the Cabinet’s twelve departments carry out its work.";
+const intro = "The President’s Office leads the CSA, and the Cabinet’s twelve departments carry out its work.";
 
 export const metadata = { title: "The Executive", description: intro };
 
@@ -25,16 +25,16 @@ export default function ExecutivePage() {
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink/60">{intro}</p>
       </header>
 
-      <Section id="directors-office" title="The Director’s Office">
+      <Section id="presidents-office" title="The President’s Office">
         <ul className="grid gap-3 md:grid-cols-3">
-          {directorsOffice.people.map((person) => (
+          {presidentsOffice.people.map((person) => (
             <li key={person.name}>
               <PersonTile {...person} />
             </li>
           ))}
         </ul>
         <div className="mt-12 flex justify-center">
-          <CtaButton href={directorsOffice.href} label="About the DO" />
+          <CtaButton href={presidentsOffice.href} label="About the PO" />
         </div>
       </Section>
 

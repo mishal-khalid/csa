@@ -6,8 +6,8 @@ export const groups = [
   {
     slug: "exec",
     name: "The Executive",
-    chartLabel: "Director’s Office · Cabinet",
-    line: "The Director’s Office and the Cabinet’s departments, which run the CSA day to day.",
+    chartLabel: "President’s Office · Cabinet",
+    line: "The President’s Office and the Cabinet’s departments, which run the CSA day to day.",
     count: "12 departments",
     emblems: [{ src: "/brand/CSA_Insignia_Black.svg", width: 60 }],
   },

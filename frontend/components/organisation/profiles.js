@@ -53,7 +53,7 @@ export const profiles = [
       ["Gloria Lawson", "Member of the Continental Assembly, appointed by the Assembly"],
       ["Owen Norwood", "Member of the public, appointed by the Assembly"],
       ["Renee Walcott", "Chair of the Human Resources Commission"],
-      ["Tyler Garrison", "Appointee of the Director"],
+      ["Tyler Garrison", "Appointee of the President"],
       ["FA. Luz Miranda, AG", "Attorney General"],
       ["Victor Jarvis", "Lawyer elected from the Universal Board of Legal Affairs"],
     ],

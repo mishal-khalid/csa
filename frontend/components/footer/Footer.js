@@ -7,7 +7,7 @@ import { types } from "@/components/gazette/types";
 
 const cta = {
   heading: "Questions for the CSA?",
-  text: "The Director’s Office answers general enquiries.",
+  text: "The President’s Office answers general enquiries.",
   label: "Contact us",
   href: "/contact",
 };
@@ -30,8 +30,8 @@ const columns = [
     title: "Leadership",
     href: "/leadership",
     links: [
-      { label: "The Director", href: leaderHref("enzo-hernandez") },
-      { label: "The Deputy Director", href: leaderHref("jana-mohamed") },
+      { label: "The President", href: leaderHref("enzo-hernandez") },
+      { label: "The Vice President", href: leaderHref("jana-mohamed") },
       { label: "The Cabinet", href: "/leadership#cabinet" },
       { label: "Senior Counsel", href: "/leadership#senior-counsel" },
       { label: "Heads of bodies", href: "/leadership#heads" },

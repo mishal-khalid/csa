@@ -44,7 +44,7 @@ export function passwordProblem(value) {
   return null;
 }
 
-// a username made from an email's first part: "Aisha.Naseem+csa@tdo.csa" → "aisha.naseem.csa"
+// a username made from an email's first part: "Aisha.Naseem+csa@po.csa" → "aisha.naseem.csa"
 export function usernameFrom(email) {
   return normalise(email.split("@")[0] ?? "")
     .replace(/[^a-z0-9._-]+/g, ".")

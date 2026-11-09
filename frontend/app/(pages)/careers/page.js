@@ -21,7 +21,7 @@ const paths = [
     name: "Continental Security Service",
     short: "CSS",
     who: "For administrative staff and the CSA’s other employees.",
-    text: "The CSA’s civil service, working across The Director’s Office, the departments and the bodies under the CSS Code of Conduct.",
+    text: "The CSA’s civil service, working across The President’s Office, the departments and the bodies under the CSS Code of Conduct.",
   },
   {
     name: "Federal Agents",
@@ -33,7 +33,7 @@ const paths = [
     name: "Executive Service",
     short: "ES",
     who: "For Executive Officers.",
-    text: "The Director and Deputy Director, the Secretaries, Secretaries of State, Deputy Secretaries and their equivalents, under the Executive Officers’ Code of Conduct.",
+    text: "The President and Vice President, the Secretaries, Secretaries of State, Deputy Secretaries and their equivalents, under the Executive Officers’ Code of Conduct.",
   },
 ];
 

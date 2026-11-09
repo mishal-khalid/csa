@@ -13,7 +13,10 @@ import { contentsFor } from "@/components/gazette/toc";
 export const instant = false;
 
 export async function generateStaticParams() {
-  return (await getDocuments()).map(({ serial }) => ({ serial: String(serial) }));
+  const documents = await getDocuments();
+  // built without the API: at least one address is needed, and the first document's is always there
+  if (!documents?.length) return [{ serial: "1" }];
+  return documents.map(({ serial }) => ({ serial: String(serial) }));
 }
 
 export async function generateMetadata({ params }) {

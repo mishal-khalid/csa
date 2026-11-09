@@ -6,6 +6,10 @@ const intro = "The official record of the CSA.";
 
 export const metadata = { title: "The CSA Gazette", description: intro };
 
+// The archive comes from the Gazette's API. It's built into the page when the site is built; if the
+// API couldn't give it then, the page waits for it when it's visited instead (see documents.js).
+export const instant = false;
+
 // The Gazette. Its header is an editorial headline mixing type: "The CSA" in the sans and
 // "Gazette" in italic serif, over a soft gold glow. Then the searchable archive.
 export default async function GazettePage() {

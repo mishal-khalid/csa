@@ -11,6 +11,11 @@ const intro = "Careers at the Continental Security Agency.";
 
 export const metadata = { title: "Careers", description: intro };
 
+// The links to the forms come from the Gazette's API. They're built into the page when the site is
+// built; if the API couldn't give them then, the page waits for them when it's visited instead (see
+// components/gazette/documents.js).
+export const instant = false;
+
 const paths = [
   {
     name: "Continental Security Service",

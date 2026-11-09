@@ -15,34 +15,52 @@ export { documentHref, formatDate, ssc, types } from "./types";
 
 const API = (process.env.GAZETTE_API_URL ?? "https://api.agee.pro").replace(/\/$/, "");
 
+// The site is being built (`next build`), rather than answering a visit.
+const building = process.env.NEXT_PHASE === "phase-production-build";
+
+// What `read` gives when the API can't give the Gazette while the site is built: it can't be
+// reached, it's failing, or it doesn't serve the Gazette yet (as before its Gazette module went
+// live). Answering a visit, that's an error instead, so the last good page stays up.
+const UNAVAILABLE = { unavailable: true };
+
 async function read(path) {
-  const res = await fetch(`${API}${path}`);
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`The Gazette's API answered ${res.status} for ${path}`);
-  return res.json();
+  const res = await fetch(`${API}${path}`).catch(() => null);
+  if (res?.ok) return res.json();
+  const body = await res?.json().catch(() => null);
+  // the Gazette's own answer for a document it doesn't have
+  if (res?.status === 404 && body?.code === "not_found") return null;
+  const problem = `The Gazette's API ${res ? `answered ${res.status}` : "couldn’t be reached"} for ${path}`;
+  if (!building) throw new Error(problem);
+  console.warn(`${problem}: the pages that show it will be rendered when they're visited.`);
+  return UNAVAILABLE;
 }
 
-// every published document, without its text
+// How long an answer is kept. One the API couldn't give while the site was built is kept only
+// seconds, and a cache that short is never built into a page: those parts are rendered when the page
+// is visited, so the build doesn't fail for want of the API.
+function keep(data, life) {
+  cacheLife(data === UNAVAILABLE ? "seconds" : life);
+  return data === UNAVAILABLE ? null : data;
+}
+
+// every published document, without its text (null only while building without the API)
 export async function getDocuments() {
   "use cache";
-  cacheLife("minutes");
   cacheTag("gazette");
-  return (await read("/gazette/public/documents")).documents;
+  return keep(await read("/gazette/public/documents"), "minutes")?.documents ?? null;
 }
 
 // one document with its full text, or null
 export async function getDocument(serial) {
   "use cache";
-  cacheLife("minutes");
   cacheTag("gazette");
-  if (!/^\d{1,9}$/.test(String(serial))) return null;
-  return (await read(`/gazette/public/documents/${serial}`))?.document ?? null;
+  if (!/^\d{1,9}$/.test(String(serial))) return keep(null, "minutes");
+  return keep(await read(`/gazette/public/documents/${serial}`), "minutes")?.document ?? null;
 }
 
 // the address of a document from before the renumbering, by its old index, or null
 export async function serialForIndex(index) {
   "use cache";
-  cacheLife("hours");
-  if (!/^\d{10}$/.test(String(index))) return null;
-  return (await read(`/gazette/public/legacy/${index}`))?.serial ?? null;
+  if (!/^\d{10}$/.test(String(index))) return keep(null, "hours");
+  return keep(await read(`/gazette/public/legacy/${index}`), "hours")?.serial ?? null;
 }

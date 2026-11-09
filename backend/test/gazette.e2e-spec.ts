@@ -1,6 +1,7 @@
 // End-to-end checks of the Gazette tab against the local test database, with files kept on this
 // computer. Each run makes its own throwaway accounts and documents and deletes them afterwards.
 import { createHash, randomBytes } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import { rm } from 'node:fs/promises';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
@@ -35,9 +36,12 @@ async function sessionFor(role: 'ADMIN' | 'CITIZEN') {
   return [`__Host-csa_session=${token}`];
 }
 
-// a one-page Notice, laid out like the CSA's: letterhead, reference and date, title, text, signature
-async function noticePdf() {
+// a one-page Notice, laid out like the CSA's: letterhead, reference and date, title, text, signature.
+// `saved` changes the file's own dates, so the same Notice can be saved as a different file.
+async function noticePdf(reference = `PO/2026/N/${tag}`, title = `Notice of an End-to-End Test ${tag}`, saved = new Date('2026-11-08T00:00:00Z')) {
   const doc = await PDFDocument.create();
+  doc.setCreationDate(saved);
+  doc.setModificationDate(saved);
   const bold = await doc.embedFont(StandardFonts.HelveticaBold);
   const regular = await doc.embedFont(StandardFonts.Helvetica);
   const page = doc.addPage([595.32, 841.92]);
@@ -45,10 +49,12 @@ async function noticePdf() {
   line('The President’s Office'.replace('’', "'"), 80, bold, 12);
   line('Continental Security Agency', 96, bold, 11);
   line('Washington, D.C.', 112, bold, 9);
-  line(`Reference: PO/2026/N/${tag}`, 140);
+  line(`Reference: ${reference}`, 140);
   line('Date: 08 November 2026', 156);
-  line(`Notice of an End-to-End Test ${tag}`, 210, bold, 12, 200);
+  line(title, 210, bold, 12, 200);
   line('This Notice is made by the API’s end-to-end tests and deleted after them.'.replace('’', "'"), 240);
+  line('It is long enough for the Gazette tab to tell it from any other document by its words alone,', 256);
+  line('so that saving it as a PDF a second time is still seen as the same Notice uploaded again.', 272);
   line('Dr. Enzo Hernandez', 320, bold);
   line('President', 336);
   return doc.save();
@@ -147,6 +153,46 @@ describe('making and publishing a Notice', () => {
     const shown = await request(server()).get(`/gazette/public/documents/${next.serial}`);
     expect(shown.status).toBe(200);
     expect(shown.body.document).toMatchObject({ tag: 'Notice', reference: `PO/2026/N/${tag}`, status: 'Repealed' });
+  });
+
+  it('turns away a document that’s already uploaded, and throws its upload away', async () => {
+    const storage = app.get(GazetteStorage);
+    const draft = async () => {
+      const res = await send('post', '/gazette', { cover: false });
+      made.push(res.body.document.id);
+      return res.body.document.id as string;
+    };
+    const upload = async (id: string, kind: 'main' | 'appendix', pdf: Uint8Array) => {
+      const target = await send('post', `/gazette/${id}/uploads`, { kind, size: pdf.length });
+      const url = new URL(target.body.upload.url);
+      await request(server()).put(`${url.pathname}${url.search}`).set('Content-Type', 'application/pdf').send(Buffer.from(pdf));
+      const res = await send('post', `/gazette/${id}/files`, { kind, path: target.body.path, name: 'notice.pdf' });
+      return { res, kept: existsSync(storage.localFile('gazette-drafts', target.body.path)) };
+    };
+    const reference = `PO/2026/N/${tag}-1`;
+    const pdf = await noticePdf(reference, `Notice of a Repeat Test ${tag}`);
+    const first = await draft();
+    expect((await upload(first, 'main', pdf)).res.status).toBe(200);
+
+    // the same file, to another draft or as the first one's own appendix
+    const second = await draft();
+    const again = await upload(second, 'main', pdf);
+    expect(again.res.status).toBe(409);
+    expect(again.res.body).toMatchObject({ code: 'duplicate', reason: 'same_file', duplicate: { id: first, self: false } });
+    expect(again.kept).toBe(false);
+    expect((await upload(first, 'appendix', pdf)).res.body).toMatchObject({ code: 'duplicate', duplicate: { id: first, self: true } });
+
+    // the same Notice saved as a PDF again: another file, the same words
+    const resaved = await upload(second, 'main', await noticePdf(reference, `Notice of a Repeat Test ${tag}`, new Date('2026-11-09T10:00:00Z')));
+    expect(resaved.res.body).toMatchObject({ code: 'duplicate', reason: 'same_text', duplicate: { id: first } });
+
+    // another Notice with the first one's reference, now or given it later
+    const other = (ref: string) => noticePdf(ref, `Another Notice of a Repeat Test ${tag}`);
+    expect((await upload(second, 'main', await other(reference))).res.body).toMatchObject({ code: 'duplicate', reason: 'same_number' });
+    expect((await upload(second, 'main', await other(`PO/2026/N/${tag}-2`))).res.status).toBe(200);
+    const renumbered = await send('patch', `/gazette/${second}`, { docNumber: ` po/2026/n/${tag}-1 ` });
+    expect(renumbered.status).toBe(409);
+    expect(renumbered.body).toMatchObject({ code: 'duplicate', reason: 'same_number', duplicate: { id: first } });
   });
 
   it('won’t publish on any day but today', async () => {

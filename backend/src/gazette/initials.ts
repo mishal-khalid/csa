@@ -1,6 +1,6 @@
 // The President's initials in the bottom-left corner of a page, as on a Maldivian Qaraar: a
-// President's Order carries them on every page of the issue except the Order's last page, which has
-// the full signature.
+// President's Order carries them on every page of the issue except the Gazette's cover and the
+// Order's last page, which has the full signature. Its appendices carry them too.
 //
 // Placed as in the CSA Gazette skill's "Initials on every page": 36 pt tall, its lower-left corner
 // 52 pt from the left edge and 30 pt from the bottom, as the page is seen (so a page turned with

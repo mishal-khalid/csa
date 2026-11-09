@@ -2,6 +2,8 @@ import { createHash } from 'node:crypto';
 import { PDFArray, PDFDocument, PDFRawStream, decodePDFRawStream, degrees } from 'pdf-lib';
 import { buildIssue, coverDate, coverPdf, coverProblems, titleLines } from './cover.js';
 import { cornerMatrix, INITIALS_WIDTH } from './initials.js';
+import { sameNumber, textHash } from './gazette.service.js';
+import type { Block } from './blocks.js';
 import { coverNumberLine, nextPlace, nextSeries, referenceFor, volumeFor, type Placed } from './numbering.js';
 
 const sha = (bytes: Uint8Array) => createHash('sha256').update(bytes).digest('hex');
@@ -66,23 +68,23 @@ describe('the President’s initials', () => {
       const contents = page.node.Contents();
       const refs = contents instanceof PDFArray ? contents.asArray() : contents ? [contents] : [];
       const drawing = refs
-        .map((ref) => Buffer.from(decodePDFRawStream(doc.context.lookup(ref, PDFRawStream)).decode()).toString('latin1'))
+        .map((ref) => Buffer.from(decodePDFRawStream(doc.context.lookup(ref) as PDFRawStream).decode()).toString('latin1'))
         .join('\n');
       return /\/Initials-\d+ Do/.test(drawing) ? [index] : [];
     });
   };
 
-  it('go on every page of an Order’s issue but the Order’s last, the cover and appendices included', async () => {
+  it('go on every page of an Order’s issue but the cover and the Order’s last, its appendices included', async () => {
     // cover, the Order's 3 pages (the last signed), an appendix of 2 pages
     const issue = await buildIssue({ main: await blank(3), appendices: [await blank(2)], cover: order, initialled: true, info });
-    expect(await initialled(issue)).toEqual([0, 1, 2, 4, 5]);
+    expect(await initialled(issue)).toEqual([1, 2, 4, 5]);
     const again = await buildIssue({ main: await blank(3), appendices: [await blank(2)], cover: order, initialled: true, info });
     expect(sha(issue)).toBe(sha(again));
   });
 
   it('leave a one-page Order’s only page to its signature', async () => {
     const issue = await buildIssue({ main: await blank(1), appendices: [], cover: order, initialled: true, info });
-    expect(await initialled(issue)).toEqual([0]);
+    expect(await initialled(issue)).toEqual([]);
   });
 
   it('aren’t put on other documents', async () => {
@@ -133,5 +135,23 @@ describe('the numbering', () => {
     expect(coverNumberLine('regulation', 'R-1/2026')).toBe('Regulation Number: R-1/2026');
     expect(referenceFor('guideline', 'G-1/2026')).toBe('Guideline Number G-1/2026');
     expect(referenceFor('notice', 'PO/2026/N/4')).toBe('PO/2026/N/4');
+  });
+});
+
+describe('telling repeats apart', () => {
+  it('counts 1/2026 and 01/2026 as one number, and a reference written differently as the same', () => {
+    expect(sameNumber('order', '01/2026', '1/2026')).toBe(true);
+    expect(sameNumber('regulation', 'R-3/2026', 'R-03/2026')).toBe(true);
+    expect(sameNumber('act', '3/2026', '3/2027')).toBe(false);
+    expect(sameNumber('notice', 'PO/2026/N/01', ' po/2026/n/01 ')).toBe(true);
+    expect(sameNumber('notice', 'PO/2026/N/01', null)).toBe(false);
+  });
+
+  it('only fingerprints text long enough to tell documents apart', () => {
+    const paragraph = (text: string) => [{ type: 'paragraph', text }] as unknown as Block[];
+    expect(textHash(paragraph('Short.'))).toBeUndefined();
+    const long = 'Every body of the Continental Security Agency shall publish its documents in the Gazette. '.repeat(3);
+    expect(textHash(paragraph(long))).toBe(textHash(paragraph(long.toUpperCase().replace(/ /g, '  '))));
+    expect(textHash(paragraph(long))).not.toBe(textHash(paragraph(`${long} More.`)));
   });
 });

@@ -17,6 +17,10 @@ export interface SourceFile {
   name: string;
   size: number;
   pages: number;
+  // what tells it from every other upload: the file itself, and the words read from it (the same
+  // document saved as a PDF again reads the same, though its bytes differ)
+  sha256?: string;
+  textHash?: string;
 }
 export interface AppendixSource extends SourceFile {
   number?: number;
@@ -119,6 +123,43 @@ function publicDoc(doc: GazetteDocument, withText: boolean) {
   };
 }
 
+const sha256 = (data: Uint8Array | string) => createHash('sha256').update(data).digest('hex');
+
+// A hash of the words read from a PDF, or nothing when too few were read to tell one document
+// from another (a scan, a near-empty page).
+export function textHash(blocks: Block[], ...more: (string | undefined)[]): string | undefined {
+  const words: string[] = more.filter((text): text is string => !!text);
+  const collect = (value: unknown): void => {
+    if (typeof value === 'string') words.push(value);
+    else if (Array.isArray(value)) value.forEach(collect);
+    else if (value && typeof value === 'object')
+      for (const [key, inner] of Object.entries(value)) if (key !== 'type') collect(inner);
+  };
+  collect(blocks);
+  const text = words.join(' ').toLowerCase().replace(/\s+/g, ' ').trim();
+  return text.length >= 200 ? sha256(text) : undefined;
+}
+
+// Whether two documents of a type carry the same number: 1/2026 and 01/2026 are one number; a
+// Notice's own reference is compared as written, ignoring case and spacing.
+export function sameNumber(type: string, a: string | null | undefined, b: string | null | undefined): boolean {
+  if (!a?.trim() || !b?.trim()) return false;
+  const left = parseSeriesNumber(type, a);
+  const right = parseSeriesNumber(type, b);
+  if (left && right) return left.serial === right.serial && left.year === right.year;
+  const plain = (text: string) => text.toLowerCase().replace(/\s+/g, ' ').trim();
+  return plain(a) === plain(b);
+}
+
+// What an upload or a number would repeat: the same file, the same text, or the same type and number.
+type DuplicateReason = 'same_file' | 'same_text' | 'same_number';
+interface Candidate {
+  sha256?: string;
+  textHash?: string;
+  type?: string;
+  docNumber?: string | null;
+}
+
 const placed = (doc: GazetteDocument): Placed => ({
   serial: doc.serial,
   number: doc.number,
@@ -149,6 +190,33 @@ export class GazetteService {
 
   private published() {
     return this.prisma.gazetteDocument.findMany({ where: { state: 'PUBLISHED' }, orderBy: { serial: 'asc' } });
+  }
+
+  // The document `candidate` would repeat, if any, with how: its file or text is already uploaded
+  // (to another document, or to `doc` itself as another of its files), or another document has its
+  // type and number. `own` leaves out one of doc's files (the one being replaced). Only published
+  // documents are looked at when `publishedOnly`.
+  private async duplicateOf(doc: GazetteDocument, candidate: Candidate, { own, publishedOnly = false }: { own?: string; publishedOnly?: boolean } = {}) {
+    const others = await this.prisma.gazetteDocument.findMany({
+      where: publishedOnly ? { state: 'PUBLISHED' } : {},
+      orderBy: [{ state: 'desc' }, { serial: 'asc' }, { createdAt: 'asc' }],
+    });
+    const files = (entry: GazetteDocument) => {
+      const sources = entry.sources as Sources;
+      return [sources.main, ...(sources.appendices ?? [])].filter((file): file is SourceFile => !!file && file.path !== own);
+    };
+    const found = (entry: GazetteDocument, reason: DuplicateReason) => ({ reason, duplicate: { ...summary(entry), self: entry.id === doc.id } });
+    for (const entry of others) {
+      for (const file of files(entry)) {
+        if (candidate.sha256 && file.sha256 === candidate.sha256) return found(entry, 'same_file');
+        if (candidate.textHash && file.textHash === candidate.textHash) return found(entry, 'same_text');
+      }
+    }
+    if (candidate.type) {
+      const twin = others.find((entry) => entry.id !== doc.id && entry.type === candidate.type && sameNumber(candidate.type!, entry.docNumber, candidate.docNumber));
+      if (twin) return found(twin, 'same_number');
+    }
+    return null;
   }
 
   // ---- the Register (the portal's table) ----
@@ -203,20 +271,30 @@ export class GazetteService {
       throw new UnprocessableEntityException({ code: 'unusable_pdf', message: error instanceof UnusablePdf ? error.message : 'This file couldn’t be read as a PDF.' });
     }
     const sources = doc.sources as Sources;
-    const file = { path, name, size: bytes.length, pages };
+    const file: SourceFile = { path, name, size: bytes.length, pages, sha256: sha256(bytes) };
     let data: Prisma.GazetteDocumentUpdateInput;
+    // nothing is uploaded twice: a repeat is turned away, naming the document it repeats
+    const refuse = async (candidate: Candidate, own?: string) => {
+      const duplicate = await this.duplicateOf(doc, candidate, { own });
+      if (!duplicate) return;
+      await this.storage.remove('gazette-drafts', [path]);
+      throw new ConflictException({ code: 'duplicate', ...duplicate });
+    };
 
     if (kind === 'main') {
       const read = await readDocument(bytes);
       const fields = read.fields;
       // a cover choice stays: "No cover" is a Notice; "Add Cover" takes the type read, if it's one with a cover
       const type = doc.cover ? (fields.type && COVER_TYPES.includes(fields.type) ? fields.type : doc.type) : 'notice';
+      const docNumber = doc.docNumber ?? fields.docNumber ?? null;
+      file.textHash = textHash(read.blocks);
+      await refuse({ ...file, type, docNumber }, sources.main?.path);
       const notes = [...read.notes];
       if (fields.hasCover) notes.unshift({ page: 1, message: 'This PDF already starts with a Gazette cover. Upload the document without its cover; the module adds it.' });
       if (sources.main) await this.storage.remove('gazette-drafts', [sources.main.path]);
       data = {
         type,
-        docNumber: doc.docNumber ?? fields.docNumber ?? null,
+        docNumber,
         title: doc.title || fields.title || '',
         issuingBody: doc.issuingBody ?? fields.issuingBody ?? null,
         language: fields.language,
@@ -226,6 +304,8 @@ export class GazetteService {
       };
     } else {
       const read = await readAppendix(bytes);
+      file.textHash = textHash(read.blocks, read.firstPageText);
+      await refuse(file);
       const appendix: AppendixSource = { ...file, number: read.number, title: read.title, firstPageText: read.firstPageText, blocks: read.blocks };
       data = { sources: { ...sources, appendices: [...(sources.appendices ?? []), appendix] } as unknown as Prisma.InputJsonValue };
     }
@@ -265,6 +345,11 @@ export class GazetteService {
         data.type = draft.type;
       }
       if (draft.docNumber !== undefined) data.docNumber = draft.docNumber;
+      // no two documents of a type carry the same number
+      if (draft.type !== undefined || draft.docNumber !== undefined) {
+        const duplicate = await this.duplicateOf(doc, { type: draft.type ?? doc.type, docNumber: draft.docNumber !== undefined ? draft.docNumber : doc.docNumber });
+        if (duplicate) throw new ConflictException({ code: 'duplicate', ...duplicate });
+      }
       if (draft.title !== undefined) data.title = draft.title;
       if (draft.issuingBody !== undefined) data.issuingBody = draft.issuingBody;
       if (draft.commencesOn !== undefined) data.commencesOn = draft.commencesOn ? day(draft.commencesOn) : null;
@@ -342,7 +427,7 @@ export class GazetteService {
     const path = `drafts/${id}/preview.pdf`;
     // (the first entry names how issues are built: change it when that changes, to rebuild old previews)
     const key = createHash('sha256')
-      .update(JSON.stringify(['initials-1', sources.main.path, (sources.appendices ?? []).map((a) => a.path), cover ?? null, doc.type, doc.title, date]))
+      .update(JSON.stringify(['initials-2', sources.main.path, (sources.appendices ?? []).map((a) => a.path), cover ?? null, doc.type, doc.title, date]))
       .digest('hex');
     if (sources.previewKey !== key) {
       const { pdf } = await this.issue(doc, place, date);
@@ -377,6 +462,25 @@ export class GazetteService {
     }
     const cover = this.cover(doc, await this.next(date), date);
     for (const problem of cover ? coverProblems(cover) : []) issues.push({ level: 'error', rule: 'Cover template', where: 'Cover', message: problem });
+
+    // nothing already published goes out again (a draft that repeats another draft is turned away
+    // when it's uploaded; whichever of two old ones is published first goes). A number already used
+    // in a series is the rules' own error (number-series), so only a Notice's reference is matched here.
+    for (const [i, file] of [sources.main, ...(sources.appendices ?? [])].entries()) {
+      if (!file) continue;
+      const numbered = i === 0 && doc.type === 'notice' ? { type: doc.type, docNumber: doc.docNumber } : {};
+      const found = await this.duplicateOf(doc, { sha256: file.sha256, textHash: file.textHash, ...numbered }, { publishedOnly: true });
+      if (found) {
+        const { duplicate, reason } = found;
+        const what = reason === 'same_number' ? 'Its type and number are' : i === 0 ? 'This PDF is' : `Appendix ${i}’s PDF is`;
+        issues.push({
+          level: 'error',
+          rule: 'Gazette module',
+          where: i === 0 ? 'Document' : `Appendix ${i}`,
+          message: `${what} already published in the Gazette, as “${duplicate.title}”${duplicate.gazetteRef ? ` (${duplicate.gazetteRef})` : ''}.`,
+        });
+      }
+    }
 
     if (sources.main && isNewType(doc.type) && doc.docNumber) {
       const register = (await this.published()).map((entry) => ({

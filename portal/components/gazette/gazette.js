@@ -29,6 +29,16 @@ export function typeAndNumber(doc) {
 
 export const megabytes = (bytes) => `${(bytes / 1024 / 1024).toFixed(bytes < 1024 * 1024 ? 2 : 1)} MB`;
 
+// why an upload or a number was turned away as a repeat, naming the document it repeats
+function duplicateProblem(reason, other) {
+  if (other.self) return "This PDF is already uploaded to this document.";
+  const where = other.state === "PUBLISHED" ? `published${other.gazetteRef ? ` in ${other.gazetteRef}` : ""}` : "a draft";
+  const named = `${typeAndNumber(other)}, “${other.title || "untitled"}” (${where})`;
+  if (reason === "same_number") return `That number is already taken: ${named}.`;
+  if (reason === "same_text") return `This document is already uploaded, saved as another PDF: ${named}.`;
+  return `This PDF is already uploaded: ${named}.`;
+}
+
 // what an answer from the API means, in words (null when it worked)
 export function problemFor({ status, data }) {
   if (status >= 200 && status < 300) return null;
@@ -44,6 +54,7 @@ export function problemFor({ status, data }) {
     number_taken: "That number has just been given to another document. Change the number and try again.",
     cover: data?.problems?.join(" "),
     not_found: "This document no longer exists.",
+    duplicate: data?.duplicate && duplicateProblem(data.reason, data.duplicate),
   };
   if (codes[data?.code]) return codes[data.code];
   if (status === 429) return "Too many changes. Try again in a minute.";

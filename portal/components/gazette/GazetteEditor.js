@@ -28,7 +28,8 @@ async function uploadPdf(id, kind, file) {
   if (!put?.ok) return { problem: "The upload didn’t go through. Try again." };
   const taken = await api(`/gazette/${id}/files`, { body: { kind, path: target.data.path, name: file.name } });
   if (taken.status === 401) return { expired: true };
-  if (taken.status !== 200) return { problem: problemFor(taken) };
+  // turned away as a repeat: say which document it repeats, to open from here
+  if (taken.status !== 200) return { problem: problemFor(taken), repeats: taken.data?.duplicate?.self === false ? taken.data.duplicate : null };
   return { document: taken.data.document };
 }
 
@@ -135,6 +136,8 @@ export default function GazetteEditor({ id }) {
   const [previewProblem, setPreviewProblem] = useState(null);
   const [busy, setBusy] = useState(null);
   const [problem, setProblem] = useState(null);
+  // the document an upload was turned away for repeating
+  const [repeats, setRepeats] = useState(null);
   const [publishing, setPublishing] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const date = today();
@@ -215,11 +218,14 @@ export default function GazetteEditor({ id }) {
   async function upload(kind, file) {
     setBusy(kind === "main" ? "Uploading and reading the document…" : "Uploading the appendix…");
     setProblem(null);
+    setRepeats(null);
     try {
       const result = await uploadPdf(id, kind, file);
       if (result.expired) return expired();
-      if (result.problem) setProblem(result.problem);
-      else setDoc(result.document);
+      if (result.problem) {
+        setProblem(result.problem);
+        setRepeats(result.repeats);
+      } else setDoc(result.document);
     } catch {
       setProblem("Couldn’t reach the portal. Try again.");
     }
@@ -294,7 +300,19 @@ export default function GazetteEditor({ id }) {
             </div>
           )}
         </div>
-        {problem && <p className="mt-3 text-[13px] text-maroon">{problem}</p>}
+        {problem && (
+          <p className="mt-3 text-[13px] text-maroon">
+            {problem}
+            {repeats && (
+              <>
+                {" "}
+                <Link href={`/gazette/${repeats.id}`} className="font-medium underline underline-offset-2 hover:text-maroon/80">
+                  Open it
+                </Link>
+              </>
+            )}
+          </p>
+        )}
       </header>
 
       <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">

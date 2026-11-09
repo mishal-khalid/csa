@@ -270,7 +270,8 @@ export interface IssueInput {
   appendices: Uint8Array[];
   // left out for a Notice, which has no cover
   cover?: CoverText;
-  // a President's Order: the President's initials on every page but the Order's last (see initials.ts)
+  // a President's Order: the President's initials on every page but the cover and the Order's last
+  // (see initials.ts)
   initialled?: boolean;
   info: { title: string; subject: string; date: string };
 }
@@ -292,7 +293,8 @@ export async function buildIssue({ main, appendices, cover, initialled, info }: 
     const pages = await doc.copyPages(appendix, appendix.getPageIndices());
     for (const page of pages) doc.addPage(page);
   }
-  if (initialled) addInitials(doc, doc.getPageIndices().filter((index) => index !== signed));
+  // every page but the cover and the signed one
+  if (initialled) addInitials(doc, doc.getPageIndices().filter((index) => index !== signed && !(cover && index === 0)));
   const when = new Date(`${info.date}T00:00:00Z`);
   doc.setTitle(info.title);
   doc.setSubject(info.subject);

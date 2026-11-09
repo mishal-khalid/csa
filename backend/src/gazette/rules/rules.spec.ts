@@ -496,6 +496,71 @@ describe('amendments (points 19 and 36)', () => {
     ).toBe(true);
   });
 
+  // point 3 (a) of Director's Order 02/2026 renamed The Director's Office The President's Office
+  describe('by the body that issued it (point 36)', () => {
+    const FIRST =
+      'First Amendment to Director’s Order Number 01/2026 (Establishment of the Continental Security Agency Gazette)';
+    const register = RENAMED.map((e) =>
+      e.docNumber === '01/2026'
+        ? { ...e, issuingBody: 'The Director’s Office' }
+        : e,
+    );
+    const amending = (issuingBody: string) =>
+      checkDocument(order({ title: FIRST, register, issuingBody }));
+
+    it('takes The President’s Office as the body that issued Director’s Order 01/2026', () => {
+      for (const body of ['The President’s Office', "The President's Office"])
+        expect(
+          amending(body).filter((i) => i.where === 'Issuing body'),
+        ).toEqual([]);
+    });
+
+    it('still turns away any other body', () => {
+      expect(
+        has(
+          amending('Department of Defence'),
+          'error',
+          'Only The Director’s Office, which issued Director\'s Order Number 01/2026, can amend it (point 36).',
+        ),
+      ).toBe(true);
+      const regulations = [
+        ...RENAMED,
+        {
+          type: 'regulation',
+          docNumber: 'R-1/2026',
+          title: 'Test Regulation',
+          publishedOn: '2026-11-08',
+          issuingBody: 'Department of Economy and Trade',
+        },
+      ];
+      const amendRegulation = (issuingBody: string) =>
+        checkDocument(
+          regulation({
+            docNumber: 'R-2/2026',
+            title: 'First Amendment to Regulation Number R-1/2026 (Test Regulation)',
+            register: regulations,
+            issuingBody,
+          }),
+        );
+      expect(
+        has(amendRegulation('Department of Defence'), 'error', 'can amend it'),
+      ).toBe(true);
+      expect(
+        has(
+          amendRegulation('Department of Economy and Trade'),
+          'error',
+          'can amend it',
+        ),
+      ).toBe(false);
+    });
+
+    it('counts the old name as the same body, though an Order now takes the new one', () => {
+      const issues = amending('The Director’s Office');
+      expect(has(issues, 'error', 'can amend it')).toBe(false);
+      expect(has(issues, 'error', 'issued only by the President')).toBe(true);
+    });
+  });
+
   it('never amends a Notice', () => {
     expect(
       has(
@@ -933,6 +998,34 @@ describe('citations (points 23 to 25)', () => {
     expect(has(issues, 'error', 'Point 1 has no (c)')).toBe(true);
     expect(has(issues, 'error', 'no point 7')).toBe(true);
     expect(has(issues, 'error', 'points, not Articles')).toBe(true);
+  });
+
+  // one type, one number series: 01 and 02/2026 are Director's Orders, cited by either name
+  it('finds Director’s Orders 01 and 02/2026 under either name', () => {
+    const citing = (text: string) => {
+      const input = order();
+      (input.blocks[8] as Extract<Block, { type: 'list' }>).items[1].text =
+        text;
+      return lines(checkDocument(input));
+    };
+    const GAZETTE = 'Establishment of the Continental Security Agency Gazette';
+    for (const name of ['President’s', 'Director’s'])
+      expect(
+        citing(`Point 4 (a) of ${name} Order Number 01/2026 (${GAZETTE}) applies.`),
+      ).toEqual([]);
+    expect(
+      citing(
+        'See President’s Order Number 02/2026 (Change of the Titles of the Leadership of the Continental Security Agency).',
+      ),
+    ).toEqual([]);
+    // matched to the register's 01/2026, whose title this gets wrong
+    expect(
+      citing(
+        'Point 4 (a) of President’s Order Number 01/2026 (Establishment of the Register) applies.',
+      ),
+    ).toEqual([
+      `error point 2: President’s Order Number 01/2026 is titled “${GAZETTE}”, not “Establishment of the Register”.`,
+    ]);
   });
 
   it('cites other documents in full, as the register has them', () => {

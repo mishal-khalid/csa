@@ -5,11 +5,12 @@ import { PrismaService } from '../prisma.service.js';
 import { AuthService, type Caller } from '../auth/auth.service.js';
 import type { Block } from './blocks.js';
 import { buildIssue, coverProblems, loadPdf, UnusablePdf, type CoverText } from './cover.js';
+import { typeName } from './names.js';
 import { coverNumberLine, gazetteRef, nextPlace, nextSeries, referenceFor, yearOf, type Placed } from './numbering.js';
 import { readAppendix, readDocument } from './read/index.js';
 import { checkDocument, type Issue } from './rules/index.js';
 import { GazetteStorage, MAX_FILE_BYTES } from './storage.js';
-import { COVER_TYPES, NEW_TYPES, TYPES, isNewType, parseSeriesNumber, type NewType } from './types.js';
+import { COVER_TYPES, NEW_TYPES, isNewType, parseSeriesNumber, type NewType } from './types.js';
 
 // An uploaded original, kept until the draft is published or deleted.
 export interface SourceFile {
@@ -73,7 +74,7 @@ function summary(doc: GazetteDocument) {
     gazetteRef: gazetteRef(doc.volume, doc.number),
     body: doc.body,
     type: doc.type,
-    tag: doc.tag ?? TYPES[doc.type]?.tag ?? doc.type,
+    tag: doc.tag ?? typeName(doc.type, doc.docNumber) ?? doc.type,
     docNumber: doc.docNumber,
     reference: doc.reference,
     title: doc.title,
@@ -107,7 +108,7 @@ function publicDoc(doc: GazetteDocument, withText: boolean) {
     index: doc.legacyIndex,
     body: doc.body,
     type: doc.type,
-    tag: doc.tag ?? TYPES[doc.type]?.tag ?? doc.type,
+    tag: doc.tag ?? typeName(doc.type, doc.docNumber) ?? doc.type,
     title: doc.title,
     reference: doc.reference,
     issuingBody: doc.issuingBody,

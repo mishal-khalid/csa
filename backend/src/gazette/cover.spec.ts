@@ -131,7 +131,9 @@ describe('the numbering', () => {
 
   it('writes the cover line from the templates and the reference for the Gazette', () => {
     expect(coverNumberLine('act', '3/2026')).toBe('Act Number: 3/2026');
-    expect(coverNumberLine('order', '02/2026')).toBe('President’s Order: 02/2026');
+    expect(coverNumberLine('order', '03/2026')).toBe('President’s Order: 03/2026');
+    // Orders 01 and 02/2026 keep the name they were issued under
+    expect(coverNumberLine('order', '02/2026')).toBe('Director’s Order: 02/2026');
     expect(coverNumberLine('regulation', 'R-1/2026')).toBe('Regulation Number: R-1/2026');
     expect(referenceFor('guideline', 'G-1/2026')).toBe('Guideline Number G-1/2026');
     expect(referenceFor('notice', 'PO/2026/N/4')).toBe('PO/2026/N/4');

@@ -10,6 +10,7 @@
 // quotes the text.
 
 import type { Block, Clause } from '../blocks.js';
+import { renameOf, sameBody, typeName, typeNamed } from '../names.js';
 import { TYPES } from '../types.js';
 import {
   DATE_PATTERN,
@@ -243,13 +244,15 @@ const CITE_TYPES: Record<string, string> = {
   regulation: 'Regulation',
   guideline: 'Guideline',
 };
+// by any name the type has had: a Director's Order and a President's Order are both an Order, in
+// one number series (renames.ts)
 function citedType(word: string): string {
-  const w = plain(word).toLowerCase();
-  if (w === 'act') return 'act';
-  if (w.endsWith("'s order")) return 'order';
-  if (w === 'regulation') return 'regulation';
-  return 'guideline'; // Guideline, or Policy
+  const type = typeNamed(word);
+  return type && CITE_TYPES[type] ? type : 'guideline'; // Guideline, or Policy
 }
+
+// Orders are issued by the President (point 8), from this body under any of its names
+const PRESIDENTS_OFFICE = 'The President’s Office';
 
 // a citation of another document: "Act Number 2/2026 (Public Bonds Companies Act)"
 const CITATION =
@@ -364,6 +367,15 @@ export function checkDocument(input: CheckInput): Issue[] {
         numberParts(e.docNumber)?.serial === serial &&
         numberParts(e.docNumber)?.year === year,
     );
+  // whether a body's name was already replaced on this document's publication date: a rename takes
+  // effect when the document making it is published (renames.ts)
+  const replacedName = (name: string) => {
+    const rename = renameOf(name);
+    const parts = rename && numberParts(rename.effective.docNumber);
+    const maker =
+      parts && registered(rename.effective.type, parts.serial, parts.year);
+    return !!maker && maker.publishedOn <= input.publishedOn;
+  };
 
   // -- details ---------------------------------------------------------------------------------
   if (!input.title.trim())
@@ -428,15 +440,9 @@ export function checkDocument(input: CheckInput): Issue[] {
 
   // -- issuer ----------------------------------------------------------------------------------
   const body = plain(input.issuingBody);
-  const presidentsOffice = /^The President's Office$/i.test(body);
-  const directorsOffice = /^The Director's Office$/i.test(body);
-  if (
-    isOrder &&
-    !(
-      presidentsOffice ||
-      (directorsOffice && (!titlesChanged || isFoundingOrder))
-    )
-  )
+  const presidency = sameBody(body, PRESIDENTS_OFFICE);
+  // an old name is right before the rename, and on Director's Orders 01 and 02/2026
+  if (isOrder && !(presidency && (!replacedName(body) || isFoundingOrder)))
     add(
       'issuer',
       'error',
@@ -444,10 +450,7 @@ export function checkDocument(input: CheckInput): Issue[] {
       'Issuing body',
       `An Order is issued only by the President, so its issuing body is The President’s Office, not “${input.issuingBody}”.`,
     );
-  if (
-    type === 'act' &&
-    !(presidentsOffice || directorsOffice || /\bCabinet\b/i.test(body))
-  )
+  if (type === 'act' && !(presidency || /\bCabinet\b/i.test(body)))
     add(
       'issuer',
       'warning',
@@ -723,11 +726,11 @@ type Add = (
   quoted?: string,
 ) => void;
 
-// "Act Number 2/2026 (Public Bonds Companies Act)"
+// "Act Number 2/2026 (Public Bonds Companies Act)"; Orders 01 and 02/2026 are Director's Orders
 const citeForm = (input: CheckInput) =>
   input.type === 'notice'
     ? input.docNumber
-    : `${CITE_TYPES[input.type]} Number ${input.docNumber} (${input.title})`;
+    : `${plain(typeName(input.type, input.docNumber) ?? CITE_TYPES[input.type])} Number ${input.docNumber} (${input.title})`;
 
 // -- amendments --------------------------------------------------------------------------------
 
@@ -811,11 +814,12 @@ function checkAmendment(
         `${typeWord} Number ${number} is titled “${amended.title}”.`,
         input.title,
       );
+    // the same body under any of its names: The President's Office amends what The Director's
+    // Office issued
     if (
       amended.issuingBody &&
       amendedType !== 'act' &&
-      plain(amended.issuingBody).toLowerCase() !==
-        plain(input.issuingBody).toLowerCase()
+      !sameBody(amended.issuingBody, input.issuingBody)
     )
       add(
         'amendment',
@@ -2088,7 +2092,7 @@ function checkAppendices(
         opening;
       const ok =
         !/^this\b/i.test(body) &&
-        plain(body).toLowerCase() === plain(input.issuingBody).toLowerCase() &&
+        sameBody(body, input.issuingBody) &&
         typeWord !== 'Issue' &&
         citedType(typeWord) === input.type &&
         numberParts(num)?.serial === numberParts(input.docNumber)?.serial &&

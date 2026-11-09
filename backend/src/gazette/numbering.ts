@@ -1,3 +1,4 @@
+import { underItsName } from './names.js';
 import { TYPES, SERIES_TYPES, formatSeriesNumber, parseSeriesNumber } from './types.js';
 
 // The Gazette's numbering, the user's scheme (2026-10-29), modelled on the Maldives Government
@@ -58,14 +59,15 @@ export function nextSeries(published: Placed[], year: number): Record<string, st
 }
 
 // How the public Gazette shows a new document's number: "Act Number 3/2026", "Regulation Number
-// R-1/2026"; a Notice shows its own reference.
+// R-1/2026"; a Notice shows its own reference. Orders 01 and 02/2026 keep the name Director's Order
+// (names.ts).
 export function referenceFor(type: string, docNumber: string): string {
   const cite = TYPES[type]?.cite;
-  return cite ? `${cite} ${docNumber}` : docNumber;
+  return cite ? `${underItsName(type, docNumber, cite)} ${docNumber}` : docNumber;
 }
 
 // The cover's type and number line, from the user's templates: "Act Number: 3/2026",
 // "President’s Order: 03/2026", "Regulation Number: R-1/2026", "Guideline Number: G-1/2026".
 export function coverNumberLine(type: string, docNumber: string): string {
-  return `${TYPES[type]?.cover ?? TYPES[type]?.tag ?? ''}: ${docNumber}`;
+  return `${underItsName(type, docNumber, TYPES[type]?.cover ?? TYPES[type]?.tag ?? '')}: ${docNumber}`;
 }

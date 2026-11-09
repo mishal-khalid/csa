@@ -38,7 +38,7 @@ function Sidebar({ account, onNavigate }) {
       <nav aria-label="Portal" className="mt-10">
         <ul className="space-y-1">
           {tabsFor(account).map(({ href, label, Icon }) => {
-            const current = pathname === href;
+            const current = pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
             return (
               <li key={href}>
                 <Link
@@ -195,7 +195,8 @@ export default function Shell({ children }) {
         )}
 
         <main className="px-4 pb-12 pt-8 sm:px-6 lg:pl-[18rem] lg:pr-8 lg:pt-12">
-          <div className="mx-auto max-w-5xl">{account ? children : skeletonFor(pathname)}</div>
+          {/* a Gazette document is wider: its PDF and its details side by side */}
+          <div className={`mx-auto ${pathname.startsWith("/gazette/") ? "max-w-[100rem]" : "max-w-5xl"}`}>{account ? children : skeletonFor(pathname)}</div>
         </main>
       </div>
       </AccountUpdateContext.Provider>

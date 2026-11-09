@@ -229,3 +229,54 @@ export function ChevronLeftIcon(props) {
     </svg>
   );
 }
+
+// the Gazette tab: a folded newspaper with its masthead and columns
+export function GazetteIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M4.5 3.5h9a1 1 0 0 1 1 1v11a1.5 1.5 0 0 0 1.5 1.5H5a1.5 1.5 0 0 1-1.5-1.5v-11a1 1 0 0 1 1-1zM14.5 8h2v7.5a1.5 1.5 0 0 1-1.5 1.5M6.5 6.5h5M6.5 9.5h2.25M6.5 12h2.25M6.5 14.5h5M10.75 9.5h.75v2.5h-.75z" />
+    </svg>
+  );
+}
+
+export function PencilIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M12.5 4.5l3 3L7 16H4v-3zM11 6l3 3" />
+    </svg>
+  );
+}
+
+// an arrow up out of a tray
+export function UploadIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M10 13V3.5M6.5 7L10 3.5 13.5 7M3.5 12.5v2a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-2" />
+    </svg>
+  );
+}
+
+// an arrow down into a tray
+export function DownloadIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M10 3.5V13M6.5 9.5L10 13l3.5-3.5M3.5 12.5v2a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-2" />
+    </svg>
+  );
+}
+
+export function ArrowUpIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M10 16V4M5.5 8.5L10 4l4.5 4.5" />
+    </svg>
+  );
+}
+
+export function ArrowDownIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" {...stroke} {...props}>
+      <path d="M10 4v12M5.5 11.5L10 16l4.5-4.5" />
+    </svg>
+  );
+}

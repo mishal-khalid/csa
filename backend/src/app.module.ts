@@ -7,6 +7,9 @@ import { PrismaService } from './prisma.service.js';
 import { RateLimitService } from './security/rate-limit.service.js';
 import { DirectoryController } from './directory/directory.controller.js';
 import { DirectoryService } from './directory/directory.service.js';
+import { GazetteController, GazetteFilesController, GazettePublicController } from './gazette/gazette.controller.js';
+import { GazetteService } from './gazette/gazette.service.js';
+import { GazetteStorage } from './gazette/storage.js';
 import { FingerprintLoginController } from './fingerprints/fingerprint-login.controller.js';
 import { FingerprintsController } from './fingerprints/fingerprints.controller.js';
 import { FingerprintsService } from './fingerprints/fingerprints.service.js';
@@ -28,7 +31,18 @@ class HealthController {
 @Module({
   // the MJSCC evaluation, served only once its settings are there (src/mjscc/config.ts)
   imports: mjsccConfig ? [MjsccModule] : [],
-  controllers: [HealthController, AuthController, UsersController, FingerprintsController, FingerprintLoginController, DirectoryController],
+  controllers: [
+    HealthController,
+    AuthController,
+    UsersController,
+    FingerprintsController,
+    FingerprintLoginController,
+    DirectoryController,
+    // the public Gazette's and the local files' routes before the tab's own /gazette/:id
+    GazettePublicController,
+    GazetteFilesController,
+    GazetteController,
+  ],
   providers: [
     PrismaService,
     RateLimitService,
@@ -38,6 +52,8 @@ class HealthController {
     ChallengesService,
     FingerprintsService,
     DirectoryService,
+    GazetteStorage,
+    GazetteService,
     SignedIn,
   ],
 })

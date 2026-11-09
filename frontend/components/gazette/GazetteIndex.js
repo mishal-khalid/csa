@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { documentHref, documents, formatDate, ssc, typeTags, types } from "./documents";
+import { documentHref, formatDate, ssc, types } from "./types";
 
 function SearchIcon(props) {
   return (
@@ -26,7 +26,9 @@ function Divider({ children }) {
 
 // One document as an index row: date, type, title (with any status) and Gazette reference. The
 // whole row opens the document's page. SSC titles are in Dhivehi, right to left in MV MAG Round.
-function Row({ serial, body, type, title, gazetteRef, date, status }) {
+function Row({ serial, body, tag, title, gazetteRef, date, status: standing }) {
+  // a document in force says nothing; only one amended, repealed or partly superseded says so
+  const status = standing === "In Force" ? null : standing;
   return (
     <li>
       <Link
@@ -35,7 +37,7 @@ function Row({ serial, body, type, title, gazetteRef, date, status }) {
       >
       <p className="text-sm text-ink/50 tabular-nums">{formatDate(date)}</p>
       <p>
-        <span className="rounded-full px-3 py-1 text-[13px] text-ink/70 ring-1 ring-ink/15">{typeTags[type]}</span>
+        <span className="rounded-full px-3 py-1 text-[13px] text-ink/70 ring-1 ring-ink/15">{tag}</span>
       </p>
       <div>
         {body === "ssc" ? (
@@ -53,13 +55,14 @@ function Row({ serial, body, type, title, gazetteRef, date, status }) {
   );
 }
 
-const newestFirst = (a, b) => b.index.localeCompare(a.index);
+const newestFirst = (a, b) => b.serial - a.serial;
 
 // The Gazette's archive: a search bar and pills on top, then every matching document as an index
 // row, newest first, under italic serif dividers: the CSA's documents in sections by type, then the
-// SSC's in a section of their own. Each pill shows one section. The search covers titles and both
+// SSC's in a section of their own. Each pill shows one section (only sections with documents get a
+// pill). The search covers titles and both
 // references (the Gazette's and the document's own).
-export default function GazetteIndex() {
+export default function GazetteIndex({ documents }) {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
 
@@ -68,7 +71,7 @@ export default function GazetteIndex() {
     (doc) => !needle || `${doc.title} ${doc.gazetteRef ?? ""} ${doc.reference ?? ""}`.toLowerCase().includes(needle),
   );
   const sections = [
-    ...types.map((t) => ({ ...t, docs: matches.filter((doc) => !doc.body && doc.type === t.id) })),
+    ...types.map((t) => ({ ...t, docs: matches.filter((doc) => doc.body !== "ssc" && doc.type === t.id) })),
     { ...ssc, docs: matches.filter((doc) => doc.body === "ssc") },
   ]
     .filter((section) => (type === "all" || section.id === type) && section.docs.length > 0)
@@ -89,7 +92,9 @@ export default function GazetteIndex() {
       </div>
 
       <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filter by type">
-        {[{ id: "all", label: "All" }, ...types, ssc].map(({ id, label }) => {
+        {[{ id: "all", label: "All" }, ...types, ssc]
+          .filter(({ id }) => id === "all" || documents.some((doc) => (id === "ssc" ? doc.body === "ssc" : doc.body !== "ssc" && doc.type === id)))
+          .map(({ id, label }) => {
           const selected = type === id;
           return (
             <button
@@ -114,7 +119,7 @@ export default function GazetteIndex() {
             <Divider>{label}</Divider>
             <ul className="mt-8 divide-y divide-ink/10 border-b border-ink/10">
               {docs.map((doc) => (
-                <Row key={doc.index} {...doc} />
+                <Row key={doc.serial} {...doc} />
               ))}
             </ul>
           </section>

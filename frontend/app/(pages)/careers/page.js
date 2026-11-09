@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "@/components/CtaButton";
 import { Section } from "@/components/organisation/cards";
-import { documentByIndex, documentHref } from "@/components/gazette/documents";
-import { texts } from "@/components/gazette/texts";
+import { documentHref, getDocument, serialForIndex } from "@/components/gazette/documents";
 import { blockId } from "@/components/gazette/toc";
 
 // Draft copy, still to be approved. The paths, process and cadet details follow the CSA's documents.
@@ -36,10 +35,15 @@ const paths = [
 // The recruitment forms are appendices of the Structural Framework of The Director's Office in
 // the Gazette; each step links straight to its form there.
 const FRAMEWORK = "2026010101";
-const formHref = (appendix) =>
-  `${documentHref(documentByIndex(FRAMEWORK).serial)}#${blockId(texts[FRAMEWORK].findIndex((b) => b.type === "heading" && b.text === appendix))}`;
+async function formLinks() {
+  const framework = await getDocument(await serialForIndex(FRAMEWORK));
+  return (appendix) => {
+    const at = framework?.blocks.findIndex((b) => b.type === "heading" && b.text === appendix) ?? -1;
+    return framework ? `${documentHref(framework.serial)}${at === -1 ? "" : `#${blockId(at)}`}` : "/gazette";
+  };
+}
 
-const steps = [
+const stepsWith = (formHref) => [
   {
     title: "Check your eligibility",
     text: "Complete the Recruitment & Eligibility Point Assessment, which scores your education, experience and prior service.",
@@ -64,7 +68,8 @@ const steps = [
 // The Careers page, a single page. Its header is a photo band (curved glass towers) with a short
 // statement over it in white; data-nav-surface keeps the nav on smoky glass over the photo. Then the
 // three ways to serve, how recruitment works, cadets and volunteers, and a way to contact the HRC.
-export default function CareersPage() {
+export default async function CareersPage() {
+  const steps = stepsWith(await formLinks());
   return (
     <main className="text-ink">
       <header data-nav-surface="photo" className="relative isolate flex min-h-[80svh] items-end overflow-hidden px-4 pb-16 pt-40 text-white sm:px-6 lg:pb-24">

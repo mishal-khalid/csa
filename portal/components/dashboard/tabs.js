@@ -1,5 +1,5 @@
-import { DirectoryIcon, FingerprintIcon, HomeIcon, UsersIcon } from "./icons";
-import { DirectorySkeleton, FingerprintsSkeleton, HomeSkeleton, UsersSkeleton } from "./skeletons";
+import { DirectoryIcon, FingerprintIcon, GazetteIcon, HomeIcon, UsersIcon } from "./icons";
+import { DirectorySkeleton, FingerprintsSkeleton, GazetteEditorSkeleton, GazetteSkeleton, HomeSkeleton, UsersSkeleton } from "./skeletons";
 
 // The portal's tabs, in sidebar order. New tabs are added here, with a page under app/(dashboard).
 // A tab with `roles` shows only to accounts with one of them, and one marked `main` only to the
@@ -7,6 +7,7 @@ import { DirectorySkeleton, FingerprintsSkeleton, HomeSkeleton, UsersSkeleton } 
 export const tabs = [
   { href: "/", label: "Home", Icon: HomeIcon, Skeleton: HomeSkeleton },
   { href: "/directory", label: "Directory", Icon: DirectoryIcon, Skeleton: DirectorySkeleton },
+  { href: "/gazette", label: "Gazette", Icon: GazetteIcon, roles: ["ADMIN"], Skeleton: GazetteSkeleton },
   { href: "/users", label: "Users", Icon: UsersIcon, roles: ["ADMIN"], Skeleton: UsersSkeleton },
   { href: "/fingerprints", label: "Fingerprints", Icon: FingerprintIcon, main: true, Skeleton: FingerprintsSkeleton },
 ];
@@ -16,6 +17,7 @@ export const tabsFor = (account) =>
 
 // the skeleton for a page's address (Home's for any other)
 export function skeletonFor(pathname) {
+  if (pathname.startsWith("/gazette/")) return <GazetteEditorSkeleton />;
   const Skeleton = tabs.find((tab) => tab.href === pathname)?.Skeleton ?? HomeSkeleton;
   return <Skeleton />;
 }

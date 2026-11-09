@@ -1,13 +1,19 @@
 import GazetteIndex from "@/components/gazette/GazetteIndex";
+import { getDocuments } from "@/components/gazette/documents";
 
 // Draft copy, still to be approved.
 const intro = "The official record of the CSA.";
 
 export const metadata = { title: "The CSA Gazette", description: intro };
 
+// The archive comes from the Gazette's API. It's built into the page when the site is built; if the
+// API couldn't give it then, the page waits for it when it's visited instead (see documents.js).
+export const instant = false;
+
 // The Gazette. Its header is an editorial headline mixing type: "The CSA" in the sans and
 // "Gazette" in italic serif, over a soft gold glow. Then the searchable archive.
-export default function GazettePage() {
+export default async function GazettePage() {
+  const documents = await getDocuments();
   return (
     <main className="text-ink">
       <header className="relative isolate overflow-hidden bg-white px-4 pb-20 pt-40 text-center sm:px-6 lg:pb-28 lg:pt-52">
@@ -25,7 +31,7 @@ export default function GazettePage() {
 
       <section aria-label="The archive" className="px-4 pb-24 sm:px-6 lg:pb-32">
         <div className="mx-auto max-w-[1200px]">
-          <GazetteIndex />
+          <GazetteIndex documents={documents} />
         </div>
       </section>
     </main>

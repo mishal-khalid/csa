@@ -12,6 +12,13 @@ const schema = z.object({
   // encrypts the passwords User Management can show: 32 random bytes, base64
   PASSWORD_KEY: z.base64().refine((key) => Buffer.from(key, 'base64').length === 32, 'must be 32 bytes'),
   PORT: z.coerce.number().int().default(3300),
+  // the Gazette's file storage: Supabase Storage, with the project's address and a secret key (the
+  // "gazette" and "gazette-drafts" buckets, made by npm run gazette:storage). Without them, files
+  // are kept on this computer instead (local development only).
+  SUPABASE_URL: z.preprocess((v) => v || undefined, z.url().optional()),
+  SUPABASE_SECRET_KEY: z.preprocess((v) => v || undefined, z.string().min(20).optional()),
+  // where this API is reached, for links to files kept on this computer (local development)
+  API_URL: z.preprocess((v) => v || undefined, z.url().optional()),
   // set by Vercel on its servers
   VERCEL: z.string().optional(),
 });
@@ -24,5 +31,9 @@ export const config = {
   cookieSecret: env.COOKIE_SECRET,
   passwordKey: Buffer.from(env.PASSWORD_KEY, 'base64'),
   port: env.PORT,
+  storage:
+    env.SUPABASE_URL && env.SUPABASE_SECRET_KEY
+      ? { kind: 'supabase' as const, url: env.SUPABASE_URL.replace(/\/$/, ''), key: env.SUPABASE_SECRET_KEY }
+      : { kind: 'local' as const, apiUrl: (env.API_URL ?? `http://localhost:${env.PORT}`).replace(/\/$/, '') },
   onVercel: Boolean(env.VERCEL),
 };

@@ -142,8 +142,14 @@ function fromText(blocks) {
 
 // Turns a document's contents into links: each entry gets the anchor of the first chapter or heading
 // with its exact text that comes after the previous entry's. Entries that match nothing are dropped.
+// A document published from the portal (it has no old index) lists its chapters, when it has at
+// least three.
 export function contentsFor(index, blocks) {
   if (blocks && builtFromText.has(index)) return fromText(blocks);
+  if (!index && blocks) {
+    const chapters = blocks.flatMap((block, i) => (block.type === "chapter" ? [{ href: `#${blockId(i)}`, label: block.text, sub: block.subtitle }] : []));
+    return chapters.length >= 3 ? chapters : null;
+  }
   const entries = contents[index];
   if (!entries || !blocks) return null;
   let from = 0;

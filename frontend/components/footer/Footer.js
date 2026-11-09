@@ -3,7 +3,7 @@ import Link from "next/link";
 import { address, contacts, generalEmail } from "@/components/contact-details";
 import { groupHref } from "@/components/organisation/groups";
 import { leaderHref } from "@/components/leadership/people";
-import { types } from "@/components/gazette/documents";
+import { types } from "@/components/gazette/types";
 
 const cta = {
   heading: "Questions for the CSA?",

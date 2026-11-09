@@ -39,6 +39,11 @@ enum AuthEventType {
   DIRECTORY_UPDATED
   DIRECTORY_MOVED
   DIRECTORY_DELETED
+  // the Gazette: targetId is the document
+  GAZETTE_DRAFTED
+  GAZETTE_UPDATED
+  GAZETTE_PUBLISHED
+  GAZETTE_DELETED
 
   @@schema("portal")
 }
@@ -216,5 +221,67 @@ model DirectoryEntry {
 
   @@index([parentId, position])
   @@map("directory_entries")
+  @@schema("portal")
+}
+
+// A document of the CSA Gazette, from its draft in the portal's Gazette tab to its publication.
+// Published documents are the Gazette Register (Director's Order Number 01/2026, point 34) and what
+// the public Gazette shows.
+enum GazetteState {
+  DRAFT
+  PUBLISHED
+
+  @@schema("portal")
+}
+
+model GazetteDocument {
+  id           String       @id @default(uuid()) @db.Uuid
+  state        GazetteState @default(DRAFT)
+  // its place in the Gazette, given when it's published and never changed: the address /g/<serial>
+  // (a running count that never resets), the Volume (two a year) and the Number (from 1 each year)
+  serial       Int?         @unique
+  volume       Int?
+  number       Int?
+  // the YYYYMMDDNN index of a document published before the portal (its old address redirects)
+  legacyIndex  String?      @unique @map("legacy_index")
+  // "csa", or "ssc" for the Salaadheeb Salaamathee Council's own section
+  body         String       @default("csa")
+  // act, order, regulation, guideline, notice; or an older kind (circular, mandate, founding...)
+  type         String
+  // the document's own number as printed ("3/2026", "02/2026", "R-1/2026"), or a Notice's reference
+  docNumber    String?      @map("doc_number")
+  // the number's serial and year, for the Gazette Office's series (point 18)
+  seriesNumber Int?         @map("series_number")
+  seriesYear   Int?         @map("series_year")
+  // what the public Gazette shows as its number ("Act Number 3/2026"; older documents keep theirs)
+  reference    String?
+  // a tag in place of the type's own (Director's Orders 01 and 02/2026 keep their name)
+  tag          String?
+  title        String       @default("")
+  issuingBody  String?      @map("issuing_body")
+  publishedOn  DateTime?    @map("published_on") @db.Date
+  commencesOn  DateTime?    @map("commences_on") @db.Date
+  // In Force, Amended or Repealed (point 34); older documents may say "Partly superseded"
+  status       String?
+  // "en", or "dv" for Dhivehi
+  language     String       @default("en")
+  // whether the issue has a cover page in front (every type but a Notice)
+  cover        Boolean      @default(false)
+  // the transcribed text, in the public Gazette's block schema
+  blocks       Json         @default("[]")
+  // what the reader couldn't settle, for the review
+  notes        Json         @default("[]")
+  // the uploaded originals: { main: { path, name, size, pages }, appendices: [{ path, name, size, pages, number, title }] }
+  sources      Json         @default("{}")
+  // the published PDFs, in order: [{ label, href }]
+  files        Json         @default("[]")
+  createdById  String?      @map("created_by_id") @db.Uuid
+  publishedById String?     @map("published_by_id") @db.Uuid
+  publishedAt  DateTime?    @map("published_at")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+
+  @@index([state, serial])
+  @@map("gazette_documents")
   @@schema("portal")
 }

@@ -197,3 +197,43 @@ export function DirectorySkeleton() {
     </Loading>
   );
 }
+
+export function GazetteSkeleton() {
+  return (
+    <Loading className="space-y-10">
+      <Header title="w-56 sm:w-64" />
+      <TableSkeleton columns={["w-20", "w-[22%]", "", "w-[20%]", "w-28", "w-28"]} bars={["w-8", "w-3/4", "w-4/5", "w-2/3", "w-20", "w-16"]} fields={3} />
+    </Loading>
+  );
+}
+
+// the PDF on the left, the details on the right
+export function GazetteEditorSkeleton() {
+  return (
+    <Loading className="space-y-8">
+      <div>
+        <Bar className="h-4 w-20" />
+        <Bar className="mt-4 h-4 w-32" />
+        <Bar className="mt-3 h-10 w-96 max-w-full rounded-2xl sm:h-12" />
+      </div>
+      <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        <Bar className="h-[70svh] w-full rounded-[28px]" />
+        <div className="space-y-6">
+          {[3, 6, 4].map((lines, i) => (
+            <div key={i} className="rounded-[28px] bg-white p-7 ring-1 ring-black/5">
+              <Bar className="h-3 w-28" />
+              <div className="mt-5 space-y-4">
+                {Array.from({ length: lines }, (_, j) => (
+                  <div key={j} className="grid grid-cols-[8.5rem_minmax(0,1fr)] items-center gap-3">
+                    <Bar className="h-3 w-16" />
+                    <Bar className="h-4 w-3/4" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Loading>
+  );
+}

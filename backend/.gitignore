@@ -18,3 +18,6 @@ node_modules
 # what MJSCC transcripts are drawn with (stamp, signature, fonts, full names): never in the public repo,
 # loaded into the database by npm run mjscc:transcripts
 /.mjscc-transcripts
+
+# the Gazette's PDFs kept on this computer in local development (src/gazette/storage.ts)
+/.gazette-files

@@ -4,25 +4,28 @@ import { notFound, permanentRedirect } from "next/navigation";
 import CtaButton from "@/components/CtaButton";
 import ContentsColumn from "@/components/gazette/ContentsColumn";
 import GazetteText from "@/components/gazette/GazetteText";
-import { documentByIndex, documentBySerial, documentHref, documents, formatDate, typeTags } from "@/components/gazette/documents";
-import { texts } from "@/components/gazette/texts";
+import { documentHref, formatDate, getDocument, getDocuments, serialForIndex } from "@/components/gazette/documents";
 import { contentsFor } from "@/components/gazette/toc";
 
-// Every Gazette document is prerendered at /g/<serial>. The address is read before rendering so an
+// Every Gazette document published by the time the site is built is prerendered at /g/<serial>; one
+// published later is rendered when it's first asked for. The address is read before rendering so an
 // unknown one gets a real 404 (see the department pages for why instant is off).
 export const instant = false;
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const documents = await getDocuments();
+  // built without the API: at least one address is needed, and the first document's is always there
+  if (!documents?.length) return [{ serial: "1" }];
   return documents.map(({ serial }) => ({ serial: String(serial) }));
 }
 
 export async function generateMetadata({ params }) {
   const { serial } = await params;
-  const doc = documentBySerial(serial);
+  const doc = await getDocument(serial);
   if (!doc) return {};
   // what kind of document it is, its reference and its date
-  const { type, reference, date } = doc;
-  const published = `${typeTags[type]}${reference ? ` ${reference}` : ""}, published in the CSA Gazette on ${formatDate(date)}.`;
+  const { tag, reference, date } = doc;
+  const published = `${tag}${reference ? ` ${reference}` : ""}, published in the CSA Gazette on ${formatDate(date)}.`;
   return { title: doc.title, description: published };
 }
 
@@ -34,17 +37,16 @@ export async function generateMetadata({ params }) {
 // Round, inside the same English frame.
 export default async function GazetteDocumentPage({ params }) {
   const { serial } = await params;
-  const doc = documentBySerial(serial);
+  const doc = await getDocument(serial);
   if (!doc) {
     // addresses from before the Gazette was renumbered used the document's index
-    const moved = documentByIndex(serial);
-    if (moved) permanentRedirect(documentHref(moved.serial));
+    const moved = await serialForIndex(serial);
+    if (moved) permanentRedirect(documentHref(moved));
     notFound();
   }
 
-  const { index, title, type, reference, date, volume, number, gazetteRef, status, pdfs } = doc;
+  const { index, title, tag, reference, date, volume, number, gazetteRef, status, pdfs, blocks } = doc;
   const dhivehi = doc.body === "ssc";
-  const blocks = texts[index];
   const toc = contentsFor(index, blocks);
 
   return (
@@ -64,13 +66,13 @@ export default async function GazetteDocumentPage({ params }) {
               </span>
             )}
             <span className="text-ink/70">{formatDate(date)}</span>
-            <span className="tabular-nums text-ink/70">{gazetteRef ?? typeTags[type]}</span>
+            <span className="tabular-nums text-ink/70">{gazetteRef ?? tag}</span>
           </div>
 
           <header className="py-14 text-center lg:py-20">
             {/* what it is, its own printed number, and any status */}
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-ink/50">
-              {[typeTags[type], reference, status].filter(Boolean).join(" · ")}
+              {[tag, reference, status === "In Force" ? null : status].filter(Boolean).join(" · ")}
             </p>
             {dhivehi ? (
               <h1

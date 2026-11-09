@@ -2,7 +2,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import cookieParser from 'cookie-parser';
-import type { NextFunction, Request, Response } from 'express';
+import { json, type NextFunction, type Request, type Response } from 'express';
 import helmetImport from 'helmet';
 import { AppModule } from './app.module.js';
 import { config } from './config.js';
@@ -27,15 +27,22 @@ export async function createApp() {
     callback(null, {
       origin: mjscc ? (mjsccConfig ? [mjsccConfig.origin] : false) : [config.portalOrigin],
       credentials: true,
-      methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+      // PUT: uploading a Gazette PDF to this API in local development (gazette/storage.ts)
+      methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type'],
       maxAge: 600,
     });
   });
-  // the evaluation's routes check their own site instead (MjsccModule)
-  app.use((req: Request, res: Response, next: NextFunction) => (isMjsccPath(req.path) ? next() : sameOrigin(req, res, next)));
-  // small JSON bodies only (64 KB: room for a Directory bulk add of a few hundred names)
-  app.useBodyParser('json', { limit: '64kb' });
+  // the evaluation's routes check their own site instead (MjsccModule); a local Gazette upload is a
+  // PDF, not JSON, and carries its own signed link instead
+  app.use((req: Request, res: Response, next: NextFunction) =>
+    isMjsccPath(req.path) || (req.method === 'PUT' && req.path === '/gazette/files/upload') ? next() : sameOrigin(req, res, next),
+  );
+  // small JSON bodies only (64 KB: room for a Directory bulk add of a few hundred names), except the
+  // Gazette's, which carry a document's whole transcription (4 MB, under Vercel's 4.5 MB)
+  const small = json({ limit: '64kb' });
+  const large = json({ limit: '4mb' });
+  app.use((req: Request, res: Response, next: NextFunction) => (req.path.startsWith('/gazette/') ? large : small)(req, res, next));
   app.use(cookieParser());
   return app;
 }

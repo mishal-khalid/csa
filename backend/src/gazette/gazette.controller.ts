@@ -68,7 +68,8 @@ const publishedBody = z
   .strict()
   .refine((changes) => Object.keys(changes).length > 0);
 const dateBody = z.object({ date: isoDate }).strict();
-const publishBody = z.object({ date: isoDate, acknowledged: z.boolean() }).strict();
+// `override`: the reason for publishing despite the rules' errors ("Override and publish")
+const publishBody = z.object({ date: isoDate, acknowledged: z.boolean(), override: z.string().trim().min(1).max(1000).optional() }).strict();
 
 function uuid(raw: string): string {
   if (!z.uuid().safeParse(raw).success) throw new NotFoundException({ code: 'not_found' });
@@ -182,8 +183,8 @@ export class GazetteController {
   @HttpCode(200)
   async publish(@Param('id') id: string, @Body() body: unknown, @CurrentUser() me: User, @Req() req: Request) {
     await this.writing(me);
-    const { date, acknowledged } = parse(publishBody, body);
-    return { document: await this.gazette.publish(uuid(id), today(date), acknowledged, me, caller(req)) };
+    const { date, acknowledged, override } = parse(publishBody, body);
+    return { document: await this.gazette.publish(uuid(id), today(date), acknowledged, override, me, caller(req)) };
   }
 
   @Delete(':id')

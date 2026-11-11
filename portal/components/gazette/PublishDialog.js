@@ -9,10 +9,14 @@ import { problemFor, today } from "./gazette";
 // 01/2026 and 02/2026, the same check the API runs again when it publishes): every error must be
 // fixed first; every warning must be read and accepted. Publishing then gives the document its
 // Volume, Number and address for good, puts the cover on, and puts it on the public Gazette.
+// "Override and publish": when every error is one of the rules' (the API marks them overridable),
+// a tick box and a written reason let it be published as it is; the reason goes into the log.
 export default function PublishDialog({ doc, place, onClose, onPublished, onExpired }) {
   const [issues, setIssues] = useState(null);
   const [problem, setProblem] = useState(null);
   const [accepted, setAccepted] = useState(false);
+  const [overriding, setOverriding] = useState(false);
+  const [reason, setReason] = useState("");
   const [publishing, setPublishing] = useState(false);
 
   useEffect(() => {
@@ -33,19 +37,25 @@ export default function PublishDialog({ doc, place, onClose, onPublished, onExpi
 
   const errors = issues?.filter((issue) => issue.level === "error") ?? [];
   const warnings = issues?.filter((issue) => issue.level === "warning") ?? [];
-  const ready = issues && !errors.length && (!warnings.length || accepted);
+  // errors only fixing clears: the module's own (a missing detail, the cover, already published)
+  const fixed = errors.filter((issue) => !issue.overridable);
+  const canOverride = errors.length > 0 && fixed.length === 0;
+  const override = canOverride && overriding && reason.trim() ? reason.trim() : null;
+  const ready = issues && (errors.length ? Boolean(override) : !warnings.length || accepted);
 
   async function publish() {
     setPublishing(true);
     setProblem(null);
     try {
-      const result = await api(`/gazette/${doc.id}/publish`, { body: { date: today(), acknowledged: accepted } });
+      const body = override ? { date: today(), acknowledged: true, override } : { date: today(), acknowledged: accepted };
+      const result = await api(`/gazette/${doc.id}/publish`, { body });
       if (result.status === 401) return onExpired();
       if (result.status === 200) return onPublished(result.data.document);
       // the rules may have found something new since the check
       if (result.data?.issues) {
         setIssues(result.data.issues);
         setAccepted(false);
+        setOverriding(false);
       } else setProblem(problemFor(result));
     } catch {
       setProblem("Couldn’t reach the portal. Try again.");
@@ -58,6 +68,9 @@ export default function PublishDialog({ doc, place, onClose, onPublished, onExpi
       <p className="text-[15px] leading-6">{issue.message}</p>
       {issue.quote && <p className="mt-1.5 border-l-2 border-ink/15 pl-3 font-serif text-[15px] italic leading-6 text-ink/70">“{issue.quote}”</p>}
       <p className="mt-2 text-[13px] text-ink/50">{[issue.where, issue.rule].filter(Boolean).join(" · ")}</p>
+      {issue.level === "error" && !issue.overridable && errors.some((e) => e.overridable) && (
+        <p className="mt-1 text-[13px] text-maroon">Can’t be overridden: fix it first.</p>
+      )}
     </li>
   );
 
@@ -73,7 +86,7 @@ export default function PublishDialog({ doc, place, onClose, onPublished, onExpi
           {errors.length > 0 && (
             <section>
               <h3 className="text-sm font-medium text-maroon">
-                {errors.length} to fix before it can be published
+                {errors.length} to fix{canOverride ? " or override" : ""} before it can be published
               </h3>
               <ul className="mt-3 space-y-2">
                 {errors.map((issue, i) => (
@@ -101,7 +114,29 @@ export default function PublishDialog({ doc, place, onClose, onPublished, onExpi
             </section>
           )}
 
-          {errors.length === 0 && (
+          {canOverride && (
+            <section>
+              <label className="flex items-start gap-3 text-[15px] leading-6">
+                <input type="checkbox" checked={overriding} onChange={(e) => setOverriding(e.target.checked)} className="mt-1 size-4 accent-ink" />
+                Override the errors{warnings.length ? " and warnings" : ""} and publish the document as it is.
+              </label>
+              {overriding && (
+                <label className="mt-3 block">
+                  <span className="text-sm font-medium">Reason for the override</span>
+                  <textarea
+                    value={reason}
+                    onChange={(e) => setReason(e.target.value)}
+                    maxLength={1000}
+                    rows={3}
+                    className="mt-1.5 block w-full resize-y rounded-xl bg-white px-3 py-2 text-[15px] leading-6 ring-1 ring-ink/15 outline-none transition-shadow focus:ring-2 focus:ring-ink/40"
+                  />
+                  <span className="mt-1 block text-[13px] text-ink/50">Saved in the portal’s log with your name and the errors overridden.</span>
+                </label>
+              )}
+            </section>
+          )}
+
+          {(errors.length === 0 || canOverride) && (
             <div className="rounded-2xl bg-white p-4 text-[15px] leading-6 ring-1 ring-black/5">
               It will be published today as <strong className="font-medium">Volume {place?.volume} · Number {place?.number}</strong>
               {place?.gazetteRef ? ` (${place.gazetteRef})` : ""}, at /g/{place?.serial}
@@ -119,7 +154,7 @@ export default function PublishDialog({ doc, place, onClose, onPublished, onExpi
         onClick={publish}
         className="mt-6 h-12 w-full rounded-full bg-ink text-[15px] font-medium text-white transition-colors duration-300 ease-soft hover:bg-ink/85 disabled:cursor-not-allowed disabled:bg-ink/35"
       >
-        {publishing ? "Publishing…" : "Publish"}
+        {publishing ? "Publishing…" : errors.length ? "Override and publish" : "Publish"}
       </button>
     </Dialog>
   );

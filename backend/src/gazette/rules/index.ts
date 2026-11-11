@@ -70,6 +70,9 @@ export interface Issue {
   where?: string;
   message: string;
   quote?: string;
+  // an error the person publishing may override, with a reason ("Override and publish"): every
+  // rule's error is, except a number already used in its series, which can't be given twice
+  overridable?: true;
 }
 
 const DO1 = "Director's Order 01/2026";
@@ -708,12 +711,15 @@ export function checkDocument(input: CheckInput): Issue[] {
       seen.add(key);
       return true;
     })
-    .map(({ level, rule, where, message, quote: q }) => ({
+    .map(({ id, level, rule, where, message, quote: q }) => ({
       level,
       rule,
       ...(where ? { where } : {}),
       message,
       ...(q ? { quote: q } : {}),
+      ...(level === 'error' && id !== 'number-series'
+        ? { overridable: true as const }
+        : {}),
     }));
 }
 

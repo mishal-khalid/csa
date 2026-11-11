@@ -202,3 +202,40 @@ describe('making and publishing a Notice', () => {
     expect(res.status).toBe(400);
   });
 });
+
+describe('override and publish', () => {
+  it('publishes despite the rules’ errors with a reason, but never despite the module’s own', async () => {
+    // a Notice uploaded as an Act: no Articles, a number that isn't an Act's, and so on
+    const created = await send('post', '/gazette', { cover: true });
+    const id = created.body.document.id as string;
+    made.push(id);
+    const pdf = await noticePdf(`PO/2026/N/${tag}-ov`, `Override Test ${tag}`);
+    const target = await send('post', `/gazette/${id}/uploads`, { kind: 'main', size: pdf.length });
+    const url = new URL(target.body.upload.url);
+    await request(server()).put(`${url.pathname}${url.search}`).set('Content-Type', 'application/pdf').send(Buffer.from(pdf));
+    expect((await send('post', `/gazette/${id}/files`, { kind: 'main', path: target.body.path, name: 'override.pdf' })).status).toBe(200);
+    expect((await send('patch', `/gazette/${id}`, { type: 'act', docNumber: `X-${tag}`, title: `Override Test ${tag}`, issuingBody: null })).status).toBe(200);
+
+    // the issuing body is missing: the module's own error, which no reason overrides
+    const publish = (body: object) => send('post', `/gazette/${id}/publish`, { date: today, acknowledged: false, ...body });
+    const blocked = await publish({ override: 'Ordered published as it is.' });
+    expect(blocked.status).toBe(422);
+    expect(blocked.body.issues.some((issue: { rule: string; overridable?: true }) => issue.rule === 'Gazette module' && !issue.overridable)).toBe(true);
+
+    expect((await send('patch', `/gazette/${id}`, { issuingBody: 'The President’s Office' })).status).toBe(200);
+    const check = await send('post', `/gazette/${id}/check`, { date: today });
+    const errors = check.body.issues.filter((issue: { level: string }) => issue.level === 'error');
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors.every((issue: { overridable?: true }) => issue.overridable)).toBe(true);
+
+    expect((await publish({})).status).toBe(422);
+    expect((await publish({ override: '   ' })).status).toBe(400);
+    const published = await publish({ override: 'Ordered published as it is.' });
+    expect(published.status).toBe(200);
+    expect(published.body.document).toMatchObject({ state: 'PUBLISHED', reference: `Act Number X-${tag}` });
+
+    const logged = await prisma.authEvent.findFirst({ where: { type: 'GAZETTE_PUBLISHED', targetId: id } });
+    expect(logged?.detail).toContain('Reason: Ordered published as it is.');
+    expect(logged?.detail).toContain(errors[0].message);
+  });
+});

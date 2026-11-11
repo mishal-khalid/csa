@@ -518,11 +518,17 @@ export class GazetteService {
   // Publishes a draft on `date`: checks it against the rules again (errors stop it; warnings must
   // have been seen), gives it its place in the Gazette and its series number, builds the issue with
   // the cover, and puts the PDFs where the public Gazette links to them.
-  async publish(id: string, date: string, acknowledged: boolean, me: User, caller: Caller) {
+  // "Override and publish": with a reason (`override`), the rules' errors don't stop it, and its
+  // warnings count as seen. The module's own errors (a missing PDF, title, number, issuing body or
+  // text, a cover that doesn't fit, a PDF or number already published) still do. The reason and
+  // the errors overridden go into the portal's log with the publication.
+  async publish(id: string, date: string, acknowledged: boolean, override: string | undefined, me: User, caller: Caller) {
     const doc = await this.draft(id);
     const issues = await this.issues(doc, date);
-    if (issues.some((issue) => issue.level === 'error')) throw new UnprocessableEntityException({ code: 'not_compliant', issues });
-    if (issues.length && !acknowledged) throw new ConflictException({ code: 'warnings', issues });
+    const errors = issues.filter((issue) => issue.level === 'error');
+    const overridden = override && errors.length && errors.every((issue) => issue.overridable) ? errors : [];
+    if (errors.length && !overridden.length) throw new UnprocessableEntityException({ code: 'not_compliant', issues });
+    if (issues.length && !acknowledged && !overridden.length) throw new ConflictException({ code: 'warnings', issues });
 
     // the latest published date: a document can't be published before it
     const latest = await this.prisma.gazetteDocument.findFirst({ where: { state: 'PUBLISHED' }, orderBy: { publishedOn: 'desc' } });
@@ -566,7 +572,11 @@ export class GazetteService {
       },
       { timeout: 120_000, maxWait: 20_000 },
     );
-    await this.auth.record('GAZETTE_PUBLISHED', me.id, caller, { targetId: id, detail: `${published.serial} ${published.title}`.slice(0, 200) });
+    const detail = `${published.serial} ${published.title}`.slice(0, 200);
+    const overrideNote = overridden.length
+      ? `\nOverride and publish. Reason: ${override}\nErrors overridden:\n${overridden.map((issue) => `- ${[issue.where, issue.rule].filter(Boolean).join(', ')}: ${issue.message}`).join('\n')}`
+      : '';
+    await this.auth.record('GAZETTE_PUBLISHED', me.id, caller, { targetId: id, detail: `${detail}${overrideNote}`.slice(0, 8000) });
     return full(published);
   }
 

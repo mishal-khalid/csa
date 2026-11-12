@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { documentHref, formatDate, ssc, types } from "./types";
+import { documentHref, formatDate, listedPlace, listedTitle, ssc, types } from "./types";
 
 function SearchIcon(props) {
   return (
@@ -24,12 +24,14 @@ function Divider({ children }) {
   );
 }
 
-// One document as an index row: date, type, title (with any status) and Gazette reference. The
-// whole row opens the document's page. A Dhivehi title (the SSC's, or a CSA document's Dhivehi text)
-// runs right to left in MV MAG Round.
-function Row({ serial, language, tag, title, gazetteRef, date, status: standing }) {
+// One document as an index row: date, type, title (with any status), and its Volume and Number, or a
+// Notice's office (see listedTitle and listedPlace). The whole row opens the document's page. A
+// Dhivehi title (the SSC's, or a CSA document's Dhivehi text) runs right to left in MV MAG Round.
+function Row(doc) {
+  const { serial, language, tag, date, status: standing } = doc;
   // a document in force says nothing; only one amended, repealed or partly superseded says so
   const status = standing === "In Force" ? null : standing;
+  const title = listedTitle(doc);
   return (
     <li>
       <Link
@@ -50,7 +52,7 @@ function Row({ serial, language, tag, title, gazetteRef, date, status: standing 
         )}
         {status && <p className="mt-1 text-sm text-ink/50">{status}</p>}
       </div>
-      <p className="text-sm text-ink/50 tabular-nums md:text-right">{gazetteRef ?? ""}</p>
+      <p className="text-sm text-ink/50 tabular-nums md:max-w-52 md:text-right">{listedPlace(doc)}</p>
       </Link>
     </li>
   );
@@ -61,15 +63,17 @@ const newestFirst = (a, b) => b.serial - a.serial;
 // The Gazette's archive: a search bar and pills on top, then every matching document as an index
 // row, newest first, under italic serif dividers: the CSA's documents in sections by type, then the
 // SSC's in a section of their own. Each pill shows one section (only sections with documents get a
-// pill). The search covers titles and both
-// references (the Gazette's and the document's own).
+// pill). The search covers what the rows show (titles, Volume and Number, a Notice's office) and
+// both references (the Gazette's and the document's own).
 export default function GazetteIndex({ documents }) {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
 
   const needle = query.trim().toLowerCase();
   const matches = documents.filter(
-    (doc) => !needle || `${doc.title} ${doc.gazetteRef ?? ""} ${doc.reference ?? ""}`.toLowerCase().includes(needle),
+    (doc) =>
+      !needle ||
+      `${listedTitle(doc)} ${listedPlace(doc)} ${doc.gazetteRef ?? ""} ${doc.reference ?? ""}`.toLowerCase().includes(needle),
   );
   const sections = [
     ...types.map((t) => ({ ...t, docs: matches.filter((doc) => doc.body !== "ssc" && doc.type === t.id) })),

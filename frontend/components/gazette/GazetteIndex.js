@@ -25,8 +25,9 @@ function Divider({ children }) {
 }
 
 // One document as an index row: date, type, title (with any status) and Gazette reference. The
-// whole row opens the document's page. SSC titles are in Dhivehi, right to left in MV MAG Round.
-function Row({ serial, body, tag, title, gazetteRef, date, status: standing }) {
+// whole row opens the document's page. A Dhivehi title (the SSC's, or a CSA document's Dhivehi text)
+// runs right to left in MV MAG Round.
+function Row({ serial, language, tag, title, gazetteRef, date, status: standing }) {
   // a document in force says nothing; only one amended, repealed or partly superseded says so
   const status = standing === "In Force" ? null : standing;
   return (
@@ -40,7 +41,7 @@ function Row({ serial, body, tag, title, gazetteRef, date, status: standing }) {
         <span className="rounded-full px-3 py-1 text-[13px] text-ink/70 ring-1 ring-ink/15">{tag}</span>
       </p>
       <div>
-        {body === "ssc" ? (
+        {language === "dv" ? (
           <p lang="dv" dir="rtl" className="font-dhivehi-heading text-xl leading-relaxed">
             {title}
           </p>

@@ -27,6 +27,7 @@
     "user:create": "tsx scripts/create-user.ts",
     "db:seed-dev": "tsx scripts/seed-dev.ts",
     "gazette:import": "tsx scripts/gazette-import.ts",
+    "gazette:build": "tsx scripts/gazette-build.ts",
     "gazette:release": "tsx scripts/gazette-release.ts",
     "supabase:status": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate status",
     "supabase:migrate": "DOTENV_CONFIG_PATH=.env.supabase prisma migrate deploy",

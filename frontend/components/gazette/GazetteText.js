@@ -106,7 +106,10 @@ function Block({ block, id, heading, sans }) {
     case "table":
       return (
         <figure className={sans}>
-          {block.caption && <figcaption className="mb-3 text-sm font-medium text-ink/60">{block.caption}</figcaption>}
+          {/* a caption can run to a second line, e.g. a chart's title over its subtitle */}
+          {block.caption && (
+            <figcaption className="mb-3 whitespace-pre-line text-sm font-medium text-ink/60">{block.caption}</figcaption>
+          )}
           <div className="overflow-x-auto rounded-2xl ring-1 ring-ink/10">
             <table className="w-full min-w-[32rem] border-collapse text-start text-sm">
               {/* tables printed without a header row have no columns */}
@@ -165,14 +168,30 @@ const isolateLines = (text) =>
     .split("\n")
     .map((line) => (line.trim() && !THAANA.test(line) ? `\u2066${line}\u2069` : line))
     .join("\n");
-const isolate = (value) =>
-  typeof value === "string"
-    ? isolateLines(value)
-    : Array.isArray(value)
-      ? value.map(isolate)
-      : value && typeof value === "object"
-        ? Object.fromEntries(Object.entries(value).map(([key, v]) => [key, ["type", "number", "label"].includes(key) ? v : isolate(v)]))
-        : value;
+// In English text it's the other way round: a line wholly in Dhivehi or Arabic (a company's name
+// printed in its own script over its English name) is wrapped in right-to-left isolate marks, so its
+// full stops sit where the print has them, not on the wrong side ("ސީޕީބީސީ. ލޓޑ.", "م.ع.").
+const RTL_SCRIPT = /[؀-ۿހ-޿ﭐ-﷿ﹰ-﻿]/;
+const LATIN = /[A-Za-z]/;
+const isolateRtlLines = (text) =>
+  text
+    .split("\n")
+    .map((line) => (RTL_SCRIPT.test(line) && !LATIN.test(line) ? `⁧${line}⁩` : line))
+    .join("\n");
+// Applies a line rule to every string of a block, except its type, number and label.
+const isolateWith = (lines) => {
+  const walk = (value) =>
+    typeof value === "string"
+      ? lines(value)
+      : Array.isArray(value)
+        ? value.map(walk)
+        : value && typeof value === "object"
+          ? Object.fromEntries(Object.entries(value).map(([key, v]) => [key, ["type", "number", "label"].includes(key) ? v : walk(v)]))
+          : value;
+  return walk;
+};
+const isolate = isolateWith(isolateLines);
+const isolateRtl = isolateWith(isolateRtlLines);
 
 export default function GazetteText({ blocks, dhivehi = false }) {
   if (dhivehi) {
@@ -189,7 +208,7 @@ export default function GazetteText({ blocks, dhivehi = false }) {
   return (
     <div className="space-y-8 font-[family-name:var(--font-crimson-pro),var(--font-faruma)] text-[19px] leading-[1.7] text-ink">
       {blocks.map((block, i) => (
-        <Block key={i} block={block} id={blockId(i)} heading="tracking-tight" sans="font-sans" />
+        <Block key={i} block={isolateRtl(block)} id={blockId(i)} heading="tracking-tight" sans="font-sans" />
       ))}
     </div>
   );

@@ -28,7 +28,7 @@ import { config } from '../src/config.js';
 import type { Block } from '../src/gazette/blocks.js';
 import { gazetteRef, nextPlace, referenceFor, type Placed } from '../src/gazette/numbering.js';
 import { GazetteStorage } from '../src/gazette/storage.js';
-import { isNewType, parseSeriesNumber } from '../src/gazette/types.js';
+import { SERIES_TYPES, parseSeriesNumber, type NewType } from '../src/gazette/types.js';
 
 interface Release {
   type: string;
@@ -72,7 +72,10 @@ const placed = (doc: GazetteDocument): Placed => ({
 });
 
 const language = release.language ?? 'en';
-const series = isNewType(release.type) ? parseSeriesNumber(release.type, release.docNumber) : null;
+// Acts, Orders, Regulations and Guidelines have a place in their type's series; a Notice carries its
+// issuing body's own reference number instead (point 17), so it has none
+const numbered = SERIES_TYPES.includes(release.type as NewType);
+const series = numbered ? parseSeriesNumber(release.type, release.docNumber) : null;
 const reference = referenceFor(release.type, release.docNumber);
 const label = `${reference}${language === 'en' ? '' : ` in ${language === 'dv' ? 'Dhivehi' : language}`} (${release.title})`;
 
@@ -104,7 +107,7 @@ try {
     series && published.some((doc) => doc.type === release.type && doc.language === language && doc.seriesYear === series.year && doc.seriesNumber === series.serial)
       ? `${reference} is already taken in the Register.`
       : null,
-    isNewType(release.type) && !series ? `"${release.docNumber}" isn't a number in the ${release.type} series.` : null,
+    numbered && !series ?`"${release.docNumber}" isn't a number in the ${release.type} series.` : null,
   ].filter(Boolean);
   if (problems.length) {
     console.error(`${label} wasn't published:\n- ${problems.join('\n- ')}`);

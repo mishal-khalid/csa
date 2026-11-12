@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { PDFArray, PDFDocument, PDFRawStream, decodePDFRawStream, degrees } from 'pdf-lib';
+import { PDFArray, PDFDocument, PDFName, PDFRawStream, decodePDFRawStream, degrees } from 'pdf-lib';
 import { buildIssue, coverDate, coverPdf, coverProblems, titleLines } from './cover.js';
 import { cornerMatrix, INITIALS_WIDTH } from './initials.js';
 import { sameNumber, textHash } from './gazette.service.js';
@@ -8,6 +8,14 @@ import { coverNumberLine, nextPlace, nextSeries, referenceFor, volumeFor, type P
 
 const sha = (bytes: Uint8Array) => createHash('sha256').update(bytes).digest('hex');
 const act = { volume: 2, number: 16, date: '2026-11-08', numberLine: 'Act Number: 3/2026', title: 'Public Bonds Companies Act' };
+// President's Order Number 04/2026 in Dhivehi
+const dhivehi = {
+  volume: 2,
+  number: 22,
+  date: '2026-11-12',
+  numberLine: 'ރަޢީސުލްވަކާލާގެ ޤަރާރު ނަންބަރު: 04/2026',
+  title: 'ސީ.އެސް.އޭގެ ޕަބްލިކް ކޮމްޕެނީސް އޮތޯރިޓީގެ ދަށަށް އީތޯސް ގްރޫޕް އޮފް ކޮމްޕެނީސް އެލް.އެލް.ސީ ގެނައުމާއި ގުޅޭ',
+};
 
 describe('the cover', () => {
   it('comes out byte for byte the same every time', async () => {
@@ -33,7 +41,29 @@ describe('the cover', () => {
   });
 
   it('refuses letters its font doesn’t have', () => {
-    expect(coverProblems({ ...act, title: 'ޤާނޫނު' })[0]).toMatch(/font has no/);
+    expect(coverProblems({ ...act, title: '公報' })[0]).toMatch(/font has no/);
+    expect(coverProblems({ ...dhivehi, title: 'ޤާނޫނު 公報' })[0]).toMatch(/font has no/);
+  });
+
+  // the fonts a cover carries, by name
+  const fonts = async (bytes: Uint8Array) => [
+    ...new Set(
+      (await PDFDocument.load(bytes)).context
+        .enumerateIndirectObjects()
+        .map(([, object]) => String((object as { get?: (key: PDFName) => unknown }).get?.(PDFName.of('BaseFont')) ?? ''))
+        .filter(Boolean),
+    ),
+  ].sort();
+
+  it('sets a Dhivehi title and number line in Faruma, and an English cover without it', async () => {
+    expect(coverProblems(dhivehi)).toEqual([]);
+    expect(titleLines(dhivehi.title)).toEqual([
+      'ސީ.އެސް.އޭގެ ޕަބްލިކް ކޮމްޕެނީސް އޮތޯރިޓީގެ ދަށަށް އީތޯސް ގްރޫޕް އޮފް',
+      'ކޮމްޕެނީސް އެލް.އެލް.ސީ ގެނައުމާއި ގުޅޭ',
+    ]);
+    expect(await fonts(await coverPdf(dhivehi))).toEqual(['/Faruma', '/Inter-Regular', '/PlayfairDisplay-Bold']);
+    expect(await fonts(await coverPdf(act))).toEqual(['/Inter-Regular', '/PlayfairDisplay-Bold']);
+    expect(sha(await coverPdf(dhivehi))).toBe(sha(await coverPdf(dhivehi)));
   });
 
   it('goes in front of the document, with the appendices after it', async () => {

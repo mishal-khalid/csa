@@ -33,8 +33,8 @@ export async function generateMetadata({ params }) {
 // volume and number, date, Gazette reference), the title centred, buttons opening its PDFs in a new
 // tab, a divider with the Gazette's eagle emblem across the page, then the full text in a single
 // reading column, with a table of contents beside it for the long documents that have one.
-// The SSC's documents are in Dhivehi: their title and text run right to left in Faruma and MV MAG
-// Round, inside the same English frame.
+// A Dhivehi document (the SSC's, or a CSA document's Dhivehi text): its title and text run right to
+// left in Faruma and MV MAG Round, inside the same English frame.
 export default async function GazetteDocumentPage({ params }) {
   const { serial } = await params;
   const doc = await getDocument(serial);
@@ -46,7 +46,7 @@ export default async function GazetteDocumentPage({ params }) {
   }
 
   const { index, title, tag, reference, date, volume, number, gazetteRef, status, pdfs, blocks } = doc;
-  const dhivehi = doc.body === "ssc";
+  const dhivehi = doc.language === "dv";
   const toc = contentsFor(index, blocks);
 
   return (

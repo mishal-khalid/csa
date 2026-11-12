@@ -12,6 +12,9 @@
 // - the type and number line ("Act Number: 3/2026");
 // - the title in a box with a soft shadow (see shadow.ts);
 // - the contact box: The President's Office on the left, where to send submissions on the right.
+//
+// A Dhivehi document keeps the English cover, with its title and number line in Dhivehi, set in
+// Faruma right to left (the user's pick for President's Order Number 04/2026 in Dhivehi).
 
 import fontkit from '@pdf-lib/fontkit';
 import {
@@ -27,9 +30,10 @@ import {
   concatTransformationMatrix,
   drawObject,
 } from 'pdf-lib';
-import { gazetteEagle, interRegular, playfairBold } from './cover-assets.js';
+import { farumaRegular, gazetteEagle, interRegular, playfairBold } from './cover-assets.js';
 import { shadowAlpha, type ShadowGlyph } from './shadow.js';
 import { addInitials } from './initials.js';
+import { THAANA } from './read/lines.js';
 
 export interface CoverText {
   volume: number;
@@ -112,14 +116,21 @@ const fromBase64 = (data: string) => Uint8Array.from(Buffer.from(data, 'base64')
 const interBytes = fromBase64(interRegular);
 const playfairBytes = fromBase64(playfairBold);
 const eagleBytes = fromBase64(gazetteEagle);
+const farumaBytes = fromBase64(farumaRegular);
 const inter = fontkit.create(Buffer.from(interBytes));
 const playfair = fontkit.create(Buffer.from(playfairBytes));
+const faruma = fontkit.create(Buffer.from(farumaBytes));
 
 type Font = typeof inter;
+type Glyphs = { glyphs: { char: string; x: number; commands: ShadowGlyph['commands'] }[]; width: number };
+
+// A line with Thaana in it is Dhivehi: it's set in Faruma, right to left.
+const fontFor = (text: string): Font => (THAANA.test(text) ? faruma : inter);
 
 // Where each letter of a line sits, with the font's kerning (as Word sets it) and any character
 // spacing after every letter.
-function layout(font: Font, text: string, size: number, spacing = 0) {
+function layout(font: Font, text: string, size: number, spacing = 0): Glyphs {
+  if (font === faruma) return layoutRightToLeft(text, size);
   const run = font.layout(text);
   const unit = size / font.unitsPerEm;
   // code points, as fontkit maps them (the cover has no emoji or joined characters)
@@ -137,16 +148,57 @@ function layout(font: Font, text: string, size: number, spacing = 0) {
   return { glyphs, width: x };
 }
 
-const textWidth = (text: string, { layout: at }: Size) => layout(inter, text, at).width;
+// A Dhivehi line in Faruma, the way Word sets it in a right-to-left paragraph: runs of digits or
+// Latin letters read left to right; everything else (the Thaana, the spaces and punctuation, the "/"
+// of a number) reads right to left; and the runs follow one another from the right. So
+// "… ނަންބަރު: 04/2026" prints its number as "2026/04" at the left end, as the Order's own heading
+// does. Faruma's fili have no width and are drawn from their letter's start, which is where
+// fontkit's right-to-left layout puts them.
+const LEFT_TO_RIGHT = /[0-9]+|[A-Za-z][\w.'’&-]*(?: +[A-Za-z][\w.'’&-]*)*/g;
+type DirectedLayout = (text: string, features: string[], script: string, language: undefined, direction: 'ltr' | 'rtl') => ReturnType<Font['layout']>;
+
+function layoutRightToLeft(text: string, size: number): Glyphs {
+  const runs: { text: string; ltr: boolean }[] = [];
+  let at = 0;
+  for (const match of text.matchAll(LEFT_TO_RIGHT)) {
+    if (match.index > at) runs.push({ text: text.slice(at, match.index), ltr: false });
+    runs.push({ text: match[0], ltr: true });
+    at = match.index + match[0].length;
+  }
+  if (at < text.length) runs.push({ text: text.slice(at), ltr: false });
+
+  const unit = size / faruma.unitsPerEm;
+  const glyphs: Glyphs['glyphs'] = [];
+  let x = 0;
+  for (const run of runs.reverse()) {
+    const set = (faruma.layout as unknown as DirectedLayout).call(faruma, run.text, [], run.ltr ? 'latn' : 'thaa', undefined, run.ltr ? 'ltr' : 'rtl');
+    // one glyph per character, each the character's own (Faruma substitutes nothing in Thaana), in
+    // the run's order: reversed when it reads right to left. fontkit's glyphs can't say which
+    // character they are (one first made by a substitution lookup lists none), so it's by place.
+    // oxlint-disable-next-line typescript/no-misused-spread -- code points, as the font maps them
+    const chars = run.ltr ? [...run.text] : [...run.text].reverse();
+    set.glyphs.forEach((glyph, i) => {
+      if (set.glyphs.length !== chars.length || glyph.id !== faruma.glyphForCodePoint(chars[i].codePointAt(0)!).id) {
+        throw new Error(`Can't set "${text}" letter by letter`);
+      }
+      glyphs.push({ char: chars[i], x: x + set.positions[i].xOffset * unit, commands: (glyph.path as unknown as { commands: ShadowGlyph['commands'] }).commands });
+      x += set.positions[i].xAdvance * unit;
+    });
+  }
+  return { glyphs, width: x };
+}
+
+const textWidth = (font: Font, text: string, { layout: at }: Size) => layout(font, text, at).width;
 
 // The title split into lines that fit the template's box, breaking between words.
 export function titleLines(title: string): string[] {
+  const font = fontFor(title);
   const words = title.trim().split(/\s+/);
   const lines: string[] = [];
   let line = '';
   for (const word of words) {
     const next = line ? `${line} ${word}` : word;
-    if (line && textWidth(next, TITLE.size) > TITLE.maxWidth) {
+    if (line && textWidth(font, next, TITLE.size) > TITLE.maxWidth) {
       lines.push(line);
       line = word;
     } else line = next;
@@ -162,10 +214,16 @@ export function coverProblems(cover: CoverText): string[] {
   else {
     const lines = titleLines(cover.title);
     if (lines.length > TITLE.maxLines) problems.push(`The title runs to ${lines.length} lines on the cover; it fits ${TITLE.maxLines}.`);
-    if (lines.some((line) => textWidth(line, TITLE.size) > TITLE.maxWidth)) problems.push('A word in the title is too long to fit across the cover.');
+    if (lines.some((line) => textWidth(fontFor(cover.title), line, TITLE.size) > TITLE.maxWidth)) problems.push('A word in the title is too long to fit across the cover.');
   }
-  // oxlint-disable-next-line typescript/no-misused-spread -- code points, as the font maps them
-  const missing = [...new Set([...`${cover.title}${cover.numberLine}`].filter((char) => !inter.hasGlyphForCodePoint(char.codePointAt(0)!)))];
+  const missing = [
+    ...new Set(
+      [cover.title, cover.numberLine].flatMap((text) =>
+        // oxlint-disable-next-line typescript/no-misused-spread -- code points, as the font maps them
+        [...text].filter((char) => !fontFor(text).hasGlyphForCodePoint(char.codePointAt(0)!)),
+      ),
+    ),
+  ];
   if (missing.length) problems.push(`The cover’s font has no ${missing.map((char) => `“${char}”`).join(', ')}.`);
   if (!cover.numberLine.trim()) problems.push('The cover needs the type and number.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(cover.date)) problems.push('The cover needs the date of publication.');
@@ -191,21 +249,24 @@ const hline = (page: PDFPage, y: number, x0: number, x1: number, thickness: numb
 
 // The shadow behind one line of the title: a black picture with the blurred title as its
 // transparency, placed in the box Word gives it.
-function drawShadow(doc: PDFDocument, page: PDFPage, line: string, startX: number, baseline: number) {
-  const { glyphs, width } = layout(inter, line, TITLE.size.layout);
+function drawShadow(doc: PDFDocument, page: PDFPage, metrics: Font, line: string, startX: number, baseline: number) {
+  const { glyphs, width } = layout(metrics, line, TITLE.size.layout);
+  // Faruma's fili under the letters reach well below Word's box for an English title: its box
+  // reaches the font's descent, and the blur beyond it
+  const below = metrics === faruma ? (-faruma.descent / faruma.unitsPerEm) * TITLE.size.layout + 2 : TITLE.shadow.below;
   const box = {
     width: width + TITLE.shadow.padX * 2,
-    height: TITLE.shadow.above + TITLE.shadow.below,
+    height: TITLE.shadow.above + below,
     left: TITLE.shadow.padX,
     baseline: TITLE.shadow.above,
   };
-  const shadow = shadowAlpha(glyphs, inter.unitsPerEm, TITLE.size.layout, box);
+  const shadow = shadowAlpha(glyphs, metrics.unitsPerEm, TITLE.size.layout, box);
   const imageDict = { Type: 'XObject', Subtype: 'Image', Width: shadow.width, Height: shadow.height, ColorSpace: 'DeviceGray', BitsPerComponent: 8 };
   const mask = doc.context.register(doc.context.flateStream(shadow.alpha, imageDict));
   const black = doc.context.register(doc.context.flateStream(new Uint8Array(shadow.width * shadow.height), { ...imageDict, SMask: mask }));
   const name = page.node.newXObject('Shadow', black);
   const x = startX - TITLE.shadow.padX;
-  const y = PAGE.height - (baseline + TITLE.shadow.below);
+  const y = PAGE.height - (baseline + below);
   // scale the 1 x 1 image space to the box, then move it into place
   page.pushOperators(pushGraphicsState(), concatTransformationMatrix(box.width, 0, 0, box.height, x, y), drawObject(name), popGraphicsState());
 }
@@ -216,6 +277,10 @@ async function drawCover(doc: PDFDocument, page: PDFPage, cover: CoverText) {
   // embedded whole: they're already cut down (see cover-assets.ts)
   const interFont = await doc.embedFont(interBytes, { subset: false, customName: 'Inter-Regular' });
   const playfairFont = await doc.embedFont(playfairBytes, { subset: false, customName: 'PlayfairDisplay-Bold' });
+  // Faruma only on a cover with Dhivehi on it, so the English covers stay as they were
+  const dhivehi = [cover.title, cover.numberLine].some((text) => fontFor(text) === faruma);
+  const farumaFont = dhivehi ? await doc.embedFont(farumaBytes, { subset: false, customName: 'Faruma' }) : null;
+  const pdfFont = (metrics: Font) => (metrics === faruma ? farumaFont! : interFont);
   const eagle = await doc.embedPng(eagleBytes);
 
   // the eagle, cropped to the part the template shows
@@ -232,15 +297,17 @@ async function drawCover(doc: PDFDocument, page: PDFPage, cover: CoverText) {
   const cells = ['Volume:', String(cover.volume), 'Number:', String(cover.number), 'Date:', date, weekday];
   cells.forEach((text, i) => drawCentred(page, interFont, inter, text, STRIP.centres[i], STRIP.baseline, SMALL));
 
-  drawCentred(page, interFont, inter, cover.numberLine, CENTRE, NUMBER_LINE.baseline, NUMBER_LINE.size);
+  const numberMetrics = fontFor(cover.numberLine);
+  drawCentred(page, pdfFont(numberMetrics), numberMetrics, cover.numberLine, CENTRE, NUMBER_LINE.baseline, NUMBER_LINE.size);
 
   // the title, each line with its shadow underneath
+  const titleMetrics = fontFor(cover.title);
   const lines = titleLines(cover.title);
   lines.forEach((line, i) => {
     const baseline = TITLE.baseline + i * TITLE.lineAdvance;
-    const startX = CENTRE - textWidth(line, TITLE.size) / 2;
-    drawShadow(doc, page, line, startX, baseline);
-    drawLine(page, interFont, inter, line, startX, baseline, TITLE.size);
+    const startX = CENTRE - textWidth(titleMetrics, line, TITLE.size) / 2;
+    drawShadow(doc, page, titleMetrics, line, startX, baseline);
+    drawLine(page, pdfFont(titleMetrics), titleMetrics, line, startX, baseline, TITLE.size);
   });
 
   // the contact box, moved down by any extra title lines

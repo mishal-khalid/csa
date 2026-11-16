@@ -18,8 +18,10 @@ export interface Layout {
 }
 
 export const CHAPTER = /^(?:[A-Z][a-z]+(?:-[a-z]+)? Chapter|Chapter\s+[\dIVXLC]+\b.*)$/;
-// Articles are numbered 1, 2, 3 (or I, II, III in the earliest documents)
-const ARTICLE_NUMBER = /^(\d{1,3}|[IVXLC]{1,7})$/;
+// Articles are numbered 1, 2, 3 (or I, II, III in the earliest documents). Some Acts print them
+// with a full stop ("1."), which the Article's number leaves out.
+const ARTICLE_NUMBER = /^(\d{1,3}|[IVXLC]{1,7})\.?$/;
+const articleNumberText = (item: Item) => item.str.trim().replace(/\.$/, '');
 export const ORDER = /^(Director|President)[’'`]s Order Number\s+(\d{1,4}\/\d{4})$/;
 
 const near = (a: number, b: number, tol = 3.5) => Math.abs(a - b) <= tol;
@@ -43,16 +45,29 @@ export function leadingLabel(items: Item[]): Label | null {
   return { label, labelX: first.x, textX: next.x, rest: visible.slice(1) };
 }
 
+const centredLine = (line: Line, layout: Layout) => Math.abs((line.x0 + line.x1) / 2 - layout.pageWidth / 2) <= Math.max(12, 0.03 * layout.pageWidth);
+
 // centred, and bold or larger than the text
 export function isHeading(line: Line, layout: Layout): boolean {
-  const centre = (line.x0 + line.x1) / 2;
   const width = line.x1 - line.x0;
-  return (
-    Math.abs(centre - layout.pageWidth / 2) <= Math.max(12, 0.03 * layout.pageWidth) &&
-    width < 0.97 * (layout.right - (layout.pageWidth - layout.right)) &&
-    (line.bold || line.size >= layout.bodySize + 1.5)
-  );
+  return centredLine(line, layout) && width < 0.97 * (layout.right - (layout.pageWidth - layout.right)) && (line.bold || line.size >= layout.bodySize + 1.5);
 }
+
+// A heading set at the left margin ("Declaration", "Record of the declaration" in an Act's
+// Appendix): a short bold line, larger than the text, that doesn't end like a sentence or a lead-in,
+// with a paragraph's gap under it. Letterheads, mastheads and the labels of forms don't pass: they're
+// set at the text's size or smaller, stand to the right, or have their next line close under them.
+function isSideHeading(line: Line, next: Element | undefined, layout: Layout): boolean {
+  const width = line.x1 - line.x0;
+  if (!line.bold || line.size < layout.bodySize + 0.5 || line.text.length > 80 || /[.,;:]$/.test(line.text)) return false;
+  if (line.x0 > layout.pageWidth / 3 || width > 0.6 * (layout.right - (layout.pageWidth - layout.right))) return false;
+  if (next?.kind !== 'line' || next.line.page !== line.page) return true;
+  return line.y - next.line.y > 1.35 * layout.pitch(next.line.size);
+}
+
+// The document's own number over its title ("Act Number 3/2026"): the Gazette shows the number
+// apart from the text, so it's left out like the title
+const NUMBER_LINE = /^(?:Act|Issue|Regulation|Guideline) Number:?\s+(?:[RG]-)?\d{1,4}\/\d{4}$/;
 
 // How two lines of the same text join: a blank line where there's a paragraph's gap between them,
 // a space where the first was full (the text wrapped), a line break where it ended early.
@@ -309,12 +324,16 @@ export function parse(elements: Element[], layout: Layout, articles: ArticleColu
       para.last = line;
       return;
     }
+    if (isSideHeading(line, upcoming, layout)) return headingLine(line);
     const block: ParagraphBlock = { type: 'paragraph', text: line.text };
     blocks.push(block);
     para = { block, last: line, x0: line.x0 };
   };
 
-  for (const el of elements) {
+  // the element after the one being read (a side heading needs a gap under it)
+  let upcoming: Element | undefined;
+  for (const [k, el] of elements.entries()) {
+    upcoming = elements[k + 1];
     if (el.kind === 'table') {
       finishList();
       para = null;
@@ -348,6 +367,7 @@ export function parse(elements: Element[], layout: Layout, articles: ArticleColu
     }
 
     // an Act, Regulation or Guideline
+    if (opts.skipTitle && NUMBER_LINE.test(line.text) && centredLine(line, layout)) continue;
     const found = articleNumber(line, articles);
     const visible = line.items.filter((i) => !isSpace(i.str));
     const margin = visible.filter((i) => i.x < articles.marginLimit && (!found || i !== found.number));
@@ -358,7 +378,7 @@ export function parse(elements: Element[], layout: Layout, articles: ArticleColu
       heading = null;
       chapter = null;
       closeArticle();
-      const block: ArticleBlock = { type: 'article', number: found.number.str.trim(), clauses: [] };
+      const block: ArticleBlock = { type: 'article', number: articleNumberText(found.number), clauses: [] };
       if (margin.length) block.title = joinItems(margin);
       blocks.push(block);
       article = { block, points: new Points(block.clauses, 'article', layout), titleLast: margin.length ? line : null };

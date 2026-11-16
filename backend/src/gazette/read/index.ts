@@ -114,6 +114,9 @@ async function prepare(bytes: Uint8Array): Promise<Prepared> {
     if (pageNumber(lines.at(-1))) lines.pop();
     // contents lists
     lines = lines.filter((l) => !/\.{6,}|…{3,}/.test(l.text) && !/^(table of )?contents$/i.test(l.text.trim()));
+    // a short rule typed as a centred row of underscores: the line closing an Act's text, or the
+    // line over a signature. Rows across the page, or at the margin, are spaces to write in, and stay.
+    lines = lines.filter((l) => !(/^_{5,}$/.test(l.text.trim()) && centred(l, page) && l.x1 - l.x0 < 0.4 * page.width));
 
     // a letterhead at the top of the page: up to four short lines naming the CSA and its seat
     let take = 0;

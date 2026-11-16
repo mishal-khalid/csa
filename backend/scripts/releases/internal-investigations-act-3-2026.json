@@ -1,0 +1,1927 @@
+{
+ "type": "act",
+ "docNumber": "3/2026",
+ "title": "Internal Investigations Act",
+ "issuingBody": "The President's Office",
+ "publishedOn": "2026-11-16",
+ "commencesOn": null,
+ "cover": true,
+ "place": {
+  "serial": 28,
+  "volume": 2,
+  "number": 26
+ },
+ "pdf": "internal-investigations-act-3-2026.pdf",
+ "blocks": [
+  {
+   "type": "chapter",
+   "text": "First Chapter",
+   "subtitle": "Preliminary Provisions"
+  },
+  {
+   "type": "article",
+   "number": "1",
+   "title": "Introduction and title",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "This Act sets out the procedures for the investigation of persons under the Continental Security Agency (CSA) by the Department of Internal Affairs, the creation, naming and appointment of investigation boards, the protection of persons involved in investigations, and the actions taken against persons found at fault."
+    },
+    {
+     "label": "(b)",
+     "text": "This Act shall be cited as the \"Internal Investigations Act\"."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "2",
+   "title": "Purpose",
+   "clauses": [
+    {
+     "text": "The purposes of this Act are:"
+    },
+    {
+     "label": "(a)",
+     "text": "to establish how complaints are received and documented, and how cases are opened;"
+    },
+    {
+     "label": "(b)",
+     "text": "to provide for the creation, naming and appointment of investigation boards and their investigating officers;"
+    },
+    {
+     "label": "(c)",
+     "text": "to set out the powers of investigation boards and the procedures for interviews, hearings and records;"
+    },
+    {
+     "label": "(d)",
+     "text": "to protect, to the extent this Act provides, persons under the CSA, external witnesses and members of the public involved in investigations;"
+    },
+    {
+     "label": "(e)",
+     "text": "to provide for the actions taken against persons found at fault, the referral of criminal matters and appeals; and"
+    },
+    {
+     "label": "(f)",
+     "text": "to establish offences against the integrity of investigations."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "3",
+   "title": "Persons to whom this Act applies",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "This Act applies to every person under the CSA."
+    },
+    {
+     "label": "(b)",
+     "text": "A person under the CSA is every person who holds an office, post, rank, position or membership in, or who is employed, contracted, seconded or enrolled by, the CSA or any body under it, including:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "the President’s Office, the departments of the Cabinet, including the International Intelligence Council, and the bodies under them;"
+      },
+      {
+       "label": "(2)",
+       "text": "the members and staff of the Continental Assembly;"
+      },
+      {
+       "label": "(3)",
+       "text": "the judges of the courts under the Department of Judicial Administration, and the staff of the Department of Judicial Administration;"
+      },
+      {
+       "label": "(4)",
+       "text": "the staff of the independent commissions of the CSA; and"
+      },
+      {
+       "label": "(5)",
+       "text": "the Continental Armed Forces, the Continental Security Corps, including its cadets and instructors, and the Continental Law Enforcement Authority."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "4",
+   "title": "Persons to whom this Act does not apply",
+   "clauses": [
+    {
+     "text": "This Act does not apply to the President, the Vice President, or the members of the Human Resources Commission, the Civic Affairs Commission and the Judicial Service Commission."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "5",
+   "title": "Tiers",
+   "clauses": [
+    {
+     "text": "For the purposes of this Act, persons under the CSA are placed in the following tiers:"
+    },
+    {
+     "label": "(a)",
+     "text": "Tier 1: Military Executive Officers and members of the Cabinet;"
+    },
+    {
+     "label": "(b)",
+     "text": "Tier 2: Secretaries of State, Deputy Secretaries and Executive Officers; and"
+    },
+    {
+     "label": "(c)",
+     "text": "Tier 3: all other persons under the CSA."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Second Chapter",
+   "subtitle": "Authority of the Department of Internal Affairs"
+  },
+  {
+   "type": "article",
+   "number": "6",
+   "title": "Authority within the jurisdiction of the CSA",
+   "clauses": [
+    {
+     "text": "The Department of Internal Affairs has absolute authority within the jurisdiction of the CSA to investigate every person to whom this Act applies, and exercises that authority through the Standards and Investigations Division and the boards created under this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "7",
+   "title": "Members of the public and their property",
+   "clauses": [
+    {
+     "text": "Where a member of the public, or the property of a member of the public, is concerned in an investigation, the Department of Internal Affairs and its boards shall act in accordance with the law of the state or country concerned."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "8",
+   "title": "Chain of command for approvals",
+   "clauses": [
+    {
+     "text": "Where an action under this Act requires an approval for which this Act makes no other provision, the approval shall be sought through the chain of command of the Standards and Investigations Division, in the following order: the Assistant Head of the Standards and Investigations Division, the Head of the Standards and Investigations Division, the Deputy Chief of Internal Affairs, Madam Chief of the Department of Internal Affairs, the Vice President, and the President."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "9",
+   "title": "Confidentiality of internal procedures",
+   "clauses": [
+    {
+     "text": "The internal procedures of the Standards and Investigations Division under Article 15 of this Act are governed by the confidential bylaws of the CSA and shall not be disclosed to the public."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Third Chapter",
+   "subtitle": "Misconduct"
+  },
+  {
+   "type": "article",
+   "number": "10",
+   "title": "Misconduct",
+   "clauses": [
+    {
+     "text": "For the purposes of this Act, misconduct is any of the following conduct by a person under the CSA:"
+    },
+    {
+     "label": "(a)",
+     "text": "theft and fraud: stealing CSA property, funds or assets, or falsifying records;"
+    },
+    {
+     "label": "(b)",
+     "text": "physical violence or threats: assaulting colleagues, members of the public or persons in authority, or making violent threats;"
+    },
+    {
+     "label": "(c)",
+     "text": "harassment and discrimination: sexual harassment, severe bullying, or discriminatory conduct based on protected characteristics;"
+    },
+    {
+     "label": "(d)",
+     "text": "being under the influence: working while impaired by alcohol or illegal drugs, endangering oneself or others;"
+    },
+    {
+     "label": "(e)",
+     "text": "severe health and safety breaches: deliberately bypassing critical safety systems or risking lives;"
+    },
+    {
+     "label": "(f)",
+     "text": "breach of confidentiality or data misuse: intentionally leaking classified or confidential CSA information, or the private records of members of the public or of persons under the CSA;"
+    },
+    {
+     "label": "(g)",
+     "text": "deliberate property damage: vandalising or destroying CSA equipment or facilities;"
+    },
+    {
+     "label": "(h)",
+     "text": "unauthorised disclosure or mishandling of classified information;"
+    },
+    {
+     "label": "(i)",
+     "text": "espionage, or unauthorised dealings with a foreign government or organisation;"
+    },
+    {
+     "label": "(j)",
+     "text": "bribery, corruption or abuse of office;"
+    },
+    {
+     "label": "(k)",
+     "text": "misuse of security clearance, access, CSA systems or data;"
+    },
+    {
+     "label": "(l)",
+     "text": "failing to declare a conflict of interest;"
+    },
+    {
+     "label": "(m)",
+     "text": "refusing a lawful order;"
+    },
+    {
+     "label": "(n)",
+     "text": "neglect of duty, or absence without leave;"
+    },
+    {
+     "label": "(o)",
+     "text": "misuse of CSA insignia, uniforms, identification or titles;"
+    },
+    {
+     "label": "(p)",
+     "text": "falsifying identity, qualifications or security clearance information;"
+    },
+    {
+     "label": "(q)",
+     "text": "failing to report misconduct; and"
+    },
+    {
+     "label": "(r)",
+     "text": "conduct bringing the CSA into disrepute."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Fourth Chapter",
+   "subtitle": "Complaints and Cases"
+  },
+  {
+   "type": "article",
+   "number": "11",
+   "title": "Making a complaint",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A complaint may be made by any person, in any manner, to any person who holds authority in the CSA."
+    },
+    {
+     "label": "(b)",
+     "text": "A complaint may be made on the complaint form stated in Article 36 (a) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "12",
+   "title": "Duty to act on a complaint",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Every person who holds authority in the CSA and is informed of a complaint shall act on it."
+    },
+    {
+     "label": "(b)",
+     "text": "The person shall document the complaint and the action taken by filing a complaint memorandum."
+    },
+    {
+     "label": "(c)",
+     "text": "The complaint memorandum shall be passed to the Standards and Investigations Division."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "13",
+   "title": "Anonymous complaints",
+   "clauses": [
+    {
+     "text": "An anonymous complaint shall be accepted only where it contains enough detail or evidence for it to be verified."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "14",
+   "title": "Cases opened by the Department of Internal Affairs",
+   "clauses": [
+    {
+     "text": "The Department of Internal Affairs may open a case on its own initiative, without a complaint."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "15",
+   "title": "Internal procedures of the Standards and Investigations Division",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "On receiving a complaint memorandum, the Standards and Investigations Division shall carry out its internal procedures to determine whether a case is to be opened."
+    },
+    {
+     "label": "(b)",
+     "text": "The internal procedures shall be completed within seven days of the receipt of the complaint memorandum."
+    },
+    {
+     "label": "(c)",
+     "text": "At the end of the seven days, the Standards and Investigations Division shall inform the authority that filed the complaint memorandum of the status of the complaint."
+    },
+    {
+     "label": "(d)",
+     "text": "The Head of the Standards and Investigations Division may extend the period stated in (b) of this Article."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "16",
+   "title": "Opening a case",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Where the internal procedures determine that a case is to be opened, the Standards and Investigations Division shall open the case."
+    },
+    {
+     "label": "(b)",
+     "text": "When a case is opened, a board shall be created for it under the Fifth Chapter of this Act. Every case shall have a board assigned to it."
+    },
+    {
+     "label": "(c)",
+     "text": "The Head of the Standards and Investigations Division shall determine the creation of the board and its type."
+    },
+    {
+     "label": "(d)",
+     "text": "Every complaint, decision and action in a case shall be documented in that case."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "17",
+   "title": "Memos to the Cabinet",
+   "clauses": [
+    {
+     "text": "The Department of Internal Affairs shall send a memo to the Cabinet when a board is created, whenever the status of a case changes, and when a case is closed, in cases of every tier."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Fifth Chapter",
+   "subtitle": "Investigation Boards"
+  },
+  {
+   "type": "article",
+   "number": "18",
+   "title": "Types of boards",
+   "clauses": [
+    {
+     "text": "The following types of boards may be created under this Act:"
+    },
+    {
+     "label": "(a)",
+     "text": "a Special Investigation Board, which investigates a case concerning a Tier 1 person;"
+    },
+    {
+     "label": "(b)",
+     "text": "an Internal Investigation Board, which investigates a case concerning a Tier 2 or Tier 3 person; and"
+    },
+    {
+     "label": "(c)",
+     "text": "a Continental Investigation Board, which investigates a major investigation under Article 23 of this Act, concerning a person of any tier."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "19",
+   "title": "Names and numbers of boards",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A board shall be named only by its code, such as \"IIB-4/2026\", and its name shall not include the subject of the case."
+    },
+    {
+     "label": "(b)",
+     "text": "Special Investigation Boards are numbered SIB-#/year, Internal Investigation Boards are numbered IIB-#/year, and Continental Investigation Boards are numbered CIB-#/year."
+    },
+    {
+     "label": "(c)",
+     "text": "Each type of board has its own series of numbers, assigned by the Standards and Investigations Division and starting from 1 each year."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "20",
+   "title": "Cases concerning persons of different tiers",
+   "clauses": [
+    {
+     "text": "Where a case concerns persons of different tiers, one board shall be created for the case, of the type for the highest tier among them."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "21",
+   "title": "Creation of an Internal Investigation Board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "An Internal Investigation Board shall be created, and its members appointed, by the Head of the Standards and Investigations Division."
+    },
+    {
+     "label": "(b)",
+     "text": "The creation of the board and the appointment of its members shall be approved by Madam Chief."
+    },
+    {
+     "label": "(c)",
+     "text": "The mandate of board creation shall be signed by the Head of the Standards and Investigations Division and by Madam Chief."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "22",
+   "title": "Creation of a Special Investigation Board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A Special Investigation Board shall be created, and its members appointed, by Madam Chief."
+    },
+    {
+     "label": "(b)",
+     "text": "A Special Investigation Board shall not be created without the consent of the President."
+    },
+    {
+     "label": "(c)",
+     "text": "The mandate of board creation shall be signed by Madam Chief, and approved and signed by the President."
+    },
+    {
+     "label": "(d)",
+     "text": "The members of a Special Investigation Board shall, as far as possible, hold positions or ranks higher than those of the members of an Internal Investigation Board, and its Chair shall hold a position not lower than that of the person under investigation."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "23",
+   "title": "Major investigations",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A major investigation is an investigation of major scale or significance, such as a large-scale corruption case involving the international relations of the CSA, or a case that may involve serious criminal offences."
+    },
+    {
+     "label": "(b)",
+     "text": "Whether an investigation is a major investigation shall be determined by the President."
+    },
+    {
+     "label": "(c)",
+     "text": "Where the Department of Internal Affairs considers that a case may be a major investigation, it shall submit the case to the President for determination."
+    },
+    {
+     "label": "(d)",
+     "text": "Where the President determines that a case is a major investigation, the Department of Internal Affairs shall refer the case to the Cabinet."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "24",
+   "title": "Continental Investigation Board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "On a referral under Article 23 (d) of this Act, the Cabinet may form a multi-agency taskforce or a multi-agency board to investigate the case, and shall appoint its members. That taskforce or board is the Continental Investigation Board of the case."
+    },
+    {
+     "label": "(b)",
+     "text": "A Continental Investigation Board may have seats for members from the CSA and, where they are concerned in the case, from the United Continents, the United States of America, the Republic of Maldives and any other state or country."
+    },
+    {
+     "label": "(c)",
+     "text": "A Continental Investigation Board may be publicly called a taskforce, or by any other name the Cabinet decides."
+    },
+    {
+     "label": "(d)",
+     "text": "The President shall determine whether a Continental Investigation Board is led by Madam Chief or by the President."
+    },
+    {
+     "label": "(e)",
+     "text": "The mandate of board creation of a Continental Investigation Board shall be signed by the President and by Madam Chief."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "25",
+   "title": "Investigation of the Department of Internal Affairs",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Where the person under investigation is Madam Chief, or a person serving in the Department of Internal Affairs, the board shall be created by the President, and no person serving in the Department of Internal Affairs, other than Madam Chief under (b) of this Article, shall be a member of it."
+    },
+    {
+     "label": "(b)",
+     "text": "Where the person under investigation is a person serving in the Department of Internal Affairs other than Madam Chief, Madam Chief may be involved in the case. The President may order, verbally or in writing, that Madam Chief be left out of the case, and the order shall be recorded by a memo in the case."
+    },
+    {
+     "label": "(c)",
+     "text": "The board shall be of the type for the tier of the person under investigation, under Article 18 of this Act."
+    },
+    {
+     "label": "(d)",
+     "text": "In a case under this Article, the functions given by this Act to the Deputy Chief of Internal Affairs and the Head of the Standards and Investigations Division shall be carried out by the President. The functions given by this Act to Madam Chief shall also be carried out by the President, unless Madam Chief is involved in the case under (b) of this Article."
+    },
+    {
+     "label": "(e)",
+     "text": "A case under this Article shall be decided by the President, or by the Cabinet without Madam Chief, as the President determines."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "26",
+   "title": "Persons who may be appointed to a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The members of a board shall be appointed from the officers of the Department of Internal Affairs, and from officers of other bodies of the CSA who are seconded to the board and have no link to the case."
+    },
+    {
+     "label": "(b)",
+     "text": "This Article is subject to Article 24 (b) and Article 25 (a) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "27",
+   "title": "Composition of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "It is recommended that a board is composed of:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "a Chair;"
+      },
+      {
+       "label": "(2)",
+       "text": "two interested investigating officers;"
+      },
+      {
+       "label": "(3)",
+       "text": "two uninterested investigating officers;"
+      },
+      {
+       "label": "(4)",
+       "text": "a member from the Attorney General’s Office;"
+      },
+      {
+       "label": "(5)",
+       "text": "a member responsible for audit; and"
+      },
+      {
+       "label": "(6)",
+       "text": "any other members the case requires."
+      }
+     ]
+    },
+    {
+     "label": "(b)",
+     "text": "A board may also have a representative of the Human Resources Commission, who acts as a representative of the staff."
+    },
+    {
+     "label": "(c)",
+     "text": "The composition stated in (a) of this Article is recommended and is not mandatory."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "28",
+   "title": "Size of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The recommended size of a Special Investigation Board is 10 members, of an Internal Investigation Board 8 members, and of a Continental Investigation Board 15 to 20 members."
+    },
+    {
+     "label": "(b)",
+     "text": "Madam Chief may vary the size of a board."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "29",
+   "title": "Chair of a board",
+   "clauses": [
+    {
+     "text": "Every board shall have a Chair, who leads the board and is appointed by the authority that appoints the members of the board."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "30",
+   "title": "Legal member",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Every board shall have a Legal member, who is responsible for the legal matters of the board."
+    },
+    {
+     "label": "(b)",
+     "text": "The Legal member may be from the Attorney General’s Office or the Department of Justice."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "31",
+   "title": "Transcriber",
+   "clauses": [
+    {
+     "text": "A transcriber shall be assigned to every board to transcribe its hearings. The transcriber is not a member of the board."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "32",
+   "title": "Conflicts of interest",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A member of a board has a conflict of interest where the member:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "has a family or close personal relationship with the person under investigation or the complainant;"
+      },
+      {
+       "label": "(2)",
+       "text": "is the immediate supervisor, or a direct subordinate, of the person under investigation;"
+      },
+      {
+       "label": "(3)",
+       "text": "has a financial interest in the outcome of the case; or"
+      },
+      {
+       "label": "(4)",
+       "text": "was involved in the matter before the case was opened."
+      }
+     ]
+    },
+    {
+     "label": "(b)",
+     "text": "A member of a board who has a conflict of interest shall declare it to the authority that appointed the board, and shall be replaced."
+    },
+    {
+     "label": "(c)",
+     "text": "(a)(2) of this Article does not apply to the President when leading a board or creating a board under this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "33",
+   "title": "Objection to a member of the board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person under investigation may object to a member of the board on the ground of a conflict of interest."
+    },
+    {
+     "label": "(b)",
+     "text": "Where the person provides evidence of the conflict of interest, and the evidence is validated by the authority that appointed the board, the member shall be replaced."
+    },
+    {
+     "label": "(c)",
+     "text": "A member of a board who becomes aware that another member has a conflict of interest shall report it to the authority that appointed the board. Where the authority validates the conflict of interest, the member shall be replaced."
+    },
+    {
+     "label": "(d)",
+     "text": "Where a member is replaced under this Article or under Article 32 (b) of this Act, the decisions of the board in which that member voted shall be reviewed by the board after the member is replaced."
+    },
+    {
+     "label": "(e)",
+     "text": "A member who knew of a conflict of interest of another member and did not report it under (c) of this Article commits misconduct, and shall be dealt with as for misconduct stated in Article 10 (l) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "34",
+   "title": "Meetings of a board",
+   "clauses": [
+    {
+     "text": "Every member of a board who is able to attend shall be present at every meeting of the board. The quorum of a board is all of its members who are able to attend."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "35",
+   "title": "Decisions of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The decision of a board shall be made by a unanimous vote of its members."
+    },
+    {
+     "label": "(b)",
+     "text": "The Chair may veto a vote of the board."
+    },
+    {
+     "label": "(c)",
+     "text": "Where the Chair vetoes a vote, the board shall vote again."
+    },
+    {
+     "label": "(d)",
+     "text": "Where the new vote has the same result, the matter shall be referred to the Head of the Standards and Investigations Division, and onward through the chain of command under Article 8 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Sixth Chapter",
+   "subtitle": "Case Documents and Notices"
+  },
+  {
+   "type": "article",
+   "number": "36",
+   "title": "Case documents",
+   "clauses": [
+    {
+     "text": "The following documents shall be used in cases under this Act, in the form determined by the Department of Internal Affairs:"
+    },
+    {
+     "label": "(a)",
+     "text": "the complaint form, on which a complaint may be made;"
+    },
+    {
+     "label": "(b)",
+     "text": "the complaint memorandum, filed under Article 12 of this Act;"
+    },
+    {
+     "label": "(c)",
+     "text": "the mandate of board creation, which creates a board and appoints its members;"
+    },
+    {
+     "label": "(d)",
+     "text": "the declaration of board formation, which informs a person that a board has been formed against them and that they are being investigated;"
+    },
+    {
+     "label": "(e)",
+     "text": "the notice of allegations, which informs a person under investigation of the allegations against them;"
+    },
+    {
+     "label": "(f)",
+     "text": "the summoning declaration, which summons a person to attend before a board;"
+    },
+    {
+     "label": "(g)",
+     "text": "the administrative leave memo, issued under Article 57 of this Act;"
+    },
+    {
+     "label": "(h)",
+     "text": "the board report, prepared under Article 63 of this Act; and"
+    },
+    {
+     "label": "(i)",
+     "text": "the decision letter, by which Madam Chief decides a case."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "37",
+   "title": "Documents before handover to a board",
+   "clauses": [
+    {
+     "text": "Every document of a case prepared before the case is handed over to its board shall be signed by the Head of the Standards and Investigations Division."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "38",
+   "title": "Gazetted Notice of the formation of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "When a board is created, the Department of Internal Affairs shall issue a gazetted Notice stating that a board has been formed to investigate a person under the CSA, a member of the Continental Assembly or a judge, and stating the subject of the case briefly."
+    },
+    {
+     "label": "(b)",
+     "text": "The Notice shall not disclose the identity of any person under investigation or person of interest, or the identity of the board."
+    },
+    {
+     "label": "(c)",
+     "text": "The Notice shall be signed by Madam Chief."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "39",
+   "title": "Declaration of board formation",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Once a board is created, the person under investigation shall be informed by a declaration of board formation."
+    },
+    {
+     "label": "(b)",
+     "text": "The declaration of board formation shall be signed:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "in a Tier 2 or Tier 3 case, by the Deputy Chief of Internal Affairs and the Head of the Standards and Investigations Division;"
+      },
+      {
+       "label": "(2)",
+       "text": "in a Tier 1 case, by Madam Chief and the Deputy Chief of Internal Affairs; and"
+      },
+      {
+       "label": "(3)",
+       "text": "in a major investigation, by the President and Madam Chief."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "40",
+   "title": "Signing of summoning declarations, notices of allegations and board reports",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Summoning declarations, notices of allegations and board reports shall be signed by the Chair of the board."
+    },
+    {
+     "label": "(b)",
+     "text": "Decision letters shall be signed by Madam Chief."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "41",
+   "title": "Signing by Madam Chief at the request of a board",
+   "clauses": [
+    {
+     "text": "At the request of a board, Madam Chief may sign a summoning declaration, a notice of allegations or a board report in place of the Chair, where:"
+    },
+    {
+     "label": "(a)",
+     "text": "the Chair is unable to act because of absence, illness, recusal or replacement;"
+    },
+    {
+     "label": "(b)",
+     "text": "the person concerned holds a position or rank higher than that of the Chair;"
+    },
+    {
+     "label": "(c)",
+     "text": "the document is to be served on a person or body outside the jurisdiction of the CSA; or"
+    },
+    {
+     "label": "(d)",
+     "text": "the matter is urgent, and a delay may cause the loss of evidence or a risk to the safety of a person."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Seventh Chapter",
+   "subtitle": "Conduct of Investigations"
+  },
+  {
+   "type": "article",
+   "number": "42",
+   "title": "Powers of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A board has absolute authority within the jurisdiction of the CSA to carry out its investigation, including over the premises, property, systems, records and communications of the CSA and over persons under the CSA."
+    },
+    {
+     "label": "(b)",
+     "text": "Where an action of a board requires an approval for which this Act makes no other provision, the approval shall be sought under Article 8 of this Act."
+    },
+    {
+     "label": "(c)",
+     "text": "Where a member of the public, or the property of a member of the public, is concerned, the board shall act under Article 7 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "43",
+   "title": "Summons and attendance",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A board may summon any person to attend before it and answer its questions, by a summoning declaration."
+    },
+    {
+     "label": "(b)",
+     "text": "Every person summoned by a board shall attend."
+    },
+    {
+     "label": "(c)",
+     "text": "The summons of a member of the public shall be served and enforced in accordance with the law of the state or country concerned."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "44",
+   "title": "Interviews",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A lawyer may be present for the person being interviewed."
+    },
+    {
+     "label": "(b)",
+     "text": "The Legal member of the board shall be present at every interview."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "45",
+   "title": "Hearings",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A hearing shall be attended by at least three members of the board: the Chair, or a member determined by the Chair, and two other members, one of whom shall be the Legal member."
+    },
+    {
+     "label": "(b)",
+     "text": "The person being heard may have a lawyer present at the hearing on request, and shall be clearly informed before the hearing that they may have a lawyer present."
+    },
+    {
+     "label": "(c)",
+     "text": "A prosecutor of the Prosecutor General’s Office may be present at a hearing."
+    },
+    {
+     "label": "(d)",
+     "text": "The transcriber shall be present at every hearing."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "46",
+   "title": "Recording of interviews and hearings",
+   "clauses": [
+    {
+     "text": "Every interview and every hearing shall be recorded, and the recordings shall form part of the case file."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "47",
+   "title": "Remote attendance",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person may attend an interview or a hearing remotely where:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "the person is outside the state or country in which the interview or hearing is held;"
+      },
+      {
+       "label": "(2)",
+       "text": "the person is unable to attend in person for reasons of health;"
+      },
+      {
+       "label": "(3)",
+       "text": "remote attendance is needed for the safety of a protected witness; or"
+      },
+      {
+       "label": "(4)",
+       "text": "the Chair approves remote attendance to avoid an unreasonable delay to the investigation."
+      }
+     ]
+    },
+    {
+     "label": "(b)",
+     "text": "The identity of a person attending remotely shall be verified before the interview or hearing begins, and the remote attendance shall be recorded under Article 46 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "48",
+   "title": "Representation",
+   "clauses": [
+    {
+     "text": "A person under investigation may be represented or accompanied by a lawyer, or by a colleague from the CSA of their choice, at their own cost."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "49",
+   "title": "Questioning of minors",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A minor may be questioned under this Act."
+    },
+    {
+     "label": "(b)",
+     "text": "A minor shall be questioned only in the presence of:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "their legal guardian;"
+      },
+      {
+       "label": "(2)",
+       "text": "a public lawyer; and"
+      },
+      {
+       "label": "(3)",
+       "text": "an officer of Child and Family Protection of the Department of Health and Welfare."
+      }
+     ]
+    },
+    {
+     "label": "(c)",
+     "text": "A minor shall be questioned by a member of the board."
+    },
+    {
+     "label": "(d)",
+     "text": "A minor shall not be under arrest when being questioned."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Eighth Chapter",
+   "subtitle": "Protection"
+  },
+  {
+   "type": "article",
+   "number": "50",
+   "title": "Rights of a person under investigation",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person under investigation shall be presumed not to be at fault until the board finds otherwise."
+    },
+    {
+     "label": "(b)",
+     "text": "A person under investigation shall be informed of the allegations against them by a notice of allegations, and shall be given the opportunity to respond to them before the board makes its recommendations."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "51",
+   "title": "Protection of persons under the CSA",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The identity of a complainant or a witness who is a person under the CSA shall be kept confidential."
+    },
+    {
+     "label": "(b)",
+     "text": "No person shall retaliate against a person under the CSA for making a complaint, giving evidence or serving on a board."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "52",
+   "title": "Protection by tier",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The case file of every case shall be classified at a level of security clearance determined by the Vetting and Clearance Division of the Department of Internal Affairs. The level shall be higher for each higher tier, and the case files of Tier 1 cases shall be classified at the highest level."
+    },
+    {
+     "label": "(b)",
+     "text": "The creation of a board for a higher tier requires higher approval, under Articles 21 and 22 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "53",
+   "title": "Protection of external witnesses and members of the public",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The identity of an external witness, or of a member of the public involved in a case, shall be kept confidential, including from the person under investigation and from any document made public."
+    },
+    {
+     "label": "(b)",
+     "text": "No person under the CSA shall retaliate against an external witness or a member of the public for their involvement in a case."
+    },
+    {
+     "label": "(c)",
+     "text": "The travel and other expenses an external witness incurs to attend before a board shall be paid by the Department of Internal Affairs."
+    },
+    {
+     "label": "(d)",
+     "text": "Where there is a threat to the safety of an external witness or a member of the public involved in a case, the Department of Internal Affairs shall arrange protective measures with the law enforcement authority of the jurisdiction concerned."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "54",
+   "title": "Limits of protection",
+   "clauses": [
+    {
+     "text": "The protections under Articles 51 and 53 of this Act do not apply to a person where:"
+    },
+    {
+     "label": "(a)",
+     "text": "the person knowingly gave false or misleading information;"
+    },
+    {
+     "label": "(b)",
+     "text": "the protection would shield the person’s own misconduct in the matter;"
+    },
+    {
+     "label": "(c)",
+     "text": "a competent court orders the disclosure of the person’s identity or evidence; or"
+    },
+    {
+     "label": "(d)",
+     "text": "the disclosure is essential to the defence of a person under investigation, as decided by the Chair after notice is given to the person."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "55",
+   "title": "Disclosure of identities",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The identity of a person under investigation or a person of interest, and the details of the case, shall be kept confidential until the case reaches a court or the person is arrested by a law enforcement authority."
+    },
+    {
+     "label": "(b)",
+     "text": "The identity of a person who is cleared, or who is found not to be at fault, shall never be made public."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "56",
+   "title": "Diplomatic immunity",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The diplomatic immunity granted to members of the Cabinet by the United Continents and by the indexes of the CSA, being the United States of America and the Republic of Maldives, does not prevent an investigation or an action under this Act."
+    },
+    {
+     "label": "(b)",
+     "text": "A member of the Cabinet shall not be referred under Article 75 of this Act until that immunity has been waived by the authority that granted it, on a request made by the President."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Ninth Chapter",
+   "subtitle": "Administrative Leave"
+  },
+  {
+   "type": "article",
+   "number": "57",
+   "title": "Placing on administrative leave",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Where a board finds incriminating evidence against a person under investigation, the person shall be placed on administrative leave with pay."
+    },
+    {
+     "label": "(b)",
+     "text": "The board shall inform the person of the administrative leave by an administrative leave memo, and in person by declaring the leave under Article 58 of this Act."
+    },
+    {
+     "label": "(c)",
+     "text": "The administrative leave memo is a binding order of the Department of Internal Affairs, and shall contain:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "the case reference number and the code of the board;"
+      },
+      {
+       "label": "(2)",
+       "text": "the resolution of the board to place the person on administrative leave;"
+      },
+      {
+       "label": "(3)",
+       "text": "a statement that the person is placed on administrative leave under this Article; and"
+      },
+      {
+       "label": "(4)",
+       "text": "all details of the person and of the administrative leave, including its period and whether it is with or without pay."
+      }
+     ]
+    },
+    {
+     "label": "(d)",
+     "text": "The administrative leave memo shall be signed by the Deputy Chief of Internal Affairs and shall bear the stamp of the Department of Internal Affairs."
+    },
+    {
+     "label": "(e)",
+     "text": "The administrative leave memo shall also bear the stamp of the Human Resources Commission, where the person is regulated by it, and the stamp of the department or body the person is under. These stamps acknowledge the administrative leave."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "58",
+   "title": "Administrative Leave Declaration",
+   "clauses": [
+    {
+     "text": "The board shall declare administrative leave to the person in person, by reading them the Administrative Leave Declaration in Appendix 1 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "59",
+   "title": "Surrender of badges",
+   "clauses": [
+    {
+     "text": "A person placed on administrative leave shall hand in all their badges."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "60",
+   "title": "Period of administrative leave",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Administrative leave shall initially be for 30 days."
+    },
+    {
+     "label": "(b)",
+     "text": "At the end of the 30 days, the board shall review its decision, and shall either extend the administrative leave or waive it."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "61",
+   "title": "Administrative leave until further notice",
+   "clauses": [
+    {
+     "text": "Administrative leave may be placed until further notice by the Head of the Standards and Investigations Division, by the Deputy Chief of Internal Affairs or by Madam Chief."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "62",
+   "title": "Leave without pay and suspension",
+   "clauses": [
+    {
+     "text": "A board may place a person under investigation on administrative leave without pay or on suspension without pay, and may extend the limits of administrative leave under Article 60 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Tenth Chapter",
+   "subtitle": "Board Report and Case Files"
+  },
+  {
+   "type": "article",
+   "number": "63",
+   "title": "Board report",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "On completing its investigation, a board shall prepare a board report, which shall be a full and detailed report of the case."
+    },
+    {
+     "label": "(b)",
+     "text": "The board report shall include:",
+     "items": [
+      {
+       "label": "(1)",
+       "text": "all materials of the case, whether online or physical, and how each item was used;"
+      },
+      {
+       "label": "(2)",
+       "text": "how the case was concluded;"
+      },
+      {
+       "label": "(3)",
+       "text": "the decisions made in the case;"
+      },
+      {
+       "label": "(4)",
+       "text": "the persons of interest in the case, with full disclosure;"
+      },
+      {
+       "label": "(5)",
+       "text": "the roles and responsibilities that each member of the board was in charge of, set out member by member; and"
+      },
+      {
+       "label": "(6)",
+       "text": "the recommendations of the board under Article 68 of this Act."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "64",
+   "title": "Signing of the board report",
+   "clauses": [
+    {
+     "text": "The board report shall be signed by every member of the board."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "65",
+   "title": "Case files",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The board report is the case file of the case."
+    },
+    {
+     "label": "(b)",
+     "text": "Case files and all records of cases shall be held by the Department of Internal Affairs, and shall be preserved on an online portal, physically, or both."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "66",
+   "title": "Connections with personnel files",
+   "clauses": [
+    {
+     "text": "The case file of every case shall be connected to the personnel file of each person under investigation held by the CSA, whether by the Human Resources Commission or by any other body."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Eleventh Chapter",
+   "subtitle": "Findings, Decisions and Actions"
+  },
+  {
+   "type": "article",
+   "number": "67",
+   "title": "Standard of proof",
+   "clauses": [
+    {
+     "text": "A board shall find a person under investigation at fault where, on the evidence, it is more likely than not that the person committed the misconduct alleged."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "68",
+   "title": "Recommendations of a board",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A board shall recommend to Madam Chief, in its board report, the action to be taken against a person found at fault."
+    },
+    {
+     "label": "(b)",
+     "text": "Where the board finds that a matter may involve a criminal offence, it shall also recommend the referral of the matter under Article 75 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "69",
+   "title": "Decision of Madam Chief",
+   "clauses": [
+    {
+     "text": "Madam Chief shall decide the action to be taken against a person found at fault, on the recommendations of the board, by a decision letter."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "70",
+   "title": "Actions against Military Executive Officers",
+   "clauses": [
+    {
+     "text": "An action against a Military Executive Officer shall be decided with the approval of the President."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "71",
+   "title": "Actions",
+   "clauses": [
+    {
+     "text": "One or more of the following actions may be taken against a person found at fault:"
+    },
+    {
+     "label": "(a)",
+     "text": "a warning;"
+    },
+    {
+     "label": "(b)",
+     "text": "a written reprimand;"
+    },
+    {
+     "label": "(c)",
+     "text": "suspension;"
+    },
+    {
+     "label": "(d)",
+     "text": "demotion;"
+    },
+    {
+     "label": "(e)",
+     "text": "transfer;"
+    },
+    {
+     "label": "(f)",
+     "text": "dismissal;"
+    },
+    {
+     "label": "(g)",
+     "text": "a pay penalty, being a fine, a salary deduction or the withholding of pay increments;"
+    },
+    {
+     "label": "(h)",
+     "text": "the downgrading or revocation of security clearance;"
+    },
+    {
+     "label": "(i)",
+     "text": "the revocation of medals and ribbons;"
+    },
+    {
+     "label": "(j)",
+     "text": "a ban from re-employment in the CSA;"
+    },
+    {
+     "label": "(k)",
+     "text": "the option to retire, including the option of honourable retirement; and"
+    },
+    {
+     "label": "(l)",
+     "text": "the option to resign."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "72",
+   "title": "Limits of actions",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A suspension has no fixed maximum period, and may continue until the termination of the person's service."
+    },
+    {
+     "label": "(b)",
+     "text": "A pay penalty shall not exceed 1,000,000 United States dollars. This limit does not prevent the recovery of losses caused by misconduct stated in Article 10 (a) of this Act."
+    },
+    {
+     "label": "(c)",
+     "text": "A ban from re-employment shall not exceed 5 years, except that the ban may be permanent for misconduct stated in Article 10 (f), (h) and (i) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "73",
+   "title": "Choice of an action",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The same actions are available for persons of every tier. The action in each case is at the discretion of Madam Chief and the board."
+    },
+    {
+     "label": "(b)",
+     "text": "Madam Chief or the board may advise a person found at fault to retire or to resign under Article 71 (k) or (l) of this Act, where this is in the interest of preserving public confidence in the CSA."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "74",
+   "title": "Enforcement of actions",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "An action decided by Madam Chief shall be enforced by the Human Resources Commission."
+    },
+    {
+     "label": "(b)",
+     "text": "An action against a Tier 1 person shall be enforced by the Cabinet."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "75",
+   "title": "Referral of criminal matters",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Where a matter may involve a criminal offence, Madam Chief shall refer it to the Prosecutor General’s Office."
+    },
+    {
+     "label": "(b)",
+     "text": "Where an arrest or a criminal investigation is required, the matter shall also be referred to the law enforcement authority of the jurisdiction concerned."
+    },
+    {
+     "label": "(c)",
+     "text": "This Article is subject to Article 56 (b) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "76",
+   "title": "Persons who are cleared",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person under investigation who is cleared, or who is found not to be at fault, shall be reinstated and paid all pay withheld."
+    },
+    {
+     "label": "(b)",
+     "text": "The person's record shall be cleared, and a memo shall be placed on it stating that the person was under investigation and was cleared or found not to be at fault."
+    },
+    {
+     "label": "(c)",
+     "text": "The board shall release a statement on the clearing of the person. The statement shall not make the person's identity public, under Article 55 (b) of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "77",
+   "title": "Reopening of cases",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "Where a case is closed for lack of sufficient evidence and evidence later comes to light, the case shall be reopened."
+    },
+    {
+     "label": "(b)",
+     "text": "A case closed after an action has been taken shall not be reopened. Any further matter concerning the same person shall be dealt with by opening a new case."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "78",
+   "title": "Referral of matters concerning minors",
+   "clauses": [
+    {
+     "text": "A case concerning a minor who is a cadet, a student or a youth shall be referred to the Department of Education, the Department of Health and Welfare or the law enforcement authority of the jurisdiction concerned, or to more than one of them, as the case requires."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Twelfth Chapter",
+   "subtitle": "Appeals"
+  },
+  {
+   "type": "article",
+   "number": "79",
+   "title": "Right to appeal",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person against whom an action is decided under this Act may appeal the decision."
+    },
+    {
+     "label": "(b)",
+     "text": "There is no internal appeal within the Department of Internal Affairs."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "80",
+   "title": "Order of appeal",
+   "clauses": [
+    {
+     "text": "An appeal shall be made first to the CSA Human Resources Tribunal under the Department of Judicial Administration, and may then be escalated in the following order:"
+    },
+    {
+     "label": "(a)",
+     "text": "to the Civil Court or the Criminal Court, as the matter requires;"
+    },
+    {
+     "label": "(b)",
+     "text": "to the High Court; and"
+    },
+    {
+     "label": "(c)",
+     "text": "to the Supreme Court."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "81",
+   "title": "Jurisdiction of appeals",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "The courts stated in Article 80 (a) to (c) of this Act are the courts of the jurisdiction of the case, as determined by the CSA."
+    },
+    {
+     "label": "(b)",
+     "text": "A case may be filed in the United States of America, the Republic of Maldives or another member nation of the United Continents, where the CSA, with the Department of Judicial Administration, has the authority to hold cases in their courts."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "82",
+   "title": "Appeals in major investigations",
+   "clauses": [
+    {
+     "text": "In a major investigation, a decision of the Supreme Court may be further escalated to the International Criminal Court, and finally to the International Court of Justice."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Thirteenth Chapter",
+   "subtitle": "Offences"
+  },
+  {
+   "type": "article",
+   "number": "83",
+   "title": "Offences",
+   "clauses": [
+    {
+     "text": "The following are offences under this Act:"
+    },
+    {
+     "label": "(a)",
+     "text": "obstructing a board or an investigation;"
+    },
+    {
+     "label": "(b)",
+     "text": "refusing, without lawful excuse, to attend when summoned by a board;"
+    },
+    {
+     "label": "(c)",
+     "text": "knowingly making a false complaint, or giving a false statement or false evidence;"
+    },
+    {
+     "label": "(d)",
+     "text": "tampering with, hiding or destroying evidence;"
+    },
+    {
+     "label": "(e)",
+     "text": "retaliating against a complainant, a witness or a member of a board, or against their family;"
+    },
+    {
+     "label": "(f)",
+     "text": "disclosing confidential case information, or the identity of a person protected under this Act;"
+    },
+    {
+     "label": "(g)",
+     "text": "bribing, threatening or improperly influencing a member of a board;"
+    },
+    {
+     "label": "(h)",
+     "text": "impersonating a member of a board or an officer of the Department of Internal Affairs;"
+    },
+    {
+     "label": "(i)",
+     "text": "failing to file a complaint memorandum under Article 12 of this Act; and"
+    },
+    {
+     "label": "(j)",
+     "text": "failing to hand in badges under Article 59 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "84",
+   "title": "Penalties",
+   "clauses": [
+    {
+     "label": "(a)",
+     "text": "A person who commits an offence stated in Article 83 (a), (c) or (h) of this Act shall be liable to a fine not exceeding 250,000 United States dollars, or imprisonment for a term not exceeding 3 years, or both."
+    },
+    {
+     "label": "(b)",
+     "text": "A person who commits an offence stated in Article 83 (b) of this Act shall be liable to a fine not exceeding 100,000 United States dollars, or imprisonment for a term not exceeding 1 year, or both."
+    },
+    {
+     "label": "(c)",
+     "text": "A person who commits an offence stated in Article 83 (d) or (e) of this Act shall be liable to a fine not exceeding 500,000 United States dollars, or imprisonment for a term not exceeding 5 years, or both."
+    },
+    {
+     "label": "(d)",
+     "text": "A person who commits an offence stated in Article 83 (f) of this Act shall be liable to a fine not exceeding 500,000 United States dollars, or imprisonment for a term not exceeding 5 years, or both. Where the disclosure endangers a person, or national or international security, the term of imprisonment may be up to 10 years."
+    },
+    {
+     "label": "(e)",
+     "text": "A person who commits an offence stated in Article 83 (g) of this Act shall be liable to a fine not exceeding 1,000,000 United States dollars, or imprisonment for a term not exceeding 10 years, or both."
+    },
+    {
+     "label": "(f)",
+     "text": "An offence stated in Article 83 (i) or (j) of this Act shall be dealt with only by action under Article 71 of this Act."
+    },
+    {
+     "label": "(g)",
+     "text": "The penalties stated in (a) to (e) of this Article shall be imposed by the competent court."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "85",
+   "title": "Action under this Act in addition to penalties",
+   "clauses": [
+    {
+     "text": "A person under the CSA who commits an offence stated in Article 83 (a) to (h) of this Act may also be subject to action under Article 71 of this Act."
+    }
+   ]
+  },
+  {
+   "type": "chapter",
+   "text": "Fourteenth Chapter",
+   "subtitle": "Final Provisions"
+  },
+  {
+   "type": "article",
+   "number": "86",
+   "title": "Regulations and Guidelines",
+   "clauses": [
+    {
+     "text": "The Department of Internal Affairs may make Regulations and Guidelines on matters relating to investigations under this Act, including the conduct of boards and the rights of persons under the CSA in investigations."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "87",
+   "title": "Commencement",
+   "clauses": [
+    {
+     "text": "This Act shall come into force on the date of its publication."
+    }
+   ]
+  },
+  {
+   "type": "article",
+   "number": "88",
+   "title": "Definitions",
+   "clauses": [
+    {
+     "text": "In this Act, unless the context requires otherwise:"
+    },
+    {
+     "label": "(a)",
+     "text": "\"board\" means a Special Investigation Board, an Internal Investigation Board or a Continental Investigation Board created under this Act;"
+    },
+    {
+     "label": "(b)",
+     "text": "\"case\" means a matter opened by the Standards and Investigations Division for investigation under this Act;"
+    },
+    {
+     "label": "(c)",
+     "text": "\"competent court\" means a court that has jurisdiction over the matter, as determined under Article 81 (a) of this Act;"
+    },
+    {
+     "label": "(d)",
+     "text": "\"complainant\" means the person who makes a complaint;"
+    },
+    {
+     "label": "(e)",
+     "text": "\"complaint\" means any report or allegation, made by any person in any manner, that a person under the CSA may have committed misconduct or an offence under this Act;"
+    },
+    {
+     "label": "(f)",
+     "text": "\"external witness\" means a witness who is not a person under the CSA;"
+    },
+    {
+     "label": "(g)",
+     "text": "\"incriminating evidence\" means evidence that tends to show that a person under investigation committed the misconduct or offence alleged;"
+    },
+    {
+     "label": "(h)",
+     "text": "\"interested investigating officer\" means a member of a board who investigates the case using their knowledge of the body, function or field concerned in the case;"
+    },
+    {
+     "label": "(i)",
+     "text": "\"jurisdiction of the CSA\" means the premises, property, systems, records and personnel of the CSA, and every matter within the authority of the CSA;"
+    },
+    {
+     "label": "(j)",
+     "text": "\"law enforcement authority\" means the Continental Law Enforcement Authority, or the law enforcement authority of the state or country concerned;"
+    },
+    {
+     "label": "(k)",
+     "text": "\"Madam Chief\" means the Chief of Internal Affairs, who leads the Department of Internal Affairs;"
+    },
+    {
+     "label": "(l)",
+     "text": "\"member of the public\" means a person who is not a person under the CSA;"
+    },
+    {
+     "label": "(m)",
+     "text": "\"minor\" means a person under the age of 18 years, including a cadet, a student or a youth;"
+    },
+    {
+     "label": "(n)",
+     "text": "\"person of interest\" means a person, other than a person under investigation, whose conduct or knowledge is relevant to a case;"
+    },
+    {
+     "label": "(o)",
+     "text": "\"person under investigation\" means a person against whom a case has been opened, including a person suspected or alleged to have committed misconduct or an offence;"
+    },
+    {
+     "label": "(p)",
+     "text": "\"retaliation\" means any act taken against a person because they made a complaint, gave evidence or served on a board, including dismissal, demotion, transfer, harassment, threats and the withholding of pay or benefits;"
+    },
+    {
+     "label": "(q)",
+     "text": "\"uninterested investigating officer\" means a member of a board who provides impartial judgement and votes on disciplinary or remedial recommendations; and"
+    },
+    {
+     "label": "(r)",
+     "text": "\"witness\" means a person who gives evidence or information in a case."
+    }
+   ]
+  },
+  {
+   "type": "heading",
+   "text": "Appendix 1"
+  },
+  {
+   "type": "heading",
+   "text": "Administrative Leave Declaration"
+  },
+  {
+   "type": "paragraph",
+   "text": "The Administrative Leave Declaration stated in Article 58 of Act Number 3/2026 (Internal Investigations Act), to be read in person to a person placed on administrative leave under Article 57 of Act Number 3/2026 (Internal Investigations Act)."
+  },
+  {
+   "type": "heading",
+   "text": "Declaration"
+  },
+  {
+   "type": "paragraph",
+   "text": "\"[Full name], you are hereby placed on administrative leave [with pay / without pay], by decision of [code of the board], under Article 57 of Act Number 3/2026 (Internal Investigations Act).\n\nYou are required to hand in all your badges now.\n\nYour administrative leave is [for 30 days / until further notice] from today. At the end of the 30 days, the board will review its decision and either extend your administrative leave or waive it.\n\nYou are presumed not to be at fault until the board finds otherwise. You are not under arrest.\n\nYou may be represented or accompanied by a lawyer, or by a colleague from the CSA of your choice, at your own cost. Before any hearing, you will be clearly informed that you may have a lawyer present.\n\nYou must attend whenever you are summoned by the board.\n\nObstructing the investigation, tampering with evidence, and retaliating against a complainant, a witness or a member of the board are offences under Article 83 of Act Number 3/2026 (Internal Investigations Act).\n\nDo you understand what has been read to you?\""
+  },
+  {
+   "type": "heading",
+   "text": "Record of the declaration"
+  },
+  {
+   "type": "paragraph",
+   "text": "Read by: [name, position, member of the board]\n\nSignature: ____________________\n\nPerson placed on administrative leave: [name, position]\n\nSignature: ____________________\n\nDate, time and place: ____________________\n\n[Stamp of the Department]"
+  }
+ ]
+}

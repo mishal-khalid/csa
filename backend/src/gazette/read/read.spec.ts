@@ -50,7 +50,7 @@ export function compare(got: Block[], want: Block[]) {
 const has = (path: string) => (existsSync(path) ? it : it.skip);
 
 describe('reading Gazette PDFs', () => {
-  const order = join(CSA, 'Gazette/2026/DO/DO_01_2026.pdf');
+  const order = join(CSA, 'Gazette/2026/PO/DO_01_2026.pdf');
   has(order)("reads Director's Order Number 01/2026 exactly", async () => {
     const result = await readDocument(bytes(order));
     expect(result.fields).toMatchObject({ type: 'order', docNumber: '01/2026', title: 'Establishment of the Continental Security Agency Gazette', hasCover: false, language: 'en' });
@@ -96,6 +96,26 @@ describe('reading Gazette PDFs', () => {
     const report = compare(result.blocks, expected('2026010101'));
     console.log('Framework', JSON.stringify(result.fields), report.exact, '/', report.of, 'got', report.got, report.misses.join('\n'));
     expect(result.fields.hasCover).toBe(true);
+  });
+
+  // in the repository: the portal's finished PDF and the text written out by hand from it
+  const iia = join(__dirname, '../../../scripts/releases/internal-investigations-act-3-2026');
+  it('reads the Internal Investigations Act, whose Articles are numbered "1." in borderless tables', async () => {
+    const result = await readDocument(bytes(`${iia}.pdf`));
+    expect(result.fields).toMatchObject({ type: 'act', docNumber: '3/2026', title: 'Internal Investigations Act', hasCover: true });
+    expect(result.notes).toEqual([]);
+    const want = (JSON.parse(readFileSync(`${iia}.json`, 'utf8')) as { blocks: Block[] }).blocks;
+    const cut = (blocks: Block[]) => blocks.findIndex((b) => b.type === 'heading' && b.text === 'Appendix 1');
+    // the chapters and Articles exactly, with nothing before them (the number and title over the text are out)
+    const report = compare(result.blocks.slice(0, cut(result.blocks)), want.slice(0, cut(want)));
+    console.log('Internal Investigations Act', report.exact, '/', report.of, 'got', report.got, report.misses.join('\n'));
+    expect(report.exact).toBe(report.of);
+    expect(report.got).toBe(report.of);
+    expect(result.blocks.filter((b) => b.type === 'table')).toHaveLength(0);
+    // Appendix 1: the same headings and paragraphs, which the hand text joins into fewer blocks
+    const paragraphs = (blocks: Block[]) =>
+      blocks.slice(cut(blocks)).flatMap((b) => (b.type === 'heading' ? [`# ${b.text}`] : b.type === 'paragraph' ? b.text.split('\n\n') : [JSON.stringify(b)]));
+    expect(paragraphs(result.blocks)).toEqual(paragraphs(want));
   });
 
   has(order)('reads the same file the same way every time', async () => {

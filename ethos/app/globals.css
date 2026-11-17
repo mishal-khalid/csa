@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* The Ethos documents portal: white, black text, the Ethos Group's dill green for the brand.
+   Helvetica Neue (the user's pick) is the system font on Apple devices; it can't be served from
+   the site, so Windows and Android fall back to Helvetica or Arial. */
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-ink: #111111;
+  --color-dill: #4e6813;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+}

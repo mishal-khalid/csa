@@ -23,6 +23,13 @@ export const documents = [
     title: "Placement, Relocation and Restructuring of the Ethos Institute",
     date: "2026-11-17",
   },
+  {
+    file: "der-001-memo-2026-09",
+    company: "Ethos Institute",
+    number: "DER-001/MEMO/2026/09",
+    title: "Appointment of the Chief Senate Dean and Chief Senate Lecturer",
+    date: "2026-11-18",
+  },
 ];
 
 export const pdfUrl = (doc) => `/documents/${doc.file}.pdf`;

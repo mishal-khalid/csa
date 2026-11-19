@@ -30,6 +30,14 @@ export const documents = [
     title: "Appointment of the Chief Senate Dean and Chief Senate Lecturer",
     date: "2026-11-18",
   },
+  {
+    // the Ethos Senate's release; Senate documents sit under the Ethos Institute (the user's pick)
+    file: "32x923-2026-01",
+    company: "Ethos Institute",
+    number: "32X923/2026/01",
+    title: "Policy on the Ethos Senate and Student Councils",
+    date: "2026-11-18",
+  },
 ];
 
 export const pdfUrl = (doc) => `/documents/${doc.file}.pdf`;
